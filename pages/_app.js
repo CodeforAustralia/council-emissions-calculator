@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import "@fontsource/public-sans/400.css";
 import "@fontsource/public-sans/700.css";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { FormProvider } from "../components/FormProvider";
 
 const theme = extendTheme({
   fonts: {
@@ -13,7 +14,9 @@ const theme = extendTheme({
 function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
+      <FormProvider>
+        <Component {...pageProps} />
+      </FormProvider>
     </ChakraProvider>
   );
 }
