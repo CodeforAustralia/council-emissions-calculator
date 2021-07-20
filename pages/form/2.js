@@ -65,7 +65,7 @@ export default function Question2() {
           ))}
         </Tbody>
       </Table>
-      <Link href="/form/3">
+      <Link href="/form/3" passHref>
         <Button
           mt={8}
           px="12"
