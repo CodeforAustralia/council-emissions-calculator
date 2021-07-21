@@ -27,7 +27,7 @@ export default function Question1() {
         value={answers.km}
         onChange={handleQuestion1}
       />
-      <Link href="/form/2">
+      <Link href="/form/2" passHref>
         <Button mt={8} px="12" colorScheme="blue" disabled={!answers.km}>
           Continue
         </Button>
