@@ -1,13 +1,12 @@
 import Link from "next/link";
+import { useState } from "react";
 import { Heading, Text, Input, Button } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 
 export default function Question1() {
   const { answers, setAnswers } = useForm();
-
-  const handleQuestion1 = (e) =>
-    setAnswers((prev) => ({ ...prev, km: e.target.value }));
+  const [km, setKm] = useState(answers.km);
 
   return (
     <Layout>
@@ -24,11 +23,22 @@ export default function Question1() {
         maxW={280}
         type="number"
         required
-        value={answers.km}
-        onChange={handleQuestion1}
+        value={km}
+        onChange={(e) => setKm(e.target.value)}
       />
       <Link href="/form/2">
-        <Button mt={8} px="12" colorScheme="blue" disabled={!answers.km}>
+        <Button
+          mt={8}
+          px="12"
+          colorScheme="blue"
+          disabled={!km}
+          onClick={() =>
+            setAnswers((prev) => ({
+              ...prev,
+              km,
+            }))
+          }
+        >
           Continue
         </Button>
       </Link>

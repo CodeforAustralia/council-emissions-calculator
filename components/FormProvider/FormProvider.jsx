@@ -5,23 +5,38 @@ export const FormContext = createContext();
 // Example set of answers
 // {
 //     km: "12",
-//     week: ["office", "home", null, "office", "office", null, null],
-//     transportMode: ["bike", null, null, "bus", "bus", null, null],
+//     week: ["office", "home", "home", "office", "office", "didNotWork", "didNotWork"],
+//     transportModes: ["bike", "didNotTravel", "didNotTravel", "bus", "bus", "didNotTravel", "didNotTravel"],
 //     incentive: "I'd like to have better biking lanes.",
 //     department: "Education",
 // };
 
 const initialAnswers = {
   km: "",
-  week: [null, null, null, null, null, null, null],
-  transportMode: [null, null, null, null, null, null, null],
+  week: [
+    "didNotWork",
+    "didNotWork",
+    "didNotWork",
+    "didNotWork",
+    "didNotWork",
+    "didNotWork",
+    "didNotWork",
+  ],
+  transportModes: [
+    "didNotTravel",
+    "didNotTravel",
+    "didNotTravel",
+    "didNotTravel",
+    "didNotTravel",
+    "didNotTravel",
+    "didNotTravel",
+  ],
   incentive: "",
   department: "",
 };
 
 const FormProvider = ({ children }) => {
   const [answers, setAnswers] = useState(initialAnswers);
-  console.log(answers);
   const value = {
     answers,
     setAnswers,

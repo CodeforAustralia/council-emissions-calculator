@@ -13,16 +13,7 @@ import {
 } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
-
-const daysOfWeek = [
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-  "Sunday",
-];
+import { daysOfWeek } from "../../utils/constants";
 
 export default function Question2() {
   const { answers, setAnswers } = useForm();
@@ -70,7 +61,7 @@ export default function Question2() {
           mt={8}
           px="12"
           colorScheme="blue"
-          disabled={days.every((v) => !v)}
+          disabled={days.every((v) => v === "didNotWork")}
           onClick={() =>
             setAnswers((prev) => ({
               ...prev,
