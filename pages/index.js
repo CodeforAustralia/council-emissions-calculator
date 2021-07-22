@@ -20,9 +20,11 @@ export default function Home() {
         <br />
       </Text>
       <Link href="/form/1" passHref>
-        <Button px="12" colorScheme="blue">
-          Start
-        </Button>
+        <a>
+          <Button px="12" colorScheme="blue">
+            Start
+          </Button>
+        </a>
       </Link>
     </Layout>
   );
