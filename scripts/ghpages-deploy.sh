@@ -51,6 +51,8 @@ done
 
 mv out/* .
 
+touch .nojekyll
+
 echo scripts/ > .gitignore
 echo out/ >> .gitignore
 echo node_modules >> .gitignore
