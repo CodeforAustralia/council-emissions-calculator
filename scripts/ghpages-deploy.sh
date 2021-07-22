@@ -41,7 +41,13 @@ git pull origin gh-pages --commit
 
 out_contents=$(ls out)
 
-for f in $out_contents; do git rm -rf $f; done
+for f in $out_contents; do
+  if [[ -f $f ]]; then
+    git rm -f $f
+  elif [[ -d $f ]]; then
+    git rm -rf $f
+  fi
+done
 
 mv out/* .
 
