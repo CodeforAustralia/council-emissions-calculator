@@ -22,7 +22,7 @@ export default function Question4() {
         value={incentive}
         onChange={(e) => setIncentive(e.target.value)}
       />
-      <Link href="/form/5">
+      <Link href="/form/5" passHref>
         <Button
           mt={8}
           px="12"

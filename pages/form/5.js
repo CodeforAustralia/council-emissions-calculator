@@ -28,7 +28,7 @@ export default function Question5() {
           </option>
         ))}
       </Select>
-      <Link href="/results">
+      <Link href="/results" passHref>
         <Button
           mt={8}
           px="12"

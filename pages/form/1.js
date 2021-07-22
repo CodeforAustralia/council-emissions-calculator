@@ -26,7 +26,7 @@ export default function Question1() {
         value={km}
         onChange={(e) => setKm(e.target.value)}
       />
-      <Link href="/form/2">
+      <Link href="/form/2" passHref>
         <Button
           mt={8}
           px="12"
