@@ -25,7 +25,7 @@ export default function Question2() {
       <Text textAlign="center" mb={6}>
         <br />
         Where did you work last week? <br />
-        If you didn't work on a given day, don't select anything.
+        If you didn&apos;t work on a given day, don&apos;t select anything.
       </Text>
       <Table variant="striped">
         <Thead>
@@ -56,7 +56,7 @@ export default function Question2() {
           ))}
         </Tbody>
       </Table>
-      <Link href="/form/3">
+      <Link href="/form/3" passHref>
         <Button
           mt={8}
           px="12"
