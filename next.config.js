@@ -1,6 +1,7 @@
-const isProd = process.env.NODE_ENV === "production";
+const isProduction = process.env.NODE_ENV === "production";
 
 module.exports = {
+  basePath: isProduction ? "/council-emissions-calculator-spike" : "",
+  assetPrefix: isProduction ? "/council-emissions-calculator-spike/" : "",
   reactStrictMode: true,
-  assetPrefix: isProd ? "/council-emissions-calculator-spike/" : "",
 };
