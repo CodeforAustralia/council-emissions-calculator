@@ -11,7 +11,7 @@ const initMiddleware = (middleware) => (req, res) =>
 // Initialize the cors middleware
 const cors = initMiddleware(Cors({ methods: ["GET", "POST"] }));
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
   await cors(req, res);
 
   const { query, method } = req;
