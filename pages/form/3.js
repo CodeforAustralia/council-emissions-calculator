@@ -1,11 +1,21 @@
 import { useState } from "react";
-import Link from "next/link";
-import { Heading, Text, Button } from "@chakra-ui/react";
-import { Table, Thead, Tbody, Tr, Th, Td, Checkbox } from "@chakra-ui/react";
+import {} from "@chakra-ui/react";
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  Checkbox,
+  Heading,
+  Text,
+} from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import getDaysOfTravel from "../../utils/getDaysOfTravel";
 import { daysOfWeek, modesOfTransport } from "../../utils/constants";
+import LinkButton from "../../components/LinkButton/LinkButton";
 
 export default function Question3() {
   const { answers, setAnswers } = useForm();
@@ -53,21 +63,17 @@ export default function Question3() {
           ))}
         </Tbody>
       </Table>
-      <Link href="/form/4" passHref>
-        <Button
-          mt={8}
-          px="12"
-          colorScheme="blue"
-          onClick={() =>
-            setAnswers((prev) => ({
-              ...prev,
-              transportModes: modes,
-            }))
-          }
-        >
-          Continue
-        </Button>
-      </Link>
+      <LinkButton
+        href="/form/4"
+        onClick={() =>
+          setAnswers((prev) => ({
+            ...prev,
+            transportModes: modes,
+          }))
+        }
+      >
+        Continue
+      </LinkButton>
     </Layout>
   );
 }

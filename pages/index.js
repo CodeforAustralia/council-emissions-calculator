@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { Button, Heading, Text } from "@chakra-ui/react";
+import { Heading, Text } from "@chakra-ui/react";
 import Layout from "../components/Layout/Layout";
+import LinkButton from "../components/LinkButton/LinkButton";
 
 export default function Home() {
   return (
@@ -19,13 +19,7 @@ export default function Home() {
         <br />
         <br />
       </Text>
-      <Link href="/form/1" passHref>
-        <a>
-          <Button px="12" colorScheme="blue">
-            Start
-          </Button>
-        </a>
-      </Link>
+      <LinkButton href="/form/1">Start</LinkButton>
     </Layout>
   );
 }

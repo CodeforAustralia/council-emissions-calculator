@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Link from "next/link";
-import { Heading, Text, Textarea, Button } from "@chakra-ui/react";
+import { Heading, Text, Textarea } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
+import LinkButton from "../../components/LinkButton/LinkButton";
 
 export default function Question4() {
   const { answers, setAnswers } = useForm();
@@ -22,21 +22,17 @@ export default function Question4() {
         value={incentive}
         onChange={(e) => setIncentive(e.target.value)}
       />
-      <Link href="/form/5" passHref>
-        <Button
-          mt={8}
-          px="12"
-          colorScheme="blue"
-          onClick={() =>
-            setAnswers((prev) => ({
-              ...prev,
-              incentive,
-            }))
-          }
-        >
-          Continue
-        </Button>
-      </Link>
+      <LinkButton
+        href="/form/5"
+        onClick={() =>
+          setAnswers((prev) => ({
+            ...prev,
+            incentive,
+          }))
+        }
+      >
+        Continue
+      </LinkButton>
     </Layout>
   );
 }
