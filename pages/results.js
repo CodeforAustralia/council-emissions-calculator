@@ -11,14 +11,6 @@ export default function Results() {
   const { km, transportModes, department, incentive } = answers;
   const results = calculateEmissions(km, transportModes);
 
-  if (results.length < 1) {
-    return (
-      <Layout>
-        <Heading>Calculating...</Heading>
-      </Layout>
-    );
-  }
-
   return (
     <Layout>
       <Heading>Your results:</Heading>
