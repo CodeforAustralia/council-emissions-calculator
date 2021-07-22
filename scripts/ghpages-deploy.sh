@@ -57,6 +57,7 @@ echo scripts/ > .gitignore
 echo out/ >> .gitignore
 echo node_modules >> .gitignore
 echo .next/ >> .gitignore
+echo .package-lock.json >> .gitignore
 
 git add .
 
