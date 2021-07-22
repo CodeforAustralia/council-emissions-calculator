@@ -25,8 +25,8 @@ export default function Question2() {
       <Heading>Question 2/5</Heading>
       <Text textAlign="center" mb={6}>
         <br />
-        Where did you work last week? <br />
-        If you didn&apos;t work on a given day, don&apos;t select anything.
+        Where would you work on a typical week? <br />
+        If you wouldn&apos;t work on a given day, don&apos;t select anything.
       </Text>
       <Table variant="striped">
         <Thead>

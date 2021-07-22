@@ -17,7 +17,6 @@ export default function Home() {
         <br />
         This form will take approximately 3 minutes to complete.
         <br />
-        <br />
       </Text>
       <LinkButton href="/form/1">Start</LinkButton>
     </Layout>

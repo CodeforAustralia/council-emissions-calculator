@@ -16,27 +16,43 @@ import useForm from "../../components/FormProvider";
 import getDaysOfTravel from "../../utils/getDaysOfTravel";
 import { daysOfWeek, modesOfTransport } from "../../utils/constants";
 import LinkButton from "../../components/LinkButton/LinkButton";
+import capitalize from "../../utils/capitalize";
 
 export default function Question3() {
   const { answers, setAnswers } = useForm();
   const [modes, setModes] = useState(answers.transportModes);
+  const travelDays = getDaysOfTravel(answers.week);
+
+  if (travelDays.length < 1) {
+    return (
+      <Layout>
+        <Heading textAlign="center">
+          Looks like you are working from home!
+        </Heading>
+        <Text textAlign="center" mb={6}>
+          <br />
+          Move to the next question.
+        </Text>
+        <LinkButton href="/form/4">Continue</LinkButton>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
       <Heading>Question 3/5</Heading>
       <Text textAlign="center" mb={6}>
         <br />
-        How did you travel to work last week?
-        <br /> Note that you can pick a different mode for each direction (i.e.
-        if you went in by bus but returned by train)
+        How would you travel to work on a typical week?
+        <br />
       </Text>
       <Table variant="striped">
         <Thead>
           <Tr>
             <Th />
-            {getDaysOfTravel(answers.week).map((mode) => (
-              <Th key={mode} textAlign="center">
-                {mode}
+            {travelDays.map((day) => (
+              <Th key={day} textAlign="center">
+                {day}
               </Th>
             ))}
           </Tr>
@@ -44,8 +60,8 @@ export default function Question3() {
         <Tbody>
           {modesOfTransport.map((mode) => (
             <Tr key={mode}>
-              <Td>{mode.charAt(0).toUpperCase() + mode.slice(1)}</Td>
-              {getDaysOfTravel(answers.week).map((day) => (
+              <Td>{capitalize(mode)}</Td>
+              {travelDays.map((day) => (
                 <Td key={day} textAlign="center">
                   <Checkbox
                     value={mode}
@@ -71,6 +87,7 @@ export default function Question3() {
             transportModes: modes,
           }))
         }
+        disabled={modes.every((m) => m === "didNotTravel")}
       >
         Continue
       </LinkButton>

@@ -4,6 +4,7 @@ import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import { departments } from "../../utils/constants";
 import LinkButton from "../../components/LinkButton/LinkButton";
+import capitalize from "../../utils/capitalize";
 
 export default function Question5() {
   const { answers, setAnswers } = useForm();
@@ -24,7 +25,7 @@ export default function Question5() {
       >
         {departments.map((department) => (
           <option key={department} value={department}>
-            {department.charAt(0).toUpperCase() + department.slice(1)}
+            {capitalize(department)}
           </option>
         ))}
       </Select>

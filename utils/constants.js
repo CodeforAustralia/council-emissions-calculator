@@ -11,10 +11,14 @@ export const daysOfWeek = [
 export const modesOfTransport = [
   "walk",
   "bicycle",
-  "train",
-  "tram",
+  "scooter",
+  "train/tram",
   "bus",
-  "car",
+  "car(shared)",
+  "car(solo)",
 ];
 
 export const departments = ["education", "health", "transport", "finance"];
+
+export const productionUrl =
+  "https://codeforaustralia.github.io/council-emissions-calculator-spike";
