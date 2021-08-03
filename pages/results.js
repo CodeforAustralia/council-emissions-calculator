@@ -1,28 +1,37 @@
 import { Heading, Text } from "@chakra-ui/react";
+import React from "react";
 import useForm from "../components/FormProvider";
 import Layout from "../components/Layout/Layout";
+import calculateEmissions from "../utils/calculateEmissions";
+import capitalize from "../utils/capitalize";
+import { daysOfWeek } from "../utils/constants";
 
 export default function Results() {
   const { answers } = useForm();
-  const { km, week, transportModes, department, incentive } = answers;
+  const { km, transportModes, department, incentive } = answers;
+  const results = calculateEmissions(km, transportModes);
+
   return (
     <Layout>
-      <Heading>Results</Heading>
+      <Heading>Your results:</Heading>
       <Text>
         <br />
-        <b>Daily km:</b> {km}
+        <b>Department:</b> {capitalize(department)}
         <br />
-        <b>Working week:</b>
-        {week.map((d) => (
-          <Text key={d}>{d}</Text>
-        ))}
-        <b>Modes of transport:</b>
-        {transportModes.map((t) => (
-          <Text key={t}>{t}</Text>
-        ))}
-        <b>Incentive:</b> {incentive}
+        <b>Anything that would change your mind:</b> {incentive}
         <br />
-        <b>Department:</b> {department}
+        <br />
+        <b>Daily travel:</b> {km}km
+        <br />
+        <b>Your daily CO2 emissions:</b>
+        <br />
+        {results.emissionsPerMode.map(({ mode, e }, i) => (
+          <React.Fragment key={i}>
+            {daysOfWeek[i]} ({mode}): {e}kg
+            <br />
+          </React.Fragment>
+        ))}
+        <b>Total weekly CO2 emissions:</b> {results.totalEmissions}kg
       </Text>
     </Layout>
   );

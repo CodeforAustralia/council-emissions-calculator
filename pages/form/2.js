@@ -1,6 +1,4 @@
 import { useState } from "react";
-import Link from "next/link";
-import { Heading, Text, Button } from "@chakra-ui/react";
 import {
   Table,
   Thead,
@@ -10,10 +8,13 @@ import {
   Td,
   Radio,
   RadioGroup,
+  Heading,
+  Text,
 } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import { daysOfWeek } from "../../utils/constants";
+import LinkButton from "../../components/LinkButton/LinkButton";
 
 export default function Question2() {
   const { answers, setAnswers } = useForm();
@@ -24,8 +25,8 @@ export default function Question2() {
       <Heading>Question 2/5</Heading>
       <Text textAlign="center" mb={6}>
         <br />
-        Where did you work last week? <br />
-        If you didn&apos;t work on a given day, don&apos;t select anything.
+        Where would you work on a typical week? <br />
+        If you wouldn&apos;t work on a given day, don&apos;t select anything.
       </Text>
       <Table variant="striped">
         <Thead>
@@ -56,22 +57,18 @@ export default function Question2() {
           ))}
         </Tbody>
       </Table>
-      <Link href="/form/3" passHref>
-        <Button
-          mt={8}
-          px="12"
-          colorScheme="blue"
-          disabled={days.every((v) => v === "didNotWork")}
-          onClick={() =>
-            setAnswers((prev) => ({
-              ...prev,
-              week: days,
-            }))
-          }
-        >
-          Continue
-        </Button>
-      </Link>
+      <LinkButton
+        href="/form/3"
+        disabled={days.every((v) => v === "didNotWork")}
+        onClick={() =>
+          setAnswers((prev) => ({
+            ...prev,
+            week: days,
+          }))
+        }
+      >
+        Continue
+      </LinkButton>
     </Layout>
   );
 }

@@ -6,9 +6,17 @@ An experiment to test the initial design of Civic Maker's 2021 Council Emissions
 
 ## Getting Started
 
-First, run the development server:
+First, install dependencies using your preferred package manager:
 
-```bash
+```
+npm install
+# or
+yarn install
+```
+
+Next, run the development server:
+
+```
 npm run dev
 # or
 yarn dev
