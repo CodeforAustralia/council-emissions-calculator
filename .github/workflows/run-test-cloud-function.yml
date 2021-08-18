@@ -1,0 +1,42 @@
+name: run tests for cloud function
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'cloud-functions/**.js'
+      - 'cloud-functions/package*.json'
+      - '.github/workflows/run-test-cloud-function.yml'
+
+jobs:
+  run-tests:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: set node version with nvm
+      shell: bash --login {0}
+      run: |
+        cp .nvmrc cloud-functions/
+        cd cloud-functions
+        nvm install
+
+    - name: Cache dependencies
+      uses: actions/cache@v2
+      with:
+        path: |
+          **/node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
+    - name: Install
+      run: |
+        cd cloud-functions
+        npm install
+
+    - name: run lint
+      run: |
+        cd cloud-functions
+        npm run lint

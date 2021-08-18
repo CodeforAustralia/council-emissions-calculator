@@ -1,0 +1,18 @@
+{
+  "name": "sheeter-api",
+  "version": "0.0.1",
+  "description": "http cloud function to send and get form responses from google sheets",
+  "main": "main.js",
+  "scripts": {
+    "lint": "eslint --ext .js ."
+  },
+  "dependencies": {
+    "@google-cloud/functions-framework": "^1.9.0",
+    "@googleapis/sheets": "^0.3.0"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  }
+}
