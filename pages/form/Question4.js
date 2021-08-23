@@ -3,6 +3,7 @@ import { Heading, Text, Textarea } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import LinkButton from "../../components/LinkButton/LinkButton";
+import OurProgressBar from "../../components/ProgressBar/OurProgressBar";
 
 export default function Question4() {
   const { answers, setAnswers } = useForm();
@@ -10,6 +11,7 @@ export default function Question4() {
 
   return (
     <Layout>
+      <OurProgressBar progressValue={80} />
       <Heading>Question 4/5</Heading>
       <Text textAlign="center">
         <br />
@@ -23,7 +25,7 @@ export default function Question4() {
         onChange={(e) => setIncentive(e.target.value)}
       />
       <LinkButton
-        href="/form/5"
+        href="/form/Question5"
         onClick={() =>
           setAnswers((prev) => ({
             ...prev,

@@ -15,6 +15,7 @@ import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import { daysOfWeek } from "../../utils/constants";
 import LinkButton from "../../components/LinkButton/LinkButton";
+import OurProgressBar from "../../components/ProgressBar/OurProgressBar";
 
 export default function Question2() {
   const { answers, setAnswers } = useForm();
@@ -22,6 +23,7 @@ export default function Question2() {
 
   return (
     <Layout>
+      <OurProgressBar progressValue={40} />
       <Heading>Question 2/5</Heading>
       <Text textAlign="center" mb={6}>
         <br />
@@ -58,7 +60,7 @@ export default function Question2() {
         </Tbody>
       </Table>
       <LinkButton
-        href="/form/3"
+        href="/form/Question3"
         disabled={days.every((v) => v === "didNotWork")}
         onClick={() =>
           setAnswers((prev) => ({
