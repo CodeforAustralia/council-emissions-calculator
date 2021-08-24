@@ -14,7 +14,7 @@ export default function Question5() {
   return (
     <Layout>
       <OurProgressBar progressValue={100} />
-      <Heading>Question 4/5</Heading>
+      <Heading>Question 5/5</Heading>
       <Text textAlign="center">
         <br />
         Which department do you work for?
