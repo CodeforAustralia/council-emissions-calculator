@@ -5,6 +5,7 @@ import useForm from "../../components/FormProvider";
 import { departments } from "../../utils/constants";
 import LinkButton from "../../components/LinkButton/LinkButton";
 import capitalize from "../../utils/capitalize";
+import Q5Progress from "../../public/images/progress-bar/q5-progress-bar.svg";
 
 export default function Question5() {
   const { answers, setAnswers } = useForm();
@@ -12,6 +13,7 @@ export default function Question5() {
 
   return (
     <Layout>
+      <Q5Progress />
       <Heading>Question 4/5</Heading>
       <Text textAlign="center">
         <br />

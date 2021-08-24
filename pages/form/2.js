@@ -15,6 +15,7 @@ import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import { daysOfWeek } from "../../utils/constants";
 import LinkButton from "../../components/LinkButton/LinkButton";
+import Q2Progress from "../../public/images/progress-bar/q2-progress-bar.svg";
 
 export default function Question2() {
   const { answers, setAnswers } = useForm();
@@ -22,6 +23,7 @@ export default function Question2() {
 
   return (
     <Layout>
+      <Q2Progress />
       <Heading>Question 2/5</Heading>
       <Text textAlign="center" mb={6}>
         <br />

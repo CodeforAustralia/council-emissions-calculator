@@ -3,6 +3,7 @@ import { Heading, Text, Textarea } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import LinkButton from "../../components/LinkButton/LinkButton";
+import Q4Progress from "../../public/images/progress-bar/q4-progress-bar.svg";
 
 export default function Question4() {
   const { answers, setAnswers } = useForm();
@@ -10,6 +11,7 @@ export default function Question4() {
 
   return (
     <Layout>
+      <Q4Progress />
       <Heading>Question 4/5</Heading>
       <Text textAlign="center">
         <br />
