@@ -8,6 +8,7 @@ export default function LinkButton({ children, href, onClick, disabled, variant 
         mt={8}
         px="12"
         colorScheme="blue"
+        variant={ outline ? "outline" : "solid" }
         disabled={disabled}
         onClick={onClick}
         variant={ variant || "solid" }
