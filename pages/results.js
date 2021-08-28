@@ -5,10 +5,12 @@ import Layout from "../components/Layout/Layout";
 import calculateEmissions from "../utils/calculateEmissions";
 import capitalize from "../utils/capitalize";
 import { daysOfWeek } from "../utils/constants";
+import { getFormResponses } from "../utils/dbApi";
 
 export default function Results() {
   const { answers } = useForm();
   const { km, transportModes, department, incentive } = answers;
+  const { form_responses } = getFormResponses();
   const results = calculateEmissions(km, transportModes);
 
   return (
