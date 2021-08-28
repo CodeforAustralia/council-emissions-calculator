@@ -73,7 +73,7 @@ export default function Question1() {
       </Box>
       <Grid templateColumns="repeat(2, 1fr)" gap={4}>
         <LinkButton
-          href="/form/3"
+          href="/"
           onClick={saveAnswers}
           variant="outline"
         >
@@ -84,7 +84,7 @@ export default function Question1() {
           <Text ml="0.5em">Back</Text>
         </LinkButton>
         <LinkButton
-          href="/form/3"
+          href="/form/2"
           disabled={days.every((v) => v === "didNotWork")}
           onClick={saveAnswers}
         >
