@@ -42,6 +42,7 @@ export default function Question3() {
 
   return (
     <Layout>
+      <Q3Progress />
       <Heading>Question 3/5</Heading>
       <Text textAlign="center" mb={6}>
         <br />
