@@ -53,7 +53,7 @@ export default function Question1() {
 
         <Box p={1} lineHeight="4rem">
           <Heading as="h1" size="md">Which days and where do you work in an average week?</Heading>
-          <Text>If you didn't work on a particular day, don't select anything.</Text>
+          <Text>If you didn&apos;t work on a particular day, don&apos;t select anything.</Text>
         </Box>
         <Table variant="striped">
           <Tbody>
