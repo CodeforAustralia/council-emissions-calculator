@@ -29,7 +29,7 @@ export default function Question1() {
         onChange={(e) => setKm(e.target.value)}
       />
       <LinkButton
-        href="/form/2"
+        href="/form/Question2"
         disabled={!km}
         onClick={() =>
           setAnswers((prev) => ({

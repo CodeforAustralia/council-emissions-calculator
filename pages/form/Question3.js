@@ -35,7 +35,7 @@ export default function Question3() {
           <br />
           Move to the next question.
         </Text>
-        <LinkButton href="/form/4">Continue</LinkButton>
+        <LinkButton href="/form/Question4">Continue</LinkButton>
       </Layout>
     );
   }
@@ -83,7 +83,7 @@ export default function Question3() {
         </Tbody>
       </Table>
       <LinkButton
-        href="/form/4"
+        href="/form/Question4"
         onClick={() =>
           setAnswers((prev) => ({
             ...prev,

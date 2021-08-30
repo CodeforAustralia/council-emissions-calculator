@@ -60,7 +60,7 @@ export default function Question2() {
         </Tbody>
       </Table>
       <LinkButton
-        href="/form/3"
+        href="/form/Question3"
         disabled={days.every((v) => v === "didNotWork")}
         onClick={() =>
           setAnswers((prev) => ({
