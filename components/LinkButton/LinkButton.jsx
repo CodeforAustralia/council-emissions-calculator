@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button } from "@chakra-ui/react";
 
-export default function LinkButton({ children, href, onClick, disabled }) {
+export default function LinkButton({ children, href, onClick, disabled, variant }) {
   return (
     <Link href={href} passHref>
       <Button
@@ -10,6 +10,7 @@ export default function LinkButton({ children, href, onClick, disabled }) {
         colorScheme="blue"
         disabled={disabled}
         onClick={onClick}
+        variant={ variant || "solid" }
       >
         {children}
       </Button>
