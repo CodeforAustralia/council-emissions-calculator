@@ -1,8 +1,11 @@
 import Head from "next/head";
-import { Container, Flex } from "@chakra-ui/react";
+import { Container, Flex, Text } from "@chakra-ui/react";
 import { productionUrl } from "../../utils/constants";
 
+const titleBarHeight = "80px";
+
 export default function Layout({ children }) {
+
   return (
     <>
       <Head>
@@ -10,7 +13,10 @@ export default function Layout({ children }) {
         <meta name="description" content="Emissions calculator" />
         <link rel="icon" href={`${productionUrl}/favicon.ico`} />
       </Head>
-      <Flex height="100vh" alignItems="center">
+      <Flex alignItems="center" height={titleBarHeight} pos="fixed" top="0" w="100%" bg="#055E9E" color="white" zIndex={10}>
+        <Text pl="3.5rem" fontSize="2.25rem" fontWeight="bold">SeeChange</Text>
+      </Flex>
+      <Flex alignItems="center" pos="relative" top={titleBarHeight} py={5}>
         <Container centerContent maxW="container.sm">
           {children}
         </Container>
