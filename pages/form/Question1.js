@@ -3,6 +3,7 @@ import { Heading, Text, Box, Checkbox, Grid } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm, { FormProvider } from "../../components/FormProvider";
 import LinkButton from "../../components/LinkButton/LinkButton";
+import Q1Progress from "../../public/images/progress-bar/q1-progress-bar.svg"
 import { daysOfWeek } from "../../utils/constants";
 import {
   Table,
@@ -49,6 +50,7 @@ export default function Question1() {
 
   return (
     <Layout>
+      <Q1Progress /> 
       <Box>
 
         <Box p={1} lineHeight="4rem">
@@ -84,7 +86,7 @@ export default function Question1() {
           <Text ml="0.5em">Back</Text>
         </LinkButton>
         <LinkButton
-          href="/form/2"
+          href="/form/Question2"
           disabled={days.every((v) => v === "didNotWork")}
           onClick={saveAnswers}
         >
