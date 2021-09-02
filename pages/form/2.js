@@ -1,74 +1,42 @@
-import { useState } from "react";
 import {
-  Table,
-  Thead,
-  Tbody,
-  Tr,
-  Th,
-  Td,
-  Radio,
-  RadioGroup,
+  Box,
   Heading,
   Text,
 } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
-import { daysOfWeek } from "../../utils/constants";
-import LinkButton from "../../components/LinkButton/LinkButton";
+import PredictiveInput from "./components/PredictiveInput";
+import BackContinueButtons from "./components/BackContinueButtons";
+import { modesOfTransport } from "../../utils/constants";
 
 export default function Question2() {
   const { answers, setAnswers } = useForm();
-  const [days, setDays] = useState(answers.week);
+
+  const saveAnswer = (inputValue) => {
+    setAnswers(prev => ({...prev, mainTransportMode: inputValue}));
+  };
 
   return (
     <Layout>
-      <Heading>Question 2/5</Heading>
-      <Text textAlign="center" mb={6}>
-        <br />
-        Where would you work on a typical week? <br />
-        If you wouldn&apos;t work on a given day, don&apos;t select anything.
-      </Text>
-      <Table variant="striped">
-        <Thead>
-          <Tr>
-            <Th>Day:</Th>
-            <Th>Office (or onsite) vs home</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          {daysOfWeek.map((day, i) => (
-            <Tr key={day}>
-              <Td>{day}</Td>
-              <Td>
-                <RadioGroup
-                  onChange={(v) => {
-                    const arr = [...days];
-                    arr[i] = v;
-                    setDays(arr);
-                  }}
-                >
-                  <Radio value="office">Office / Onsite</Radio>
-                  <Radio value="home" ml={8}>
-                    Home
-                  </Radio>
-                </RadioGroup>
-              </Td>
-            </Tr>
-          ))}
-        </Tbody>
-      </Table>
-      <LinkButton
-        href="/form/3"
-        disabled={days.every((v) => v === "didNotWork")}
-        onClick={() =>
-          setAnswers((prev) => ({
-            ...prev,
-            week: days,
-          }))
-        }
-      >
-        Continue
-      </LinkButton>
+      <Box p={1}>
+        <Heading as="h1" size="md">How do you travel to work in an average week?</Heading>
+        <Text my={5}>Select the main way you travel to work.</Text>
+        <Text my={5}>For example, if you usually drive 2km to the train and then catch the train for 15km, choose train as your way of travel.</Text>
+        <Text my={5}>If you currently work from home, we will use this information to calculate the emissions you save by working at home.</Text>
+        <PredictiveInput options={modesOfTransport} callback={saveAnswer}/>
+      </Box>
+      <BackContinueButtons
+        prevOptions={{
+          href: "/form/1",
+          // onClick: saveAnswers,
+          disabled: false
+        }}
+        nextOptions={{
+          href: "/form/3",
+          // onClick: saveAnswers,
+          disabled: !answers.mainTransportMode
+        }}
+      />
     </Layout>
   );
 }
