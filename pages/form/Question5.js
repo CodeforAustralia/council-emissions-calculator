@@ -5,6 +5,7 @@ import useForm from "../../components/FormProvider";
 import { departments } from "../../utils/constants";
 import LinkButton from "../../components/LinkButton/LinkButton";
 import capitalize from "../../utils/capitalize";
+import Q5Progress from "../../public/images/progress-bar/q5-progress-bar.svg";
 import { sendFormResponse } from "../../utils/dbApi";
 
 export default function Question5() {
@@ -13,7 +14,8 @@ export default function Question5() {
 
   return (
     <Layout>
-      <Heading>Question 4/5</Heading>
+      <Q5Progress />
+      <Heading>Question 5/5</Heading>
       <Text textAlign="center">
         <br />
         Which department do you work for?

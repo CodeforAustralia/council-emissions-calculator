@@ -17,6 +17,7 @@ import getDaysOfTravel from "../../utils/getDaysOfTravel";
 import { daysOfWeek, modesOfTransport } from "../../utils/constants";
 import LinkButton from "../../components/LinkButton/LinkButton";
 import capitalize from "../../utils/capitalize";
+import Q3Progress from "../../public/images/progress-bar/q3-progress-bar.svg";
 
 export default function Question3() {
   const { answers, setAnswers } = useForm();
@@ -26,6 +27,7 @@ export default function Question3() {
   if (travelDays.length < 1) {
     return (
       <Layout>
+        <Q3Progress />
         <Heading textAlign="center">
           Looks like you are working from home!
         </Heading>
@@ -33,13 +35,14 @@ export default function Question3() {
           <br />
           Move to the next question.
         </Text>
-        <LinkButton href="/form/4">Continue</LinkButton>
+        <LinkButton href="/form/Question4">Continue</LinkButton>
       </Layout>
     );
   }
 
   return (
     <Layout>
+      <Q3Progress />
       <Heading>Question 3/5</Heading>
       <Text textAlign="center" mb={6}>
         <br />
@@ -80,7 +83,7 @@ export default function Question3() {
         </Tbody>
       </Table>
       <LinkButton
-        href="/form/4"
+        href="/form/Question4"
         onClick={() =>
           setAnswers((prev) => ({
             ...prev,

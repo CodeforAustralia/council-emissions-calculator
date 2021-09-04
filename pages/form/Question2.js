@@ -8,6 +8,9 @@ import useForm from "../../components/FormProvider";
 import PredictiveInput from "./components/PredictiveInput";
 import BackContinueButtons from "./components/BackContinueButtons";
 import { modesOfTransport } from "../../utils/constants";
+import { daysOfWeek } from "../../utils/constants";
+import LinkButton from "../../components/LinkButton/LinkButton";
+import Q2Progress from "../../public/images/progress-bar/q2-progress-bar.svg";
 
 export default function Question2() {
   const { answers, setAnswers } = useForm();
@@ -18,6 +21,7 @@ export default function Question2() {
 
   return (
     <Layout>
+      <Q2Progress />
       <Box p={1}>
         <Heading as="h1" size="md">How do you travel to work in an average week?</Heading>
         <Text my={5}>Select the main way you travel to work.</Text>
