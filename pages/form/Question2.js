@@ -31,12 +31,12 @@ export default function Question2() {
       </Box>
       <BackContinueButtons
         prevOptions={{
-          href: "/form/1",
+          href: "/form/Question1",
           // onClick: saveAnswers,
           disabled: false
         }}
         nextOptions={{
-          href: "/form/3",
+          href: "/form/Question3",
           // onClick: saveAnswers,
           disabled: !answers.mainTransportMode
         }}

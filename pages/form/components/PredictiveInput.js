@@ -74,7 +74,7 @@ function PredictiveInput({ options, callback }) {
   }
 
   const setInputToSelected = () => {
-    if (selected && selected >= 0) setInputValue(options[selected]);
+    if (selected !== null && selected >= 0) setInputValue(options[selected]);
     else if (inputValue) setInputValue("");
   };
 
