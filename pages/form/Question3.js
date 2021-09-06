@@ -22,7 +22,7 @@ export default function Question3() {
   return (
     <Layout>
       <Q3Progress />
-      <Heading>About how many kilometres is your average work commute (one way)?</Heading>
+      <Heading mt="6">About how many kilometres is your average work commute (one way)?</Heading>
       <Text mt="4">You can use <a href="https://maps.google.com.au" target="_blank">Google Maps</a> to measure the distance from your home to usual workplace.</Text>
       <Text mt="4">If you currently work from home, let us know how far it is from your home to your usual workplace.</Text>
       <FormControl w="50%" alignSelf="start" mt="4">
