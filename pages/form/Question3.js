@@ -40,18 +40,6 @@ export default function Question3() {
         <BackButton href="/form/Question2" onClick={saveAnswers} />
         <ContinueButton href="/form/Question4" onClick={saveAnswers} />
       </Grid>
-      <LinkButton
-        href="/form/Question4"
-        onClick={() =>
-          setAnswers((prev) => ({
-            ...prev,
-            km,
-          }))
-        }
-        disabled={!km}
-      >
-        Continue
-      </LinkButton>
     </Layout>
   );
 }
