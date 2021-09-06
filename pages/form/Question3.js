@@ -1,96 +1,54 @@
 import { useState } from "react";
-import {} from "@chakra-ui/react";
+import { FormControl, FormHelperText, Input } from "@chakra-ui/react";
 import {
-  Table,
-  Thead,
-  Tbody,
-  Tr,
-  Th,
-  Td,
-  Checkbox,
+  Grid,
   Heading,
   Text,
+  NumberInput,
+  NumberInputField,
 } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
-import getDaysOfTravel from "../../utils/getDaysOfTravel";
-import { daysOfWeek, modesOfTransport } from "../../utils/constants";
-import LinkButton from "../../components/LinkButton/LinkButton";
-import capitalize from "../../utils/capitalize";
+import { BackButton, ContinueButton } from "../../components/LinkButton/LinkButton";
 import Q3Progress from "../../public/images/progress-bar/q3-progress-bar.svg";
+import LinkButton from "../../components/LinkButton/LinkButton";
 
 export default function Question3() {
   const { answers, setAnswers } = useForm();
-  const [modes, setModes] = useState(answers.transportModes);
-  const travelDays = getDaysOfTravel(answers.week);
+  const [km, setKm] = useState(answers.km);
 
-  if (travelDays.length < 1) {
-    return (
-      <Layout>
-        <Q3Progress />
-        <Heading textAlign="center">
-          Looks like you are working from home!
-        </Heading>
-        <Text textAlign="center" mb={6}>
-          <br />
-          Move to the next question.
-        </Text>
-        <LinkButton href="/form/Question4">Continue</LinkButton>
-      </Layout>
-    );
-  }
+  const saveAnswers = () => setAnswers((prev) => ({ ...prev, km: km }));
 
   return (
     <Layout>
       <Q3Progress />
-      <Heading>Question 3/5</Heading>
-      <Text textAlign="center" mb={6}>
-        <br />
-        How would you travel to work on a typical week?
-        <br />
-      </Text>
-      <Table variant="striped">
-        <Thead>
-          <Tr>
-            <Th />
-            {travelDays.map((day) => (
-              <Th key={day} textAlign="center">
-                {day}
-              </Th>
-            ))}
-          </Tr>
-        </Thead>
-        <Tbody>
-          {modesOfTransport.map((mode) => (
-            <Tr key={mode}>
-              <Td>{capitalize(mode)}</Td>
-              {travelDays.map((day) => (
-                <Td key={day} textAlign="center">
-                  <Checkbox
-                    value={mode}
-                    onChange={(v) => {
-                      const arr = [...modes];
-                      if (v.target.checked) {
-                        arr[daysOfWeek.indexOf(day)] = v.target.value;
-                        setModes(arr);
-                      }
-                    }}
-                  />
-                </Td>
-              ))}
-            </Tr>
-          ))}
-        </Tbody>
-      </Table>
+      <Heading>About how many kilometres is your average work commute (one way)?</Heading>
+      <Text mt="4">You can use <a href="https://maps.google.com.au" target="_blank">Google Maps</a> to measure the distance from your home to usual workplace.</Text>
+      <Text mt="4">If you currently work from home, let us know how far it is from your home to your usual workplace.</Text>
+      <FormControl w="50%" alignSelf="start" mt="4">
+        <NumberInput isRequired={true}>
+          <NumberInputField
+            id="km-input"
+            placeholder="Distance in kms"
+            value="25"
+            onChange={(e) => setKm(e.target.value)}
+          />
+        </NumberInput>
+        <FormHelperText id="km-input-helper">*Required</FormHelperText>
+      </FormControl>
+      <Grid templateColumns="repeat(2, 1fr)" gap={4}>
+        <BackButton href="/form/Question2" onClick={saveAnswers} />
+        <ContinueButton href="/form/Question4" onClick={saveAnswers} />
+      </Grid>
       <LinkButton
         href="/form/Question4"
         onClick={() =>
           setAnswers((prev) => ({
             ...prev,
-            transportModes: modes,
+            km,
           }))
         }
-        disabled={modes.every((m) => m === "didNotTravel")}
+        disabled={!km}
       >
         Continue
       </LinkButton>
