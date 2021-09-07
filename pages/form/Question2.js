@@ -1,76 +1,40 @@
-import { useState } from "react";
+import { useRef } from "react";
 import {
-  Table,
-  Thead,
-  Tbody,
-  Tr,
-  Th,
-  Td,
-  Radio,
-  RadioGroup,
+  Box,
+  Grid,
   Heading,
   Text,
+  Select,
 } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
-import { daysOfWeek } from "../../utils/constants";
-import LinkButton from "../../components/LinkButton/LinkButton";
+import { modesOfTransport } from "../../utils/constants";
 import Q2Progress from "../../public/images/progress-bar/q2-progress-bar.svg";
+import { BackButton, ContinueButton } from "../../components/LinkButton/LinkButton";
 
 export default function Question2() {
   const { answers, setAnswers } = useForm();
-  const [days, setDays] = useState(answers.week);
+
+  const select = useRef(null);
+
+  const saveAnswers = () => setAnswers(prev => ({ ...prev, mainModeOfTransport: select.current.value }));
 
   return (
     <Layout>
       <Q2Progress />
-      <Heading>Question 2/5</Heading>
-      <Text textAlign="center" mb={6}>
-        <br />
-        Where would you work on a typical week? <br />
-        If you wouldn&apos;t work on a given day, don&apos;t select anything.
-      </Text>
-      <Table variant="striped">
-        <Thead>
-          <Tr>
-            <Th>Day:</Th>
-            <Th>Office (or onsite) vs home</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          {daysOfWeek.map((day, i) => (
-            <Tr key={day}>
-              <Td>{day}</Td>
-              <Td>
-                <RadioGroup
-                  onChange={(v) => {
-                    const arr = [...days];
-                    arr[i] = v;
-                    setDays(arr);
-                  }}
-                >
-                  <Radio value="office">Office / Onsite</Radio>
-                  <Radio value="home" ml={8}>
-                    Home
-                  </Radio>
-                </RadioGroup>
-              </Td>
-            </Tr>
-          ))}
-        </Tbody>
-      </Table>
-      <LinkButton
-        href="/form/Question3"
-        disabled={days.every((v) => v === "didNotWork")}
-        onClick={() =>
-          setAnswers((prev) => ({
-            ...prev,
-            week: days,
-          }))
-        }
-      >
-        Continue
-      </LinkButton>
+      <Box mt={6}>
+        <Heading as="h1" size="md">How do you travel to work in an average week?</Heading>
+        <Text my={5}>Select the main way you travel to work.</Text>
+        <Text my={5}>For example, if you usually drive 2km to the train and then catch the train for 15km, choose train as your way of travel.</Text>
+        <Text my={5}>If you currently work from home, we will use this information to calculate the emissions you save by working at home.</Text>
+        <Select ref={select} placeholder="Select travel method" alignSelf="start" w="50%">
+          {modesOfTransport.map(mode => <option key={mode} value={mode} fontFamily="Public Sans">{mode}</option>)}
+        </Select>
+      </Box>
+      <Grid templateColumns="repeat(2, 1fr)" gap={4}>
+        <BackButton href="/form/Question1" onClick={saveAnswers} />
+        <ContinueButton href="/form/Question3" onClick={saveAnswers} />
+      </Grid>
     </Layout>
   );
 }
