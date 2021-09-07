@@ -28,7 +28,7 @@ export default function Question2() {
         <Text my={5}>For example, if you usually drive 2km to the train and then catch the train for 15km, choose train as your way of travel.</Text>
         <Text my={5}>If you currently work from home, we will use this information to calculate the emissions you save by working at home.</Text>
         <Select ref={select} placeholder="Select travel method" alignSelf="start" w="50%">
-          {modesOfTransport.map(mode => <option key={mode} value={mode} fontFamily="Public Sans">{mode}</option>)}
+          {modesOfTransport.map(mode => <option key={mode} value={mode}>{mode}</option>)}
         </Select>
       </Box>
       <Grid templateColumns="repeat(2, 1fr)" gap={4}>
