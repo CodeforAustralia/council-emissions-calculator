@@ -1,40 +1,31 @@
 import { useState } from "react";
-import { Heading, Text, Textarea } from "@chakra-ui/react";
+import { Heading, Text, Textarea, Grid } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
-import LinkButton from "../../components/LinkButton/LinkButton";
+import { BackButton, ContinueButton } from "../../components/LinkButton/LinkButton";
 import Q4Progress from "../../public/images/progress-bar/q4-progress-bar.svg";
 
 export default function Question4() {
   const { answers, setAnswers } = useForm();
   const [incentive, setIncentive] = useState(answers.incentive);
 
+  const saveAnswers = () => prev => setAnswers({...prev, incentive});
+
   return (
     <Layout>
       <Q4Progress />
-      <Heading>Question 4/5</Heading>
-      <Text textAlign="center">
-        <br />
-        Can you think of anything that would encourage you to change your mode
-        of transport to work? (e.g., public transport subsidies, carpooling
-        arrangements, or other incentives?)
-      </Text>
+      <Heading as="h1" size="md" mt={6}>What can council do to support and incentivise staff to choose more sustainable modes of transport to and from work?</Heading>
+      <Text mt={4} w="100%">For example: public transport subsidies or carpooling arrangements</Text>
       <Textarea
         mt={8}
         value={incentive}
         onChange={(e) => setIncentive(e.target.value)}
+        placeholder="Suggest an incentive"
       />
-      <LinkButton
-        href="/form/Question5"
-        onClick={() =>
-          setAnswers((prev) => ({
-            ...prev,
-            incentive,
-          }))
-        }
-      >
-        Continue
-      </LinkButton>
+      <Grid templateColumns="repeat(2, 1fr)" gap={4}>
+        <BackButton href="/form/Question3" onClick={saveAnswers} />
+        <ContinueButton href="/form/Question5" onClick={saveAnswers} />
+      </Grid>
     </Layout>
   );
 }
