@@ -39,7 +39,7 @@ export default function Question3() {
       </FormControl>
       <Grid templateColumns="repeat(2, 1fr)" gap={4}>
         <BackButton href="/form/Question2" onClick={saveAnswers} />
-        <ContinueButton href="/form/Question4" onClick={saveAnswers} />
+        <ContinueButton href="/form/Question4" onClick={saveAnswers} disabled={!km} />
       </Grid>
     </Layout>
   );
