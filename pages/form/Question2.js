@@ -14,7 +14,7 @@ import { BackButton, ContinueButton } from "../../components/LinkButton/LinkButt
 
 export default function Question2() {
   const { answers, setAnswers } = useForm();
-  const [ selectedMode, setSelectedMode ] = useState("");
+  const [selectedMode, setSelectedMode] = useState(answers.mainModeOfTransport || "");
 
   const saveAnswers = () => setAnswers(prev => ({ ...prev, mainModeOfTransport: selectedMode }));
 
@@ -45,7 +45,17 @@ export default function Question2() {
                 w="50%"
                 onChange={(e) => setSelectedMode(e.target.value)}
               >
-                {modesOfTransport.map(mode => <option key={mode} value={mode}>{mode}</option>)}
+                {
+                  modesOfTransport.map(mode => (
+                    <option
+                      key={mode}
+                      value={mode}
+                      selected={mode === selectedMode}
+                    >
+                      {mode}
+                    </option>
+                  ))
+                }
               </Select>
             </Box>
             <Grid templateColumns="repeat(2, 1fr)" gap={4}>
