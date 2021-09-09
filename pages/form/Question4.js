@@ -9,7 +9,7 @@ export default function Question4() {
   const { answers, setAnswers } = useForm();
   const [incentive, setIncentive] = useState(answers.incentive);
 
-  const saveAnswers = () => prev => setAnswers({...prev, incentive});
+  const saveAnswers = () => setAnswers( prev => ({...prev, incentive}) );
 
   return (
     <Layout>
