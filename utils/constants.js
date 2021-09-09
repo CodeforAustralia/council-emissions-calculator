@@ -8,26 +8,15 @@ export const daysOfWeek = [
   "Sunday",
 ];
 
-// export const modesOfTransport = [
-//   "walk",
-//   "bicycle",
-//   "scooter",
-//   "train/tram",
-//   "bus",
-//   "car(shared)",
-//   "car(solo)",
-// ];
-
 export const modesOfTransport = [
-  "Walking",
   "Bicycle",
   "Bus",
+  "Car",
+  "Motorbike/scooter",
+  "Taxi/ride share",
   "Train/tram",
-  "Car (driver)",
-  "Car (passenger)",
-  "Scooter/motorbike",
-  "E-scooter",
-  "E-bike"
+  "Walking/running",
+  "Other"
 ];
 
 export const departments = ["education", "health", "transport", "finance"];
