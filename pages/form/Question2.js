@@ -14,9 +14,9 @@ import { BackButton, ContinueButton } from "../../components/LinkButton/LinkButt
 
 export default function Question2() {
   const { answers, setAnswers } = useForm();
-  const [selectedMode, setSelectedMode] = useState(answers.mainModeOfTransport || "");
+  const [selectedMode, setSelectedMode] = useState(answers.mainTransportMode || "");
 
-  const saveAnswers = () => setAnswers(prev => ({ ...prev, mainModeOfTransport: selectedMode }));
+  const saveAnswers = () => setAnswers(prev => ({ ...prev, mainTransportMode: selectedMode }));
 
   // check if user is working from home (i.e., never travelling to the office)
   let isWFH = answers.week.every(day => day !== 'office');

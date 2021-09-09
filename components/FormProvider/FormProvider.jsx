@@ -22,15 +22,7 @@ const initialAnswers = {
     "didNotWork",
     "didNotWork",
   ],
-  transportModes: [
-    "didNotTravel",
-    "didNotTravel",
-    "didNotTravel",
-    "didNotTravel",
-    "didNotTravel",
-    "didNotTravel",
-    "didNotTravel",
-  ],
+  mainTransportMode: "",
   incentive: "",
   department: "",
 };
