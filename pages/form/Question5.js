@@ -15,15 +15,16 @@ export default function Question5() {
   return (
     <Layout>
       <Q5Progress />
-      <Heading>Question 5/5</Heading>
       <Text textAlign="center">
         <br />
-        Which department do you work for?
+        <Heading as="h1" size="md" mt={6}>
+          Which department do you work for?
+        </Heading>
       </Text>
       <Select
         mt={8}
         maxW={280}
-        placeholder="Please select"
+        placeholder="Search Department"
         onChange={(e) => setDepartment(e.target.value)}
       >
         {departments.map((department) => (
@@ -32,10 +33,11 @@ export default function Question5() {
           </option>
         ))}
       </Select>
+
       <LinkButton
         href="/results"
         disabled={!department}
-        onClick={() => 
+        onClick={() =>
           setAnswers((prev) => {
             const response = { ...prev, department };
             //console.log(`form 5 updates: ${JSON.stringify(response)}`);
@@ -44,7 +46,7 @@ export default function Question5() {
           })
         }
       >
-        Calculate!
+        Submit
       </LinkButton>
     </Layout>
   );
