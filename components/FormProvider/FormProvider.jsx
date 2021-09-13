@@ -6,7 +6,7 @@ export const FormContext = createContext();
 // {
 //     km: "12",
 //     week: ["office", "home", "home", "office", "office", "didNotWork", "didNotWork"],
-//     transportModes: ["bike", "didNotTravel", "didNotTravel", "bus", "bus", "didNotTravel", "didNotTravel"],
+//     mainTransportMode: "bus",
 //     incentive: "I'd like to have better biking lanes.",
 //     department: "Education",
 // };
@@ -22,15 +22,7 @@ const initialAnswers = {
     "didNotWork",
     "didNotWork",
   ],
-  transportModes: [
-    "didNotTravel",
-    "didNotTravel",
-    "didNotTravel",
-    "didNotTravel",
-    "didNotTravel",
-    "didNotTravel",
-    "didNotTravel",
-  ],
+  mainTransportMode: "",
   incentive: "",
   department: "",
 };
