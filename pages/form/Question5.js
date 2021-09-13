@@ -4,6 +4,7 @@ import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import { departments } from "../../utils/constants";
 import LinkButton from "../../components/LinkButton/LinkButton";
+import { BackButton } from "../../components/LinkButton/LinkButton";
 import capitalize from "../../utils/capitalize";
 import Q5Progress from "../../public/images/progress-bar/q5-progress-bar.svg";
 import { sendFormResponse } from "../../utils/dbApi";
@@ -11,6 +12,8 @@ import { sendFormResponse } from "../../utils/dbApi";
 export default function Question5() {
   const { answers, setAnswers } = useForm();
   const [department, setDepartment] = useState(answers.department);
+
+  const saveAnswers = () => setAnswers((prev) => ({ ...prev, incentive }));
 
   return (
     <Layout>
@@ -33,7 +36,7 @@ export default function Question5() {
           </option>
         ))}
       </Select>
-
+      <BackButton href="/form/Question4" onClick={saveAnswers} />
       <LinkButton
         href="/results"
         disabled={!department}
