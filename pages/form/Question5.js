@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Heading, Text, Select } from "@chakra-ui/react";
+import { Heading, Text, Select, Grid } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import { departments } from "../../utils/constants";
@@ -13,7 +13,7 @@ export default function Question5() {
   const { answers, setAnswers } = useForm();
   const [department, setDepartment] = useState(answers.department);
 
-  const saveAnswers = () => setAnswers((prev) => ({ ...prev, incentive }));
+  const saveAnswers = () => setAnswers((prev) => ({ ...prev, department }));
 
   return (
     <Layout>
@@ -36,21 +36,23 @@ export default function Question5() {
           </option>
         ))}
       </Select>
-      <BackButton href="/form/Question4" onClick={saveAnswers} />
-      <LinkButton
-        href="/results"
-        disabled={!department}
-        onClick={() =>
-          setAnswers((prev) => {
-            const response = { ...prev, department };
-            //console.log(`form 5 updates: ${JSON.stringify(response)}`);
-            sendFormResponse(response);
-            return response;
-          })
-        }
-      >
-        Submit
-      </LinkButton>
+      <Grid templateColumns="repeat(2, 1fr)" gap={4}>
+        <BackButton href="/form/Question4" onClick={saveAnswers} />
+        <LinkButton
+          href="/results"
+          disabled={!department}
+          onClick={() =>
+            setAnswers((prev) => {
+              const response = { ...prev, department };
+              //console.log(`form 5 updates: ${JSON.stringify(response)}`);
+              sendFormResponse(response);
+              return response;
+            })
+          }
+        >
+          Submit
+        </LinkButton>
+      </Grid>
     </Layout>
   );
 }
