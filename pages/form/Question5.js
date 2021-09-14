@@ -20,7 +20,7 @@ export default function Question5() {
       <Q5Progress />
       <Text textAlign="center">
         <br />
-        <Heading as="h1" size="md" mt={6}>
+        <Heading as="h1" size="md" mt={20}>
           Which department do you work for?
         </Heading>
       </Text>
