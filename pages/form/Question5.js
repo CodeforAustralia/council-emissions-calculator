@@ -39,7 +39,7 @@ export default function Question5() {
       <Grid templateColumns="repeat(2, 1fr)" gap={4}>
         <BackButton href="/form/Question4" onClick={saveAnswers} />
         <LinkButton
-          href="/results"
+          href="../results"
           disabled={!department}
           onClick={() =>
             setAnswers((prev) => {
