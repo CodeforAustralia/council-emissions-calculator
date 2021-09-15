@@ -4,7 +4,10 @@ import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import { departments } from "../../utils/constants";
 import LinkButton from "../../components/LinkButton/LinkButton";
-import { BackButton } from "../../components/LinkButton/LinkButton";
+import {
+  BackButton,
+  SubmitButton,
+} from "../../components/LinkButton/LinkButton";
 import capitalize from "../../utils/capitalize";
 import Q5Progress from "../../public/images/progress-bar/q5-progress-bar.svg";
 import { sendFormResponse } from "../../utils/dbApi";
@@ -38,7 +41,7 @@ export default function Question5() {
       </Select>
       <Grid templateColumns="repeat(2, 1fr)" gap={4}>
         <BackButton href="/form/Question4" onClick={saveAnswers} />
-        <LinkButton
+        <SubmitButton
           href="../results"
           disabled={!department}
           onClick={() =>
@@ -49,9 +52,7 @@ export default function Question5() {
               return response;
             })
           }
-        >
-          Submit
-        </LinkButton>
+        />
       </Grid>
     </Layout>
   );
