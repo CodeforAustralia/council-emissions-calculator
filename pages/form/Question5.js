@@ -30,7 +30,7 @@ export default function Question5() {
       <Select
         mt={8}
         maxW={280}
-        placeholder="Search Department"
+        placeholder="Choose Your Department"
         onChange={(e) => setDepartment(e.target.value)}
       >
         {departments.map((department) => (
