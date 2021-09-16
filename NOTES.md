@@ -28,10 +28,23 @@ Chakra UI - Styling library, treat each individual styling as component
 
    - researched how to switch the node version on my local machine
    - resolved it by using node version manager
-   - https://www.youtube.com/watch?v=IZfAZ7R0FQg (quick tutorial on YouTube)
 
 2. How to move the progress bar?
 
 3. working with GitHub and local git
-   ![Version Control](../council-emissions-calculator-spike/public/images/version-control-git.png)
-4.
+   ![version control](../council-emissions-calculator-spike/public/images/version-control-git.png)
+
+4. Trying to understand Chakra UI - how they are imported as component and take care of the styling of the pages.
+
+5. A bit confused between the design on Figma, and how the page looks when comparing side by side - start by giving it a go, and will be communicating with the designer to finalized design.
+
+6. Accessibility and responsiveness would be something we will look into in the future
+
+7. Pull request - A little confused with the concept - to be cleared.
+
+_Notes from Matt_
+
+- Chakra UI - Styling library, treat each individual styling as component
+  od- Next.js has its own built in running server - listening to incoming web traffic/ http requests and provide https response, it makes rendering different pages so much easier
+- SVG/ webpack - it helps importing the progress part as component
+- result page: High Chart?
