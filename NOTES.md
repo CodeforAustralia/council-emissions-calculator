@@ -28,9 +28,10 @@ Chakra UI - Styling library, treat each individual styling as component
 
    - researched how to switch the node version on my local machine
    - resolved it by using node version manager
+   - https://www.youtube.com/watch?v=IZfAZ7R0FQg (quick tutorial on YouTube)
 
 2. How to move the progress bar?
 
 3. working with GitHub and local git
-
+   ![Version Control](../council-emissions-calculator-spike/public/images/version-control-git.png)
 4.
