@@ -3,7 +3,6 @@ import { Heading, Text, Select, Grid } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import { departments } from "../../utils/constants";
-import LinkButton from "../../components/LinkButton/LinkButton";
 import {
   BackButton,
   SubmitButton,
