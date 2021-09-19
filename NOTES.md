@@ -10,5 +10,4 @@
 - readily accesible styling components that can be imported for React application
 
 ## 3. How to maintain version control
-
-![version control](../council-emissions-calculator-spike/public/images/version-control-git.png)
+<img width="1462" alt="Screen Shot 2021-09-18 at 8 03 01 am" src="https://user-images.githubusercontent.com/83195319/133946101-5d7346c8-e1c0-49ef-9721-465cf7bc680c.png">
