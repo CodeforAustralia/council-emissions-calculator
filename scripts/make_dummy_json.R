@@ -1,5 +1,14 @@
 #This script creates "dummy data" for the Civic Makers carbon calculator project
 
+#HOW TO RUN THIS SCRIPT: 
+# 1) Install R from https://cran.ms.unimelb.edu.au/
+# 2) Uncomment the "install.packages" rows below if you don't already have these packages installed
+# 3) From Command line (set to the directory where this script is saved), run the command ` Rscript make_dummy_json.R ` 
+# 4) This should produce two outputs: a .png (?) that shows 
+
+# install.packages("ggplot2")
+# install.packages("jsonlite")
+# install.packages("ggridges")
 
 library(tidyverse)  #packages for manipulating data
 library(jsonlite) #package for converting dataframe into json
@@ -18,15 +27,15 @@ Taxi <- rnorm(10, mean=10, sd=2)
 
 #This combines all of the transport type vectors into one dataset 
 
-modes <- bind_rows(
-  tibble(mode = "Bike", distance = Bike),
-  tibble(mode = "Walk", distance = Walk),
-  tibble(mode = "Train", distance = Train),
-  tibble(mode = "Car", distance = Car),
-  tibble(mode = "Motorbike", distance = Motorbike),
-  tibble(mode = "Bus", distance = Bus),
-  tibble(mode = "Taxi", distance = Taxi),
-)
+modes <- rbind(
+  data.frame(mode = "Bike", distance = Bike),
+  data.frame(mode = "Walk", distance = Walk),
+  data.frame(mode = "Train", distance = Train),
+  data.frame(mode = "Car", distance = Car),
+  data.frame(mode = "Motorbike", distance = Motorbike),
+  data.frame(mode = "Bus", distance = Bus),
+  data.frame(mode = "Taxi", distance = Taxi)
+  )
 
 
 #This makes a plot out of the dataset that should closely resemble what we're making in highcharts, just to see what the shape should be!
