@@ -35,7 +35,7 @@ export default function Question5() {
       <LinkButton
         href="/results"
         disabled={!department}
-        onClick={() => 
+        onClick={() =>
           setAnswers((prev) => {
             const response = { ...prev, department };
             //console.log(`form 5 updates: ${JSON.stringify(response)}`);
