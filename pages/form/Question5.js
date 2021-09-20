@@ -33,7 +33,11 @@ export default function Question5() {
         onChange={(e) => setDepartment(e.target.value)}
       >
         {departments.map((department) => (
-          <option key={department} value={department}>
+          <option
+            key={department}
+            value={department}
+            selected={department === answers.department}
+          >
             {capitalize(department)}
           </option>
         ))}
