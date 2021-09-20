@@ -24,7 +24,7 @@ export default function Question2() {
   return (
     <Layout>
       <Q2Progress  />
-      {isWFH ? (
+      if(isWFH) {
         <>
           <Heading as="h1" size="md" mt={6}>
             Looks like you are working from home!
