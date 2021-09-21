@@ -25,7 +25,7 @@ export default function Question3() {
 
   return (
     <Layout>
-      <Q3Progress />
+      <Q3Progress viewBox="178 2 550 55" height="70" width="100%" />
       <Heading as="h1" size="md" mt="6">
         About how many kilometres is your average work commute (one way)?
       </Heading>

@@ -23,7 +23,7 @@ export default function Question2() {
 
   return (
     <Layout>
-      <Q2Progress  />
+      <Q2Progress viewBox="115 2 550 50" height="70" width="100%" />
       {isWFH ? (
         <>
           <Heading as="h1" size="md" mt={6}>

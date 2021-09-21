@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { Heading, Text, Box, Checkbox, Grid } from "@chakra-ui/react";
-import Layout from "../../components/Layout/Layout";
-import useForm, { FormProvider } from "../../components/FormProvider";
-import LinkButton from "../../components/LinkButton/LinkButton";
-import Q1Progress from "../../public/images/progress-bar/q1-progress-bar.svg";
-import { daysOfWeek } from "../../utils/constants";
 import {
+  Heading,
+  Text,
+  Box,
+  Checkbox,
+  Grid,
   Table,
   Thead,
   Tbody,
@@ -14,8 +13,20 @@ import {
   Th,
   Td,
   TableCaption,
+  createBreakpoints,
 } from "@chakra-ui/react";
-
+import Layout from "../../components/Layout/Layout";
+import useForm, { FormProvider } from "../../components/FormProvider";
+import LinkButton from "../../components/LinkButton/LinkButton";
+import Q1Progress from "../../public/images/progress-bar/q1-progress-bar.svg";
+import { daysOfWeek } from "../../utils/constants";
+// const breakpoints = createBreakpoints({
+//   sm: "30em",
+//   md: "48em",
+//   lg: "62em",
+//   xl: "80em",
+//   "2xl": "96em",
+// });
 export default function Question1() {
   const { answers, setAnswers } = useForm();
   const [days, setDays] = useState(answers.week);
@@ -49,8 +60,15 @@ export default function Question1() {
 
   return (
     <Layout>
-      <Q1Progress className="responsivebar" />
-      {/* <Q1Progress className="responsivebar" viewBox="100 5 490 50" height="50" width="100%" /> */}
+      {/* <Q1Progress className="responsivebar" /> */}
+      {/* viewBox = <min-x> <min-y> <width> <height></height> */}
+      <Q1Progress
+        className="responsivebar"
+        viewBox="50 2 550 55"
+        height="70"
+        width="100%"
+        fontSize="2px"
+      />
       <Box>
         <Box p={1} lineHeight="4rem">
           <Heading as="h1" size="md">
@@ -75,17 +93,19 @@ export default function Question1() {
                 </Td>
                 <Td>
                   <Grid
+                    // fontSize={["sm", "md", "lg", "xl"]}
+
                     className="square-grid"
                     templateColumns="repeat(2, 1fr)"
                     gap={6}
                     color="#212529"
                     w="100%"
                   >
-                    <WorkCheckBox value="home" index={i}>
-                      Work from home
+                    <WorkCheckBox fontSize="xs" value="home" index={i}>
+                      <p>Work from home</p>
                     </WorkCheckBox>
                     <WorkCheckBox value="office" index={i}>
-                      From workplace
+                      <p>From workplace</p>
                     </WorkCheckBox>
                   </Grid>
                 </Td>

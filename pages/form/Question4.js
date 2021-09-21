@@ -16,7 +16,7 @@ export default function Question4() {
 
   return (
     <Layout>
-      <Q4Progress />
+      <Q4Progress viewBox="178 2 550 55" height="70" width="100%" />
       <Heading as="h1" size="md" mt={6}>
         What can council do to support and incentivise staff to choose more
         sustainable modes of transport to and from work?

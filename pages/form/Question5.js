@@ -14,7 +14,7 @@ export default function Question5() {
 
   return (
     <Layout>
-      <Q5Progress />
+      <Q5Progress viewBox="210 2 550 55" height="70" width="100%" />
       <Heading>Question 5/5</Heading>
       <Text textAlign="center">
         <br />

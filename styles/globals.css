@@ -15,7 +15,12 @@ a {
 * {
   box-sizing: border-box;
 }
-
+.secondQuestion {
+  justify-content: center;
+  text-align: center;
+  justify-items: center;
+  margin-top: 10rem;
+}
 /* add css for table responsive */
 
 /* 
@@ -23,27 +28,30 @@ Max width before this PARTICULAR table gets nasty
 This query will take effect for any screen smaller than 760px
 and also iPads specifically.
 */
+
 @media only screen and (max-width: 760px),
   (min-device-width: 768px) and (max-device-width: 1024px) {
-  .square-grid {
-    display: flex;
+  .square-grid > p {
+    /* display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: center; */
+    font-size: 2px;
   }
-
+  /* td > p {
+    font-size: calc(8px + 3vmin);
+    font-size: 2px;
+  }
   .responsivebar {
     height: "50";
     width: "100%";
-  }
+  } */
   /* Force table to not be like tables anymore */
   table,
-  thead,
   tbody,
-  th,
   td,
   tr {
-    display: block;
-    font-size: calc(8px + 3vmin);
+    display: grid;
+    justify-content: center;
   }
 
   /* Hide table headers (but not display: none;, for accessibility) */
@@ -76,22 +84,3 @@ and also iPads specifically.
     white-space: nowrap;
   }
 }
-/* Uses vh and vm with calc */
-/* @media screen and (min-width: 25em) {
-  html {
-    font-size: calc(16px + (24 - 16) * (100vw - 400px) / (800 - 400));
-  }
-} */
-
-/* Safari <8 and IE <11 */
-/* @media screen and (min-width: 25em) {
-  html {
-    font-size: calc(16px + (24 - 16) * (100vw - 400px) / (800 - 400));
-  }
-}
-
-@media screen and (min-width: 50em) {
-  html {
-    font-size: calc(16px + (24 - 16) * (100vw - 400px) / (800 - 400));
-  }
-} */
