@@ -17,7 +17,7 @@ export default function Question5() {
   const { answers, setAnswers } = useForm();
   const [department, setDepartment] = useState(answers.department);
 
-  const saveAnswers = () => setAnswers((prev) => ({ ...prev, incentive }));
+  const saveAnswers = () => setAnswers((prev) => ({ ...prev, department }));
   return (
     <Layout>
       {/* <Box mt={2}>
