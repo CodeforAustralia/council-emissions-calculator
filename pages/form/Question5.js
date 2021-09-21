@@ -16,7 +16,6 @@ import { sendFormResponse } from '../../utils/dbApi';
 export default function Question5() {
   const { answers, setAnswers } = useForm();
   const [department, setDepartment] = useState(answers.department);
-  const [incentive, setIncentive] = useState(answers.incentive);
 
   const saveAnswers = () => setAnswers((prev) => ({ ...prev, incentive }));
   return (
