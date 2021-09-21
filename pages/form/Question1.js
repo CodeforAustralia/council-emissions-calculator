@@ -60,11 +60,9 @@ export default function Question1() {
 
   return (
     <Layout>
-      {/* <Q1Progress className="responsivebar" /> */}
-      {/* viewBox = <min-x> <min-y> <width> <height></height> */}
       <Q1Progress
         className="responsivebar"
-        viewBox="50 2 550 55"
+        viewBox="40 2 550 55"
         height="70"
         width="100%"
         fontSize="2px"
