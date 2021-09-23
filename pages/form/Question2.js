@@ -21,11 +21,9 @@ export default function Question2() {
   // check if user is working from home (i.e., never travelling to the office)
   let isWFH = answers.week.every((day) => day !== "office");
 
-  return (
-    <Layout>
-      <Q2Progress viewBox="115 2 550 50" height="70" width="100%" />
-
-      {isWFH ? (
+  const rendernext = () => {
+    if (isWFH) {
+      return (
         <>
           <Heading as="h1" size="md" mt={6}>
             Looks like you are working from home!
@@ -33,7 +31,9 @@ export default function Question2() {
           <Text my={5}>Move to the next question.</Text>
           <ContinueButton href="/form/Question3" />
         </>
-      ) : (
+      );
+    } else {
+      return (
         <>
           <Box mt={6}>
             <Heading as="h1" size="md">
@@ -74,7 +74,14 @@ export default function Question2() {
             />
           </Grid>
         </>
-      )}
+      );
+    }
+  };
+
+  return (
+    <Layout>
+      <Q2Progress viewBox="115 2 550 50" height="70" width="100%" />
+      {rendernext()}
     </Layout>
   );
 }
