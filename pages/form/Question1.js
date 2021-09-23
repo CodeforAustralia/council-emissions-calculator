@@ -20,13 +20,6 @@ import useForm, { FormProvider } from "../../components/FormProvider";
 import LinkButton from "../../components/LinkButton/LinkButton";
 import Q1Progress from "../../public/images/progress-bar/q1-progress-bar.svg";
 import { daysOfWeek } from "../../utils/constants";
-// const breakpoints = createBreakpoints({
-//   sm: "30em",
-//   md: "48em",
-//   lg: "62em",
-//   xl: "80em",
-//   "2xl": "96em",
-// });
 export default function Question1() {
   const { answers, setAnswers } = useForm();
   const [days, setDays] = useState(answers.week);
