@@ -13,20 +13,14 @@ import {
   Th,
   Td,
   TableCaption,
-  createBreakpoints,
 } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm, { FormProvider } from "../../components/FormProvider";
 import LinkButton from "../../components/LinkButton/LinkButton";
+
 import Q1Progress from "../../public/images/progress-bar/q1-progress-bar.svg";
 import { daysOfWeek } from "../../utils/constants";
-// const breakpoints = createBreakpoints({
-//   sm: "30em",
-//   md: "48em",
-//   lg: "62em",
-//   xl: "80em",
-//   "2xl": "96em",
-// });
+
 export default function Question1() {
   const { answers, setAnswers } = useForm();
   const [days, setDays] = useState(answers.week);
@@ -61,11 +55,9 @@ export default function Question1() {
   return (
     <Layout>
       <Q1Progress
-        className="responsivebar"
-        viewBox="40 2 550 55"
-        height="70"
+        viewBox="40 5 550 55"
+        height="90"
         width="100%"
-        fontSize="2px"
       />
       <Box>
         <Box p={1} lineHeight="4rem">
@@ -91,8 +83,6 @@ export default function Question1() {
                 </Td>
                 <Td>
                   <Grid
-                    // fontSize={["sm", "md", "lg", "xl"]}
-
                     className="square-grid"
                     templateColumns="repeat(2, 1fr)"
                     gap={6}

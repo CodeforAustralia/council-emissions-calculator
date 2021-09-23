@@ -1,4 +1,4 @@
-import { Heading, Text } from "@chakra-ui/react";
+import { Heading, Text, Button } from "@chakra-ui/react";
 import React from "react";
 import useForm from "../components/FormProvider";
 import Layout from "../components/Layout/Layout";
@@ -6,6 +6,7 @@ import Layout from "../components/Layout/Layout";
 import capitalize from "../utils/capitalize";
 import { daysOfWeek } from "../utils/constants";
 import { getFormResponses } from "../utils/dbApi";
+import { FiDownload } from "react-icons/fi";
 
 export default function Results() {
   const { answers } = useForm();
@@ -14,7 +15,12 @@ export default function Results() {
 
   return (
     <Layout>
+      <Button className="resultbtn" colorScheme="blue">
+        Download as PDF or CSV {""}
+        <FiDownload />
+      </Button>
       <Heading>Your results:</Heading>
+
       <Text>
         <br />
         <b>Department:</b> {capitalize(department)}
