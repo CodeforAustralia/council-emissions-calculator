@@ -83,8 +83,6 @@ export default function Question1() {
                 </Td>
                 <Td>
                   <Grid
-                    // fontSize={["sm", "md", "lg", "xl"]}
-
                     className="square-grid"
                     templateColumns="repeat(2, 1fr)"
                     gap={6}
