@@ -20,7 +20,6 @@ import LinkButton from "../../components/LinkButton/LinkButton";
 
 import Q1Progress from "../../public/images/progress-bar/q1-progress-bar.svg";
 import { daysOfWeek } from "../../utils/constants";
-
 export default function Question1() {
   const { answers, setAnswers } = useForm();
   const [days, setDays] = useState(answers.week);
@@ -54,11 +53,7 @@ export default function Question1() {
 
   return (
     <Layout>
-      <Q1Progress
-        viewBox="40 5 550 55"
-        height="90"
-        width="100%"
-      />
+      <Q1Progress viewBox="40 5 550 55" height="90" width="100%" />
       <Box>
         <Box p={1} lineHeight="4rem">
           <Heading as="h1" size="md">
