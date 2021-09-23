@@ -13,7 +13,6 @@ import {
   Th,
   Td,
   TableCaption,
-  createBreakpoints,
 } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm, { FormProvider } from "../../components/FormProvider";
