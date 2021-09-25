@@ -1,17 +1,17 @@
 import { useState } from "react";
-import { Heading, Text, Select, Stack, Grid } from '@chakra-ui/react';
-import Layout from '../../components/Layout/Layout';
-import useForm from '../../components/FormProvider';
-import { departments } from '../../utils/constants';
-import LinkButton from '../../components/LinkButton/LinkButton';
+import { Heading, Text, Select, Stack, Grid } from "@chakra-ui/react";
+import Layout from "../../components/Layout/Layout";
+import useForm from "../../components/FormProvider";
+import { departments } from "../../utils/constants";
+import LinkButton from "../../components/LinkButton/LinkButton";
 import {
   BackButton,
   ContinueButton,
   SubmitButton,
-} from '../../components/LinkButton/LinkButton';
-import capitalize from '../../utils/capitalize';
-import Q5Progress from '../../public/images/progress-bar/q5-progress-bar.svg';
-import { sendFormResponse } from '../../utils/dbApi';
+} from "../../components/LinkButton/LinkButton";
+import capitalize from "../../utils/capitalize";
+import Q5Progress from "../../public/images/progress-bar/q5-progress-bar.svg";
+import { sendFormResponse } from "../../utils/dbApi";
 
 export default function Question5() {
   const { answers, setAnswers } = useForm();
@@ -20,19 +20,16 @@ export default function Question5() {
   const saveAnswers = () => setAnswers((prev) => ({ ...prev, department }));
   return (
     <Layout>
-      {/* <Box mt={2}>
-        <Q5Progress />
-      </Box> */}
       <Q5Progress />
 
-      <Text textAlign='center'>
+      <Text textAlign="center">
         <br />
         Which department do you work for?
       </Text>
       <Select
         mt={8}
         maxW={280}
-        placeholder='Please select'
+        placeholder="Please select"
         onChange={(e) => setDepartment(e.target.value)}
       >
         {departments.map((department) => (
@@ -41,10 +38,10 @@ export default function Question5() {
           </option>
         ))}
       </Select>
-      <Grid templateColumns='repeat(2, 1fr)' gap={4}>
-        <BackButton href='/form/Question4' onClick={saveAnswers} />
+      <Grid templateColumns="repeat(2, 1fr)" gap={4}>
+        <BackButton href="/form/Question4" onClick={saveAnswers} />
         <SubmitButton
-          href='/results'
+          href="/results"
           disabled={!department}
           onClick={() =>
             setAnswers((prev) => {
