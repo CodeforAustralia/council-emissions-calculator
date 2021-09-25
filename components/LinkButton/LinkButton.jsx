@@ -34,3 +34,11 @@ export function ContinueButton(props) {
     </LinkButton>
   );
 }
+
+export function SubmitButton(props) {
+  return (
+    <LinkButton {...props}>
+      <Text>Submit</Text>
+    </LinkButton>
+  );
+}
