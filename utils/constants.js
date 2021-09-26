@@ -20,6 +20,3 @@ export const modesOfTransport = [
 ];
 
 export const departments = ["education", "health", "transport", "finance"];
-
-export const productionUrl =
-  "https://codeforaustralia.github.io/council-emissions-calculator-spike";
