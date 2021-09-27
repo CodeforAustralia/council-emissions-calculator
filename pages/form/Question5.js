@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { Heading, Text, Select, Grid } from "@chakra-ui/react";
+import { Heading, Text, Select, Stack, Grid } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import { departments } from "../../utils/constants";
+import LinkButton from "../../components/LinkButton/LinkButton";
 import {
   BackButton,
+  ContinueButton,
   SubmitButton,
 } from "../../components/LinkButton/LinkButton";
 import capitalize from "../../utils/capitalize";
@@ -45,7 +47,7 @@ export default function Question5() {
       <Grid templateColumns="repeat(2, 1fr)" gap={4}>
         <BackButton href="/form/Question4" onClick={saveAnswers} />
         <SubmitButton
-          href="../results"
+          href="/results"
           disabled={!department}
           onClick={() =>
             setAnswers((prev) => {
