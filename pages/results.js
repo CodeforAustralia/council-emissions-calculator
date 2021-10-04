@@ -2,10 +2,8 @@ import { Heading, Text } from "@chakra-ui/react";
 import React from "react";
 import useForm from "../components/FormProvider";
 import Layout from "../components/Layout/Layout";
-// import calculateEmissions from "../utils/calculateEmissions";
 import capitalize from "../utils/capitalize";
-import { daysOfWeek } from "../utils/constants";
-import { getTripCounts } from "../utils/dbApi";
+import { getTripTotalsTop3 } from "./api/trips";
 import Highcharts from 'highcharts';
 import HighchartsExporting from 'highcharts/modules/exporting';
 import HighchartsReact from 'highcharts-react-official';
@@ -15,7 +13,7 @@ if (typeof Highcharts === 'object') {
 }
 
 export async function getServerSideProps() {
-  const tripjson = await getTripCounts();
+  const tripjson = await getTripTotalsTop3();
 
   // console.log(`is tripjson ready?: ${ !!tripjson }`);
   // console.log(`tripjson: ${ JSON.stringify(tripjson) }`);

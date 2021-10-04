@@ -71,7 +71,7 @@ const getSheetsData = async (params) => {
 //     "27"
 //   ]
 // ]
-const getTripTotalsTop3 = async () => {
+export const getTripTotalsTop3 = async () => {
   let params = {
     spreadsheetId: process.env['TRIPS_SHEETID'],
     range: process.env['TRIPS_CELLRANGE'],
