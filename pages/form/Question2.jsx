@@ -9,7 +9,7 @@ import {
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import { modesOfTransport } from "../../utils/constants";
-import Q2Progress from "../../public/images/progress-bar/q2-progress-bar.svg";
+import Q2Progress from "../../public/images/progress-bar/q2-progress-dots.svg";
 import { BackButton, ContinueButton } from "../../components/LinkButton/LinkButton";
 
 export default function Question2() {
@@ -22,8 +22,7 @@ export default function Question2() {
   let isWFH = answers.week.every(day => day !== 'office');
 
   return (
-    <Layout>
-      <Q2Progress />
+    <Layout isText={true} Progress={Q2Progress}>
       {
         isWFH
           ?
