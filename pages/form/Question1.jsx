@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Heading, Text, Box, Checkbox, Grid } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
-import { Header } from "../../components/Layout/Layout"
 import useForm, { FormProvider } from "../../components/FormProvider";
 import LinkButton from "../../components/LinkButton/LinkButton";
 import Q1Progress from "../../public/images/progress-bar/q1-progress-dots.svg"
@@ -49,8 +48,12 @@ export default function Question1() {
     <Layout isText={true} Progress={ Q1Progress }>
       <Box>
         <Box p={1} lineHeight="4rem">
-          <Heading as="h1" size="md">Which days and where do you work in an average week?</Heading>
-          <Text>If you didn&apos;t work on a particular day, don&apos;t select anything.</Text>
+          <Heading as="h1" size="md">
+            Which days and where do you work in an average week?
+          </Heading>
+          <Text>
+            If you didn&apos;t work on a particular day, don&apos;t select anything.
+          </Text>
         </Box>
         <Table variant="striped">
           <Tbody>

@@ -1,21 +1,11 @@
 import Head from "next/head";
 import { Container, Flex, Text, Box } from "@chakra-ui/react";
-import { extendTheme } from "@chakra-ui/react"
-import { createBreakpoints } from "@chakra-ui/theme-tools"
 import { useRouter } from 'next/router'
 
 const titleBarHeightDesk = "147px";
 const titleBarHeightMob = "95px";
 
-const breakpoints = createBreakpoints({
-  sm: "670px",
-  lg: "1400px",
-})
-
-const theme = extendTheme({ breakpoints })
-
 export default function Layout({ children, Progress, isText }) {
-  
   return (
     <>
       <Head>
@@ -39,17 +29,17 @@ export default function Layout({ children, Progress, isText }) {
 export function Header({ isText, Progress }) {
   const router = useRouter()
   return (
-    <Flex alignItems="center" flexGrow={1} justifyContent="space-around" height={{ sm: "20px", lg: "500px" }} top="0" w="100%" bg={["#055E9E", "green"]} color="white" zIndex={10}>
+    <Flex alignItems="center" flexGrow={1} justifyContent="space-around" height={ [titleBarHeightMob, titleBarHeightDesk] } top="0" w="100%" bg="#055E9E" color="white" zIndex={10}>
       {
         isText
         ?
           router.pathname === '/'
           ?
-          <Text fontSize={["24px", "24px", "30px"]} fontWeight="bold" flex={1} textAlign="center">
+          <Text fontSize={["24px", "30px"]} fontWeight="bold" flex={1} textAlign="center">
             SeeChange
           </Text>
           :
-          <Text fontSize={["24px", "24px", "30px"]} fontWeight="bold" flex={1} visibility={["hidden", "visible", "visible"]} textAlign="center">
+          <Text fontSize={["24px", "30px"]} fontWeight="bold" flex={1} visibility={["hidden", "visible"]} textAlign="center">
             SeeChange
           </Text>
         :

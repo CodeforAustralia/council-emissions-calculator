@@ -2,7 +2,6 @@ import { Heading, Text } from "@chakra-ui/react";
 import Layout from "../components/Layout/Layout";
 import LinkButton from "../components/LinkButton/LinkButton";
 import HomePageImage from "../public/images/home-page-image.svg";
-import { Header } from "../components/Layout/Layout";
 
 function Progress() {
   return <></>
