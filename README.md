@@ -34,3 +34,24 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+### Pulling latest changes from the master CodeforAustralia/council-emission-calculator-spike
+
+The command for adding of the master repo to local main branch is : -
+
+`git remote add upstream (url of the master repo)`
+
+`Upstream` is the name given to the remoter master branch. It can be any name given at the time of adding the remote master to local main branch.
+
+Updating the local main with all major changes that were merged in the master. There are 2 ways.
+
+1. Using github : - Use `Fetch Upstream` button option on the right top side of the code listing.
+
+2. Using terminal to pull the changes from master : -
+
+i) `git fetch upstream`
+ii) `git merge upstream/main`
+
+3. View the list of remote repository in local main.
+
+`git remote -v`
