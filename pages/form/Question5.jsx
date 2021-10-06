@@ -1,16 +1,14 @@
 import { useState } from "react";
-import { Heading, Text, Select, Stack, Grid } from "@chakra-ui/react";
+import { Text, Select, Grid } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import { departments } from "../../utils/constants";
-import LinkButton from "../../components/LinkButton/LinkButton";
 import {
   BackButton,
-  ContinueButton,
   SubmitButton,
 } from "../../components/LinkButton/LinkButton";
 import capitalize from "../../utils/capitalize";
-import Q5Progress from "../../public/images/progress-bar/q5-progress-bar.svg";
+import Q5Progress from "../../public/images/progress-bar/q5-progress-dots.svg";
 import { sendFormResponse } from "../../utils/dbApi";
 
 export default function Question5() {
@@ -19,11 +17,9 @@ export default function Question5() {
 
   const saveAnswers = () => setAnswers((prev) => ({ ...prev, department }));
   return (
-    <Layout>
-      <Q5Progress />
+    <Layout isText={true} Progress={Q5Progress}>
 
       <Text textAlign="center">
-        <br />
         Which department do you work for?
       </Text>
       <Select

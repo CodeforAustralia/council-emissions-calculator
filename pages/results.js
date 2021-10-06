@@ -13,12 +13,13 @@ export default function Results() {
   const { km, mainTransportMode, department, incentive } = answers;
 
   return (
-    <Layout>
+    <Layout isText={true} >
       {/* Button for download */}
       <Button className="resultbtn" colorScheme="blue">
         Download as PDF or CSV {""}
         <FiDownload />
       </Button>
+
       <Heading>Your results:</Heading>
 
       <Text>
