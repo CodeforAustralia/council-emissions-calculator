@@ -3,7 +3,7 @@ import { Heading, Text, Box, Checkbox, Grid } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm, { FormProvider } from "../../components/FormProvider";
 import LinkButton from "../../components/LinkButton/LinkButton";
-import Q1Progress from "../../public/images/progress-bar/q1-progress-dots.svg"
+import Q1Progress from "../../public/images/progress-bar/q1-progress-dots.svg";
 import { daysOfWeek } from "../../utils/constants";
 import {
   Table,

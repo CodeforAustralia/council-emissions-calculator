@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Container, Flex, Text, Box } from "@chakra-ui/react";
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 
 const titleBarHeightDesk = "147px";
 const titleBarHeightMob = "95px";
