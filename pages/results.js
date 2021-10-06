@@ -1,8 +1,9 @@
-import { Heading, Text } from "@chakra-ui/react";
+import { Heading, Text, Button } from "@chakra-ui/react";
 import React from "react";
 import useForm from "../components/FormProvider";
 import Layout from "../components/Layout/Layout";
 import capitalize from "../utils/capitalize";
+import { FiDownload } from "react-icons/fi";
 import { getTripTotalsTop3 } from "./api/trips";
 import Highcharts from 'highcharts';
 import HighchartsExporting from 'highcharts/modules/exporting';
@@ -64,15 +65,18 @@ const TripsChart = ({ data }) => {
 export default function Results({ data }) {
   const { answers } = useForm();
   const { km, mainTransportMode, department, incentive } = answers;
-  // const { form_responses } = getFormResponses();
-  // const results = calculateEmissions(km, transportModes);
-
-  // console.log(`fetched data: ${ JSON.stringify(data) }`);
 
   return (
-    <Layout>
+    <Layout isText={true} >
+      {/* Button for download */}
+      <Button className="resultbtn" colorScheme="blue">
+        Download as PDF or CSV {""}
+        <FiDownload />
+      </Button>
+
       <Heading>Your results:</Heading>
       <TripsChart data={data} />
+
       <Text>
         <br />
         <b>Department:</b> {capitalize(department)}
