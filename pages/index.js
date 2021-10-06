@@ -3,13 +3,9 @@ import Layout from "../components/Layout/Layout";
 import LinkButton from "../components/LinkButton/LinkButton";
 import HomePageImage from "../public/images/home-page-image.svg";
 
-function Progress() {
-  return <></>
-}
-
 export default function Home() {
   return (
-    <Layout Progress={Progress} isText={true} >
+    <Layout isText={true} >
       <Heading>Your Weekly Commute</Heading>
       <HomePageImage />
       <Text>

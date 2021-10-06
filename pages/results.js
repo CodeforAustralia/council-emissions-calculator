@@ -13,7 +13,7 @@ export default function Results() {
   // const { form_responses } = getFormResponses();
 
   return (
-    <Layout>
+    <Layout isText={true} >
       <Heading>Your results:</Heading>
       <Text>
         <br />

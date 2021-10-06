@@ -47,7 +47,7 @@ export function Header({ isText, Progress }) {
         </Box>
       }
       <Flex flex={1} justifyContent="center">
-        <Progress />
+        { Progress ? <Progress /> : <></> }
       </Flex>
       {/* Dummy box to center the Progress component */}
       <Box flex={1}>
