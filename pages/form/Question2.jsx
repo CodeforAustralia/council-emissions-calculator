@@ -23,7 +23,7 @@ export default function Question2() {
   // check if user is working from home (i.e., never travelling to the office)
   let isWFH = answers.week.every(day => day !== 'office');
 
-  const clickHandler = function(e) {
+  const clickHandler = function (e) {
     console.log(e.target.value);
     let selected = daysSelected;
     if (selected.includes(e.target.value)) {
@@ -45,7 +45,7 @@ export default function Question2() {
       <Text mt={12}>
         You can select one or multiple days.
       </Text>
-      
+
       <Wrap justify="center" spacing={5} mt={12}>
         {daysOfWeek.map(day => (
           <WrapItem key={day} justifyContent="center">
@@ -62,8 +62,26 @@ export default function Question2() {
           </WrapItem>
         ))}
       </Wrap>
-      
-      <Button w={["80vw", "80%"]} mt={12} p={7}>Next</Button>
+
+      <Button
+        w={["80vw", "80%"]}
+        mt={12}
+        p={7}
+        color="#fff"
+        bg="#044B7F"
+        _disabled={{
+          bg:"#D0D9DF",
+          _hover:{
+            cursor:"not-allowed"
+          }
+        }}
+        _hover={{
+          bg:"var(--chakra-colors-blue-500)"
+        }}
+        disabled={daysSelected.length === 0}
+      >
+        Next
+      </Button>
     </Layout>
   );
 }
