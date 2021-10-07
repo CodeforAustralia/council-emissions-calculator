@@ -69,14 +69,15 @@ export default function Question2() {
         p={7}
         color="#fff"
         bg="#044B7F"
+        _hover={{
+          bg:"var(--chakra-colors-blue-500)"
+        }}
         _disabled={{
           bg:"#D0D9DF",
           _hover:{
-            cursor:"not-allowed"
+            cursor:"not-allowed",
+            bg:"#D0D9DF"
           }
-        }}
-        _hover={{
-          bg:"var(--chakra-colors-blue-500)"
         }}
         disabled={daysSelected.length === 0}
       >
