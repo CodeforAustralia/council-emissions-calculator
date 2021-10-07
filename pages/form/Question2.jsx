@@ -1,78 +1,70 @@
 import { useState } from "react";
 import {
-  Box,
-  Grid,
+  Wrap,
+  WrapItem,
+  Button,
   Heading,
   Text,
-  Select,
 } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
-import { modesOfTransport } from "../../utils/constants";
+import { daysOfWeek, modesOfTransport } from "../../utils/constants";
 import Q2Progress from "../../public/images/progress-bar/q2-progress-dots.svg";
+import Q2Cloud from "../../public/images/clouds/cloud-q2.svg";
 import { BackButton, ContinueButton } from "../../components/LinkButton/LinkButton";
 
 export default function Question2() {
   const { answers, setAnswers } = useForm();
-  const [selectedMode, setSelectedMode] = useState(answers.mainTransportMode || "");
+  const [daysSelected, setDaysSelected] = useState([]);
+  // const [selectedMode, setSelectedMode] = useState(answers.mainTransportMode || "");
 
   const saveAnswers = () => setAnswers(prev => ({ ...prev, mainTransportMode: selectedMode }));
 
   // check if user is working from home (i.e., never travelling to the office)
   let isWFH = answers.week.every(day => day !== 'office');
 
+  const clickHandler = function(e) {
+    console.log(e.target.value);
+    let selected = daysSelected;
+    if (selected.includes(e.target.value)) {
+      selected = selected.filter(day => day !== e.target.value);
+    } else {
+      selected = [...selected, e.target.value];
+    }
+    setDaysSelected(selected);
+  }
+
   return (
     <Layout isText={true} Progress={Q2Progress}>
-      {
-        isWFH
-          ?
-          <>
-            <Heading as="h1" size="md" mt={6}>Looks like you are working from home!</Heading>
-            <Text my={5}>
-              Move to the next question.
-            </Text>
-            <ContinueButton href="/form/Question3" />
-          </>
-          :
-          <>
-            <Box mt={6}>
-              <Heading as="h1" size="md">
-                How do you travel to work in an average week?
-              </Heading>
-              <Text my={5}>
-                Select the main way you travel to work.
-              </Text>
-              <Text my={5}>
-                For example, if you usually drive 2km to the train and then catch the train for 15km, choose train as your way of travel.
-              </Text>
-              <Text my={5}>
-                If you currently work from home, we will use this information to calculate the emissions you save by working at home.
-              </Text>
-              <Select
-                placeholder="Select travel method"
-                alignSelf="start"
-                w="50%"
-                onChange={(e) => setSelectedMode(e.target.value)}
-              >
-                {
-                  modesOfTransport.map(mode => (
-                    <option
-                      key={mode}
-                      value={mode}
-                      selected={mode === selectedMode}
-                    >
-                      {mode}
-                    </option>
-                  ))
-                }
-              </Select>
-            </Box>
-            <Grid templateColumns="repeat(2, 1fr)" gap={4}>
-              <BackButton href="/form/Question1" onClick={saveAnswers} />
-              <ContinueButton href="/form/Question3" onClick={saveAnswers} disabled={!selectedMode} />
-            </Grid>
-          </>
-      }
+      <Q2Cloud />
+
+      <Heading as="h1" mt={12} textAlign="center">
+        Which day(s) do you work on-site?
+      </Heading>
+
+      <Text mt={12}>
+        You can select one or multiple days.
+      </Text>
+      
+      <Wrap justify="center" spacing={5} mt={12}>
+        {daysOfWeek.map(day => (
+          <WrapItem key={day} justifyContent="center">
+            <Button
+              w={["80vw", "100%"]}
+              p={7}
+              variant={[...daysSelected].includes(day) ? "solid" : "outline"}
+              colorScheme="blue"
+              onClick={clickHandler}
+              value={day}
+            >
+              {day}
+            </Button>
+          </WrapItem>
+        ))}
+      </Wrap>
+      
+      <Button w={["80vw", "80%"]} mt={12} p={7}>Next</Button>
     </Layout>
   );
 }
+
