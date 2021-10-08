@@ -18,7 +18,7 @@ export default function LinkButton({
         colorScheme="#044B7F.700"
         size="lg"
         fontSize="18px"
-        w="230px"
+        // w="230px"
         h="55px"
         bg="#044B7F"
         color="white"
