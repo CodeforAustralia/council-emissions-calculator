@@ -52,7 +52,7 @@ export default function Question4() {
         <Box fontSize="20px" mr="10px" textAlign="left">
           <Text my={2} maxWidth={"550px"}>
             For example, if you usually drive 2km to the train and then catch
-            the train for 15km, choose 'Train' as the main way you travel to
+            the train for 15km, choose &apos;Train&apos; as the main way you travel to
             work.
           </Text>
         </Box>
