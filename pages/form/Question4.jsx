@@ -53,7 +53,7 @@ export default function Question4() {
 
       {/* Responsive buttons */}
       <Flex maxWidth="full" margin={"60px 0px 50px"} flexDirection="column">
-        <Box fontSize="20px" mr="10px" textAlign="left">
+        <Box fontSize="18px" mr="10px" textAlign="left">
           <Text my={2} maxWidth={"550px"}>
             For example, if you drive 2km to the train and then catch the train
             for 15km, choose 'Train' as your way of travel.

@@ -14,13 +14,12 @@ export default function LinkButton({
       <Button
         disabled={disabled}
         onClick={onClick}
-        variant={variant || "solid"}
         colorScheme="#044B7F.700"
         size="lg"
         fontSize="18px"
-        w="350px"
+        w="330px"
         h="55px"
-        outline="none"
+        variant="ghost"
       >
         {children}
       </Button>

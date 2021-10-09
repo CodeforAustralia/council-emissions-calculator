@@ -19,9 +19,9 @@ a {
 .backbtn {
   background-color: white;
   color: #044b7f;
-  outline: none;
   text-decoration: underline;
 }
+
 /* next button background */
 .nextbtn {
   background-color: #044b7f;
