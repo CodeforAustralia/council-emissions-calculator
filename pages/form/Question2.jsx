@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Wrap,
   WrapItem,
@@ -8,9 +8,7 @@ import {
   Radio,
   RadioGroup,
   Collapse,
-  Box,
 } from "@chakra-ui/react";
-import { useDisclosure } from "@chakra-ui/hooks";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import { daysOfWeek, modesOfTransport } from "../../utils/constants";
@@ -24,12 +22,30 @@ const ON_SITE = "on-site";
 export default function Question2() {
   const { answers, setAnswers } = useForm();
   const [daysSelected, setDaysSelected] = useState([]);
-  const [workMode, setWorkMode] = useState(null);
+  const [workMode, setWorkMode] = useState(answers.workMode);
   // const [selectedMode, setSelectedMode] = useState(answers.mainTransportMode || "");
 
+  // working around existing backend options "office", "home" and "didNotWork"
+  useEffect(() => {
+    console.table(answers);
+    if (answers.week) {
+      answers.week.forEach((entry, i) => {
+        if (entry === "office") setDaysSelected(prev => [...prev, daysOfWeek[i]]);
+      });
+    }
+  }, [])
+
   const saveAnswers = () => {
+    setAnswers(prev => ({...prev, workMode: workMode}));
     const onSiteDays = (workMode === ON_SITE) ? daysSelected : [];
-    setAnswers(prev => ({ ...prev, onSiteDays: onSiteDays }));
+    // working around existing backend options "office", "home" and "didNotWork"
+    setAnswers(prev => {
+      let week = daysOfWeek.map(day => {
+        if (onSiteDays.includes(day)) return "office";
+        else return "home";
+      });
+      return { ...prev, week };
+    });
   }
 
   const dayClickHandler = function (e) {
@@ -47,11 +63,12 @@ export default function Question2() {
     <Layout isText={true} Progress={Q2Progress}>
       <Q2Cloud />
 
-      <Heading as="h1" mt={12} fontSize={[26, 36]} fontWeight={700} textAlign="center">
+      {/* <Heading as="h1" mt={12} fontSize={[26, 36]} fontWeight={700} textAlign="center"> */}
+      <Heading>
         Which day(s) do you travel to work in an average week?
       </Heading>
 
-      <RadioGroup mt={12} w="100%" textAlign="left" onChange={e => setWorkMode(e)}>
+      <RadioGroup mt={12} w="100%" textAlign="left" onChange={e => setWorkMode(e)} value={workMode}>
         <Radio mb={5} name={WFH} id={WFH} value={WFH}>
           <Text fontSize={[18, 20]} fontWeight={700}>
             I work fully from home
