@@ -2,7 +2,7 @@ import { useState } from "react";
 import {
   Box,
   Grid,
-  Heading, 
+  Heading,
   Text,
   Select, 
 } from "@chakra-ui/react";
