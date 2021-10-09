@@ -58,8 +58,8 @@ export function Header({ isText, Progress }) {
 
 export function Content({ children }) {
   return (
-    <Flex alignItems="center" minHeight={[`calc(100vh - ${titleBarHeightMob})`, `calc(100vh - ${titleBarHeightDesk})`] } pos="relative" py={5}>
-      <Container centerContent maxW="container.sm" p={5}>
+    <Flex alignItems="start" minHeight={[`calc(100vh - ${titleBarHeightMob})`, `calc(100vh - ${titleBarHeightDesk})`] } pos="relative" py={5}>
+      <Container centerContent maxW="container.sm" px={5} py={["65px", "97px"]}>
         {children}
       </Container>
     </Flex>
