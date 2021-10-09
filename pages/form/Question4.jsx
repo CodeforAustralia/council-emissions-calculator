@@ -56,7 +56,7 @@ export default function Question4() {
         <Box fontSize="20px" mr="10px" textAlign="left">
           <Text my={2} maxWidth={"550px"}>
             For example, if you drive 2km to the train and then catch the train
-            for 15km, choose 'Train' as your way of travel.
+            for 15km, choose &apos;Train&apos; as your way of travel.
           </Text>
           <Text my={2} maxWidth={"550px"}>
             If you work fully from home, respond to this questions as if you
