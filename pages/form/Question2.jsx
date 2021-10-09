@@ -4,7 +4,7 @@ import {
   Grid,
   Heading,
   Text,
-  Select, 
+  Select,
 } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
