@@ -13,12 +13,17 @@ export default function Layout({ children, Progress, isText }) {
         <meta name="description" content="Emissions calculator" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Flex minHeight="100vh" direction="column" marginBottom={"60px"}>
+      <Flex 
+        minHeight="100vh" 
+        direction="column" 
+      >
         <Header 
           isText={isText} 
           Progress={Progress} 
         />
-        <Content>
+        <Content 
+          // padding="30px"
+        >
           { children }
         </Content>
       </Flex>

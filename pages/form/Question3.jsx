@@ -26,35 +26,56 @@ export default function Question3() {
 
   return (
     <Layout isText={true} Progress={Q3Progress}>
-      <Box margin={"50px 0px 50px"} >
+      <Box>
         <Q3Cloud />
       </Box>
-      <Heading fontSize="40px" mt="6" fontWeight={700} maxWidth={"624px"} textAlign={"center"} marginBottom={"30px"} >
+      <Heading 
+        fontSize="40px" 
+        mt="6" 
+        fontWeight={700} 
+        maxWidth={"624px"} 
+        textAlign={"center"} 
+        marginBottom={"30px"} 
+      >
         How many kilometres do you usually travel to work, one-way?
       </Heading>
       <Flex flexDirection={["column", "row"]}>
-        <Text mt="4" textAlign={"left"} maxWidth={"450px"}>
+        <Text 
+          mt="4" 
+          textAlign={"left"} 
+          maxWidth={"450px"} 
+          width={["100%", "48%"]}
+        >
           If you usually work from home, we will use the information you provide to calculate the emissions you save by working at home.
         </Text>
-        <FormControl mt="4">
-          <FormLabel>
-            In kilometers:
-          </FormLabel>
-          <NumberInput isRequired={true}>
-            <NumberInputField
-              id="km-input"
-              placeholder="Distance in kms"
-              value="25"
-              onChange={(e) => setKm(e.target.value)}
-            />
-          </NumberInput>
-          <FormHelperText id="km-input-helper">*Required</FormHelperText>
-        </FormControl>
+        <Box w={["100%", "48%"]}>
+          <FormControl mt="4">
+            <FormLabel>
+              In kilometers:
+            </FormLabel>
+            <NumberInput isRequired={true} defaultValue={km}>
+              <NumberInputField
+                w="100%"
+                id="km-input"
+                placeholder={"Distance in kms"}
+                onChange={(e) => setKm(e.target.value)}
+              />
+            </NumberInput>
+            <FormHelperText id="km-input-helper">
+              *Required
+            </FormHelperText>
+          </FormControl>
+          <ContinueButton 
+            href="/form/Question4" 
+            width="100%"
+            topMargin={4}
+            onClick={saveAnswers} 
+            disabled={!km} 
+          />
+        </Box>
       </Flex>
-      <Grid templateColumns="repeat(2, 1fr)" gap={4}>
-        <BackButton href="/form/Question2" onClick={saveAnswers} />
-        <ContinueButton href="/form/Question4" onClick={saveAnswers} disabled={!km} />
-      </Grid>
+      {/* <Grid templateColumns="repeat(2, 1fr)" gap={4}>
+      </Grid> */}
     </Layout>
   );
 }
