@@ -5,25 +5,34 @@ import {
   Button,
   Heading,
   Text,
+  Radio,
+  RadioGroup,
+  Collapse,
+  Box,
 } from "@chakra-ui/react";
+import { useDisclosure } from "@chakra-ui/hooks";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import { daysOfWeek, modesOfTransport } from "../../utils/constants";
 import Q2Progress from "../../public/images/progress-bar/q2-progress-dots.svg";
 import Q2Cloud from "../../public/images/clouds/cloud-q2.svg";
-import { BackButton, ContinueButton } from "../../components/LinkButton/LinkButton";
+import LinkButton, { BackButton, ContinueButton } from "../../components/LinkButton/LinkButton";
+
+const WFH = "work from home";
+const ON_SITE = "on-site";
 
 export default function Question2() {
   const { answers, setAnswers } = useForm();
   const [daysSelected, setDaysSelected] = useState([]);
+  const [workMode, setWorkMode] = useState(null);
   // const [selectedMode, setSelectedMode] = useState(answers.mainTransportMode || "");
 
-  const saveAnswers = () => setAnswers(prev => ({ ...prev, mainTransportMode: selectedMode }));
+  const saveAnswers = () => {
+    const onSiteDays = (workMode === ON_SITE) ? daysSelected : [];
+    setAnswers(prev => ({ ...prev, onSiteDays: onSiteDays }));
+  }
 
-  // check if user is working from home (i.e., never travelling to the office)
-  let isWFH = answers.week.every(day => day !== 'office');
-
-  const clickHandler = function (e) {
+  const dayClickHandler = function (e) {
     console.log(e.target.value);
     let selected = daysSelected;
     if (selected.includes(e.target.value)) {
@@ -38,51 +47,63 @@ export default function Question2() {
     <Layout isText={true} Progress={Q2Progress}>
       <Q2Cloud />
 
-      <Heading as="h1" mt={12} textAlign="center">
-        Which day(s) do you work on-site?
+      <Heading as="h1" mt={12} fontSize={[26, 36]} fontWeight={700} textAlign="center">
+        Which day(s) do you travel to work in an average week?
       </Heading>
 
-      <Text mt={12}>
-        You can select one or multiple days.
-      </Text>
+      <RadioGroup mt={12} w="100%" textAlign="left" onChange={e => setWorkMode(e)}>
+        <Radio mb={5} name={WFH} id={WFH} value={WFH}>
+          <Text fontSize={[18, 20]} fontWeight={700}>
+            I work fully from home
+          </Text>
+        </Radio>
 
-      <Wrap justify="center" spacing={5} mt={12}>
-        {daysOfWeek.map(day => (
-          <WrapItem key={day} justifyContent="center">
-            <Button
-              w={["80vw", "100%"]}
-              p={7}
-              variant={[...daysSelected].includes(day) ? "solid" : "outline"}
-              colorScheme="blue"
-              onClick={clickHandler}
-              value={day}
-            >
-              {day}
-            </Button>
-          </WrapItem>
-        ))}
-      </Wrap>
+        <Collapse in={workMode === WFH}>
+            <Text mb={5} fontSize={[15, 17]} px="20px" py="12px" color="#155724" bg="#D4EDDA">
+              We will use the information of the following two questions to calculate the emissions you save by working at home.
+            </Text>
+        </Collapse>
 
-      <Button
-        w={["80vw", "80%"]}
-        mt={12}
-        p={7}
-        color="#fff"
-        bg="#044B7F"
-        _hover={{
-          bg:"var(--chakra-colors-blue-500)"
-        }}
-        _disabled={{
-          bg:"#D0D9DF",
-          _hover:{
-            cursor:"not-allowed",
-            bg:"#D0D9DF"
-          }
-        }}
-        disabled={daysSelected.length === 0}
+        <hr style={{borderTop: "1px dashed var(--chakra-colors-gray-200)"}} />
+
+        <Radio mt={5} name={ON_SITE} id={ON_SITE} value={ON_SITE}>
+          <Text fontSize={[18, 20]} fontWeight={700}>
+            I work on-site on...
+          </Text>
+        </Radio>
+      </RadioGroup>
+
+      <Collapse in={workMode === ON_SITE}>
+        <Text mt={5} fontSize={17} fontWeight={500}>
+          You can multiple
+        </Text>
+
+        <Wrap justify="left" spacing={[5, 2]} mt={2}>
+          {daysOfWeek.map(day => (
+            <WrapItem key={day} justifyContent="center">
+              <Button
+                w={["90vw", "144px"]}
+                h="55px"
+                variant={[...daysSelected].includes(day) ? "solid" : "outline"}
+                colorScheme="blue"
+                onClick={dayClickHandler}
+                value={day}
+              >
+                {day}
+              </Button>
+            </WrapItem>
+          ))}
+        </Wrap>
+      </Collapse>
+
+      <LinkButton
+        href="/form/Question3"
+        onClick={saveAnswers}
+        disabled={!(workMode === WFH || (workMode === ON_SITE && daysSelected.length > 0))}
       >
         Next
-      </Button>
+      </LinkButton>
+
     </Layout>
   );
 }
