@@ -32,7 +32,15 @@ export default function Question4() {
 
   return (
     <Layout isText={true} Progress={Q4Progress}>
-      <Box pos="absolute" top="10px" left="-90px" className="backbtn">
+      <Box
+        pos="absolute"
+        top="10px"
+        left="-90px"
+        className="backbtn"
+        bg="white"
+        color="#044b7f"
+        text-decoration="underline"
+      >
         <BackButton href="/form/Question3" onClick={saveAnswers} />
       </Box>
 
@@ -89,7 +97,13 @@ export default function Question4() {
               ))}
             </Select>
 
-            <Box maxWidth={"450px"} h="55px" className="nextbtn">
+            <Box
+              maxWidth={"450px"}
+              h="55px"
+              className="nextbtn"
+              bg="#044b7f"
+              color="white"
+            >
               <ContinueButton href="/form/Question5" onClick={saveAnswers} />
             </Box>
           </Stack>

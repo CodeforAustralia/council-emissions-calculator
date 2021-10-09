@@ -17,14 +17,10 @@ a {
 
 /* Back button background */
 .backbtn {
-  background-color: white;
-  color: #044b7f;
   text-decoration: underline;
 }
 
 /* next button background */
 .nextbtn {
-  background-color: #044b7f;
-  color: white;
   border-radius: 5px;
 }
