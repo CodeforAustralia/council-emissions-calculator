@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
-import { BackButton, ContinueButton } from "../../components/LinkButton/LinkButton";
+import { BackButton, SubmitButton } from "../../components/LinkButton/LinkButton";
 import Q6Progress from "../../public/images/progress-bar/q6-progress-dots.svg";
 import Q6Cloud from "../../public/images/clouds/cloud-q6.svg"
 
@@ -39,7 +39,7 @@ export default function Question6() {
       />
       <Grid templateColumns="repeat(2, 1fr)" gap={4}>
         <BackButton href="/form/Question3" onClick={saveAnswers} />
-        <ContinueButton href="/form/Question5" onClick={saveAnswers} />
+        <SubmitButton href="/form/Thankyou" onClick={saveAnswers} />
       </Grid>
     </Layout>
   );
