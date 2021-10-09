@@ -8,7 +8,6 @@ import {
   Select,
   Stack,
   Center,
-  Grid,
 } from "@chakra-ui/react";
 import { modesOfTransport } from "../../utils/constants";
 import Layout from "../../components/Layout/Layout";
@@ -33,6 +32,10 @@ export default function Question4() {
 
   return (
     <Layout isText={true} Progress={Q4Progress}>
+      <Box pos="absolute" top="10px" left="-90px" className="backbtn">
+        <BackButton href="/form/Question3" onClick={saveAnswers} />
+      </Box>
+
       <Box margin={"50px 0px 50px"}>
         <Q4Cloud />
       </Box>
@@ -47,62 +50,49 @@ export default function Question4() {
       >
         Select the main way you travel to work
       </Heading>
+
       {/* Responsive buttons */}
+      <Flex maxWidth="full" margin={"60px 0px 50px"} flexDirection="column">
+        <Box fontSize="20px" mr="10px" textAlign="left">
+          <Text my={2} maxWidth={"550px"}>
+            For example, if you drive 2km to the train and then catch the train
+            for 15km, choose 'Train' as your way of travel.
+          </Text>
+          <Text my={2} maxWidth={"550px"}>
+            If you work fully from home, respond to this questions as if you
+            were to travel to work.
+          </Text>
+        </Box>
+        {/* button is centered on a smaller screen. */}
 
-      <Box fontSize="20px" mr="10px" textAlign="left">
-        <Text my={2} maxWidth={"550px"}>
-          For example, if you drive 2km to the train and then catch the train
-          for 15km, choose 'Train' as your way of travel.
-        </Text>
-        <Text my={2} maxWidth={"550px"}>
-          If you work fully from home, respond to this questions as if you were
-          to travel to work.
-        </Text>
-      </Box>
-      {/* button is centered on a smaller screen. */}
-      <Flex
-        maxWidth="full"
-        margin={"50px 0px 50px"}
-        flexDirection={["column", "row"]}
-      >
         <Center>
-          {/* <Stack direction="column" spacing="15px" justifyContent="center"> */}
-          <Select
-            maxWidth={"230px"}
-            textAlign="center"
-            placeholder="Train"
-            color="#044B7F"
-            h="55px"
-            fontWeight="bold"
-            onChange={(e) => setSelectedMode(e.target.value)}
-            border=".2px solid #044B7F"
-          >
-            {modesOfTransport.map((mode) => (
-              <option
-                fontSize="lg"
-                key={mode}
-                value={mode}
-                selected={mode === selectedMode}
-              >
-                {mode}
-              </option>
-            ))}
-          </Select>
-          {/* </GridItem> */}
-          <Box maxWidth={"450px"} h="55px">
-            <Grid templateColumns="repeat(2, 1fr)" gap={4}>
-              <BackButton href="/form/Question3" onClick={saveAnswers} />
-              <ContinueButton
-                href="/form/Question5"
-                onClick={saveAnswers}
-                // disabled={!km}
-              />
-            </Grid>
-            {/* <BackButton href="/form/Question3" onClick={saveAnswers} />
-              <ContinueButton href="/form/Question5" onClick={saveAnswers} /> */}
+          <Stack spacing="15px" justifyContent="center">
+            <Select
+              maxWidth={"430px"}
+              textAlign="center"
+              placeholder="Train"
+              color="#044B7F"
+              h="55px"
+              fontWeight="bold"
+              onChange={(e) => setSelectedMode(e.target.value)}
+              border=".2px solid #044B7F"
+            >
+              {modesOfTransport.map((mode) => (
+                <option
+                  fontSize="lg"
+                  key={mode}
+                  value={mode}
+                  selected={mode === selectedMode}
+                >
+                  {mode}
+                </option>
+              ))}
+            </Select>
 
-            {/* </Stack> */}
-          </Box>
+            <Box maxWidth={"450px"} h="55px" className="nextbtn">
+              <ContinueButton href="/form/Question5" onClick={saveAnswers} />
+            </Box>
+          </Stack>
         </Center>
       </Flex>
     </Layout>
