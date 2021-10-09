@@ -63,7 +63,6 @@ export default function Question2() {
     <Layout isText={true} Progress={Q2Progress}>
       <Q2Cloud />
 
-      {/* <Heading as="h1" mt={12} fontSize={[26, 36]} fontWeight={700} textAlign="center"> */}
       <Heading>
         Which day(s) do you travel to work in an average week?
       </Heading>
