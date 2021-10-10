@@ -11,41 +11,30 @@ import {
 } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
-import { daysOfWeek, modesOfTransport } from "../../utils/constants";
+import { daysOfWeek } from "../../utils/constants";
 import Q2Progress from "../../public/images/progress-bar/q2-progress-dots.svg";
 import Q2Cloud from "../../public/images/clouds/cloud-q2.svg";
-import LinkButton, { BackButton, ContinueButton } from "../../components/LinkButton/LinkButton";
+import LinkButton from "../../components/LinkButton/LinkButton";
 
 const WFH = "work from home";
 const ON_SITE = "on-site";
 
 export default function Question2() {
   const { answers, setAnswers } = useForm();
-  const [daysSelected, setDaysSelected] = useState([]);
+  const [daysSelected, setDaysSelected] = useState(answers.travelDays || []);
   const [workMode, setWorkMode] = useState(answers.workMode);
-  // const [selectedMode, setSelectedMode] = useState(answers.mainTransportMode || "");
 
-  // working around existing backend options "office", "home" and "didNotWork"
   useEffect(() => {
     console.table(answers);
-    if (answers.week) {
-      answers.week.forEach((entry, i) => {
-        if (entry === "office") setDaysSelected(prev => [...prev, daysOfWeek[i]]);
-      });
-    }
   }, [])
 
   const saveAnswers = () => {
+    // saving radio button selection
     setAnswers(prev => ({...prev, workMode: workMode}));
+
+    // cleaning and/or saving days travelled
     const onSiteDays = (workMode === ON_SITE) ? daysSelected : [];
-    // working around existing backend options "office", "home" and "didNotWork"
-    setAnswers(prev => {
-      let week = daysOfWeek.map(day => {
-        if (onSiteDays.includes(day)) return "office";
-        else return "home";
-      });
-      return { ...prev, week };
-    });
+    setAnswers(prev => ({ ...prev, travelDays: onSiteDays }));
   }
 
   const dayClickHandler = function (e) {
