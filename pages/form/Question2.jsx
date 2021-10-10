@@ -113,6 +113,7 @@ export default function Question2() {
       </Collapse>
 
       <LinkButton
+        width={["90vw", "90%"]}
         href="/form/Question3"
         onClick={saveAnswers}
         disabled={!(workMode === WFH || (workMode === ON_SITE && daysSelected.length > 0))}
