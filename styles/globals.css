@@ -14,13 +14,3 @@ a {
 * {
   box-sizing: border-box;
 }
-
-/* Back button background */
-.backbtn {
-  text-decoration: underline;
-}
-
-/* next button background */
-.nextbtn {
-  border-radius: 5px;
-}

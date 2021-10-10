@@ -33,7 +33,6 @@ export default function Question4() {
   return (
     <Layout isText={true} Progress={Q4Progress}>
       <Box
-        // layerStyle="selected"
         pos="absolute"
         top="10px"
         left="-90px"
@@ -106,6 +105,7 @@ export default function Question4() {
               bg="#044b7f"
               color="white"
               borderRadius="5px"
+              mt="5px"
             >
               <ContinueButton href="/form/Question5" onClick={saveAnswers} />
             </Box>
