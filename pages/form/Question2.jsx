@@ -16,17 +16,14 @@ import Q2Progress from "../../public/images/progress-bar/q2-progress-dots.svg";
 import Q2Cloud from "../../public/images/clouds/cloud-q2.svg";
 import LinkButton from "../../components/LinkButton/LinkButton";
 
-const WFH = "work from home";
-const ON_SITE = "on-site";
+const WFH = "full work from home";
+const ON_SITE = "full/partial on-site";
 
 export default function Question2() {
   const { answers, setAnswers } = useForm();
   const [daysSelected, setDaysSelected] = useState(answers.travelDays || []);
   const [workMode, setWorkMode] = useState(answers.workMode);
-
-  useEffect(() => {
-    console.table(answers);
-  }, [])
+  const [daysRemaining, setDaysRemaining] = useState(answers.nWorkDays || 0);
 
   const saveAnswers = () => {
     // saving radio button selection
@@ -38,12 +35,13 @@ export default function Question2() {
   }
 
   const dayClickHandler = function (e) {
-    console.log(e.target.value);
     let selected = daysSelected;
     if (selected.includes(e.target.value)) {
       selected = selected.filter(day => day !== e.target.value);
+      setDaysRemaining(prev => prev + 1);
     } else {
       selected = [...selected, e.target.value];
+      setDaysRemaining(prev => prev - 1);
     }
     setDaysSelected(selected);
   }
@@ -80,7 +78,7 @@ export default function Question2() {
 
       <Collapse in={workMode === ON_SITE}>
         <Text mt={5} fontSize={17} fontWeight={500}>
-          You can multiple
+          {`You can select ${daysRemaining} more days`}
         </Text>
 
         <Wrap justify="left" spacing={[5, 2]} mt={2}>
@@ -89,7 +87,8 @@ export default function Question2() {
               <Button
                 w={["90vw", "144px"]}
                 h="55px"
-                variant={[...daysSelected].includes(day) ? "solid" : "outline"}
+                variant={daysSelected.includes(day) ? "solid" : "outline"}
+                disabled={!daysSelected.includes(day) && daysRemaining <= 0}
                 colorScheme="blue"
                 onClick={dayClickHandler}
                 value={day}
