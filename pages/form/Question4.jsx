@@ -33,13 +33,14 @@ export default function Question4() {
   return (
     <Layout isText={true} Progress={Q4Progress}>
       <Box
+        // layerStyle="selected"
         pos="absolute"
         top="10px"
         left="-90px"
         className="backbtn"
         bg="white"
         color="#044b7f"
-        text-decoration="underline"
+        textDecoration="underline"
       >
         <BackButton href="/form/Question3" onClick={saveAnswers} />
       </Box>
@@ -60,7 +61,7 @@ export default function Question4() {
       </Heading>
 
       {/* Responsive buttons */}
-      <Flex maxWidth="full" margin={"60px 0px 50px"} flexDirection="column">
+      <Flex maxWidth="full" margin={"50px 0px 60px"} flexDirection="column">
         <Box fontSize="18px" mr="10px" textAlign="left">
           <Text my={2} maxWidth={"550px"}>
             For example, if you drive 2km to the train and then catch the train
@@ -71,6 +72,7 @@ export default function Question4() {
             were to travel to work.
           </Text>
         </Box>
+
         {/* button is centered on a smaller screen. */}
 
         <Center>
@@ -103,6 +105,7 @@ export default function Question4() {
               className="nextbtn"
               bg="#044b7f"
               color="white"
+              borderRadius="5px"
             >
               <ContinueButton href="/form/Question5" onClick={saveAnswers} />
             </Box>
