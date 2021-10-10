@@ -105,7 +105,6 @@ export default function Question4() {
               bg="#044b7f"
               color="white"
               borderRadius="5px"
-              mt="5px"
             >
               <ContinueButton href="/form/Question5" onClick={saveAnswers} />
             </Box>
