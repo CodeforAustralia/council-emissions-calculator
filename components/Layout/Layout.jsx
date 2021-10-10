@@ -13,7 +13,10 @@ export default function Layout({ children, Progress, isText }) {
         <meta name="description" content="Emissions calculator" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Flex minHeight="100vh" direction="column">
+      <Flex 
+        minHeight="100vh" 
+        direction="column" 
+      >
         <Header 
           isText={isText} 
           Progress={Progress} 
@@ -29,7 +32,7 @@ export default function Layout({ children, Progress, isText }) {
 export function Header({ isText, Progress }) {
   const router = useRouter()
   return (
-    <Flex alignItems="center" flexGrow={1} justifyContent="space-around" height={ [titleBarHeightMob, titleBarHeightDesk] } top="0" w="100%" bg="#055E9E" color="white" zIndex={10}>
+    <Flex alignItems="center" flexGrow={1} justifyContent="space-around" height={ [titleBarHeightMob, titleBarHeightDesk] } top="0" w="100%" bg="#044B7F" color="white" zIndex={10}>
       {
         isText
         ?

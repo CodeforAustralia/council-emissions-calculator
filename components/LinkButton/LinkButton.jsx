@@ -1,12 +1,13 @@
 import Link from "next/link";
-import { Button, Text } from "@chakra-ui/react";
+import { Box, Button, Text } from "@chakra-ui/react";
 import BackArrow from "../../public/images/back-arrow.svg";
 
-export default function LinkButton({ children, href, onClick, disabled, variant = "solid" }) {
+export default function LinkButton({ children, href, onClick, disabled, variant="solid", width, topMargin }) {
   return (
     <Link href={href} passHref>
       <Button
-        w={["90vw", "90%"]}
+        mt={topMargin || 12}
+        w={width || "200px"}
         mt={12}
         p={7}
         color="#fff"
@@ -42,7 +43,7 @@ export function BackButton(props) {
 export function ContinueButton(props) {
   return (
     <LinkButton {...props}>
-      <Text>Continue</Text>
+      <Text>Next</Text>
     </LinkButton>
   );
 }
