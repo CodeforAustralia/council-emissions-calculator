@@ -21,9 +21,7 @@ export default function Layout({ children, Progress, isText }) {
           isText={isText} 
           Progress={Progress} 
         />
-        <Content 
-          // padding="30px"
-        >
+        <Content>
           { children }
         </Content>
       </Flex>

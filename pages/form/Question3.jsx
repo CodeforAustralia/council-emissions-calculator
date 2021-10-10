@@ -5,12 +5,10 @@ import {
   FormControl, 
   FormLabel,
   FormHelperText, 
-  Grid,
   Heading,
   Text,
   NumberInput,
   NumberInputField,
-  Link,
 } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
@@ -74,8 +72,6 @@ export default function Question3() {
           />
         </Box>
       </Flex>
-      {/* <Grid templateColumns="repeat(2, 1fr)" gap={4}>
-      </Grid> */}
     </Layout>
   );
 }

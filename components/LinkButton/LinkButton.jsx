@@ -30,9 +30,9 @@ export function BackButton(props) {
 
 export function ContinueButton(props) {
   return (
-      <LinkButton {...props}>
-        <Text>Next</Text>
-      </LinkButton>
+    <LinkButton {...props}>
+      <Text>Next</Text>
+    </LinkButton>
   );
 }
 
