@@ -80,7 +80,7 @@ export default function Question2() {
 
       <Collapse in={workMode === ON_SITE}>
         <Text mt={5} fontSize={17} fontWeight={500} color={daysSelected.length == answers.nWorkDays ? "green" : "" }>
-          {`You have selected ${daysSelected.length} out of your ${answers.nWorkDays} work days.`}
+          {`You work on-site ${daysSelected.length} of ${answers.nWorkDays} days.`}
         </Text>
 
         <Wrap justify="left" spacing={[5, 2]} mt={2}>
