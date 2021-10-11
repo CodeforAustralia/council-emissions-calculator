@@ -1,78 +1,126 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
-  Box,
-  Grid,
+  Wrap,
+  WrapItem,
+  Button,
   Heading,
   Text,
-  Select,
+  Radio,
+  RadioGroup,
+  Collapse,
 } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
-import { modesOfTransport } from "../../utils/constants";
+import { daysOfWeek, modesOfTransport } from "../../utils/constants";
 import Q2Progress from "../../public/images/progress-bar/q2-progress-dots.svg";
-import { BackButton, ContinueButton } from "../../components/LinkButton/LinkButton";
+import Q2Cloud from "../../public/images/clouds/cloud-q2.svg";
+import LinkButton, { BackButton, ContinueButton } from "../../components/LinkButton/LinkButton";
+
+const WFH = "work from home";
+const ON_SITE = "on-site";
 
 export default function Question2() {
   const { answers, setAnswers } = useForm();
-  const [selectedMode, setSelectedMode] = useState(answers.mainTransportMode || "");
+  const [daysSelected, setDaysSelected] = useState([]);
+  const [workMode, setWorkMode] = useState(answers.workMode);
+  // const [selectedMode, setSelectedMode] = useState(answers.mainTransportMode || "");
 
-  const saveAnswers = () => setAnswers(prev => ({ ...prev, mainTransportMode: selectedMode }));
+  // working around existing backend options "office", "home" and "didNotWork"
+  useEffect(() => {
+    console.table(answers);
+    if (answers.week) {
+      answers.week.forEach((entry, i) => {
+        if (entry === "office") setDaysSelected(prev => [...prev, daysOfWeek[i]]);
+      });
+    }
+  }, [])
 
-  // check if user is working from home (i.e., never travelling to the office)
-  let isWFH = answers.week.every(day => day !== 'office');
+  const saveAnswers = () => {
+    setAnswers(prev => ({...prev, workMode: workMode}));
+    const onSiteDays = (workMode === ON_SITE) ? daysSelected : [];
+    // working around existing backend options "office", "home" and "didNotWork"
+    setAnswers(prev => {
+      let week = daysOfWeek.map(day => {
+        if (onSiteDays.includes(day)) return "office";
+        else return "home";
+      });
+      return { ...prev, week };
+    });
+  }
+
+  const dayClickHandler = function (e) {
+    console.log(e.target.value);
+    let selected = daysSelected;
+    if (selected.includes(e.target.value)) {
+      selected = selected.filter(day => day !== e.target.value);
+    } else {
+      selected = [...selected, e.target.value];
+    }
+    setDaysSelected(selected);
+  }
 
   return (
     <Layout isText={true} Progress={Q2Progress}>
-      {
-        isWFH
-          ?
-          <>
-            <Heading as="h1" size="md" mt={6}>Looks like you are working from home!</Heading>
-            <Text my={5}>
-              Move to the next question.
+      <Q2Cloud />
+
+      <Heading>
+        Which day(s) do you travel to work in an average week?
+      </Heading>
+
+      <RadioGroup mt={12} w="100%" textAlign="left" onChange={e => setWorkMode(e)} value={workMode}>
+        <Radio mb={5} name={WFH} id={WFH} value={WFH}>
+          <Text fontSize={[18, 20]} fontWeight={700}>
+            I work fully from home
+          </Text>
+        </Radio>
+
+        <Collapse in={workMode === WFH}>
+            <Text mb={5} fontSize={[15, 17]} px="20px" py="12px" color="#155724" bg="#D4EDDA">
+              We will use the information of the following two questions to calculate the emissions you save by working at home.
             </Text>
-            <ContinueButton href="/form/Question3" />
-          </>
-          :
-          <>
-            <Box mt={6}>
-              <Heading as="h1" size="md">
-                How do you travel to work in an average week?
-              </Heading>
-              <Text my={5}>
-                Select the main way you travel to work.
-              </Text>
-              <Text my={5}>
-                For example, if you usually drive 2km to the train and then catch the train for 15km, choose train as your way of travel.
-              </Text>
-              <Text my={5}>
-                If you currently work from home, we will use this information to calculate the emissions you save by working at home.
-              </Text>
-              <Select
-                placeholder="Select travel method"
-                alignSelf="start"
-                w="50%"
-                onChange={(e) => setSelectedMode(e.target.value)}
+        </Collapse>
+
+        <hr style={{borderTop: "1px dashed var(--chakra-colors-gray-200)"}} />
+
+        <Radio mt={5} name={ON_SITE} id={ON_SITE} value={ON_SITE}>
+          <Text fontSize={[18, 20]} fontWeight={700}>
+            I work on-site on...
+          </Text>
+        </Radio>
+      </RadioGroup>
+
+      <Collapse in={workMode === ON_SITE}>
+        <Text mt={5} fontSize={17} fontWeight={500}>
+          You can multiple
+        </Text>
+
+        <Wrap justify="left" spacing={[5, 2]} mt={2}>
+          {daysOfWeek.map(day => (
+            <WrapItem key={day} justifyContent="center">
+              <Button
+                w={["90vw", "144px"]}
+                h="55px"
+                variant={[...daysSelected].includes(day) ? "solid" : "outline"}
+                colorScheme="blue"
+                onClick={dayClickHandler}
+                value={day}
               >
-                {
-                  modesOfTransport.map(mode => (
-                    <option
-                      key={mode}
-                      value={mode}
-                      selected={mode === selectedMode}
-                    >
-                      {mode}
-                    </option>
-                  ))
-                }
-              </Select>
-            </Box>
-            <Grid templateColumns="repeat(2, 1fr)" gap={4}>
-              <BackButton href="/form/Question1" onClick={saveAnswers} />
-              <ContinueButton href="/form/Question3" onClick={saveAnswers} disabled={!selectedMode} />
-            </Grid>
-          </>
-      }
+                {day}
+              </Button>
+            </WrapItem>
+          ))}
+        </Wrap>
+      </Collapse>
+
+      <LinkButton
+        href="/form/Question3"
+        onClick={saveAnswers}
+        disabled={!(workMode === WFH || (workMode === ON_SITE && daysSelected.length > 0))}
+      >
+        Next
+      </LinkButton>
+
     </Layout>
   );
 }
+
