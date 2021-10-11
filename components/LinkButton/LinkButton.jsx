@@ -8,7 +8,6 @@ export default function LinkButton({ children, href, onClick, disabled, variant=
       <Button
         mt={topMargin || 12}
         w={width || "200px"}
-        mt={12}
         p={7}
         color="#fff"
         bg="#044B7F"
