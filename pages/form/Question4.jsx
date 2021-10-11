@@ -34,12 +34,13 @@ export default function Question4() {
     <Layout isText={true} Progress={Q4Progress}>
       <Box
         pos="absolute"
-        top="10px"
-        left="-90px"
+        top="0"
+        left="-30px"
         className="backbtn"
         bg="white"
-        color="#044b7f"
+        color="black"
         textDecoration="underline"
+        variant="ghost"
       >
         <BackButton href="/form/Question3" onClick={saveAnswers} />
       </Box>
@@ -49,12 +50,12 @@ export default function Question4() {
       </Box>
 
       <Heading
-        fontSize="40px"
-        mt="6"
-        fontWeight={700}
-        maxWidth={"624px"}
-        textAlign={"center"}
-        marginBottom={"30px"}
+      // fontSize="40px"
+      // mt="6"
+      // fontWeight={700}
+      // maxWidth={"624px"}
+      // textAlign={"center"}
+      // marginBottom={"30px"}
       >
         Select the main way you travel to work
       </Heading>
@@ -77,10 +78,10 @@ export default function Question4() {
         <Center>
           <Stack spacing="15px" justifyContent="center">
             <Select
-              maxWidth={"430px"}
+              // maxWidth={"430px"}
               textAlign="center"
               placeholder="Train"
-              color="#044B7F"
+              // color="#044B7F"
               h="55px"
               fontWeight="bold"
               onChange={(e) => setSelectedMode(e.target.value)}
@@ -99,12 +100,12 @@ export default function Question4() {
             </Select>
 
             <Box
-              maxWidth={"450px"}
-              h="55px"
-              className="nextbtn"
-              bg="#044b7f"
-              color="white"
-              borderRadius="5px"
+            // maxWidth={"450px"}
+            // h="55px"
+            // className="nextbtn"
+            // bg="#044b7f"
+            // color="white"
+            // borderRadius="5px"
             >
               <ContinueButton href="/form/Question5" onClick={saveAnswers} />
             </Box>

@@ -18,7 +18,6 @@ export default function LinkButton({
         w={width || "200px"}
         mt={12}
         p={7}
-        color="#fff"
         bg="#044B7F"
         variant={variant}
         _hover={{
@@ -52,7 +51,7 @@ export function BackButton(props) {
 export function ContinueButton(props) {
   return (
     <LinkButton {...props}>
-      <Text>Next</Text>
+      <Text color="#fff">Next</Text>
     </LinkButton>
   );
 }
