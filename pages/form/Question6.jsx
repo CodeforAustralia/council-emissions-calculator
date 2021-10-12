@@ -20,6 +20,9 @@ export default function Question6() {
 
   return (
     <Layout isText={true} Progress={Q6Progress}>
+      <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
+        <BackButton href="/form/Question5" onClick={saveAnswers} />
+      </Box>
       <Q6Cloud />
 
       <Heading>
