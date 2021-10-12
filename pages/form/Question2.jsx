@@ -30,12 +30,12 @@ export default function Question2() {
     if (parseInt(answers.nWorkDays) < answers.travelDays.length) {
       setDaysSelected([]);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const saveAnswers = () => {
     // saving radio button selection
-    setAnswers(prev => ({...prev, workMode: workMode}));
+    setAnswers(prev => ({ ...prev, workMode: workMode }));
 
     // cleaning and/or saving days travelled
     const onSiteDays = (workMode === ON_SITE) ? daysSelected : [];
@@ -55,7 +55,7 @@ export default function Question2() {
   return (
     <Layout isText={true} Progress={Q2Progress}>
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
-        <BackButton onClick={saveAnswers} href="/form/Question1"/>
+        <BackButton onClick={saveAnswers} href="/form/Question1" />
       </Box>
       <Q2Cloud />
 
@@ -71,26 +71,27 @@ export default function Question2() {
         </Radio>
 
         <Collapse in={workMode === WFH}>
-            <Text mb={5} fontSize={[15, 17]} px="20px" py="12px" color="#155724" bg="#D4EDDA">
-              We will use the information of the following two questions to calculate the emissions you save by working at home.
-            </Text>
+          <Text mb={5} fontSize={[15, 17]} px="20px" py="12px" color="#155724" bg="#D4EDDA">
+            We will use the information of the following two questions to calculate the emissions you save by working at home.
+          </Text>
         </Collapse>
 
-        <hr style={{borderTop: "1px dashed var(--chakra-colors-gray-200)"}} />
+        <hr style={{ borderTop: "1px dashed var(--chakra-colors-gray-200)" }} />
 
         <Radio mt={5} name={ON_SITE} id={ON_SITE} value={ON_SITE}>
           <Text fontSize={[18, 20]} fontWeight={700}>
-            I work on-site on...
+            {workMode === ON_SITE ?
+              `I work on-site on ${daysSelected.length} out of ${answers.nWorkDays} workdays.`
+              :
+              `I work on-site on...`
+            }
           </Text>
         </Radio>
       </RadioGroup>
 
       <Collapse in={workMode === ON_SITE}>
-        <Text mt={5} fontSize={17} fontWeight={500} color={daysSelected.length == answers.nWorkDays ? "green" : "" }>
-          {`You work on-site ${daysSelected.length} of ${answers.nWorkDays} days.`}
-        </Text>
 
-        <Wrap justify="left" spacing={[5, 2]} mt={2}>
+        <Wrap justify="left" spacing={[5, 2]} mt={5}>
           {daysOfWeek.map(day => (
             <WrapItem key={day} justifyContent="center">
               <Button
