@@ -4,6 +4,7 @@ import Layout from "../../components/Layout/Layout";
 import useForm, { FormProvider } from "../../components/FormProvider";
 import LinkButton from "../../components/LinkButton/LinkButton";
 import Q1Progress from "../../public/images/progress-bar/q1-progress-dots.svg";
+import Q1Cloud from "../../public/images/clouds/cloud-q1.svg";
 import { daysOfWeek } from "../../utils/constants";
 import {
   Table,
@@ -46,6 +47,7 @@ export default function Question1() {
 
   return (
     <Layout isText={true} Progress={ Q1Progress }>
+      <Q1Cloud />
       <Box>
         <Box p={1} lineHeight="4rem">
           <Heading as="h1" size="md">
