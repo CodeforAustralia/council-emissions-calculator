@@ -30,6 +30,7 @@ export default function Question2() {
     if (parseInt(answers.nWorkDays) < answers.travelDays.length) {
       setDaysSelected([]);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const saveAnswers = () => {
