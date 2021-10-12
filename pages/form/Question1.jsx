@@ -38,18 +38,21 @@ export default function Question1() {
 
   return (
     <Layout isText={true} Progress={Q1Progress}>
-      <Box pos="absolute" top="5" left="10">
+      <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton onClick={saveAnswers} href="/"/>
       </Box>
       <Q1Cloud />
       <Heading>
         How many days do you work?
       </Heading>
-      <Text mt={5}>
+      <Text mt={5} textAlign="center" w="90%" display={["none", "inline"]}>
         Choose the number of working day(s)
       </Text>
+      <Text mt={10} textAlign="left" w="90%" display={["inline", "none"]}>
+        Day(s) per week
+      </Text>
 
-      <Wrap mt={5} w={"70%"} justify="center" spacing={5}>
+      <Wrap mt={5} w={["90%", "70%"]} justify={["left", "center"]} spacing={5}>
         {options.map(option => (
           <WrapItem key={option}>
             <NumberButton
@@ -61,7 +64,7 @@ export default function Question1() {
         ))}
       </Wrap>
 
-      <LinkButton href="/form/Question2" width="474px" onClick={saveAnswers}>
+      <LinkButton href="/form/Question2" width={["90vw", "474px"]} onClick={saveAnswers}>
         Next
       </LinkButton>
     </Layout>
