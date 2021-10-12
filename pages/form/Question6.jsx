@@ -20,14 +20,12 @@ export default function Question6() {
 
   return (
     <Layout isText={true} Progress={Q6Progress}>
-      <Box margin={"50px 0px 50px"} >
-        <Q6Cloud />
-      </Box>
-      <Heading as="h1" mt={12} textAlign="center">
+      <Q6Cloud />
+
+      <Heading>
         Share your suggestions
-        <br/>
-        <br/>
       </Heading>
+
       <Text mt={4} w="100%">
         What can council do to support and incentivise staff to choose more sustainable modes of transport to and from work?
       </Text>
@@ -37,10 +35,8 @@ export default function Question6() {
         onChange={(e) => setIncentive(e.target.value)}
         placeholder="Suggest an incentive"
       />
-      <Grid templateColumns="repeat(2, 1fr)" gap={4}>
-        <BackButton href="/form/Question3" onClick={saveAnswers} />
-        <SubmitButton href="/form/Thankyou" onClick={saveAnswers} />
-      </Grid>
+
+      <SubmitButton href="/form/Thankyou" onClick={saveAnswers} />
     </Layout>
   );
 }
