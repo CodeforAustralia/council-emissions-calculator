@@ -12,45 +12,34 @@ import {
 } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
-import { daysOfWeek, modesOfTransport } from "../../utils/constants";
+import { daysOfWeek } from "../../utils/constants";
 import Q2Progress from "../../public/images/progress-bar/q2-progress-dots.svg";
 import Q2Cloud from "../../public/images/clouds/cloud-q2.svg";
-import LinkButton, { BackButton, ContinueButton } from "../../components/LinkButton/LinkButton";
+import LinkButton from "../../components/LinkButton/LinkButton";
 
-const WFH = "work from home";
-const ON_SITE = "on-site";
+const WFH = "full work from home";
+const ON_SITE = "full/partial on-site";
 
 export default function Question2() {
   const { answers, setAnswers } = useForm();
-  const [daysSelected, setDaysSelected] = useState([]);
+  const [daysSelected, setDaysSelected] = useState(answers.travelDays || []);
   const [workMode, setWorkMode] = useState(answers.workMode);
-  // const [selectedMode, setSelectedMode] = useState(answers.mainTransportMode || "");
 
-  // working around existing backend options "office", "home" and "didNotWork"
-  useEffect(() => {
-    console.table(answers);
-    if (answers.week) {
-      answers.week.forEach((entry, i) => {
-        if (entry === "office") setDaysSelected(prev => [...prev, daysOfWeek[i]]);
-      });
-    }
-  }, [])
+  // For testing purposes: sets answers.nWorkDays to 5 on load
+  // useEffect(() => {
+  //   setAnswers(prev => ({...prev, nWorkDays: 5}))
+  // }, [])
 
   const saveAnswers = () => {
+    // saving radio button selection
     setAnswers(prev => ({...prev, workMode: workMode}));
+
+    // cleaning and/or saving days travelled
     const onSiteDays = (workMode === ON_SITE) ? daysSelected : [];
-    // working around existing backend options "office", "home" and "didNotWork"
-    setAnswers(prev => {
-      let week = daysOfWeek.map(day => {
-        if (onSiteDays.includes(day)) return "office";
-        else return "home";
-      });
-      return { ...prev, week };
-    });
+    setAnswers(prev => ({ ...prev, travelDays: onSiteDays }));
   }
 
   const dayClickHandler = function (e) {
-    console.log(e.target.value);
     let selected = daysSelected;
     if (selected.includes(e.target.value)) {
       selected = selected.filter(day => day !== e.target.value);
@@ -94,8 +83,8 @@ export default function Question2() {
       </RadioGroup>
 
       <Collapse in={workMode === ON_SITE}>
-        <Text mt={5} fontSize={17} fontWeight={500}>
-          You can multiple
+        <Text mt={5} fontSize={17} fontWeight={500} color={daysSelected.length == answers.nWorkDays ? "green" : "" }>
+          {`You work on-site ${daysSelected.length} of ${answers.nWorkDays} days.`}
         </Text>
 
         <Wrap justify="left" spacing={[5, 2]} mt={2}>
@@ -104,7 +93,8 @@ export default function Question2() {
               <Button
                 w={["90vw", "144px"]}
                 h="55px"
-                variant={[...daysSelected].includes(day) ? "solid" : "outline"}
+                variant={daysSelected.includes(day) ? "solid" : "outline"}
+                disabled={!daysSelected.includes(day) && daysSelected.length == answers.nWorkDays}
                 colorScheme="blue"
                 onClick={dayClickHandler}
                 value={day}
@@ -117,6 +107,7 @@ export default function Question2() {
       </Collapse>
 
       <LinkButton
+        width={["90vw", "90%"]}
         href="/form/Question3"
         onClick={saveAnswers}
         disabled={!(workMode === WFH || (workMode === ON_SITE && daysSelected.length > 0))}
