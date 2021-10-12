@@ -15,7 +15,7 @@ import useForm from "../../components/FormProvider";
 import { daysOfWeek } from "../../utils/constants";
 import Q2Progress from "../../public/images/progress-bar/q2-progress-dots.svg";
 import Q2Cloud from "../../public/images/clouds/cloud-q2.svg";
-import LinkButton from "../../components/LinkButton/LinkButton";
+import LinkButton, { BackButton } from "../../components/LinkButton/LinkButton";
 
 const WFH = "full work from home";
 const ON_SITE = "full/partial on-site";
@@ -25,10 +25,12 @@ export default function Question2() {
   const [daysSelected, setDaysSelected] = useState(answers.travelDays || []);
   const [workMode, setWorkMode] = useState(answers.workMode);
 
-  // For testing purposes: sets answers.nWorkDays to 5 on load
-  // useEffect(() => {
-  //   setAnswers(prev => ({...prev, nWorkDays: 5}))
-  // }, [])
+  // in case user goes back to Q1 and reduces nWorkDays
+  useEffect(() => {
+    if (parseInt(answers.nWorkDays) < answers.travelDays.length) {
+      setDaysSelected([]);
+    }
+  }, [])
 
   const saveAnswers = () => {
     // saving radio button selection

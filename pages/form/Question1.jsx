@@ -32,7 +32,6 @@ export default function Question1() {
   );
 
   const selectHandler = (option) => {
-    console.log(`option: ${option}`)
     setNDays(option);
   }
 
