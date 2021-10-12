@@ -1,13 +1,11 @@
 import { useState } from "react";
-
 import {
-  Heading,
   Box,
-  Text,
-  Flex,
+  FormControl, 
+  FormHelperText, 
+  Heading,
   Select,
-  Stack,
-  Center,
+  Text,
 } from "@chakra-ui/react";
 import { modesOfTransport } from "../../utils/constants";
 import Layout from "../../components/Layout/Layout";
@@ -22,7 +20,6 @@ import Q4Cloud from "../../public/images/clouds/cloud-q4.svg";
 export default function Question4() {
   const { answers, setAnswers } = useForm();
 
-  // selectedMode
   const [selectedMode, setSelectedMode] = useState(
     answers.mainTransportMode || ""
   );
@@ -32,86 +29,60 @@ export default function Question4() {
 
   return (
     <Layout isText={true} Progress={Q4Progress}>
-      <Box
-        pos="absolute"
-        top="0"
-        left="-30px"
-        className="backbtn"
-        bg="white"
-        color="black"
-        textDecoration="underline"
-        variant="ghost"
-      >
+      <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton href="/form/Question3" onClick={saveAnswers} />
       </Box>
+      <Q4Cloud />
 
-      <Box margin={"50px 0px 50px"}>
-        <Q4Cloud />
-      </Box>
-
-      <Heading
-      // fontSize="40px"
-      // mt="6"
-      // fontWeight={700}
-      // maxWidth={"624px"}
-      // textAlign={"center"}
-      // marginBottom={"30px"}
-      >
+      <Heading>
         Select the main way you travel to work
       </Heading>
 
-      {/* Responsive buttons */}
-      <Flex maxWidth="full" margin={"50px 0px 60px"} flexDirection="column">
-        <Box fontSize="18px" mr="10px" textAlign="left">
-          <Text my={2} maxWidth={"550px"}>
-            For example, if you drive 2km to the train and then catch the train
-            for 15km, choose &apos;Train&apos; as your way of travel.
-          </Text>
-          <Text my={2} maxWidth={"550px"}>
-            If you work fully from home, respond to this questions as if you
-            were to travel to work.
-          </Text>
-        </Box>
+      <Box fontSize="18px" mr="10px" textAlign="left">
+        <Text my={2} maxWidth={"550px"}>
+          For example, if you drive 2km to the train and then catch the train
+          for 15km, choose &apos;Train&apos; as your way of travel.
+        </Text>
+        <Text my={2} maxWidth={"550px"}>
+          If you work fully from home, respond to this questions as if you
+          were to travel to work.
+        </Text>
+      </Box>
 
-        {/* button is centered on a smaller screen. */}
+      <Box>
+        <FormControl mt="4" isRequired>
+          <Select
+            maxWidth={"330px"}
+            textAlign="center"
+            h="55px"
+            fontWeight="bold"
+            onChange={(e) => setSelectedMode(e.target.value)}
+            placeholder="Please select"
+            border=".2px solid #044B7F"
+          >
+            {modesOfTransport.map((mode) => (
+              <option
+                fontSize="lg"
+                key={mode}
+                selected={mode === selectedMode}
+                value={mode}
+              >
+                {mode}
+              </option>
+            ))}
+          </Select>
+          <FormHelperText>
+            *Required
+          </FormHelperText>
+        </FormControl>
+      </Box>
 
-        <Center>
-          <Stack spacing="15px" justifyContent="center">
-            <Select
-              // maxWidth={"430px"}
-              textAlign="center"
-              placeholder="Train"
-              // color="#044B7F"
-              h="55px"
-              fontWeight="bold"
-              onChange={(e) => setSelectedMode(e.target.value)}
-              border=".2px solid #044B7F"
-            >
-              {modesOfTransport.map((mode) => (
-                <option
-                  fontSize="lg"
-                  key={mode}
-                  value={mode}
-                  selected={mode === selectedMode}
-                >
-                  {mode}
-                </option>
-              ))}
-            </Select>
-
-            <Box
-            // maxWidth={"450px"}
-            // h="55px"
-            // className="nextbtn"
-            // bg="#044b7f"
-            // color="white"
-            // borderRadius="5px"
-            >
-              <ContinueButton href="/form/Question5" onClick={saveAnswers} />
-            </Box>
-          </Stack>
-        </Center>
-      </Flex>
+      <ContinueButton 
+        disabled={!selectedMode} 
+        href="/form/Question5"
+        onClick={saveAnswers}
+        topMargin={4}
+      />
     </Layout>
   );
 }
