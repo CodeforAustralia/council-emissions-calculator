@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import {
+  Box,
   Wrap,
   WrapItem,
   Button,
@@ -61,6 +62,9 @@ export default function Question2() {
 
   return (
     <Layout isText={true} Progress={Q2Progress}>
+      <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
+        <BackButton onClick={saveAnswers} href="/form/Question1"/>
+      </Box>
       <Q2Cloud />
 
       <Heading>

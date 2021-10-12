@@ -32,11 +32,19 @@ export default function LinkButton({ children, href, onClick, disabled, variant=
   );
 }
 
-export function BackButton(props) {
+export function BackButton({ label, href, onClick, variant}) {
   return (
-    <LinkButton {...props} variant="outline">
-      <BackArrow /><Text ml="0.5em">Back</Text>
-    </LinkButton>
+    <Link href={href || "/"} passHref>
+      <Button
+        onClick={onClick}
+        variant={variant || "ghost"}
+      >
+        <BackArrow />
+        <Text ms={2} as="u" color="var(--chakra-colors-blue-600)">
+          {label || "Back"}
+        </Text>
+      </Button>
+    </Link>
   )
 }
 
