@@ -4,7 +4,6 @@ import {
   Heading,
   Text,
   Textarea,
-  Grid
 } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
@@ -39,7 +38,17 @@ export default function Question6() {
         placeholder="Suggest an incentive"
       />
 
-      <SubmitButton href="/form/Thankyou" onClick={saveAnswers} />
+      <SubmitButton
+        href="/form/Thankyou"
+        onClick={() =>
+          setAnswers((prev) => {
+            const response = { ...prev, incentive };
+            //console.log(`form 5 updates: ${JSON.stringify(response)}`);
+            sendFormResponse(response);
+            return response;
+          })
+        }
+      />
     </Layout>
   );
 }
