@@ -42,16 +42,13 @@ export default function Question1() {
       </Box>
       <Q1Cloud />
       <Heading>
-        How many days do you work?
+        How many days per week do you work?
       </Heading>
-      <Text mt={5} textAlign="center" w="90%" display={["none", "inline"]}>
-        Choose the number of working day(s)
-      </Text>
-      <Text mt={10} textAlign="left" w="90%" display={["inline", "none"]}>
-        Day(s) per week
+      <Text mt={5} textAlign="center" w="90%">
+        Choose the number of days you work per week.
       </Text>
 
-      <Wrap mt={5} w={["90%", "70%"]} justify={["left", "center"]} spacing={5}>
+      <Wrap mt={5} w={["100%", "70%"]} justify="center" spacing={[3, 5]}>
         {options.map(option => (
           <WrapItem key={option}>
             <NumberButton
