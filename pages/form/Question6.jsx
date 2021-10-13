@@ -48,6 +48,7 @@ export default function Question6() {
             return response;
           })
         }
+        width="100%"
       />
     </Layout>
   );
