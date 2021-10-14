@@ -25,7 +25,8 @@ export default function Question5() {
   const [department, setDepartment] = useState(answers.department);
   console.log(`answers so far: ${JSON.stringify(answers)}`);
 
-  const saveAnswers = () => setAnswers((prev) => ({ ...prev, department }));
+  const saveAnswers = () =>
+    setAnswers((prev) => ({ ...prev, department: department }));
   return (
     <Layout isText={true} Progress={Q5Progress}>
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
@@ -52,7 +53,11 @@ export default function Question5() {
               onChange={(e) => setDepartment(e.target.value)}
             >
               {departments.map((department) => (
-                <option key={department} value={department}>
+                <option
+                  key={department}
+                  value={department}
+                  selected={department === department}
+                >
                   {capitalize(department)}
                 </option>
               ))}
