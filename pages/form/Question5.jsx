@@ -56,7 +56,7 @@ export default function Question5() {
                 <option
                   key={department}
                   value={department}
-                  selected={department === department}
+                  selected={department === answers.department}
                 >
                   {capitalize(department)}
                 </option>
@@ -65,6 +65,7 @@ export default function Question5() {
             <FormHelperText>*Required</FormHelperText>
           </FormControl>
           <ContinueButton
+            disabled={!department}
             href="/form/Question6"
             width="100%"
             onClick={saveAnswers}
