@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { Heading, Box, Text, Select, Flex } from "@chakra-ui/react";
+import {
+  Heading,
+  FormControl,
+  FormHelperText,
+  Box,
+  Text,
+  Select,
+  Flex,
+} from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import { departments } from "../../utils/constants";
@@ -17,8 +25,7 @@ export default function Question5() {
   const [department, setDepartment] = useState(answers.department);
   console.log(`answers so far: ${JSON.stringify(answers)}`);
 
-  const saveAnswers = () =>
-    setAnswers((prev) => ({ ...prev, department: selectedMode }));
+  const saveAnswers = () => setAnswers((prev) => ({ ...prev, department }));
   return (
     <Layout isText={true} Progress={Q5Progress}>
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
@@ -27,30 +34,33 @@ export default function Question5() {
       <Q5Cloud />
 
       <Heading>Which department do you work for?</Heading>
-      <Flex flexDirection={["column", "row"]}>
-        <Text
-          mt="4"
-          textAlign={"center"}
-          maxWidth={"450px"}
-          width={["100%", "100%"]}
-        >
-          This helps us to provide more transparency to support the outcome of
-          this initiative.
-        </Text>
-        <Select
-          mt={8}
-          maxW={280}
-          placeholder="Please select"
-          onChange={(e) => setDepartment(e.target.value)}
-        >
-          {departments.map((department) => (
-            <option key={department} value={department}>
-              {capitalize(department)}
-            </option>
-          ))}
-        </Select>
 
-        <ContinueButton href="/form/Question6" onClick={saveAnswers} />
+      <Flex flexDirection={["column", "row"]}>
+        <Box>
+          <Text mt="4" textAlign={"center"} maxWidth={"450px"} width={["100%"]}>
+            This helps us to provide more transparency to support the outcome of
+            this initiative.
+          </Text>
+        </Box>
+
+        <Box width={["100%"]}>
+          <FormControl mt="4" isRequired>
+            <Select
+              mt={8}
+              w="100%"
+              placeholder="Please select"
+              onChange={(e) => setDepartment(e.target.value)}
+            >
+              {departments.map((department) => (
+                <option key={department} value={department}>
+                  {capitalize(department)}
+                </option>
+              ))}
+            </Select>
+            <FormHelperText>*Required</FormHelperText>
+          </FormControl>
+          <ContinueButton href="/form/Question6" onClick={saveAnswers} />
+        </Box>
       </Flex>
     </Layout>
   );
