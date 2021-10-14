@@ -1,7 +1,7 @@
 import { Heading, Text, Box } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 
-export default function Question5() {
+export default function Thankyoupage() {
   return (
     <Layout isText={true} bg="#044B7F">
       <Heading>Thank you for participating!</Heading>
