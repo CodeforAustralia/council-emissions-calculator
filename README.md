@@ -51,3 +51,45 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 - Highcharts to build charts in report
 - Vercel as hosting platform
 
+# WORKING IN FORKED REPO (Colobaration)
+
+### How to fetch upstream main/master
+
+There are 2 options :
+
+#### Option 1 : Using terminal
+
+STEPS
+
+1. Checkout to main branch
+2. `git branch` view list to confirm
+3. `git remote add upstream (URL- copy the URL from Code for Australia CodeforAustralia/council-emissions-calculator-spike git hub)`
+
+- Upstream is the name for the master git repo it can be reasonable any name.
+
+4. `git fetch upstream`
+5. `git merge upstream/main`
+6. `git pull`
+
+#### Option 2 : Using button in your main forked repo
+
+     (located above the code listing right top)
+
+STEPS
+
+1. Click on `fetch upstream` button
+2. Select `Fetch and merge` button
+3. `git pull` at the local main branch
+
+- Resolve any conflicts
+
+4. `git status`
+5. `git add .` or `git add XXX`
+6. `git commit -m “note”`
+
+### To merge the changes to working branch
+
+STEPS
+
+1. `git checkout (branch name)`
+2. `git merge main`
