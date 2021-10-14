@@ -47,7 +47,7 @@ export default function Question5() {
           <FormControl mt="4" isRequired>
             <Select
               mt={8}
-              w="100%"
+              width="100%"
               placeholder="Please select"
               onChange={(e) => setDepartment(e.target.value)}
             >
@@ -59,7 +59,11 @@ export default function Question5() {
             </Select>
             <FormHelperText>*Required</FormHelperText>
           </FormControl>
-          <ContinueButton href="/form/Question6" onClick={saveAnswers} />
+          <ContinueButton
+            href="/form/Question6"
+            width="100%"
+            onClick={saveAnswers}
+          />
         </Box>
       </Flex>
     </Layout>
