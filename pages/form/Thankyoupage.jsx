@@ -1,21 +1,26 @@
 import { Heading, Text, Box } from "@chakra-ui/react";
-import Layout from "../../components/Layout/Layout";
+import TkPage from "../../public/images/clouds/cloud-thankPage.svg";
+import { ThankPage } from "../../components/Layout/Layout";
 
 export default function Thankyoupage() {
   return (
-    <Layout isText={true} bg="#044B7F">
+    <ThankPage>
+      <TkPage />
+
       <Heading>Thank you for participating!</Heading>
 
-      <Box mt={12} w="100%" textAlign="left">
+      <Box mt={12}>
         <Text>
-          We're collecting more responses so we can calculate a meaningful
-          result for you.
-        </Text>
-        <Text mt={12}>
-          We will share the result with you through your work representative
-          once we have enough responses!
+          We're collecting responses from 1-19 November, and the results will be
+          shared by your work representative at the end of the survey.
         </Text>
       </Box>
-    </Layout>
+      <Box mt={12}>
+        <Text>
+          Your responses helps us understand how your work commute effects our
+          future environment and find ways to reduce our impact.
+        </Text>
+      </Box>
+    </ThankPage>
   );
 }
