@@ -9,7 +9,6 @@ import {
 } from "../../components/LinkButton/LinkButton";
 import capitalize from "../../utils/capitalize";
 import Q5Progress from "../../public/images/progress-bar/q5-progress-dots.svg";
-import { sendFormResponse } from "../../utils/dbApi";
 
 export default function Question5() {
   const { answers, setAnswers } = useForm();
