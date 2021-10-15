@@ -18,7 +18,6 @@ import {
 import capitalize from "../../utils/capitalize";
 import Q5Progress from "../../public/images/progress-bar/q5-progress-dots.svg";
 import Q5Cloud from "../../public/images/clouds/cloud-q5.svg";
-import { sendFormResponse } from "../../utils/dbApi";
 
 export default function Question5() {
   const { answers, setAnswers } = useForm();
