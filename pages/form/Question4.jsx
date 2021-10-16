@@ -49,25 +49,25 @@ export default function Question4() {
         <Flex flex={1} flexDirection="column" ms={[0, 10]} mt={[10, 5]}>
           <FormControl isRequired>
             <Select
-              textAlign="center"
               fontWeight="bold"
               onChange={(e) => setSelectedMode(e.target.value)}
               placeholder="Please select"
               border=".2px solid #044B7F"
               height="55px"
+              defaultValue={selectedMode}
+              id="selector"
             >
               {modesOfTransport.map((mode) => (
                 <option
                   fontSize="lg"
                   key={mode}
-                  selected={mode === selectedMode}
                   value={mode}
                 >
                   {mode}
                 </option>
               ))}
             </Select>
-            <FormHelperText>
+            <FormHelperText id="selectorHelper">
               *Required
             </FormHelperText>
           </FormControl>
