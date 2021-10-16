@@ -27,7 +27,7 @@ export default function Question5() {
   const saveAnswers = () =>
     setAnswers((prev) => ({ ...prev, department: department }));
   return (
-    <Layout isText={true} Progress={Q5Progress}>
+    <Layout isText={true} Progress={Q5Progress} maxContainerWidth="container.md">
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton href="/form/Question4" onClick={saveAnswers} />
       </Box>
@@ -35,21 +35,22 @@ export default function Question5() {
 
       <Heading>Which department do you work for?</Heading>
 
-      <Flex flexDirection={["column", "row"]}>
-        <Box>
-          <Text mt="4" textAlign={"center"} maxWidth={"450px"} width={["100%"]}>
+      <Flex flexDirection={["column", "row"]} w="100%" mt={7}>
+        <Box width={["100", "50%"]} mt={5}>
+          <Text textAlign={["center", "left"]} fontSize="18px">
             This helps us to provide more transparency to support the outcome of
             this initiative.
           </Text>
         </Box>
 
-        <Box width={["100%"]}>
-          <FormControl mt="4" isRequired>
+        <Box width={["100%"]} flex={1} mt={[12, 5]} ms={[0, 5]}>
+          <FormControl isRequired>
             <Select
-              mt={8}
               width="100%"
+              height="55px"
               placeholder="Please select"
               onChange={(e) => setDepartment(e.target.value)}
+              textAlign="center"
             >
               {departments.map((department) => (
                 <option
@@ -68,6 +69,7 @@ export default function Question5() {
             href="/form/Question6"
             width="100%"
             onClick={saveAnswers}
+            topMargin="5"
           />
         </Box>
       </Flex>
