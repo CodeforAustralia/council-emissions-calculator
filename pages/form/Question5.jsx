@@ -22,7 +22,6 @@ import Q5Cloud from "../../public/images/clouds/cloud-q5.svg";
 export default function Question5() {
   const { answers, setAnswers } = useForm();
   const [department, setDepartment] = useState(answers.department);
-  console.log(`answers so far: ${JSON.stringify(answers)}`);
 
   const saveAnswers = () =>
     setAnswers((prev) => ({ ...prev, department: department }));
@@ -46,23 +45,24 @@ export default function Question5() {
         <Box width={["100%"]} flex={1} mt={[12, 5]} ms={[0, 5]}>
           <FormControl isRequired>
             <Select
+              fontWeight="bold"
               width="100%"
               height="55px"
               placeholder="Please select"
               onChange={(e) => setDepartment(e.target.value)}
-              textAlign="center"
+              defaultValue={answers.department}
+              id="selector"
             >
               {departments.map((department) => (
                 <option
                   key={department}
                   value={department}
-                  selected={department === answers.department}
                 >
                   {capitalize(department)}
                 </option>
               ))}
             </Select>
-            <FormHelperText>*Required</FormHelperText>
+            <FormHelperText id="selectorHelper">*Required</FormHelperText>
           </FormControl>
           <ContinueButton
             disabled={!department}
