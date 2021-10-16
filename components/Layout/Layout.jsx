@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 const titleBarHeightDesk = "147px";
 const titleBarHeightMob = "95px";
 
-export default function Layout({ children, Progress, isText, background }) {
+export default function Layout({ children, Progress, isText, maxContainerWidth, background }) {
   return (
     <>
       <Head>
@@ -21,8 +21,8 @@ export default function Layout({ children, Progress, isText, background }) {
           isText={isText}
           Progress={Progress}
         />
-        <Content background={background}>
-          {children}
+        <Content maxContainerWidth={maxContainerWidth} background={background || ""}>
+          { children }
         </Content>
       </Flex>
     </>
@@ -60,7 +60,7 @@ export function Header({ isText, Progress }) {
   )
 }
 
-export function Content({ children, background }) {
+export function Content({ children, background, maxContainerWidth }) {
   return (
     <Flex
       alignItems="start"
@@ -72,7 +72,7 @@ export function Content({ children, background }) {
       py={5}
       bg={background || ""}
     >
-      <Container centerContent maxW="container.sm" px={5} py={["65px", "97px"]}>
+      <Container centerContent maxW={maxContainerWidth || "container.sm"} px={5} py={["65px", "97px"]}>
         {children}
       </Container>
     </Flex>
