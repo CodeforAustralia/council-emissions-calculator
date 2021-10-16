@@ -21,7 +21,7 @@ export default function Thankyou() {
           Your response helps us understand how our work commute affects our future environment, and find ways to reduce your impact.
         </Text>
         <Text color="#fff" mt={5} fontSize="18px" textAlign={["center", "start"]} w="100%">
-          It's safe to close this tab now.
+          It’s safe to close this tab now.
         </Text>
       </Flex>
     </Layout>
