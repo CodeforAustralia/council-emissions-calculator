@@ -10,6 +10,7 @@ export default function LinkButton({
   variant = "solid",
   width,
   topMargin,
+  color,
 }) {
   return (
     <Link href={href} passHref>
@@ -29,6 +30,7 @@ export default function LinkButton({
             bg: "#D0D9DF",
           },
         }}
+        color={color || "#fff"}
         onClick={onClick}
         disabled={disabled}
       >
