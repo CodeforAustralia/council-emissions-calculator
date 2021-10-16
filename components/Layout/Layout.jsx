@@ -39,18 +39,18 @@ export function Header({ isText, Progress }) {
           ?
           ['/', '/form/Thankyou'].includes(router.pathname)
             ?
-            <Text fontSize={["24px", "30px"]} fontWeight="bold" flex={1} textAlign="center">
+            <Text fontSize={["24px", "30px"]} fontWeight="bold" flex={1} textAlign="center" marginStart={[10, 0]}>
               SeeChange
             </Text>
             :
-            <Text fontSize={["24px", "30px"]} fontWeight="bold" flex={1} visibility={["hidden", "visible"]} textAlign="center">
+            <Text fontSize={["24px", "30px"]} fontWeight="bold" flex={1} visibility={["hidden", "visible"]} textAlign="center" overflow="hidden">
               SeeChange
             </Text>
           :
           <Box flex={1}>
           </Box>
       }
-      <Flex flex={1} justifyContent="center">
+      <Flex flex={1} justifyContent="center" w="100%">
         {Progress ? <Progress /> : <></>}
       </Flex>
       {/* Dummy box to center the Progress component */}
