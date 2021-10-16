@@ -38,7 +38,7 @@ const spacing = 6;
 
 export default function Home() {
   return (
-    <Layout isText={true} contentMaxWidth="container.lg" >
+    <Layout isText={true} maxContainerWidth="container.lg" >
       <Flex alignItems="center" flexDir={["column", "row"]}>
         <Animation />
         <Box p={[5, 10]}>
