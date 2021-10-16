@@ -30,13 +30,13 @@ export default function Question3() {
       <Box>
         <Q3Cloud />
       </Box>
-      <Heading width="80%">
+      <Heading width={["100%", "80%"]}>
         How many kilometres do you usually travel to work, one-way?
       </Heading>
       <Flex justifyContent="space-between" flexDirection={["column", "row"]} marginTop={10}>
         <Text 
           mt="4" 
-          textAlign={"left"} 
+          textAlign={["center", "left"]} 
           maxWidth={"450px"} 
           width={["100%", "48%"]}
           fontWeight="500"
@@ -44,8 +44,8 @@ export default function Question3() {
         >
           If you usually work from home, we will use the information you provide to calculate the emissions you save by working at home.
         </Text>
-        <Box w={["100%", "48%"]} marginLeft="4">
-          <FormControl mt="4">
+        <Box w={["100%", "48%"]} ml={["0", "4"]}>
+          <FormControl mt={["10", "4"]}>
             <FormLabel>
               In kilometers:
             </FormLabel>
