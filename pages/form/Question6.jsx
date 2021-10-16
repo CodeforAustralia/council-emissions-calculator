@@ -29,17 +29,20 @@ export default function Question6() {
         Share your suggestions
       </Heading>
 
-      <Text mt={4} w="100%">
+      <Text fontSize="18px" mt={10} w={["100%", "90%"]} textAlign={["center", "left"]}>
         What can council do to support and incentivise staff to choose more sustainable modes of transport to and from work?
       </Text>
       <Textarea
-        mt={8}
+        mt={3}
         value={incentive}
         onChange={(e) => setIncentive(e.target.value)}
-        placeholder="Suggest an incentive"
+        placeholder="Eg. Changing room facilities for getting ready after cycling to work."
+        w={["100%", "90%"]}
+        height={["9em", "5em"]}
       />
 
       <SubmitButton
+        topMargin={8}
         href="/form/Thankyou"
         onClick={() =>
           setAnswers((prev) => {
@@ -49,7 +52,7 @@ export default function Question6() {
             return response;
           })
         }
-        width="100%"
+        width={["100%", "90%"]}
       />
     </Layout>
   );
