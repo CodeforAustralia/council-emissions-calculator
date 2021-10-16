@@ -23,30 +23,28 @@ export default function Question3() {
   const saveAnswers = () => setAnswers((prev) => ({ ...prev, km: km }));
 
   return (
-    <Layout isText={true} Progress={Q3Progress}>
+    <Layout isText={true} Progress={Q3Progress} maxContainerWidth="container.md">
+      <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
+        <BackButton href="/form/Question2" onClick={saveAnswers} />
+      </Box>
       <Box>
         <Q3Cloud />
       </Box>
-      <Heading 
-        fontSize="40px" 
-        mt="6" 
-        fontWeight={700} 
-        maxWidth={"624px"} 
-        textAlign={"center"} 
-        marginBottom={"30px"} 
-      >
+      <Heading width="80%">
         How many kilometres do you usually travel to work, one-way?
       </Heading>
-      <Flex flexDirection={["column", "row"]}>
+      <Flex justifyContent="space-between" flexDirection={["column", "row"]} marginTop={10}>
         <Text 
           mt="4" 
           textAlign={"left"} 
           maxWidth={"450px"} 
           width={["100%", "48%"]}
+          fontWeight="500"
+          fontSize="18px"
         >
           If you usually work from home, we will use the information you provide to calculate the emissions you save by working at home.
         </Text>
-        <Box w={["100%", "48%"]}>
+        <Box w={["100%", "48%"]} marginLeft="4">
           <FormControl mt="4">
             <FormLabel>
               In kilometers:
