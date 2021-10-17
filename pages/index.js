@@ -2,6 +2,7 @@ import { Heading, Text } from "@chakra-ui/react";
 import Layout from "../components/Layout/Layout";
 import LinkButton from "../components/LinkButton/LinkButton";
 import HomePageImage from "../public/images/home-page-image.svg";
+import logger from '../logger/logger'
 
 export default function Home() {
   return (
@@ -18,7 +19,14 @@ export default function Home() {
       <Text>
         This form will take approximately 3 minutes to complete.
       </Text>
-      <LinkButton href="/form/Question1">Start</LinkButton>
+      <LinkButton 
+        href="/form/Question1" 
+        onClick={() =>
+          logger.info(`Welcome page: Start button clicked`)
+        }
+      >
+        Start
+      </LinkButton>
     </Layout>
   );
 }
