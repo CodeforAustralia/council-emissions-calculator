@@ -16,7 +16,31 @@ export const modesOfTransport = [
   "Taxi/ride share",
   "Train/tram",
   "Walking/running",
-  "Other"
+  "Other",
 ];
 
-export const departments = ["education", "health", "transport", "finance"];
+export const departments = [
+  "Active & Healthy Lifestyles",
+  "Bendigo Art Gallery",
+  "Bendigo Venues & Events",
+  "Business Services & Economic Development",
+  "Business Transformation",
+  "Climate Change and Environment",
+  "Community Partnerships",
+  "Community Wellbeing",
+  "Engineering",
+  "Financial Strategy",
+  "GovHub & Our Future Workplace",
+  "Governance",
+  "Healthy GREATER Bendigo",
+  "Information Management",
+  "Parks & Open Spaces",
+  "People & Culture",
+  "Property Services",
+  "Resource Recovery & Education",
+  "Strategic Planning",
+  "Safe & Healthy Environments",
+  "Statutory Planning",
+  "Tourism & Major Events",
+  "Works",
+];
