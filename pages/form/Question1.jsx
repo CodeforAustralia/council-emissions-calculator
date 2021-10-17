@@ -60,7 +60,7 @@ export default function Question1() {
         ))}
       </Wrap>
 
-      <LinkButton href="/form/Question2" width={["90vw", "474px"]} onClick={saveAnswers}>
+      <LinkButton href="/form/Question2" width={["90vw", "474px"]} onClick={saveAnswers} disabled={!options.includes(nDays)}>
         Next
       </LinkButton>
     </Layout>

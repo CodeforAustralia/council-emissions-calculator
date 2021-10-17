@@ -1,11 +1,12 @@
 import { useState } from "react";
 import {
   Box,
-  FormControl, 
-  FormHelperText, 
+  FormControl,
+  FormHelperText,
   Heading,
   Select,
   Text,
+  Flex,
 } from "@chakra-ui/react";
 import { modesOfTransport } from "../../utils/constants";
 import Layout from "../../components/Layout/Layout";
@@ -28,61 +29,58 @@ export default function Question4() {
     setAnswers((prev) => ({ ...prev, mainTransportMode: selectedMode }));
 
   return (
-    <Layout isText={true} Progress={Q4Progress}>
+    <Layout isText={true} Progress={Q4Progress} maxContainerWidth="container.md">
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton href="/form/Question3" onClick={saveAnswers} />
       </Box>
       <Q4Cloud />
 
-      <Heading>
+      <Heading width={["100%", "60%"]}>
         Select the main way you travel to work
       </Heading>
 
-      <Box fontSize="18px" mr="10px" textAlign="left">
-        <Text my={2} maxWidth={"550px"}>
-          For example, if you drive 2km to the train and then catch the train
-          for 15km, choose &apos;Train&apos; as your way of travel.
-        </Text>
-        <Text my={2} maxWidth={"550px"}>
-          If you work fully from home, respond to this questions as if you
-          were to travel to work.
-        </Text>
-      </Box>
+      <Flex mt={5} flexDirection={["column", "row"]}>
+        <Box flex={1} mt={5}>
+          <Text fontSize="18px" textAlign={["center", "left"]}>
+            For example, if you usually drive 2km to the train and then catch the train for 15km, choose ‘Train’ as the main way you travel to work.
+          </Text>
+        </Box>
 
-      <Box>
-        <FormControl mt="4" isRequired>
-          <Select
-            maxWidth={"330px"}
-            textAlign="center"
-            h="55px"
-            fontWeight="bold"
-            onChange={(e) => setSelectedMode(e.target.value)}
-            placeholder="Please select"
-            border=".2px solid #044B7F"
-          >
-            {modesOfTransport.map((mode) => (
-              <option
-                fontSize="lg"
-                key={mode}
-                selected={mode === selectedMode}
-                value={mode}
-              >
-                {mode}
-              </option>
-            ))}
-          </Select>
-          <FormHelperText>
-            *Required
-          </FormHelperText>
-        </FormControl>
-      </Box>
+        <Flex flex={1} flexDirection="column" ms={[0, 10]} mt={[10, 5]}>
+          <FormControl isRequired>
+            <Select
+              fontWeight="bold"
+              onChange={(e) => setSelectedMode(e.target.value)}
+              placeholder="Please select"
+              border=".2px solid #044B7F"
+              height="55px"
+              defaultValue={selectedMode}
+              id="selector"
+            >
+              {modesOfTransport.map((mode) => (
+                <option
+                  fontSize="lg"
+                  key={mode}
+                  value={mode}
+                >
+                  {mode}
+                </option>
+              ))}
+            </Select>
+            <FormHelperText id="selectorHelper">
+              *Required
+            </FormHelperText>
+          </FormControl>
 
-      <ContinueButton 
-        disabled={!selectedMode} 
-        href="/form/Question5"
-        onClick={saveAnswers}
-        topMargin={4}
-      />
+          <ContinueButton
+            disabled={!selectedMode}
+            href="/form/Question5"
+            onClick={saveAnswers}
+            topMargin={4}
+            width="100%"
+          />
+        </Flex>
+      </Flex>
     </Layout>
   );
 }
