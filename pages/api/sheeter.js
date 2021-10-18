@@ -99,7 +99,7 @@ const convertFormResponseToList = (formResp) => {
   // Example form response:
   // {
   //   "km": "12",
-  //   "nWorkDays": 5
+  //   "numDaysWorked": 5
   //   "travelDays": ["Monday", "Wednesday", "Friday"]
   //   "transportModes": ["bike", "didNotTravel", "didNotTravel", "bus", "bus", "didNotTravel", "didNotTravel"],
   //   "incentive": "I'd like to have better biking lanes.",

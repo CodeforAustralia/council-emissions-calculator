@@ -5,7 +5,7 @@ export const FormContext = createContext();
 // Example set of answers
 // {
 //     km: "12",
-//     "nWorkDays": 5,
+//     "numDaysWorked": 5,
 //     "travelDays": ["Monday", "Wednesday", "Friday"],
 //     mainTransportMode: "bus",
 //     incentive: "I'd like to have better biking lanes.",
@@ -14,7 +14,7 @@ export const FormContext = createContext();
 
 const initialAnswers = {
   km: "",
-  nWorkDays: 0,
+  numDaysWorked: 0,
   travelDays: [],
   mainTransportMode: "",
   incentive: "",
