@@ -2,7 +2,7 @@ const Sheets = require('@googleapis/sheets');
 
 const trips = async (req, res) => {
   console.log(`[INFO] request api: trips`);
-  console.log(`[INFO] request hostname: ${req.hostname}`);
+  console.log(`[INFO] request headers: ${JSON.stringify(req.headers)}`);
 
   switch (req.method) {
     case 'GET':
