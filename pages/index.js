@@ -8,7 +8,9 @@ import {
 import Layout from "../components/Layout/Layout";
 import LinkButton from "../components/LinkButton/LinkButton";
 import Q1Cloud from "../public/images/clouds/cloud-q1.svg";
-import logger from '../logger/logger'
+import { sendLogs } from '../utils/sendLogs';
+import useForm from "../components/FormProvider";
+import { useRouter } from 'next/router';
 
 function Animation() {
   return (
@@ -27,7 +29,6 @@ function Animation() {
         backgroundSize="cover"
         backgroundPosition="bottom"
       />
-      {/* <Image w={["300px", "421px"]} src="/images/drive-animation/drive-animation-cut.gif" alt="animated graphic" /> */}
       <Box pos="relative" bottom="390px" left="220px" display={["none", "block"]}>
         <Q1Cloud />
       </Box>
@@ -38,6 +39,22 @@ function Animation() {
 const spacing = 6;
 
 export default function Home() {
+  const { answers, setAnswers } = useForm();
+  const router = useRouter();
+
+  const logMessage = (msg) => {
+    let incentiveMsg = () => {
+      if (!!answers.incentive) {return "<filled>"}
+      else return "<empty>"
+    }
+    return {
+      page: router.pathname,
+      event: msg,
+      ...answers,
+      incentive: incentiveMsg(),
+    }
+  }
+
   return (
     <Layout isText={true} maxContainerWidth="container.lg" >
       <Flex alignItems="center" flexDir={["column", "row"]}>
@@ -57,9 +74,7 @@ export default function Home() {
           </Text>
           <LinkButton 
             href="/form/Question1" 
-            onClick={() =>
-              logger.info(`Welcome page: Start button clicked`)
-            }
+            onClick={ () => sendLogs(logMessage("Start button clicked")) } 
             width={["90vw", "173px"]}>
               Start
           </LinkButton>
