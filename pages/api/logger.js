@@ -39,6 +39,7 @@ const logger = async (req, res) => {
   switch (req.method) {
     case 'POST':
       console.log(`[INFO] ${req.method} sending logs...`);
+      console.log(`[INFO] payload: ${req.body} `);
       await pinologger.info(data, JSON.stringify(req.body));
       res.status(200).send(req.body);
       break;
