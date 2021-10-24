@@ -40,6 +40,17 @@ const logger = async (req, res) => {
       pinologger.info(data, JSON.stringify(req.body));
       res.status(200).send(req.body);
       break;
+    case 'OPTIONS':
+      // Set CORS headers for preflight requests
+      // Allows GETs and POSTs from any origin with the Content-Type header
+      // and caches preflight response for 3600s
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+      res.setHeader('Access-Control-Max-Age', '3600');
+      console.log(`[INFO] ${req.method} request successful.`);
+      res.status(204).send('');
+      break;
     default:
       console.log(`[INFO] Method not allowed: ${req.method}`);
       res.status(405).send('');
