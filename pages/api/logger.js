@@ -21,8 +21,8 @@ export const pinologger = pino({
 }, stream);
 
 const logger = async (req, res) => {
-  console.log(`[INFO] request api: logger`);
-  console.log(`[INFO] request headers: ${JSON.stringify(req.headers)}`);
+  // console.log(`[INFO] request api: logger`);
+  // console.log(`[INFO] request headers: ${JSON.stringify(req.headers)}`);
 
   res.setHeader('Access-Control-Allow-Origin', '*');
 
@@ -38,9 +38,11 @@ const logger = async (req, res) => {
 
   switch (req.method) {
     case 'POST':
-      console.log(`[INFO] ${req.method} sending logs...`);
-      console.log(`[INFO] payload: ${JSON.stringify(req.body)}`);
-      await pinologger.info(data, JSON.stringify(req.body));
+      // console.log(`[INFO] ${req.method} sending logs...`);
+      // console.log(`[INFO] payload: ${JSON.stringify(req.body)}`);
+      // await pinologger.info(data, JSON.stringify(req.body));
+      const child = pinologger.child(req.body);
+      child.info("survey data");
       res.status(200).send(req.body);
       break;
     case 'OPTIONS':
