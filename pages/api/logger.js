@@ -24,6 +24,8 @@ const logger = async (req, res) => {
   console.log(`[INFO] request api: logger`);
   console.log(`[INFO] request headers: ${JSON.stringify(req.headers)}`);
 
+  res.setHeader('Access-Control-Allow-Origin', '*');
+
   const data = {
     request: {
       method: req.method,
@@ -44,7 +46,6 @@ const logger = async (req, res) => {
       // Set CORS headers for preflight requests
       // Allows GETs and POSTs from any origin with the Content-Type header
       // and caches preflight response for 3600s
-      res.setHeader('Access-Control-Allow-Origin', '*');
       res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
       res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
       res.setHeader('Access-Control-Max-Age', '3600');
