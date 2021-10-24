@@ -41,8 +41,9 @@ const logger = async (req, res) => {
       // console.log(`[INFO] ${req.method} sending logs...`);
       // console.log(`[INFO] payload: ${JSON.stringify(req.body)}`);
       // await pinologger.info(data, JSON.stringify(req.body));
+      console.log(`${JSON.stringify( payload: req.body )}`);
       const child = pinologger.child(req.body);
-      child.info("survey data");
+      await child.info("survey data");
       res.status(200).send(req.body);
       break;
     case 'OPTIONS':
