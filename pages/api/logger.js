@@ -1,50 +1,32 @@
-import pino from 'pino'
-import { createWriteStream } from 'pino-logflare'
+import fetch from 'node-fetch';
 
-// create pino-logflare console stream for serverless functions and browser logs
-
-const logflareConfig = {
-    apiKey: process.env.LOGFLARE_API_KEY,
-    sourceToken: process.env.LOGFLARE_SOURCE_TOKEN
-};
-
-// create pino-logflare stream
-const stream = createWriteStream(logflareConfig);
-
-// create pino logger
-export const pinologger = pino({
-    level: "debug",
-    base: {
-        env: process.env.NODE_ENV,
-        revision: process.env.VERCEL_GITHUB_COMMIT_SHA,
-    },
-}, stream);
-
-const logger = (req, res) => {
+const logger = async (req, res) => {
   // console.log(`[INFO] request api: logger`);
   // console.log(`[INFO] request headers: ${JSON.stringify(req.headers)}`);
 
   res.setHeader('Access-Control-Allow-Origin', '*');
 
-  const data = {
-    request: {
-      method: req.method,
-      url: req.url
-    },
-    response: {
-      status: res.statusCode
-    }
-  }
-
   switch (req.method) {
     case 'POST':
       // console.log(`[INFO] ${req.method} sending logs...`);
-      // console.log(`[INFO] payload: ${JSON.stringify(req.body)}`);
-      // await pinologger.info(data, JSON.stringify(req.body));
-      console.log(`${JSON.stringify( {payload: req.body} )}`);
-      const child = pinologger.child(req.body);
-      child.info("survey data");
-      res.status(200).send(req.body);
+      // console.log(`${JSON.stringify( {payload: req.body} )}`);
+      const sendlog = await fetch(`https://api.logflare.app/logs/json?source=${process.env.LOGFLARE_SOURCE_TOKEN}`,
+        {
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-API-KEY': process.env.LOGFLARE_API_KEY
+          },
+          body: JSON.stringify( req.body )
+        });
+      const result = await sendlog.ok;
+      const resultMsg = await sendlog.json();
+
+      if (result) {
+        res.status(200).send('');
+      } else {
+        res.status(500).send(resultMsg);
+      }
       break;
     case 'OPTIONS':
       // Set CORS headers for preflight requests
