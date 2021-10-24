@@ -20,7 +20,7 @@ export const pinologger = pino({
     },
 }, stream);
 
-const logger = async (req, res) => {
+const logger = (req, res) => {
   // console.log(`[INFO] request api: logger`);
   // console.log(`[INFO] request headers: ${JSON.stringify(req.headers)}`);
 
@@ -43,7 +43,7 @@ const logger = async (req, res) => {
       // await pinologger.info(data, JSON.stringify(req.body));
       console.log(`${JSON.stringify( {payload: req.body} )}`);
       const child = pinologger.child(req.body);
-      await child.info("survey data");
+      child.info("survey data");
       res.status(200).send(req.body);
       break;
     case 'OPTIONS':
