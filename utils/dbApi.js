@@ -1,4 +1,16 @@
-const url = '/api/sheeter';
+const hostname = process.env['NEXT_PUBLIC_HOST'];
+
+export const getTripCounts = async () => {
+  const params = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+  const apiResponse = await fetch(`${hostname}/api/trips`, params);
+  const tripCounts = await apiResponse.json();
+  return tripCounts;
+};
 
 export const sendFormResponse = async (resp) => {
   const params = {
@@ -8,7 +20,7 @@ export const sendFormResponse = async (resp) => {
     },
     body: JSON.stringify(resp),
   };
-  const apiResponse = await fetch(url, params);
+  const apiResponse = await fetch(`${hostname}/api/sheeter`, params);
   const text = await apiResponse.text();
   console.log(`sendFormResponse : (status: ${apiResponse.status}) ${JSON.stringify(text, null, '\t')}`);
 };
@@ -20,7 +32,7 @@ export const getFormResponses = async () => {
       'Content-Type': 'application/json',
     },
   };
-  const apiResponse = await fetch(url, params);
+  const apiResponse = await fetch(`${hostname}/api/sheeter`, params);
   const text = await apiResponse.text();
   console.log(`getFormResponses : (status: ${apiResponse.status}) ${JSON.stringify(text, null, '\t')}`);
   return text;
