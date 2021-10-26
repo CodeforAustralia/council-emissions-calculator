@@ -18,7 +18,7 @@ export const sendFormResponse = async (resp) => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(resp),
+    body: JSON.stringify({timestamp: (new Date()).toISOString(), ...resp}),
   };
   const apiResponse = await fetch(`${hostname}/api/sheeter`, params);
   const text = await apiResponse.text();
