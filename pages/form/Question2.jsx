@@ -25,9 +25,9 @@ export default function Question2() {
   const [daysSelected, setDaysSelected] = useState(answers.travelDays || []);
   const [workMode, setWorkMode] = useState(answers.workMode);
 
-  // in case user goes back to Q1 and reduces nWorkDays
+  // in case user goes back to Q1 and reduces numDaysWorked
   useEffect(() => {
-    if (parseInt(answers.nWorkDays) < answers.travelDays.length) {
+    if (parseInt(answers.numDaysWorked) < answers.travelDays.length) {
       setDaysSelected([]);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -81,7 +81,7 @@ export default function Question2() {
         <Radio mt={5} name={ON_SITE} id={ON_SITE} value={ON_SITE}>
           <Text fontSize={[18, 20]} fontWeight={700}>
             {workMode === ON_SITE ?
-              `I work on-site on ${daysSelected.length} out of ${answers.nWorkDays} workdays.`
+              `I work on-site on ${daysSelected.length} out of ${answers.numDaysWorked} workdays.`
               :
               `I work on-site on...`
             }
@@ -98,7 +98,7 @@ export default function Question2() {
                 w={["90vw", "144px"]}
                 h="55px"
                 variant={daysSelected.includes(day) ? "solid" : "outline"}
-                disabled={!daysSelected.includes(day) && daysSelected.length == answers.nWorkDays}
+                disabled={!daysSelected.includes(day) && daysSelected.length == answers.numDaysWorked}
                 colorScheme="blue"
                 onClick={dayClickHandler}
                 value={day}
