@@ -43,10 +43,10 @@ export default function Home() {
         <Animation />
         <Box p={[5, 10]}>
           <Heading textAlign={["center", "start"]}>
-            Help calculate Council&apos;s carbon emission
+            Help calculate Council&apos;s carbon emissions
           </Heading>
           <Text mt={spacing}>
-            We&apos;ll ask some questions about how you usually travel to and from work, and your suggestions on how council could help you to travel differently.
+            We&apos;ll ask some questions about how you usually travel to and from work, and your suggestions on how Council could help you to travel differently.
           </Text>
           <Text mt={spacing}>
             We&apos;ll compile your response into a report, which will be shared by your work representative once the survey is complete.
