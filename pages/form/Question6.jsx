@@ -54,7 +54,7 @@ export default function Question6() {
       </Heading>
 
       <Text fontSize="18px" mt={10} w={["100%", "90%"]} textAlign={["center", "left"]}>
-        What can council do to support and incentivise staff to choose more sustainable modes of transport to and from work?
+        What can Council do to support and incentivise staff to choose more sustainable modes of transport to and from work?
       </Text>
       <Textarea
         mt={3}

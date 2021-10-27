@@ -17,9 +17,9 @@ const options = [1, 2, 3, 4, 5, 6, 7];
 
 export default function Question1() {
   const { answers, setAnswers } = useForm();
-  const [nDays, setNDays] = useState(answers.nWorkDays);
+  const [nDays, setNDays] = useState(answers.numDaysWorked);
 
-  const saveAnswers = () => setAnswers(prev => ({ ...prev, nWorkDays: nDays }));
+  const saveAnswers = () => setAnswers(prev => ({ ...prev, numDaysWorked: nDays }));
 
   const NumberButton = ({ label, isActive, onClick }) => (
     <Button
