@@ -20,6 +20,7 @@ const initialAnswers = {
   km: "",
   numDaysWorked: 0,
   travelDays: [],
+  workMode: "",
   mainTransportMode: "",
   incentive: "",
   department: "",

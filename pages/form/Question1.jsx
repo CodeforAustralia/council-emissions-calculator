@@ -10,6 +10,8 @@ import {
   WrapItem,
   Button,
 } from "@chakra-ui/react";
+import { useRouter } from 'next/router';
+import { sendLogs } from '../../utils/sendLogs';
 
 const options = [1, 2, 3, 4, 5, 6, 7];
 
@@ -35,10 +37,32 @@ export default function Question1() {
     setNDays(option);
   }
 
+  const router = useRouter();
+
+  const logMessage = (msg) => {
+    let incentiveMsg = () => {
+      if (!!answers.incentive) {return "<filled>"}
+      else return "<empty>"
+    }
+    return {
+      page: router.pathname,
+      event: msg,
+      ...answers,
+      nWorkDays: nDays,
+      incentive: incentiveMsg(),
+    }
+  }
+
   return (
     <Layout isText={true} Progress={Q1Progress}>
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
-        <BackButton onClick={saveAnswers} href="/"/>
+        <BackButton
+          href="/"
+          onClick={() => {
+            saveAnswers();
+            sendLogs(logMessage("Back button clicked"));
+          }}
+        />
       </Box>
       <Q1Cloud />
       <Heading>
@@ -60,7 +84,15 @@ export default function Question1() {
         ))}
       </Wrap>
 
-      <LinkButton href="/form/Question2" width={["90vw", "474px"]} onClick={saveAnswers} disabled={!options.includes(nDays)}>
+      <LinkButton
+        disabled={!options.includes(nDays)}
+        href="/form/Question2"
+        width={["90vw", "474px"]}
+        onClick={() => {
+            saveAnswers();
+            sendLogs(logMessage("Next button clicked"));
+        }}
+      >
         Next
       </LinkButton>
     </Layout>

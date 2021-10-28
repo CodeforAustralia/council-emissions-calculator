@@ -18,6 +18,8 @@ import {
 import capitalize from "../../utils/capitalize";
 import Q5Progress from "../../public/images/progress-bar/q5-progress-dots.svg";
 import Q5Cloud from "../../public/images/clouds/cloud-q5.svg";
+import { useRouter } from 'next/router';
+import { sendLogs } from '../../utils/sendLogs';
 
 export default function Question5() {
   const { answers, setAnswers } = useForm();
@@ -25,10 +27,33 @@ export default function Question5() {
 
   const saveAnswers = () =>
     setAnswers((prev) => ({ ...prev, department: department }));
+
+  const router = useRouter();
+
+  const logMessage = (msg) => {
+    let incentiveMsg = () => {
+      if (!!answers.incentive) {return "<filled>"}
+      else return "<empty>"
+    }
+    return {
+      page: router.pathname,
+      event: msg,
+      ...answers,
+      department: department,
+      incentive: incentiveMsg(),
+    }
+  }
+
   return (
     <Layout isText={true} Progress={Q5Progress} maxContainerWidth="container.md">
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
-        <BackButton href="/form/Question4" onClick={saveAnswers} />
+        <BackButton
+          href="/form/Question4"
+          onClick={() => {
+            saveAnswers();
+            sendLogs(logMessage("Back button clicked"));
+          }}
+        />
       </Box>
       <Q5Cloud />
 
@@ -68,8 +93,11 @@ export default function Question5() {
             disabled={!department}
             href="/form/Question6"
             width="100%"
-            onClick={saveAnswers}
-            topMargin="5"
+            topMargin={4}
+            onClick={() => {
+              saveAnswers();
+              sendLogs(logMessage("Next button clicked"));
+            }}
           />
         </Box>
       </Flex>

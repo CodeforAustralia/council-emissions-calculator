@@ -16,6 +16,8 @@ import { daysOfWeek } from "../../utils/constants";
 import Q2Progress from "../../public/images/progress-bar/q2-progress-dots.svg";
 import Q2Cloud from "../../public/images/clouds/cloud-q2.svg";
 import LinkButton, { BackButton } from "../../components/LinkButton/LinkButton";
+import { useRouter } from 'next/router';
+import { sendLogs } from '../../utils/sendLogs';
 
 const WFH = "full work from home";
 const ON_SITE = "full/partial on-site";
@@ -52,10 +54,33 @@ export default function Question2() {
     setDaysSelected(selected);
   }
 
+  const router = useRouter();
+
+  const logMessage = (msg) => {
+    let incentiveMsg = () => {
+      if (!!answers.incentive) {return "<filled>"}
+      else return "<empty>"
+    }
+    return {
+      page: router.pathname,
+      event: msg,
+      ...answers,
+      travelDays: daysSelected,
+      workMode: workMode,
+      incentive: incentiveMsg(),
+    }
+  }
+
   return (
     <Layout isText={true} Progress={Q2Progress}>
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
-        <BackButton onClick={saveAnswers} href="/form/Question1" />
+        <BackButton
+          href="/form/Question1"
+          onClick={() => {
+            saveAnswers();
+            sendLogs(logMessage("Back button clicked"));
+          }}
+        />
       </Box>
       <Q2Cloud />
 
@@ -111,10 +136,13 @@ export default function Question2() {
       </Collapse>
 
       <LinkButton
-        width={["90vw", "90%"]}
-        href="/form/Question3"
-        onClick={saveAnswers}
         disabled={!(workMode === WFH || (workMode === ON_SITE && daysSelected.length > 0))}
+        href="/form/Question3"
+        width={["90vw", "90%"]}
+        onClick={() => {
+          saveAnswers();
+          sendLogs(logMessage("Next button clicked"));
+        }}
       >
         Next
       </LinkButton>
