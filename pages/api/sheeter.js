@@ -98,10 +98,11 @@ const sendFormResponse = async (sheets_client, form_data) => {
 const convertFormResponseToList = (formResp) => {
   // Example form response:
   // {
+  //   "transactionId": "4rrh40sy",
   //   "km": "12",
-  //   "nWorkDays": 5
-  //   "travelDays": ["Monday", "Wednesday", "Friday"]
-  //   "transportModes": ["bike", "didNotTravel", "didNotTravel", "bus", "bus", "didNotTravel", "didNotTravel"],
+  //   "numDaysWorked": 5,
+  //   "travelDays": ["Monday", "Wednesday", "Friday"],
+  //   "mainTransportMode": "bus",
   //   "incentive": "I'd like to have better biking lanes.",
   //   "department": "Education",
   // };

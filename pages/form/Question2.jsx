@@ -16,6 +16,8 @@ import { daysOfWeek } from "../../utils/constants";
 import Q2Progress from "../../public/images/progress-bar/q2-progress-dots.svg";
 import Q2Cloud from "../../public/images/clouds/cloud-q2.svg";
 import LinkButton, { BackButton } from "../../components/LinkButton/LinkButton";
+import { useRouter } from 'next/router';
+import { sendLogs } from '../../utils/sendLogs';
 
 const WFH = "full work from home";
 const ON_SITE = "full/partial on-site";
@@ -25,9 +27,9 @@ export default function Question2() {
   const [daysSelected, setDaysSelected] = useState(answers.travelDays || []);
   const [workMode, setWorkMode] = useState(answers.workMode);
 
-  // in case user goes back to Q1 and reduces nWorkDays
+  // in case user goes back to Q1 and reduces numDaysWorked
   useEffect(() => {
-    if (parseInt(answers.nWorkDays) < answers.travelDays.length) {
+    if (parseInt(answers.numDaysWorked) < answers.travelDays.length) {
       setDaysSelected([]);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -52,10 +54,33 @@ export default function Question2() {
     setDaysSelected(selected);
   }
 
+  const router = useRouter();
+
+  const logMessage = (msg) => {
+    let incentiveMsg = () => {
+      if (!!answers.incentive) {return "<filled>"}
+      else return "<empty>"
+    }
+    return {
+      page: router.pathname,
+      event: msg,
+      ...answers,
+      travelDays: daysSelected,
+      workMode: workMode,
+      incentive: incentiveMsg(),
+    }
+  }
+
   return (
     <Layout isText={true} Progress={Q2Progress}>
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
-        <BackButton onClick={saveAnswers} href="/form/Question1" />
+        <BackButton
+          href="/form/Question1"
+          onClick={() => {
+            saveAnswers();
+            sendLogs(logMessage("Back button clicked"));
+          }}
+        />
       </Box>
       <Q2Cloud />
 
@@ -81,7 +106,7 @@ export default function Question2() {
         <Radio mt={5} name={ON_SITE} id={ON_SITE} value={ON_SITE}>
           <Text fontSize={[18, 20]} fontWeight={700}>
             {workMode === ON_SITE ?
-              `I work on-site on ${daysSelected.length} out of ${answers.nWorkDays} workdays.`
+              `I work on-site on ${daysSelected.length} out of ${answers.numDaysWorked} workdays.`
               :
               `I work on-site on...`
             }
@@ -98,7 +123,7 @@ export default function Question2() {
                 w={["90vw", "144px"]}
                 h="55px"
                 variant={daysSelected.includes(day) ? "solid" : "outline"}
-                disabled={!daysSelected.includes(day) && daysSelected.length == answers.nWorkDays}
+                disabled={!daysSelected.includes(day) && daysSelected.length == answers.numDaysWorked}
                 colorScheme="blue"
                 onClick={dayClickHandler}
                 value={day}
@@ -111,10 +136,13 @@ export default function Question2() {
       </Collapse>
 
       <LinkButton
-        width={["90vw", "90%"]}
-        href="/form/Question3"
-        onClick={saveAnswers}
         disabled={!(workMode === WFH || (workMode === ON_SITE && daysSelected.length > 0))}
+        href="/form/Question3"
+        width={["90vw", "90%"]}
+        onClick={() => {
+          saveAnswers();
+          sendLogs(logMessage("Next button clicked"));
+        }}
       >
         Next
       </LinkButton>
