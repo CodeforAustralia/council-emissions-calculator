@@ -17,21 +17,45 @@ import {
 } from "../../components/LinkButton/LinkButton";
 import Q4Progress from "../../public/images/progress-bar/q4-progress-dots.svg";
 import Q4Cloud from "../../public/images/clouds/cloud-q4.svg";
+import { useRouter } from 'next/router';
+import { sendLogs } from '../../utils/sendLogs';
 
 export default function Question4() {
   const { answers, setAnswers } = useForm();
 
-  const [selectedMode, setSelectedMode] = useState(
+  const [transportMode, setTransportMode] = useState(
     answers.mainTransportMode || ""
   );
 
   const saveAnswers = () =>
-    setAnswers((prev) => ({ ...prev, mainTransportMode: selectedMode }));
+    setAnswers((prev) => ({ ...prev, mainTransportMode: transportMode }));
+
+  const router = useRouter();
+
+  const logMessage = (msg) => {
+    let incentiveMsg = () => {
+      if (!!answers.incentive) {return "<filled>"}
+      else return "<empty>"
+    }
+    return {
+      page: router.pathname,
+      event: msg,
+      ...answers,
+      mainTransportMode: transportMode,
+      incentive: incentiveMsg(),
+    }
+  }
 
   return (
     <Layout isText={true} Progress={Q4Progress} maxContainerWidth="container.md">
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
-        <BackButton href="/form/Question3" onClick={saveAnswers} />
+        <BackButton
+          href="/form/Question3"
+          onClick={() => {
+            saveAnswers();
+            sendLogs(logMessage("Back button clicked"));
+          }}
+        />
       </Box>
       <Q4Cloud />
 
@@ -50,11 +74,11 @@ export default function Question4() {
           <FormControl isRequired>
             <Select
               fontWeight="bold"
-              onChange={(e) => setSelectedMode(e.target.value)}
+              onChange={(e) => setTransportMode(e.target.value)}
               placeholder="Please select"
               border=".2px solid #044B7F"
               height="55px"
-              defaultValue={selectedMode}
+              defaultValue={transportMode}
               id="selector"
             >
               {modesOfTransport.map((mode) => (
@@ -73,11 +97,14 @@ export default function Question4() {
           </FormControl>
 
           <ContinueButton
-            disabled={!selectedMode}
+            disabled={!transportMode}
             href="/form/Question5"
-            onClick={saveAnswers}
             topMargin={4}
             width="100%"
+            onClick={() => {
+              saveAnswers();
+              sendLogs(logMessage("Next button clicked"));
+            }}
           />
         </Flex>
       </Flex>
