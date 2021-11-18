@@ -51,7 +51,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 - Highcharts to build charts in report
 - Vercel as hosting platform
 
-# WORKING IN FORKED REPO (Colobaration)
+# WORKING IN FORKED REPOSITORY(Collaboration)
 
 ### How to fetch upstream main/master
 
@@ -84,7 +84,7 @@ STEPS
 - Resolve any conflicts
 
 4. `git status`
-5. `git add .` or `git add XXX`
+5. `git add .` or `git add (file/path name)`
 6. `git commit -m “note”`
 
 ### To merge the changes to working branch
