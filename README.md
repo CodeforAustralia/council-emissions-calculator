@@ -2,17 +2,16 @@
 
 An experiment to test the initial design of Civic Maker's 2021 Council Emissions Calculator project.
 
-# Spiking Network Examples in Julia
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 ![GitHub issues](https://img.shields.io/github/issues/CodeforAustralia/council-emissions-calculator.svg)
-![GitHub closed issues](https://img.shields.io/github/issues-closedCodeforAustralia/council-emissions-calculator.svg)
-![GitHub pull requests](https://img.shields.io/github/CodeforAustralia/council-emissions-calculator.svg)
+![GitHub closed issues](https://img.shields.io/github/issues-closed/CodeforAustralia/council-emissions-calculator.svg)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/CodeforAustralia/council-emissions-calculator.svg)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/CodeforAustralia/council-emissions-calculator.svg)
 
-- [Project goals](#Project goals)
-- [Getting started](#Getting Started)
-- [Learn More about Development](#Learn More about Development)
-- [WORKING IN FORKED REPOSITORY(Collaboration)](#WORKING IN FORKED REPOSITORY(Collaboration))
+- [Project goals](# Project goals)
+- [Getting started](## Getting Started)
+- [Learn More about Development](### Learn More about Development)
+- [WORKING IN FORKED REPOSITORY(Collaboration)](## Working In Forked Repository (Collaboration)))
 
 
 # Project goals
@@ -67,7 +66,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 - Highcharts to build charts in report
 - Vercel as hosting platform
 
-## WORKING IN FORKED REPOSITORY(Collaboration)
+## Working In Forked Repository (Collaboration)
 
 #### How to fetch upstream main/master
 
