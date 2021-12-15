@@ -7,14 +7,14 @@ An experiment to test the initial design of Civic Maker's 2021 Council Emissions
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/CodeforAustralia/council-emissions-calculator.svg)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/CodeforAustralia/council-emissions-calculator.svg)
 
-- [Project goals](#Project-goals)
-- [Getting started](##Getting-Started)
-- [Learn More about Development](###Learn-More-about-Development)
-- [Working In Forked Repository (Collaboration)](##Working-In-Forked-Repository-(Collaboration))
+- [Project goals](#Project-Goals)
+- [Getting started](#Getting-Started)
+- [Learn More about Development](#Learn-More-about-Development)
+- [Working In Forked Repository (Collaboration)](#Working-In-Forked-Repository-(Collaboration))
 
 ---
 
-# Project goals
+# Project Goals
 
 - Provide councils a tool to assess their impact on the environment.
 - Provide councils with inspirations and next steps to have a more sustainable way of working.
