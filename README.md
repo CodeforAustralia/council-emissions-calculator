@@ -46,6 +46,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
+---
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
@@ -55,6 +57,8 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
+---
+
 ## Dependencies used in this project
 
 - Google Sheets as database
@@ -62,6 +66,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 - Chakra for UI framework
 - Highcharts to build charts in report
 - Vercel as hosting platform
+---
 
 # Working In Forked Repository (Collaboration)
 
