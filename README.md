@@ -10,7 +10,7 @@ An experiment to test the initial design of Civic Maker's 2021 Council Emissions
 - [Project goals](#Project-Goals)
 - [Getting started](#Getting-Started)
 - [Learn More about Development](#Learn-More-about-Development)
-- [Working In a Forked Repository (Collaboration)](#Collaboration:-Working-In-a-Forked-Repository)
+- [Collaboration: Working In a Forked Repository](#Collaboration:-Working-In-a-Forked-Repository)
 
 ---
 
