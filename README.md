@@ -1,6 +1,8 @@
 # Council Emissions Calculator
 An experiment to test the initial design of Civic Maker's 2021 Council Emissions Calculator project.
 
+---
+
 
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/CodeforAustralia/council-emissions-calculator.svg)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/CodeforAustralia/council-emissions-calculator.svg)
@@ -9,6 +11,8 @@ An experiment to test the initial design of Civic Maker's 2021 Council Emissions
 - [Getting started](##Getting-Started)
 - [Learn More about Development](###Learn-More-about-Development)
 - [Working In Forked Repository (Collaboration)](##Working-In-Forked-Repository-(Collaboration))
+
+---
 
 # Project goals
 
@@ -59,7 +63,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 - Highcharts to build charts in report
 - Vercel as hosting platform
 
-# WORKING IN FORKED REPOSITORY(Collaboration)
+# Working In Forked Repository (Collaboration)
 
 ### How to fetch upstream main/master
 
