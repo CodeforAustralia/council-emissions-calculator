@@ -48,7 +48,7 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 ---
 
-## Learn More
+## Learn More about Development
 
 To learn more about Next.js, take a look at the following resources:
 
