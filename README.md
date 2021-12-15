@@ -9,7 +9,7 @@ An experiment to test the initial design of Civic Maker's 2021 Council Emissions
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/CodeforAustralia/council-emissions-calculator.svg)
 
 - [Project goals](#Project-goals)
-- [Getting started](##Getting -Started)
+- [Getting started](##Getting-Started)
 - [Learn More about Development](###Learn-More-about-Development)
 - [WORKING IN FORKED REPOSITORY(Collaboration)](##Working-In-Forked-Repository-(Collaboration)))
 
