@@ -10,7 +10,7 @@ An experiment to test the initial design of Civic Maker's 2021 Council Emissions
 - [Project goals](#Project-Goals)
 - [Getting started](#Getting-Started)
 - [Learn More about Development](#Learn-More-about-Development)
-- [Working In Forked Repository (Collaboration)](#Working-In-Forked-Repository-(Collaboration))
+- [Working In Forked Repository (Collaboration)](#Working-In-a-Forked-Repository-(Collaboration))
 
 ---
 
@@ -68,7 +68,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 - Vercel as hosting platform
 ---
 
-# Working In Forked Repository (Collaboration)
+# Working In a Forked Repository (Collaboration)
 
 ### How to fetch upstream main/master
 
