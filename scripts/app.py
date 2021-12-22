@@ -115,13 +115,19 @@ def __main__():
     #st.text(transport_types)
     #st.write(df)
     make_sankey_chart(df,transport_types)
-    del df["Incentive Text"]
-    df = df.loc[~(df==0).all(axis=1)]
+    #del df["Incentive Text"]
+    #df = df.loc[~(df==0).all(axis=1)]
+    st.title("Distribution plots")
     fig = plt.figure()
+
     sns.displot(data=df, x="One-Way Daily Commute Distance (km)", hue="Main Transport Mode", col="Num trips to office", kind="kde")
     st.pyplot(fig)
     fig = plt.figure()
+    st.title("Pairplots")
     sns.pairplot(df, hue="Main Transport Mode")
     st.pyplot(fig)
+
+#fig = sns.pairplot(penguins, hue="species")
+#st.pyplot(fig)
 
 __main__()
