@@ -120,9 +120,9 @@ def make_scatter_matrix(df):
     del df2['Sunday Work Location']
     #st.text(df2.columns)
     st.markdown("plotly scatter matrix")
-    st.markdown("Main Transport Mode", "Num trips to office", "One-Way Daily Commute Distance (km)")
+    st.markdown("Main Transport Mode, Num trips to office, One-Way Daily Commute Distance (km)")
     fig = px.scatter_matrix(df2,
-        dimensions=["Main Transport Mode", "Num trips to office", "One-Way Daily Commute Distance (km)"],
+        dimensions=["Main Transport Mode, Num trips to office, One-Way Daily Commute Distance (km)"],
         title="Scatter matrix of Transport data set",color="Main Transport Mode")
     fig.update_traces(diagonal_visible=False)
     st.write(fig)
