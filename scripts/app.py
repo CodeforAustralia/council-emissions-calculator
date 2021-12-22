@@ -34,26 +34,41 @@ def make_sankey_chart(df,transport_types):
         encode[name] = len(df.index) + i
 
     less_five_src = df[df["One-Way Daily Commute Distance (km)"]<5.0].index
+    less_five_src = [1.0 for i in range(0,len(less_five_src))]
+
     less_five_tgt = df[df["One-Way Daily Commute Distance (km)"]<5.0]["Main Transport Mode"]
     less_five_tgt = encode_list(less_five_tgt,encode)
 
-    #less_ten_src = df[df[df["One-Way Daily Commute Distance (km)"]>=5.0]<10].index #and df["One-Way Daily Commute Distance (km)"]<10].index
-    #less_ten_tgt = df[df[df["One-Way Daily Commute Distance (km)"]>=5.0]<10]["Main Transport Mode"]
-    #less_ten_tgt = encode_list(less_ten_tgt,encode)
+    #df_filtered = df.query('a == 4 & b != 2')
+
+    #df1 = df[(df.a != -1) & (df.b != -1)]
+    df_filtered = df[df["One-Way Daily Commute Distance (km)"]>=5.0]
+    df_filtered = df_filtered[df_filtered["One-Way Daily Commute Distance (km)"]<10.0]
+    #st.write(df_filtered)
+
+    less_ten_src = df_filtered.index#<10].index #and df["One-Way Daily Commute Distance (km)"]<10].index
+    less_ten_src = [2.0 for i in range(0,len(less_ten_src))]
+
+    less_ten_tgt = df_filtered["Main Transport Mode"]
+    less_ten_tgt = encode_list(less_ten_tgt,encode)
+
+
     greater_ten_src = df[df["One-Way Daily Commute Distance (km)"]>=10.0].index
+    greater_ten_src = [3.0 for i in range(0,len(greater_ten_src))]
+
     greater_ten_tgt = df[df["One-Way Daily Commute Distance (km)"]>=10.0]["Main Transport Mode"]
     greater_ten_tgt = encode_list(greater_ten_tgt,encode)
 
 
-    tgts = []
-    tgts.extend(less_five_tgt)
-    #tgts.extend(less_ten_tgt)
-    tgts.extend(greater_ten_tgt)
-
     srcs = []
     srcs.extend(less_five_src)
-    #srcs.extend(less_ten_src)
+    srcs.extend(less_ten_src)
     srcs.extend(greater_ten_src)
+
+    tgts = []
+    tgts.extend(less_five_tgt)
+    tgts.extend(less_ten_tgt)
+    tgts.extend(greater_ten_tgt)
 
 
 
@@ -72,7 +87,7 @@ def make_sankey_chart(df,transport_types):
         link = dict(
           source =  srcs,#data['data'][0]['link']['source'],
           target =  tgts,#data['data'][0]['link']['target'],
-          value = [10 for i in range(0,len(srcs))],#[8, 4, 2, 8, 4, 2]
+          value = [20 for i in range(0,len(srcs))],#[8, 4, 2, 8, 4, 2]
 
      ))])
 
@@ -81,7 +96,7 @@ def make_sankey_chart(df,transport_types):
 
     st.markdown("### Sankey Diagram")
     st.markdown(" --- ")
-    st.markdown("srcs are groups of three intervals of distances travelled, tgts are organized by mode of transport")
+    st.markdown("Sources (srcs) are groups of three intervals of distances travelled, targets (tgts) are organized by mode of transport 9")
     st.write(fig)
 
 
@@ -95,8 +110,8 @@ def __main__():
     transport_types = set(df["Main Transport Mode"])
 
     make_pie_chart(df,transport_types)
-    st.text(len(transport_types))
-    st.text(transport_types)
+    #st.text(len(transport_types))
+    #st.text(transport_types)
 
     make_sankey_chart(df,transport_types)
 
