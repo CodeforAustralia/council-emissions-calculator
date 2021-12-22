@@ -5,12 +5,11 @@ import plotly.express as px
 import plotly.graph_objects as go
 import numpy as np
 from collections import OrderedDict
-try:
-    df = pd.read_csv("ttws.csv")
-except:
-    import os
-    os.system('wget --no-check-certificate -O ttws.csv "https://docs.google.com/spreadsheets/d/1t2vrLeczcowJvpkiVkFu_yc1AnfMoYarvdc1uoZXsPo/export?gid=0&format=csv"')
-    df = pd.read_csv("ttws.csv")
+#try:#
+#    df = pd.read_csv("ttws.csv")
+#except:
+#import os
+#os.system('wget --no-check-certificate -O ttws.csv "https://docs.google.com/spreadsheets/d/1t2vrLeczcowJvpkiVkFu_yc1AnfMoYarvdc1uoZXsPo/export?gid=0&format=csv"')
 
 
 
@@ -98,6 +97,8 @@ def make_sankey_chart(df,transport_types):
     #st.write(fig)
 
 def __main__():
+    df = pd.read_csv("ttws.csv")
+
     transport_types = set(df["Main Transport Mode"])
     make_pie_chart(df,transport_types)
     make_sankey_chart(df,transport_types)
