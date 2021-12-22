@@ -5,13 +5,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 import numpy as np
 from collections import OrderedDict
-#try:#
-#    df = pd.read_csv("ttws.csv")
-#except:
-#try:
-#    import os
-#    os.system('wget --no-check-certificate -O ttws.csv "https://docs.google.com/spreadsheets/d/1t2vrLeczcowJvpkiVkFu_yc1AnfMoYarvdc1uoZXsPo/export?gid=0&format=csv"')
-
 
 
 def make_pie_chart(df,transport_types):
@@ -33,10 +26,13 @@ def make_pie_chart(df,transport_types):
 
 def encode_list(input,encode):
     return [ encode[i] for i in input ]
+
 def make_sankey_chart(df,transport_types):
     encode = {}
+
     for i,name in enumerate(transport_types):
-        encode[name] = i
+        encode[name] = len(df.index) + i
+
     less_five_src = df[df["One-Way Daily Commute Distance (km)"]<5.0].index
     less_five_tgt = df[df["One-Way Daily Commute Distance (km)"]<5.0]["Main Transport Mode"]
     less_five_tgt = encode_list(less_five_tgt,encode)
@@ -76,7 +72,7 @@ def make_sankey_chart(df,transport_types):
         link = dict(
           source =  srcs,#data['data'][0]['link']['source'],
           target =  tgts,#data['data'][0]['link']['target'],
-          value = srcs,#[8, 4, 2, 8, 4, 2]
+          value = [10 for i in range(0,len(srcs))],#[8, 4, 2, 8, 4, 2]
 
      ))])
 
@@ -86,22 +82,22 @@ def make_sankey_chart(df,transport_types):
     st.markdown("### Sankey Diagram")
     st.markdown(" --- ")
     st.markdown("srcs are groups of three intervals of distances travelled, tgts are organized by mode of transport")
-
     st.write(fig)
-    #fig.show()
-    #fig.update_layout(title_text="Basic Sankey Diagram", font_size=10)
-    #st.write(fig)#.show()
-    #tt={}
-    #for transport in set(df["Main Transport Mode"]):
-    #    tt[transport] = len(df[df==transport])
-    #fig = px.pie(values=list(tt.values()), names=list(tt.keys()))
-    #st.write(fig)
+
 
 def __main__():
-    df = pd.read_csv("scripts/ttws.csv")
+    try:
+        df = pd.read_csv("scripts/ttws.csv")
+    except:
+        df = pd.read_csv("ttws.csv")
+
     st.markdown("# Civic Makers Climate Change")
     transport_types = set(df["Main Transport Mode"])
+
     make_pie_chart(df,transport_types)
+    st.text(len(transport_types))
+    st.text(transport_types)
+
     make_sankey_chart(df,transport_types)
 
 __main__()
