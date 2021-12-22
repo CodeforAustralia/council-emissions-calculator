@@ -105,35 +105,8 @@ def make_sankey_chart(df,transport_types):
     st.write(fig)
 
 
-def __main__():
-    try:
-        df = pd.read_csv("scripts/ttws.csv")
-    except:
-        df = pd.read_csv("ttws.csv")
+def make_scatter_matrix(df):
 
-    st.markdown("# Civic Makers Climate Change")
-    transport_types = set(df["Main Transport Mode"])
-
-    make_pie_chart(df,transport_types)
-    st.title("Distribution plots")
-    fig = px.density_heatmap(df, x="One-Way Daily Commute Distance (km)", y="Num trips to office", marginal_x="histogram", marginal_y="histogram")
-    st.write(fig)
-
-    make_sankey_chart(df,transport_types)
-
-
-
-    #fig = go.Figure()
-    #fig.add_trace(go.Histogram(x=df["One-Way Daily Commute Distance (km)"],name="Distance"))
-    #fig.add_trace(go.Histogram(x=df["Num trips to office"],name="Number of trips"))
-
-    # Overlay both histograms
-    #fig.update_layout(barmode='overlay')
-    # Reduce opacity to see both histograms
-    #fig.update_traces(opacity=0.75)
-    #st.write(fig)
-    #import plotly.express as px
-    #df = px.data.iris()
     import copy
     df2 = copy.copy(df)
     del df2["Date"]
@@ -158,28 +131,35 @@ def __main__():
     fig.update_traces(diagonal_visible=False)
 
     st.write(fig)
-    #fig.show()
-    #st.write(df)
-    #fig = px.histogram(df, x="One-Way Daily Commute Distance (km)", y="Num trips to office",
-    #                   marginal="box", # or violin, rug
-    #                   hover_data=df.columns)
 
-    #st.text(df.columns)
 
-    #fig.show()
 
-    #
-    #fig = plt.figure()
+def __main__():
+    try:
+        df = pd.read_csv("scripts/ttws.csv")
+    except:
+        df = pd.read_csv("ttws.csv")
 
-    #sns.displot(data=df, x="One-Way Daily Commute Distance (km)", hue="Main Transport Mode", col="Num trips to office", kind="kde")
-    #st.pyplot(fig)
-    #st.title("Pairplots")
+    st.markdown("# Civic Makers Climate Change")
+    transport_types = set(df["Main Transport Mode"])
 
-    #fig = plt.figure()
-    #sns.pairplot(df, hue="Main Transport Mode")
-    #st.pyplot(fig)
+    make_pie_chart(df,transport_types)
 
-#fig = sns.pairplot(penguins, hue="species")
-#st.pyplot(fig)
+
+    make_sankey_chart(df,transport_types)
+    st.markdown("Distribution plots # Trips to Office versus Distance (all transport)")
+    fig = px.density_heatmap(df, x="One-Way Daily Commute Distance (km)", y="Num trips to office", marginal_x="histogram", marginal_y="histogram")
+    st.write(fig)
+    st.title("Distribution plots")
+
+    for transport in transport_types:
+        st.markdown("distribution plot of:")
+        st.markdown(transport)
+        df3 = df[df["Main Transport Mode"]==transport]
+        fig = px.density_heatmap(df3, x="One-Way Daily Commute Distance (km)", y="Num trips to office", marginal_x="histogram", marginal_y="histogram")
+        st.write(fig)
+
+    make_scatter_matrix(df)
+
 
 __main__()
