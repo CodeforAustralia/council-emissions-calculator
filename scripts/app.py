@@ -25,7 +25,7 @@ def make_pie_chart(df,transport_types):
         names.append(str(k)+str(" (km)"))
 
     fig = px.pie(values=list(odtt.values()), names=names)
-    st.markdown("## Distance versus Transport Mode Pie chart")
+    st.markdown("### Distance versus Transport Mode Pie chart")
     st.markdown(" --- ")
     st.markdown("A slice is size proportional to effective distance in a week \n with transport type: (One-Way Daily Commute Distance) multiplied by (Num trips to office)")
     st.write(fig)
@@ -83,7 +83,7 @@ def make_sankey_chart(df,transport_types):
     fig.update_layout(title_text="",
                       font_size=10)
 
-    st.markdown("## Sankey Diagram")
+    st.markdown("### Sankey Diagram")
     st.markdown(" --- ")
     st.markdown("srcs are groups of three intervals of distances travelled, tgts are organized by mode of transport")
 
@@ -99,7 +99,7 @@ def make_sankey_chart(df,transport_types):
 
 def __main__():
     df = pd.read_csv("scripts/ttws.csv")
-    st.markdown("Civic Makers Climate Change")
+    st.markdown("# Civic Makers Climate Change")
     transport_types = set(df["Main Transport Mode"])
     make_pie_chart(df,transport_types)
     make_sankey_chart(df,transport_types)
