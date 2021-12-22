@@ -112,22 +112,22 @@ def __main__():
 
     make_pie_chart(df,transport_types)
     make_sankey_chart(df,transport_types)
-    fig = px.histogram(df, x="One-Way Daily Commute Distance (km)", y="Num trips to office", color="Num trips to office",
+    fig = px.histogram(df, x="One-Way Daily Commute Distance (km)", y="Num trips to office",
                        marginal="box", # or violin, rug
                        hover_data=df.columns)
     st.write(fig)
     #fig.show()
 
-    st.title("Distribution plots")
-    fig = plt.figure()
+    #st.title("Distribution plots")
+    #fig = plt.figure()
 
-    sns.displot(data=df, x="One-Way Daily Commute Distance (km)", hue="Main Transport Mode", col="Num trips to office", kind="kde")
-    st.pyplot(fig)
-    st.title("Pairplots")
+    #sns.displot(data=df, x="One-Way Daily Commute Distance (km)", hue="Main Transport Mode", col="Num trips to office", kind="kde")
+    #st.pyplot(fig)
+    #st.title("Pairplots")
 
-    fig = plt.figure()
-    sns.pairplot(df, hue="Main Transport Mode")
-    st.pyplot(fig)
+    #fig = plt.figure()
+    #sns.pairplot(df, hue="Main Transport Mode")
+    #st.pyplot(fig)
 
 #fig = sns.pairplot(penguins, hue="species")
 #st.pyplot(fig)
