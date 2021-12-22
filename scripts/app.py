@@ -15,7 +15,7 @@ def make_pie_chart(df,transport_types):
     tt={}
     for transport in transport_types:#set(df["Main Transport Mode"]):
         df2 = df[df["Main Transport Mode"]==transport]
-        tt[transport] = np.round(sum(df2["One-Way Daily Commute Distance (km)"])*sum(df2["Num trips to office"]),2)
+        tt[transport] = 2*np.round(sum(df2["One-Way Daily Commute Distance (km)"])*sum(df2["Num trips to office"]),2)
     odtt = OrderedDict(tt)
     names = []
     for k in odtt.keys():
@@ -24,7 +24,8 @@ def make_pie_chart(df,transport_types):
     fig = px.pie(values=list(odtt.values()), names=names)
     st.markdown("### Distance versus Transport Mode Pie chart")
     st.markdown(" --- ")
-    st.markdown("A slice is size proportional to effective distance in a week \n with transport type: (One-Way Daily Commute Distance) multiplied by (Num trips to office)")
+    st.markdown("A slice is size proportional to effective distance in a week \n with transport type: (One-Way Daily Commute Distance [OWD]) multiplied by (Num trips to office [NTTO]) ")
+    st.latex(r'''Slice = 2 \times OWD \times NTTO''')
     st.write(fig)
 
 
