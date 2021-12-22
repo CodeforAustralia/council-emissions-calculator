@@ -8,8 +8,8 @@ from collections import OrderedDict
 #try:#
 #    df = pd.read_csv("ttws.csv")
 #except:
-#import os
-#os.system('wget --no-check-certificate -O ttws.csv "https://docs.google.com/spreadsheets/d/1t2vrLeczcowJvpkiVkFu_yc1AnfMoYarvdc1uoZXsPo/export?gid=0&format=csv"')
+import os
+os.system('wget --no-check-certificate -O ttws.csv "https://docs.google.com/spreadsheets/d/1t2vrLeczcowJvpkiVkFu_yc1AnfMoYarvdc1uoZXsPo/export?gid=0&format=csv"')
 
 
 
@@ -97,6 +97,8 @@ def make_sankey_chart(df,transport_types):
     #st.write(fig)
 
 def __main__():
+    st.markdown("# Hello")
+    st.text(os.system("ls -ltr"))
     df = pd.read_csv("ttws.csv")
 
     transport_types = set(df["Main Transport Mode"])
