@@ -9,7 +9,7 @@ from collections import OrderedDict
 #    df = pd.read_csv("ttws.csv")
 #except:
 import os
-#os.system('wget --no-check-certificate -O ttws.csv "https://docs.google.com/spreadsheets/d/1t2vrLeczcowJvpkiVkFu_yc1AnfMoYarvdc1uoZXsPo/export?gid=0&format=csv"')
+os.system('wget --no-check-certificate -O ttws.csv "https://docs.google.com/spreadsheets/d/1t2vrLeczcowJvpkiVkFu_yc1AnfMoYarvdc1uoZXsPo/export?gid=0&format=csv"')
 
 
 
@@ -98,8 +98,8 @@ def make_sankey_chart(df,transport_types):
 
 def __main__():
     st.markdown("# Hello")
-    st.text(os.system("ls -ltr"))
-    df = pd.read_csv("ttws.csv")
+    st.text(os.system("ls"))
+    df = pd.read_csv("scripts/ttws.csv")
 
     transport_types = set(df["Main Transport Mode"])
     make_pie_chart(df,transport_types)
