@@ -9,7 +9,7 @@ from collections import OrderedDict
 #    df = pd.read_csv("ttws.csv")
 #except:
 import os
-os.system('wget --no-check-certificate -O ttws.csv "https://docs.google.com/spreadsheets/d/1t2vrLeczcowJvpkiVkFu_yc1AnfMoYarvdc1uoZXsPo/export?gid=0&format=csv"')
+#os.system('wget --no-check-certificate -O ttws.csv "https://docs.google.com/spreadsheets/d/1t2vrLeczcowJvpkiVkFu_yc1AnfMoYarvdc1uoZXsPo/export?gid=0&format=csv"')
 
 
 
