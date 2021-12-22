@@ -101,7 +101,7 @@ def make_sankey_chart(df,transport_types):
 
     st.markdown("### Sankey Diagram")
     st.markdown(" --- ")
-    st.markdown("Sources (srcs) are groups of three intervals of distances travelled, targets (tgts) are organized by mode of transport 9")
+    st.markdown("Sources (srcs) are groups of three intervals of distances travelled there are three (x<5km,x>5km &x<10km,x>10km), targets (tgts) are organized by mode of transport 9")
     st.write(fig)
 
 
