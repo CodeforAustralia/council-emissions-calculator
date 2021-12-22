@@ -111,19 +111,21 @@ def __main__():
     transport_types = set(df["Main Transport Mode"])
 
     make_pie_chart(df,transport_types)
-    #st.text(len(transport_types))
-    #st.text(transport_types)
-    #st.write(df)
     make_sankey_chart(df,transport_types)
-    #del df["Incentive Text"]
-    #df = df.loc[~(df==0).all(axis=1)]
+    fig = px.histogram(df, x="One-Way Daily Commute Distance (km)", y="Num trips to office", color="Num trips to office",
+                       marginal="box", # or violin, rug
+                       hover_data=df.columns)
+    st.write(fig)
+    #fig.show()
+
     st.title("Distribution plots")
     fig = plt.figure()
 
     sns.displot(data=df, x="One-Way Daily Commute Distance (km)", hue="Main Transport Mode", col="Num trips to office", kind="kde")
     st.pyplot(fig)
-    fig = plt.figure()
     st.title("Pairplots")
+
+    fig = plt.figure()
     sns.pairplot(df, hue="Main Transport Mode")
     st.pyplot(fig)
 
