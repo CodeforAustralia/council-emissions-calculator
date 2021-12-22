@@ -122,7 +122,7 @@ def make_sankey_chart(df,transport_types):
     st.markdown("### Sankey Diagram")
     st.markdown(" --- ")
     st.markdown("Sources (srcs) are groups of three intervals of distances travelled, they are: ")
-    st.latex(r'''d<5km,d>5km \cap d<10km,d>10km''')
+    st.latex(r'''d<5km,d>=5km \cap x=<10km,d>10km''')
 
     #st.markdown("there are three sources and 9 targets (tgts)")
     #st.markdown("The 9 targets are organized by mode of transport.")
