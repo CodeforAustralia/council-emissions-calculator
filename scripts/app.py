@@ -34,25 +34,26 @@ def encode_list(input,encode):
 
 def make_sankey_chart(df,transport_types):
     encode = {}
-
+    transport_types = list(transport_types)
+    #st.text(transport_types)
+    #del transport_types[0]
     for i,name in enumerate(transport_types):
-        encode[name] = len(df.index) + i
+        #if i!=0:
+        encode[name] = 4 + i
 
     less_five_src = df[df["One-Way Daily Commute Distance (km)"]<5.0].index
+    #st.text(less_five_src)
     less_five_src = [1.0 for i in range(0,len(less_five_src))]
-
+    #st.text(len(less_five_src))
     less_five_tgt = df[df["One-Way Daily Commute Distance (km)"]<5.0]["Main Transport Mode"]
     less_five_tgt = encode_list(less_five_tgt,encode)
-
-    #df_filtered = df.query('a == 4 & b != 2')
-
-    #df1 = df[(df.a != -1) & (df.b != -1)]
     df_filtered = df[df["One-Way Daily Commute Distance (km)"]>=5.0]
     df_filtered = df_filtered[df_filtered["One-Way Daily Commute Distance (km)"]<10.0]
-    #st.write(df_filtered)
+    #st.text(len(df_filtered))
 
     less_ten_src = df_filtered.index#<10].index #and df["One-Way Daily Commute Distance (km)"]<10].index
     less_ten_src = [2.0 for i in range(0,len(less_ten_src))]
+    #st.text(len(less_ten_src))
 
     less_ten_tgt = df_filtered["Main Transport Mode"]
     less_ten_tgt = encode_list(less_ten_tgt,encode)
@@ -69,12 +70,31 @@ def make_sankey_chart(df,transport_types):
     srcs.extend(less_five_src)
     srcs.extend(less_ten_src)
     srcs.extend(greater_ten_src)
-
     tgts = []
     tgts.extend(less_five_tgt)
     tgts.extend(less_ten_tgt)
     tgts.extend(greater_ten_tgt)
+    assert len(srcs)==len(tgts)
+    labels=['less than 5km','between 5km and 10km','greater than 10km']
+    labels.extend(transport_types)
+    labels.insert(0,'less than 5km')
+    assert len(srcs)==len(tgts)#==len(labels)
 
+    #labels = [i for i in labels[-1::]]
+    #st.text(labels)
+    colors=[
+        '#1f77b4',  # muted blue
+        '#ff7f0e',  # safety orange
+        '#2ca02c',  # cooked asparagus green
+        '#d62728',  # brick red
+        '#9467bd',  # muted purple
+        '#8c564b',  # chestnut brown
+        '#e377c2',  # raspberry yogurt pink
+        '#7f7f7f',  # middle gray
+        '#bcbd22',  # curry yellow-green
+        '#17becf'   # blue-teal
+    ]
+    encode_list(transport_types,encode)
 
 
     fig = go.Figure(data=[go.Sankey(
@@ -85,14 +105,14 @@ def make_sankey_chart(df,transport_types):
           pad = 15,
           thickness = 15,
           line = dict(color = "black", width = 0.5),
-          label =  srcs,
-          color = "blue"
+          label =  labels,
+          color = colors,
         ),
         # Add links
         link = dict(
           source =  srcs,#data['data'][0]['link']['source'],
           target =  tgts,#data['data'][0]['link']['target'],
-          value = [20 for i in range(0,len(srcs))],#[8, 4, 2, 8, 4, 2]
+          value = srcs,#[20 for i in range(0,len(srcs))],#[8, 4, 2, 8, 4, 2]
 
      ))])
 
@@ -105,19 +125,30 @@ def make_sankey_chart(df,transport_types):
     st.write(fig)
 
 
-def make_scatter_matrix(df):
+def get_locations(df2):
+    locs = []
+    locs.extend(df2["Monday Work Location"])
+    locs.extend(df2["Tuesday Work Location"])
+    locs.extend(df2['Wednesday Work Location'])
+    locs.extend(df2['Thursday Work Location'])
+    locs.extend(df2['Friday Work Location'])
+    locs.extend(df2['Saturday Work Location'])
+    locs.extend(df2['Sunday Work Location'])
+    st.text(set(locs))
 
-    import copy
-    df2 = copy.copy(df)
-    del df2["Date"]
-    del df2["Incentive Text"]
-    del df2["Monday Work Location"]
-    del df2["Tuesday Work Location"]
-    del df2['Wednesday Work Location']
-    del df2['Thursday Work Location']
-    del df2['Friday Work Location']
-    del df2['Saturday Work Location']
-    del df2['Sunday Work Location']
+def make_scatter_matrix(df2):
+
+    #import copy
+    #df2 = copy.copy(df)
+    #del df2["Date"]
+    #del df2["Incentive Text"]
+    #del df2["Monday Work Location"]
+    #del df2["Tuesday Work Location"]
+    #del df2['Wednesday Work Location']
+    #del df2['Thursday Work Location']
+    #del df2['Friday Work Location']
+    #del df2['Saturday Work Location']
+    #del df2['Sunday Work Location']
     #st.text(df2.columns)
     st.markdown("plotly scatter matrix")
     st.markdown("Main Transport Mode, Num trips to office, One-Way Daily Commute Distance (km)")
@@ -147,7 +178,7 @@ def __main__():
     transport_types = set(df["Main Transport Mode"])
 
     make_pie_chart(df,transport_types)
-
+    #get_locations(df)
 
     make_sankey_chart(df,transport_types)
     st.markdown("Distribution plots # Trips to Office versus Distance (all transport)")
