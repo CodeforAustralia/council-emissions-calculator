@@ -5,8 +5,9 @@ import plotly.express as px
 import plotly.graph_objects as go
 import numpy as np
 from collections import OrderedDict
-
-
+import matplotlib
+import matplotlib.pyplot as plt
+import seaborn as sns
 def make_pie_chart(df,transport_types):
     tt={}
     for transport in transport_types:#set(df["Main Transport Mode"]):
@@ -112,7 +113,15 @@ def __main__():
     make_pie_chart(df,transport_types)
     #st.text(len(transport_types))
     #st.text(transport_types)
-
+    #st.write(df)
     make_sankey_chart(df,transport_types)
+    del df["Incentive Text"]
+    df = df.loc[~(df==0).all(axis=1)]
+    fig = plt.figure()
+    sns.displot(data=df, x="One-Way Daily Commute Distance (km)", hue="Main Transport Mode", col="Num trips to office", kind="kde")
+    st.pyplot(fig)
+    fig = plt.figure()
+    sns.pairplot(df, hue="Main Transport Mode")
+    st.pyplot(fig)
 
 __main__()
