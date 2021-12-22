@@ -8,6 +8,9 @@ from collections import OrderedDict
 import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
+import plotly.graph_objects as go
+#st.set_page_config(layout="wide")
+
 def make_pie_chart(df,transport_types):
     tt={}
     for transport in transport_types:#set(df["Main Transport Mode"]):
@@ -111,14 +114,60 @@ def __main__():
     transport_types = set(df["Main Transport Mode"])
 
     make_pie_chart(df,transport_types)
+    st.title("Distribution plots")
+    fig = px.density_heatmap(df, x="One-Way Daily Commute Distance (km)", y="Num trips to office", marginal_x="histogram", marginal_y="histogram")
+    st.write(fig)
+
     make_sankey_chart(df,transport_types)
-    fig = px.histogram(df, x="One-Way Daily Commute Distance (km)", y="Num trips to office",
-                       marginal="box", # or violin, rug
-                       hover_data=df.columns)
+
+
+
+    #fig = go.Figure()
+    #fig.add_trace(go.Histogram(x=df["One-Way Daily Commute Distance (km)"],name="Distance"))
+    #fig.add_trace(go.Histogram(x=df["Num trips to office"],name="Number of trips"))
+
+    # Overlay both histograms
+    #fig.update_layout(barmode='overlay')
+    # Reduce opacity to see both histograms
+    #fig.update_traces(opacity=0.75)
+    #st.write(fig)
+    #import plotly.express as px
+    #df = px.data.iris()
+    import copy
+    df2 = copy.copy(df)
+    del df2["Date"]
+    del df2["Incentive Text"]
+    del df2["Monday Work Location"]
+    del df2["Tuesday Work Location"]
+    del df2['Wednesday Work Location']
+    del df2['Thursday Work Location']
+    del df2['Friday Work Location']
+    del df2['Saturday Work Location']
+    del df2['Sunday Work Location']
+    #st.text(df2.columns)
+    fig = px.scatter_matrix(df2,
+        dimensions=["Main Transport Mode", "Num trips to office", "One-Way Daily Commute Distance (km)"],
+        title="Scatter matrix of Transport data set",color="Main Transport Mode")
+    fig.update_traces(diagonal_visible=False)
+    st.write(fig)
+
+    fig = px.scatter_matrix(df2,
+        dimensions=["Department", "Num trips to office", "One-Way Daily Commute Distance (km)"],
+        title="Scatter matrix of Transport data set",color="Department")
+    fig.update_traces(diagonal_visible=False)
+
     st.write(fig)
     #fig.show()
+    #st.write(df)
+    #fig = px.histogram(df, x="One-Way Daily Commute Distance (km)", y="Num trips to office",
+    #                   marginal="box", # or violin, rug
+    #                   hover_data=df.columns)
 
-    #st.title("Distribution plots")
+    #st.text(df.columns)
+
+    #fig.show()
+
+    #
     #fig = plt.figure()
 
     #sns.displot(data=df, x="One-Way Daily Commute Distance (km)", hue="Main Transport Mode", col="Num trips to office", kind="kde")
