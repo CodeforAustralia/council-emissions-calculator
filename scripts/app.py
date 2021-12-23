@@ -555,7 +555,7 @@ def __main__():
     #    ),
     #)
     #if simplify=="Yes":
-    df = lump_categories_togethor(df)
+    #df = lump_categories_togethor(df)
 
     transport_types = set(df["Main Transport Mode"])
     total_distance_travelled(df, transport_types)
