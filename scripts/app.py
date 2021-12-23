@@ -446,14 +446,18 @@ def sheet(df2):
     del df3["Friday Work Location"]
     del df3["Saturday Work Location"]
     del df3["Sunday Work Location"]
-    st.markdown("### Intersting Column names:")
-    st.table(df3.head(0))
-    st.markdown("### All Column names:")
-    st.table(df2.head(0))
+    #st.markdown("### Intersting Column names:")
+    #st.table(df3.head(0))
+    #st.markdown("### All Column names:")
+    #st.table(df2.head(0))
+
+    column_genre = my_expander.radio(
+        "Choose Spread Sheet Column:",list(df3.columns),
+    )
 
     #my_expander = st.beta_expander("Interrogate Column By Name:")
-    user_input = my_expander.text_input("Enter a Column Name", "Main Transport Mode")
-    my_expander.write(df2[user_input])
+    #user_input = my_expander.text_input("Enter a Column Name", "Main Transport Mode")
+    my_expander.write(df2[column_genre])
 
 
 
