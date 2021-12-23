@@ -323,19 +323,20 @@ def get_locations(df2):
 
 import copy
 
-@st.cache
+#@st.cache
 def prep_matrix(df2):
 
-    #df2 = copy.copy(df)
-    del df2["Date"]
-    del df2["Incentive Text"]
-    del df2["Monday Work Location"]
-    del df2["Tuesday Work Location"]
-    del df2["Wednesday Work Location"]
-    del df2["Thursday Work Location"]
-    del df2["Friday Work Location"]
-    del df2["Saturday Work Location"]
-    del df2["Sunday Work Location"]
+    df2 = copy.copy(df2)
+    if "Date" in df2.columns:
+        del df2["Date"]
+        del df2["Incentive Text"]
+        del df2["Monday Work Location"]
+        del df2["Tuesday Work Location"]
+        del df2["Wednesday Work Location"]
+        del df2["Thursday Work Location"]
+        del df2["Friday Work Location"]
+        del df2["Saturday Work Location"]
+        del df2["Sunday Work Location"]
     df3 = copy.copy(df2)
     df3["Main Transport Mode"] = df3["Main Transport Mode"].astype("category").cat.codes
     df3["Department"] = df3["Department"].astype("category").cat.codes
