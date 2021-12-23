@@ -67,7 +67,7 @@ def total_distance_travelled(df, transport_types):
 
     total_employed_response = df.shape[0]  # np.round(np.sum(list(tt.values())),1)
     st.sidebar.markdown("#### Questioniare Response")
-    st.sidebar.markdown("Employee {0}".format(total_employed_response))
+    st.sidebar.markdown("Employee Responses: {0}".format(total_employed_response))
     # st.markdown("of all survey respondants
 
     # st.markdown(" --- ")
