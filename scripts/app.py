@@ -10,7 +10,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.graph_objects as go
 import pandas as pd
-import dash_bio as dashbio
 
 
 # st.set_page_config(layout="wide")
