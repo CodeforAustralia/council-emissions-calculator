@@ -268,9 +268,9 @@ def get_locations(df2):
     locs.extend(df2["Sunday Work Location"])
     st.text(set(locs))
 
-
+@st.cache
 def make_corr_gram(df):
-    import copy
+    #import copy
 
     df2 = copy.copy(df)
     del df2["Date"]
@@ -291,7 +291,7 @@ def make_corr_gram(df):
     # Generate a mask for the upper triangle
     mask = np.triu(np.ones_like(corr, dtype=bool))
     # Set up the matplotlib figure
-    f, ax = plt.subplots(figsize=(11, 9))
+    f1, ax = plt.subplots(figsize=(11, 9))
     # Generate a custom diverging colormap
     cmap = sns.diverging_palette(230, 20, as_cmap=True)
     st.markdown("### A Correlogram")
@@ -311,12 +311,12 @@ def make_corr_gram(df):
         fmt=".2f",
     )  # , cbar_kws={"shrink": .5})
     plt.title("Correlation matrix showing correlation coefficients")
-    st.pyplot(f)
+    st.pyplot(f1)
 
     cov_mat = d.cov()
     mask = np.triu(np.ones_like(cov_mat, dtype=bool))
     # Set up the matplotlib figure
-    f, ax = plt.subplots(figsize=(11, 9))
+    f2, ax = plt.subplots(figsize=(11, 9))
     # Generate a custom diverging colormap
     cmap = sns.diverging_palette(230, 20, as_cmap=True)
     st.markdown("### A Covariance Matrix")
@@ -336,9 +336,10 @@ def make_corr_gram(df):
         fmt=".2f",
     )  # , cbar_kws={"shrink": .5})
     plt.title("Covariance matrix showing covariance coefficients")
-    st.pyplot(f)
+    st.pyplot(f2)
+    return f1,f2
 
-
+@st.cache
 def make_cluster_gram(df):
 
 
@@ -363,7 +364,8 @@ def make_cluster_gram(df):
     f, ax = plt.subplots(figsize=(11, 9))
 
     fig = sns.pairplot(df2, hue="Department")
-    st.pyplot(fig)
+    return fig
+    #st.pyplot(fig)
 
 
 def make_scatter_matrix(df):
@@ -549,10 +551,10 @@ def __main__():
         )
         st.write(fig)
     if genre == "Correlation and Covariance":
-        make_corr_gram(df)
+        f1,f2=make_corr_gram(df)
     if genre == "Pair Plots":
-        make_cluster_gram(df)
-
+        fig = make_cluster_gram(df)
+        st.pyplot(fig)
     # st.title("Distribution plots")
     # if 1 == 0:
     # for transport in transport_types:
