@@ -19,7 +19,7 @@ try:
     assert st.expander != None
 except:
     st.expander = st.beta_expander
-@st.cache
+#@st.cache
 def make_ridge_lines(df, transport_types):
     # Since we do not want to plot 50+ lines, we only select some years to plot
     #year_list = transport_types#[1950, 1960, 1970, 1980, 1990, 2000, 2010]
@@ -44,7 +44,7 @@ def make_ridge_lines(df, transport_types):
     fig = go.Figure()
     for index, year in enumerate(transport_types):
         fig.add_trace(go.Scatter(
-                                x=[-20, 40], y=np.full(2, len(transport_types)-index),
+                                x=[0, 50], y=np.full(2, len(transport_types)-index),
                                 mode='lines',
                                 line_color='white'))
 
@@ -56,7 +56,7 @@ def make_ridge_lines(df, transport_types):
 
         # plotly.graph_objects' way of adding text to a figure
         fig.add_annotation(
-                            x=-20,
+                            x=-5,
                             y=len(transport_types)-index,
                             text=f'{year}',
                             showarrow=False,
@@ -560,6 +560,15 @@ def __main__():
     transport_types = set(df["Main Transport Mode"])
     total_distance_travelled(df, transport_types)
 
+
+    #with st.expander("Pie Chart explanation"):
+    #    st.markdown(
+    with st.expander("Legend"):
+        st.markdown(" Human Powered is: 'Walking and Bicycle'")
+        st.markdown(" PT is: 'Bus and Train/Tram'")
+        st.markdown(" Light Electric is: 'E-bike, E-scooter'")
+        st.markdown(" Petrolium is: 'car(driver), car(passanger), scooter/motorbike'")
+
     genre = st.sidebar.radio(
         "Choose Graph Layout/Option:",
         (
@@ -579,6 +588,7 @@ def __main__():
         st.write(fig)
 
     if genre == "View Source Code":
+        st.markdown("### Code Here")
         st.markdown(
             """[mostly in this repository](https://github.com/CodeforAustralia/council-emissions-calculator)"""
         )
