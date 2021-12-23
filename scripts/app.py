@@ -524,7 +524,14 @@ def lump_categories_togethor(df):
     #st.write(df_lumped)
     return df_lumped
 
-import pickle
+#import pickle
+@st.cache
+def get_data():
+    try:
+        df = pd.read_csv("scripts/ttws.csv")
+    except:
+        df = pd.read_csv("ttws.csv")
+    return df
 def __main__():
     st.title("Your Councils Work Commute")
     st.markdown(
@@ -537,10 +544,6 @@ def __main__():
     #    with open("data_cache.p","rb") as f:
     #        df = pickle.load(f)
     #except:
-    try:
-        df = pd.read_csv("scripts/ttws.csv")
-    except:
-        df = pd.read_csv("ttws.csv")
     #with open("data_cache.p","wb") as f:
     #    pickle.dump(df,f)
 
@@ -552,7 +555,7 @@ def __main__():
     #)
     #if simplify=="Yes":
     #df = lump_categories_togethor(df)
-
+    df = get_data()
     transport_types = set(df["Main Transport Mode"])
     total_distance_travelled(df, transport_types)
 
