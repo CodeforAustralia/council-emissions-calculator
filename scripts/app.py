@@ -10,15 +10,15 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.graph_objects as go
 import pandas as pd
+import copy
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 
 
 try:
-    print(st.expander)
+    assert st.expander != None
 except:
     st.expander = st.beta_expander
-
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
 
 
 def make_multi_histogram(df, transport_types):
@@ -93,7 +93,7 @@ def make_multi_histogram(df, transport_types):
     fig = px.histogram(df, x="One-Way Daily Commute Distance (km)", nbins=30)
     st.write(fig)
 
-
+@st.cache
 def make_pie_chart(df, transport_types):
     tt = {}
     tth = {}
@@ -117,15 +117,7 @@ def make_pie_chart(df, transport_types):
         names.append(str(k) + str(" (km)"))
 
     fig = px.pie(values=list(odtt.values()), names=names)
-    st.markdown("#### Total Distance and Transport Type Pie chart")
-    st.markdown(" --- ")
-    st.write(fig)
-
-    with st.expander("Pie Chart explanation"):
-        st.markdown(
-            "A slice is size proportional to effective distance in a week \n with transport type: (One-Way Daily Commute Distance [OWD]) multiplied by (Num trips to office [NTTO]) "
-        )
-        st.latex(r"""Slice = 2 \times OWD \times NTTO""")
+    return fig
 
 
 def total_distance_travelled(df, transport_types):
@@ -168,11 +160,11 @@ def total_distance_travelled(df, transport_types):
     # st.latex(r'''Slice = 2 \times OWD \times NTTO''')
     # st.write(fig)
 
-
+@st.cache
 def encode_list(input, encode):
     return [encode[i] for i in input]
 
-
+@st.cache
 def make_sankey_chart(df, transport_types):
     encode = {}
     transport_types = list(transport_types)
@@ -262,30 +254,9 @@ def make_sankey_chart(df, transport_types):
     )
 
     fig.update_layout(title_text="", font_size=10)
+    return fig
 
-    st.markdown("### Sankey Diagram")
-    st.write(fig)
-
-    with st.expander("Sankey Diagram Explanation"):
-
-        st.markdown(
-            "With this diagram we can ask, does distance determine transport type"
-        )
-        st.markdown(
-            "This could help reason about the cost/benefit of E-bikes/scooters versus traditional bikes"
-        )
-
-        # st.markdown(" --- ")
-        st.markdown(
-            "Sources (srcs) are groups of three intervals of distances travelled, they are: "
-        )
-
-        # st.markdown("there are three sources and 9 targets (tgts)")
-        # st.markdown("The 9 targets are organized by mode of transport.")
-
-        st.latex(r"""d<5km,d>=5km \cap x=<10km,d>10km""")
-
-
+@st.cache
 def get_locations(df2):
     locs = []
     locs.extend(df2["Monday Work Location"])
@@ -370,7 +341,6 @@ def make_corr_gram(df):
 
 def make_cluster_gram(df):
 
-    import copy
 
     df2 = copy.copy(df)
     del df2["Date"]
@@ -443,12 +413,8 @@ def make_scatter_matrix(df):
 
     st.write(fig)
 
-
+@st.cache
 def density_heatmap_(df):
-
-    st.markdown("### Distribution plots number of Trips to Office versus Distance")
-    st.markdown("all transport")
-
     fig = px.density_heatmap(
         df,
         x="One-Way Daily Commute Distance (km)",
@@ -456,7 +422,7 @@ def density_heatmap_(df):
         marginal_x="histogram",
         marginal_y="histogram",
     )
-    st.write(fig)
+    return fig
 
 
 def sheet(df2):
@@ -531,13 +497,41 @@ def __main__():
     if genre == "Spreadsheet":
         sheet(df)
     if genre == "Pie Chart":
-        make_pie_chart(df, transport_types)
+        fig = make_pie_chart(df, transport_types)
+        st.markdown("#### Total Distance and Transport Type Pie chart")
+        st.markdown(" --- ")
+        st.write(fig)
+
+        with st.expander("Pie Chart explanation"):
+            st.markdown(
+                "A slice is size proportional to effective distance in a week \n with transport type: (One-Way Daily Commute Distance [OWD]) multiplied by (Num trips to office [NTTO]) "
+            )
+            st.latex(r"""Slice = 2 \times OWD \times NTTO""")
+
     if genre == "Sankey Chart":
-        make_sankey_chart(df, transport_types)
+        fig = make_sankey_chart(df, transport_types)
+        st.markdown("### Sankey Diagram")
+        st.write(fig)
+        with st.expander("Sankey Diagram Explanation"):
+            st.markdown(
+                "With this diagram we can ask, does distance determine transport type"
+            )
+            st.markdown(
+                "This could help reason about the cost/benefit of E-bikes/scooters versus traditional bikes"
+            )
+            st.markdown(
+                "Sources (srcs) are groups of three intervals of distances travelled, they are: "
+            )
+            st.latex(r"""d<5km,d>=5km \cap x=<10km,d>10km""")
+
     if genre == "Histogram Distances":
         make_multi_histogram(df, transport_types)
     if genre == "Density Heatmap":
-        density_heatmap_(df)
+        st.markdown("### Distribution plots number of Trips to Office versus Distance")
+        st.markdown("all transport")
+        fig = density_heatmap_(df)
+        st.write(fig)
+
         trans_options = list(transport_types)
         sub_genre = st.radio(
             "Choose transport Option:",
