@@ -1,26 +1,26 @@
 # Council Emissions Calculator
-
 An experiment to test the initial design of Civic Maker's 2021 Council Emissions Calculator project.
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-![GitHub issues](https://img.shields.io/github/issues/CodeforAustralia/council-emissions-calculator.svg)
-![GitHub closed issues](https://img.shields.io/github/issues-closed/CodeforAustralia/council-emissions-calculator.svg)
+---
+
+
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/CodeforAustralia/council-emissions-calculator.svg)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/CodeforAustralia/council-emissions-calculator.svg)
 
-- [Project goals](#Project-goals)
-- [Getting started](##Getting-Started)
-- [Learn More about Development](###Learn-More-about-Development)
-- [Working In Forked Repository (Collaboration)](##Working-In-Forked-Repository-(Collaboration))
+- [Project goals](#Project-Goals)
+- [Getting started](#Getting-Started)
+- [Learn More about Development](#Learn-More-about-Development)
+- [Collaboration Working In a Forked Repository](#Collaboration-Working-In-a-Forked-Repository)
 
+---
 
-# Project goals
+# Project Goals
 
 - Provide councils a tool to assess their impact on the environment.
 - Provide councils with inspirations and next steps to have a more sustainable way of working.
 - Provide councils with inspirations and next steps to engage communities in initiatives that are favorable for the environment.
 - Provide a source of information that facilitates the decision process for councils to become more sustainable.
-- to learn more about this project, check out our [project planning](https://docs.google.com/document/d/1h5r1AfbQC8Azy_cdGHGBGOJwSxSqvt0cHKd5MmSd7qo/edit#heading=h.fw4lq2wclkt9) and [trello project board](https://trello.com/b/ZXaIkclp/civic-makers-2021-l-use-this-one).
+- to learn more about this project, check out our project [planning](https://docs.google.com/document/d/1h5r1AfbQC8Azy_cdGHGBGOJwSxSqvt0cHKd5MmSd7qo/edit#heading=h.fw4lq2wclkt9) and [trello project board](https://trello.com/b/ZXaIkclp/civic-makers-2021-l-use-this-one).
 
 ---
 
@@ -46,9 +46,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
+---
 
-
-### Learn More about Development
+## Learn More about Development
 
 To learn more about Next.js, take a look at the following resources:
 
@@ -57,18 +57,20 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
+---
 
-#### Dependencies used in this project
+## Dependencies used in this project
 
 - Google Sheets as database
 - Google sheets to process form responses and calculate emissions
 - Chakra for UI framework
 - Highcharts to build charts in report
 - Vercel as hosting platform
+---
 
-## Working In Forked Repository (Collaboration)
+# Collaboration: Working In a Forked Repository
 
-#### How to fetch upstream main/master
+### How to fetch upstream main/master
 
 There are 2 options :
 
@@ -102,7 +104,7 @@ STEPS
 5. `git add .` or `git add (file/path name)`
 6. `git commit -m “note”`
 
-#### To merge the changes to working branch
+### To merge the changes to working branch
 
 STEPS
 
