@@ -321,11 +321,12 @@ def get_locations(df2):
     locs.extend(df2["Sunday Work Location"])
     st.text(set(locs))
 
-@st.cache
-def make_corr_gram(df):
-    import copy
+import copy
 
-    df2 = copy.copy(df)
+@st.cache
+def prep_matrix(df2):
+
+    #df2 = copy.copy(df)
     del df2["Date"]
     del df2["Incentive Text"]
     del df2["Monday Work Location"]
@@ -340,6 +341,7 @@ def make_corr_gram(df):
     df3["Department"] = df3["Department"].astype("category").cat.codes
     #
     d = df3
+    return d
     # corr = d.corr()
     # # Generate a mask for the upper triangle
     # mask = np.triu(np.ones_like(corr, dtype=bool))
@@ -365,6 +367,8 @@ def make_corr_gram(df):
     # )  # , cbar_kws={"shrink": .5})
     # plt.title("Correlation matrix showing correlation coefficients")
     # st.pyplot(f1)
+def make_corr_gram(df2):
+    d = prep_matrix(df2)
 
     cov_mat = d.cov()
     mask = np.triu(np.ones_like(cov_mat, dtype=bool))
