@@ -47,23 +47,19 @@ def make_pie_chart(df, transport_types):
 
 
 def total_distance_travelled(df, transport_types):
-    tt = {}
-    for transport in transport_types:  # set(df["Main Transport Mode"]):
-        df2 = df[df["Main Transport Mode"] == transport]
-        tt[transport] = 2 * np.round(
-            sum(df2["One-Way Daily Commute Distance (km)"])
-            * sum(df2["Num trips to office"]),
-            2,
-        )
+    #tt = {}
+    total_km = 2 * np.round(sum(df["One-Way Daily Commute Distance (km)"])* sum(df["Num trips to office"]),0)
     # odtt = OrderedDict(tt)
     # names = []
     # for k in odtt.keys():
     #    names.append(str(k)+str(" (km)"))
 
     # fig = px.pie(values=list(odtt.values()), names=names)
-    total_km = np.round(np.sum(list(tt.values())), 0)
+    #total_km = np.round(np.sum(list(tt.values())), 0)
     st.sidebar.markdown("#### Total commute Distance")
-    st.sidebar.markdown("of all survey respondants {0} (km)".format(total_km))
+    st.sidebar.markdown("of all survey respondants (both ways) {0} (km)".format(total_km))
+    st.sidebar.markdown("#### Total commute Distance")
+    st.sidebar.markdown("of all survey respondants (one way) {0} (km)".format(total_km/2.0))
 
     total_employed_response = df.shape[0]  # np.round(np.sum(list(tt.values())),1)
     st.sidebar.markdown("#### Questioniare Response")
