@@ -427,7 +427,10 @@ def density_heatmap_(df):
 
 def sheet(df2):
     st.markdown("Processed anonymized data that is visualized")
-    st.markdown(get_table_download_link_csv(df2), unsafe_allow_html=True)
+    try:
+        st.markdown(get_table_download_link_csv(df2), unsafe_allow_html=True)
+    except:
+        pass
     my_expander = st.beta_expander("View Spread Sheet Here:")
     my_expander.table(df2)
     my_expander = st.beta_expander("Interrogate Column By Name:")
