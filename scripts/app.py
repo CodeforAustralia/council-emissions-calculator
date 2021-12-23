@@ -546,7 +546,7 @@ def __main__():
         except:
             df = pd.read_csv("ttws.csv")
         with open("data_cache.p","wb") as f:
-            pickle.dump(f,df)
+            pickle.dump(df,f)
 
     #simplify = st.sidebar.radio(
     #    "Simplify Data Frame Transport Categories?:",
