@@ -218,30 +218,6 @@ def make_cluster_gram(df):
     del df2["Saturday Work Location"]
     del df2["Sunday Work Location"]
 
-    df2['Main Transport Mode']=df['Main Transport Mode'].astype('category').cat.codes
-    df2['Department']=df['Department'].astype('category').cat.codes
-
-    d = df2
-    corr = d.corr()
-    # Generate a mask for the upper triangle
-    mask = np.triu(np.ones_like(corr, dtype=bool))
-    # Set up the matplotlib figure
-    f, ax = plt.subplots(figsize=(11, 9))
-    # Generate a custom diverging colormap
-    cmap = sns.diverging_palette(230, 20, as_cmap=True)
-    st.markdown("### A Correlogram")
-    #")
-    with st.expander("Correlogram Explantion:"):
-        st.markdown(
-            "This heat map answers the question: Which Variables are correlated and anti correlated?"
-        )
-
-    # Draw the heatmap with the mask and correct aspect ratio
-    sns.heatmap(corr, mask=mask, cmap=cmap, vmax=.3, center=0,
-                square=True, linewidths=.5, cbar_kws={"shrink": .5})
-
-    st.pyplot(f)
-
 
     with st.expander("Distribution Plots Explantion:"):
         st.markdown(
@@ -256,6 +232,26 @@ def make_cluster_gram(df):
     fig = sns.pairplot(df2, hue='Department')
     st.pyplot(fig)
 
+    df3 = copy.copy(df2)
+    df3['Main Transport Mode']=df3['Main Transport Mode'].astype('category').cat.codes
+    df3['Department']=df3['Department'].astype('category').cat.codes
+
+    d = df3
+    corr = d.corr()
+    # Generate a mask for the upper triangle
+    mask = np.triu(np.ones_like(corr, dtype=bool))
+    # Set up the matplotlib figure
+    f, ax = plt.subplots(figsize=(11, 9))
+    # Generate a custom diverging colormap
+    cmap = sns.diverging_palette(230, 20, as_cmap=True)
+    st.markdown("### A Correlogram")
+    with st.expander("Correlogram Explantion:"):
+        st.markdown(
+            "This heat map answers the question: Which Variables are correlated and anti correlated?"
+        )
+    sns.heatmap(corr, mask=mask, cmap=cmap, vmax=.3, center=0,
+                square=True, linewidths=.5)#, cbar_kws={"shrink": .5})
+    st.pyplot(f)
 
 
 def make_scatter_matrix(df):
