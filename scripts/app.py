@@ -461,10 +461,10 @@ def density_heatmap_(df):
 
 def sheet(df2):
     st.markdown("Processed anonymized data that is visualized")
-    try:
-        st.markdown(get_table_download_link_csv(df2), unsafe_allow_html=True)
-    except:
-        pass
+    #try:
+    #    st.markdown(get_table_download_link_csv(df2), unsafe_allow_html=True)
+    #except:
+    #    pass
     my_expander = st.expander("View Whole Spread Sheet Here:")
     my_expander.table(df2)
     my_expander = st.expander("Access Single Column By Name:")
@@ -488,13 +488,12 @@ def sheet(df2):
     my_expander.write(df2[column_genre])
 
 
-def get_table_download_link_csv(df):
-    import base64
-
-    csv = df.to_csv().encode()
-    b64 = base64.b64encode(csv).decode()
-    href = f'<a href="data:file/csv;base64,{b64}" download="captura.csv" target="_blank">Download csv file</a>'
-    return href
+#def get_table_download_link_csv(df):
+#    import base64
+#    csv = df.to_csv().encode()
+#    b64 = base64.b64encode(csv).decode()
+#    href = f'<a href="data:file/csv;base64,{b64}" download="captura.csv" target="_blank">Download csv file</a>'
+#    return href
 
 
 def __main__():
