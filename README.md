@@ -68,7 +68,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 - Vercel as hosting platform
 ---
 
-# Collaboration: Working In a Forked Repository
+## Collaboration: Working In a Forked Repository
 
 ### How to fetch upstream main/master
 
