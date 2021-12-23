@@ -537,16 +537,16 @@ def __main__():
     st.markdown(
         "Below is a summary of the data collected, with some comparisons of the total staff distance travelled and associated carbon emissions."
     )
+    #try:
+    #    with open("data_cache.p","rb") as f:
+    #        df = pickle.load(f)
+    #except:
     try:
-        with open("data_cache.p","rb") as f:
-            df = pickle.load(f)
+        df = pd.read_csv("scripts/ttws.csv")
     except:
-        try:
-            df = pd.read_csv("scripts/ttws.csv")
-        except:
-            df = pd.read_csv("ttws.csv")
-        with open("data_cache.p","wb") as f:
-            pickle.dump(df,f)
+        df = pd.read_csv("ttws.csv")
+    #with open("data_cache.p","wb") as f:
+    #    pickle.dump(df,f)
 
     #simplify = st.sidebar.radio(
     #    "Simplify Data Frame Transport Categories?:",
