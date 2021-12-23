@@ -19,7 +19,58 @@ try:
     assert st.expander != None
 except:
     st.expander = st.beta_expander
+@st.cache
+def make_ridge_lines(df, transport_types):
+    # Since we do not want to plot 50+ lines, we only select some years to plot
+    #year_list = transport_types#[1950, 1960, 1970, 1980, 1990, 2000, 2010]
+    temp = df#temp[temp['year'].isin(year_list)]
 
+    # as we expect to plot histograms-like plots for each year, we group by year and mean temperature and aggregate with 'count' function
+    temp = temp.groupby(['Main Transport Mode', 'One-Way Daily Commute Distance (km)']).agg({'One-Way Daily Commute Distance (km)': 'count'}).rename(columns={'One-Way Daily Commute Distance (km)': 'count'}).reset_index()
+    #st.write(temp)
+
+    # the idea behind this ridgeline plot with Plotly is to add traces manually, each trace corresponding to a particular year's temperature distribution
+    # thus, we are to store each year's data (temperatures and their respective count) in seperate arrays or pd.series that we store in a dictionnary to retrieve them easily
+    array_dict = {} # instantiating an empty dictionnary
+    for year in transport_types:
+        array_dict[f'x_{year}'] = temp[temp['Main Transport Mode']==year]['One-Way Daily Commute Distance (km)'] # storing the temperature data for each year
+        array_dict[f'y_{year}'] = temp[temp['Main Transport Mode']==year]['count'] # storing the temperature count for each year
+        array_dict[f'y_{year}'] = (array_dict[f'y_{year}'] - array_dict[f'y_{year}'].min()) \
+                                    / (array_dict[f'y_{year}'].max() - array_dict[f'y_{year}'].min()) # we normalize the array (min max normalization)
+
+    # once all of this is done, we can create a plotly.graph_objects.Figure and add traces with fig.add_trace() method
+    # since we have stored the temperatures and their respective count for each year, we can plot scatterplots (go.Scatter)
+    # we thus iterate over year_list and create a 'blank line' that is placed at y = index, then the corresponding temperature count line
+    fig = go.Figure()
+    for index, year in enumerate(transport_types):
+        fig.add_trace(go.Scatter(
+                                x=[-20, 40], y=np.full(2, len(transport_types)-index),
+                                mode='lines',
+                                line_color='white'))
+
+        fig.add_trace(go.Scatter(
+                                x=array_dict[f'x_{year}'],
+                                y=array_dict[f'y_{year}'] + (len(transport_types)-index) + 0.4,
+                                fill='tonexty',
+                                name=f'{year}'))
+
+        # plotly.graph_objects' way of adding text to a figure
+        fig.add_annotation(
+                            x=-20,
+                            y=len(transport_types)-index,
+                            text=f'{year}',
+                            showarrow=False,
+                            yshift=10)
+
+    # here you can modify the figure and the legend titles
+    fig.update_layout(
+                    title='Ridge Plots of Transport/Distance',
+                    showlegend=False,
+                    xaxis=dict(title='Total Distance (km)'),
+                    yaxis=dict(showticklabels=False) # that way you hide the y axis ticks labels
+                    )
+    return fig
+    #fig.show()
 
 def make_multi_histogram(df, transport_types):
 
@@ -436,7 +487,7 @@ def sheet(df2):
     my_expander = st.expander("View Whole Spread Sheet Here:")
     my_expander.table(df2)
     my_expander = st.expander("Access Single Column By Name:")
-    import copy
+    #import copy
 
     df3 = copy.copy(df2)
     del df3["Date"]
@@ -462,8 +513,22 @@ def sheet(df2):
 #    b64 = base64.b64encode(csv).decode()
 #    href = f'<a href="data:file/csv;base64,{b64}" download="captura.csv" target="_blank">Download csv file</a>'
 #    return href
+@st.cache
+def lump_categories_togethor(df):
+    #st.text(transport_types)
 
+    df_lumped = copy.copy(df)
+    df_lumped.replace({'Walking': 'Human Powered', 'Bicycle': 'Human Powered'}, inplace=True)
+    df_lumped.replace({'Bus': 'PT', 'Train/tram': 'PT'}, inplace=True)
+    df_lumped.replace({'E-bike': 'Light Electric', 'E-scooter': 'Light Electric'}, inplace=True)
+    df_lumped.replace({'Car(driver)': 'Petrolium', 'Car(passenger)': 'Petrolium', 'Scooter/motorbike':'Petrolium'}, inplace=True)
 
+    #df_lumped["Main Transport Mode"] = df[df["Main Transport Mode"]=='Walking']
+    #pd.concat([df_lumped['human_powered'],df[df["Main Transport Mode"]=='Bicycle']])
+    #st.write(df_lumped)
+    return df_lumped
+
+import pickle
 def __main__():
     st.title("Your Councils Work Commute")
     st.markdown(
@@ -472,11 +537,26 @@ def __main__():
     st.markdown(
         "Below is a summary of the data collected, with some comparisons of the total staff distance travelled and associated carbon emissions."
     )
-
     try:
-        df = pd.read_csv("scripts/ttws.csv")
+        with open("data_cache.p","rb") as f:
+            df = pickle.load(f)
     except:
-        df = pd.read_csv("ttws.csv")
+        try:
+            df = pd.read_csv("scripts/ttws.csv")
+        except:
+            df = pd.read_csv("ttws.csv")
+        with open("data_cache.p","wb") as f:
+            pickle.dump(f,df)
+
+    #simplify = st.sidebar.radio(
+    #    "Simplify Data Frame Transport Categories?:",
+    #    (
+    #        "No", "Yes"
+    #    ),
+    #)
+    #if simplify=="Yes":
+    df = lump_categories_togethor(df)
+
     transport_types = set(df["Main Transport Mode"])
     total_distance_travelled(df, transport_types)
 
@@ -487,11 +567,17 @@ def __main__():
             "Sankey Chart",
             "Correlation and Covariance",
             "Histogram Distances",
+            "Ridge Plots",
             "Density Heatmap",
             "Spreadsheet",
             "View Source Code",
         ),
     )
+
+    if genre == "Ridge Plots":
+        fig = make_ridge_lines(df, transport_types)
+        st.write(fig)
+
     if genre == "View Source Code":
         st.markdown(
             """[mostly in this repository](https://github.com/CodeforAustralia/council-emissions-calculator)"""
