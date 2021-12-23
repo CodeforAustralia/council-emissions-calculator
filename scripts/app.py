@@ -13,6 +13,7 @@ import pandas as pd
 import copy
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+#st.plotly_chart(2000,2000)
 
 
 try:
@@ -94,6 +95,7 @@ def make_multi_histogram(df, transport_types):
         )
         data.append_trace(trace, xx + 1, 1)
     layout = go.Layout(autosize=False, width=5000, height=5000)
+
     fig = go.Figure(data=data, layout=layout)
 
     st.write(fig)
@@ -321,7 +323,7 @@ def get_locations(df2):
 
 @st.cache
 def make_corr_gram(df):
-    #import copy
+    import copy
 
     df2 = copy.copy(df)
     del df2["Date"]
@@ -336,33 +338,33 @@ def make_corr_gram(df):
     df3 = copy.copy(df2)
     df3["Main Transport Mode"] = df3["Main Transport Mode"].astype("category").cat.codes
     df3["Department"] = df3["Department"].astype("category").cat.codes
-
+    #
     d = df3
-    corr = d.corr()
-    # Generate a mask for the upper triangle
-    mask = np.triu(np.ones_like(corr, dtype=bool))
-    # Set up the matplotlib figure
-    f1, ax = plt.subplots(figsize=(11, 9))
-    # Generate a custom diverging colormap
-    cmap = sns.diverging_palette(230, 20, as_cmap=True)
-    st.markdown("### A Correlogram")
-    with st.expander("Correlogram Explantion:"):
-        st.markdown(
-            "This heat map answers the question: 'Which Variables are correlated and anti correlated?'' Color bar indicates degree of correlation/anti-correlation."
-        )
-    sns.heatmap(
-        corr,
-        mask=mask,
-        cmap=cmap,
-        vmax=0.3,
-        center=0,
-        square=True,
-        linewidths=0.5,
-        annot=True,
-        fmt=".2f",
-    )  # , cbar_kws={"shrink": .5})
-    plt.title("Correlation matrix showing correlation coefficients")
-    st.pyplot(f1)
+    # corr = d.corr()
+    # # Generate a mask for the upper triangle
+    # mask = np.triu(np.ones_like(corr, dtype=bool))
+    # # Set up the matplotlib figure
+    # f1, ax = plt.subplots(figsize=(11, 9))
+    # # Generate a custom diverging colormap
+    # cmap = sns.diverging_palette(230, 20, as_cmap=True)
+    # st.markdown("### A Correlogram")
+    # with st.expander("Correlogram Explantion:"):
+    #     st.markdown(
+    #         "This heat map answers the question: 'Which Variables are correlated and anti correlated?'' Color bar indicates degree of correlation/anti-correlation."
+    #     )
+    # sns.heatmap(
+    #     corr,
+    #     mask=mask,
+    #     cmap=cmap,
+    #     vmax=0.3,
+    #     center=0,
+    #     square=True,
+    #     linewidths=0.5,
+    #     annot=True,
+    #     fmt=".2f",
+    # )  # , cbar_kws={"shrink": .5})
+    # plt.title("Correlation matrix showing correlation coefficients")
+    # st.pyplot(f1)
 
     cov_mat = d.cov()
     mask = np.triu(np.ones_like(cov_mat, dtype=bool))
@@ -370,11 +372,6 @@ def make_corr_gram(df):
     f2, ax = plt.subplots(figsize=(11, 9))
     # Generate a custom diverging colormap
     cmap = sns.diverging_palette(230, 20, as_cmap=True)
-    st.markdown("### A Covariance Matrix")
-    with st.expander("Covariance Explantion:"):
-        st.markdown(
-            "This heat map answers the question: 'Which Variables covary togethor?'' Color bar indicates degree of covariance."
-        )
     sns.heatmap(
         cov_mat,
         mask=mask,
@@ -387,8 +384,7 @@ def make_corr_gram(df):
         fmt=".2f",
     )  # , cbar_kws={"shrink": .5})
     plt.title("Covariance matrix showing covariance coefficients")
-    st.pyplot(f2)
-    return f1,f2
+    return f2
 
 @st.cache
 def make_cluster_gram(df):
@@ -563,29 +559,33 @@ def __main__():
 
     #with st.expander("Pie Chart explanation"):
     #    st.markdown(
-    with st.expander("Legend"):
-        st.markdown(" Human Powered is: 'Walking and Bicycle'")
-        st.markdown(" PT is: 'Bus and Train/Tram'")
-        st.markdown(" Light Electric is: 'E-bike, E-scooter'")
-        st.markdown(" Petrolium is: 'car(driver), car(passanger), scooter/motorbike'")
+
+    #with st.expander("Legend"):
+    #    st.markdown(" Human Powered is: 'Walking and Bicycle'")
+    #    st.markdown(" PT is: 'Bus and Train/Tram'")
+    #    st.markdown(" Light Electric is: 'E-bike, E-scooter'")
+    #    st.markdown(" Petrolium is: 'car(driver), car(passanger), scooter/motorbike'")
 
     genre = st.sidebar.radio(
         "Choose Graph Layout/Option:",
         (
-            "Pie Chart",
             "Sankey Chart",
-            "Correlation and Covariance",
-            "Histogram Distances",
-            "Ridge Plots",
             "Density Heatmap",
-            "Spreadsheet",
+            "Pie Chart",
+            "Covariance",
+            #"Spreadsheet",
             "View Source Code",
         ),
     )
 
+    #"Histogram Distances",
+    #"Ridge Plots",
+
+
     if genre == "Ridge Plots":
         fig = make_ridge_lines(df, transport_types)
-        st.write(fig)
+        #st.write(fig)
+        st.plotly_chart(fig, use_container_width=True)
 
     if genre == "View Source Code":
         st.markdown("### Code Here")
@@ -598,7 +598,8 @@ def __main__():
         fig = make_pie_chart(df, transport_types)
         st.markdown("#### Total Distance and Transport Type Pie chart")
         st.markdown(" --- ")
-        st.write(fig)
+        #st.write(fig)
+        st.plotly_chart(fig, use_container_width=True)
 
         with st.expander("Pie Chart explanation"):
             st.markdown(
@@ -609,7 +610,8 @@ def __main__():
     if genre == "Sankey Chart":
         fig = make_sankey_chart(df, transport_types)
         st.markdown("### Sankey Diagram")
-        st.write(fig)
+        #st.write(fig)
+        st.plotly_chart(fig, use_container_width=True)
         with st.expander("Sankey Diagram Explanation"):
             st.markdown(
                 "With this diagram we can ask, does distance determine transport type"
@@ -628,7 +630,8 @@ def __main__():
         st.markdown("### Distribution plots number of Trips to Office versus Distance")
         st.markdown("all transport")
         fig = density_heatmap_(df)
-        st.write(fig)
+        #st.write(fig)
+        st.plotly_chart(fig, use_container_width=True)
 
         trans_options = list(transport_types)
         sub_genre = st.radio(
@@ -645,12 +648,22 @@ def __main__():
             marginal_x="histogram",
             marginal_y="histogram",
         )
-        st.write(fig)
-    if genre == "Correlation and Covariance":
-        f1,f2=make_corr_gram(df)
+        st.plotly_chart(fig, use_container_width=True)
+
+        #st.write(fig)
+    if genre == "Covariance":
+        f2 = make_corr_gram(df)
+        st.pyplot(f2, use_container_width=True)
+        st.markdown("### A Covariance Matrix")
+
+        with st.expander("Covariance Explantion:"):
+            st.markdown(
+                "This covariance heat map answers the question: 'Which Variables covary togethor?'' Color bar indicates degree of covariance."
+            )
+
     if genre == "Pair Plots":
         fig = make_cluster_gram(df)
-        st.pyplot(fig)
+        st.pyplot(fig, use_container_width=True)
     # st.title("Distribution plots")
     # if 1 == 0:
     # for transport in transport_types:
