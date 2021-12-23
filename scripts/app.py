@@ -12,73 +12,85 @@ import plotly.graph_objects as go
 import pandas as pd
 
 
-# st.set_page_config(layout="wide")
 try:
     print(st.expander)
-    #st.beta_expander =
 except:
     st.expander = st.beta_expander
 
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-def make_multi_histogram(df,transport_types):
 
+def make_multi_histogram(df, transport_types):
 
     st.markdown("### Distance Travelled By Mode of Transport")
-    st.markdown("This information helps us understand how far staff are happy to travel based on their preferred mode of transport. This would help guide decisions on less carbon intensive forms of travel in the future.")
+    st.markdown(
+        "This information helps us understand how far staff are happy to travel based on their preferred mode of transport. This would help guide decisions on less carbon intensive forms of travel in the future."
+    )
 
     data = make_subplots(rows=len(transport_types), cols=1)
     min = np.min(df["One-Way Daily Commute Distance (km)"])
     max = np.max(df["One-Way Daily Commute Distance (km)"])
-    step = (max-min)/14.0
+    step = (max - min) / 14.0
 
-    for xx,transport in enumerate(transport_types):  # set(df["Main Transport Mode"]):
+    for xx, transport in enumerate(transport_types):  # set(df["Main Transport Mode"]):
         df2 = df[df["Main Transport Mode"] == transport]
-        trace = go.Histogram(x=df2["One-Way Daily Commute Distance (km)"],  xbins={"start":min,"end":max,"size":step}, autobinx=False,name=transport)
-        data.append_trace(trace,xx+1,1)
-    layout = go.Layout(
-        autosize=False,
-        width=5000,
-        height=5000)
+        trace = go.Histogram(
+            x=df2["One-Way Daily Commute Distance (km)"],
+            xbins={"start": min, "end": max, "size": step},
+            autobinx=False,
+            name=transport,
+        )
+        data.append_trace(trace, xx + 1, 1)
+    layout = go.Layout(autosize=False, width=5000, height=5000)
     fig = go.Figure(data=data, layout=layout)
 
     st.write(fig)
 
     all_total_km_list = []
-    for xx,transport in enumerate(transport_types):  # set(df["Main Transport Mode"]):
+    for xx, transport in enumerate(transport_types):  # set(df["Main Transport Mode"]):
         df2 = df[df["Main Transport Mode"] == transport]
-        for i,j in zip(df2["One-Way Daily Commute Distance (km)"],df2["Num trips to office"]):
-            all_total_km_list.append(2*i*j)
+        for i, j in zip(
+            df2["One-Way Daily Commute Distance (km)"], df2["Num trips to office"]
+        ):
+            all_total_km_list.append(2 * i * j)
 
-    #data = make_subplots(rows=len(transport_types), cols=1)
+    # data = make_subplots(rows=len(transport_types), cols=1)
     min = np.min(all_total_km_list)
     max = np.max(all_total_km_list)
-    step = (max-min)/14.0
+    step = (max - min) / 14.0
 
     fig = make_subplots(rows=len(transport_types), cols=1)
 
-
-    for xx,transport in enumerate(transport_types):  # set(df["Main Transport Mode"]):
+    for xx, transport in enumerate(transport_types):  # set(df["Main Transport Mode"]):
         df2 = df[df["Main Transport Mode"] == transport]
         total_km_list = []
 
-        for i,j in zip(df2["One-Way Daily Commute Distance (km)"],df2["Num trips to office"]):
-            total_km_list.append(2*i*j)
-        trace = go.Histogram(x=total_km_list,  xbins={"start":min,"end":max,"size":step}, autobinx=False,name=transport)
+        for i, j in zip(
+            df2["One-Way Daily Commute Distance (km)"], df2["Num trips to office"]
+        ):
+            total_km_list.append(2 * i * j)
+        trace = go.Histogram(
+            x=total_km_list,
+            xbins={"start": min, "end": max, "size": step},
+            autobinx=False,
+            name=transport,
+        )
 
-        #trace = go.Histogram(x=total_km_list, nbinsx=14,name=transport)
-        fig.append_trace(trace,xx+1,1)
+        # trace = go.Histogram(x=total_km_list, nbinsx=14,name=transport)
+        fig.append_trace(trace, xx + 1, 1)
     st.write(fig)
 
     st.markdown("### Distribution of Commute Distance")
-    st.markdown("This information is useful to understand how far staff have to travel to work, and perhaps guide decisions to prompt less carbon-intensive travel in the future")
-    #fig = go.Figure(data=[go.Histogram(x=df["One-Way Daily Commute Distance (km)"]],nbins=20))
+    st.markdown(
+        "This information is useful to understand how far staff have to travel to work, and perhaps guide decisions to prompt less carbon-intensive travel in the future"
+    )
+    # fig = go.Figure(data=[go.Histogram(x=df["One-Way Daily Commute Distance (km)"]],nbins=20))
 
-    #st.write(fig)
-    #import plotly.express as px
-    #df = px.data.tips()
-    fig = px.histogram(df, x="One-Way Daily Commute Distance (km)",nbins=30)
+    # st.write(fig)
+    # import plotly.express as px
+    # df = px.data.tips()
+    fig = px.histogram(df, x="One-Way Daily Commute Distance (km)", nbins=30)
     st.write(fig)
 
 
@@ -88,13 +100,15 @@ def make_pie_chart(df, transport_types):
 
     for transport in transport_types:  # set(df["Main Transport Mode"]):
         df2 = df[df["Main Transport Mode"] == transport]
-        total_km_list_half=[]
+        total_km_list_half = []
         total_km_list = []
-        for i,j in zip(df2["One-Way Daily Commute Distance (km)"],df2["Num trips to office"]):
-            total_km_list.append(2*i*j)
-            total_km_list_half.append(i*j)
-        total_km = np.round(np.sum(total_km_list),0)
-        total_kmh = np.round(np.sum(total_km_list_half),0)
+        for i, j in zip(
+            df2["One-Way Daily Commute Distance (km)"], df2["Num trips to office"]
+        ):
+            total_km_list.append(2 * i * j)
+            total_km_list_half.append(i * j)
+        total_km = np.round(np.sum(total_km_list), 0)
+        total_kmh = np.round(np.sum(total_km_list_half), 0)
         tt[transport] = total_km
         tth[transport] = total_kmh
     odtt = OrderedDict(tt)
@@ -115,28 +129,34 @@ def make_pie_chart(df, transport_types):
 
 
 def total_distance_travelled(df, transport_types):
-    #tt = {}
+    # tt = {}
     total_km_list = []
     total_km_list_half = []
 
-    for i,j in zip(df["One-Way Daily Commute Distance (km)"],df["Num trips to office"]):
-        total_km_list.append(2*i*j)
-        total_km_list_half.append(i*j)
-    total_km = np.round(np.sum(total_km_list),0)
-    total_kmh = np.round(np.sum(total_km_list_half),0)
+    for i, j in zip(
+        df["One-Way Daily Commute Distance (km)"], df["Num trips to office"]
+    ):
+        total_km_list.append(2 * i * j)
+        total_km_list_half.append(i * j)
+    total_km = np.round(np.sum(total_km_list), 0)
+    total_kmh = np.round(np.sum(total_km_list_half), 0)
 
-    #total_km = 2 * np.round(sum(df["One-Way Daily Commute Distance (km)"])* sum(df["Num trips to office"]),0)
+    # total_km = 2 * np.round(sum(df["One-Way Daily Commute Distance (km)"])* sum(df["Num trips to office"]),0)
     # odtt = OrderedDict(tt)
     # names = []
     # for k in odtt.keys():
     #    names.append(str(k)+str(" (km)"))
 
     # fig = px.pie(values=list(odtt.values()), names=names)
-    #total_km = np.round(np.sum(list(tt.values())), 0)
+    # total_km = np.round(np.sum(list(tt.values())), 0)
     st.sidebar.markdown("#### Total commute Distance")
-    st.sidebar.markdown("of all survey respondants (both ways) {0} (km)".format(total_km))
+    st.sidebar.markdown(
+        "of all survey respondants (both ways) {0} (km)".format(total_km)
+    )
     st.sidebar.markdown("#### Total commute Distance")
-    st.sidebar.markdown("of all survey respondants (one way) {0} (km)".format(total_kmh))
+    st.sidebar.markdown(
+        "of all survey respondants (one way) {0} (km)".format(total_kmh)
+    )
 
     total_employed_response = df.shape[0]  # np.round(np.sum(list(tt.values())),1)
     st.sidebar.markdown("#### Questioniare Response")
@@ -248,12 +268,14 @@ def make_sankey_chart(df, transport_types):
 
     with st.expander("Sankey Diagram Explanation"):
 
-        st.markdown("With this diagram we can ask, does distance determine transport type")
+        st.markdown(
+            "With this diagram we can ask, does distance determine transport type"
+        )
         st.markdown(
             "This could help reason about the cost/benefit of E-bikes/scooters versus traditional bikes"
         )
 
-        #st.markdown(" --- ")
+        # st.markdown(" --- ")
         st.markdown(
             "Sources (srcs) are groups of three intervals of distances travelled, they are: "
         )
@@ -290,8 +312,8 @@ def make_corr_gram(df):
     del df2["Saturday Work Location"]
     del df2["Sunday Work Location"]
     df3 = copy.copy(df2)
-    df3['Main Transport Mode']=df3['Main Transport Mode'].astype('category').cat.codes
-    df3['Department']=df3['Department'].astype('category').cat.codes
+    df3["Main Transport Mode"] = df3["Main Transport Mode"].astype("category").cat.codes
+    df3["Department"] = df3["Department"].astype("category").cat.codes
 
     d = df3
     corr = d.corr()
@@ -306,9 +328,18 @@ def make_corr_gram(df):
         st.markdown(
             "This heat map answers the question: 'Which Variables are correlated and anti correlated?'' Color bar indicates degree of correlation/anti-correlation."
         )
-    sns.heatmap(corr, mask=mask, cmap=cmap, vmax=.3, center=0,
-                square=True, linewidths=.5,annot=True,fmt='.2f')#, cbar_kws={"shrink": .5})
-    plt.title('Correlation matrix showing correlation coefficients')
+    sns.heatmap(
+        corr,
+        mask=mask,
+        cmap=cmap,
+        vmax=0.3,
+        center=0,
+        square=True,
+        linewidths=0.5,
+        annot=True,
+        fmt=".2f",
+    )  # , cbar_kws={"shrink": .5})
+    plt.title("Correlation matrix showing correlation coefficients")
     st.pyplot(f)
 
     cov_mat = d.cov()
@@ -322,11 +353,19 @@ def make_corr_gram(df):
         st.markdown(
             "This heat map answers the question: 'Which Variables covary togethor?'' Color bar indicates degree of covariance."
         )
-    sns.heatmap(cov_mat, mask=mask, cmap=cmap, vmax=.3, center=0,
-                square=True, linewidths=.5,annot=True,fmt='.2f')#, cbar_kws={"shrink": .5})
-    plt.title('Covariance matrix showing covariance coefficients')
+    sns.heatmap(
+        cov_mat,
+        mask=mask,
+        cmap=cmap,
+        vmax=0.3,
+        center=0,
+        square=True,
+        linewidths=0.5,
+        annot=True,
+        fmt=".2f",
+    )  # , cbar_kws={"shrink": .5})
+    plt.title("Covariance matrix showing covariance coefficients")
     st.pyplot(f)
-
 
 
 def make_cluster_gram(df):
@@ -344,20 +383,17 @@ def make_cluster_gram(df):
     del df2["Saturday Work Location"]
     del df2["Sunday Work Location"]
 
-
     with st.expander("Distribution Plots Explantion:"):
         st.markdown(
             "In the following plots we see that the most correlated variables are distance to office and number of trips to office both seem Normally distributed"
         )
-    fig = sns.pairplot(df2, hue='Main Transport Mode')
+    fig = sns.pairplot(df2, hue="Main Transport Mode")
     st.pyplot(fig)
-
 
     f, ax = plt.subplots(figsize=(11, 9))
 
-    fig = sns.pairplot(df2, hue='Department')
+    fig = sns.pairplot(df2, hue="Department")
     st.pyplot(fig)
-
 
 
 def make_scatter_matrix(df):
@@ -407,11 +443,10 @@ def make_scatter_matrix(df):
 
     st.write(fig)
 
+
 def density_heatmap_(df):
 
-    st.markdown(
-        "### Distribution plots number of Trips to Office versus Distance"
-    )
+    st.markdown("### Distribution plots number of Trips to Office versus Distance")
     st.markdown("all transport")
 
     fig = px.density_heatmap(
@@ -424,16 +459,15 @@ def density_heatmap_(df):
     st.write(fig)
 
 
-
 def sheet(df2):
     st.markdown("Processed anonymized data that is visualized")
     try:
         st.markdown(get_table_download_link_csv(df2), unsafe_allow_html=True)
     except:
         pass
-    my_expander = st.beta_expander("View Whole Spread Sheet Here:")
+    my_expander = st.expander("View Whole Spread Sheet Here:")
     my_expander.table(df2)
-    my_expander = st.beta_expander("Access Single Column By Name:")
+    my_expander = st.expander("Access Single Column By Name:")
     import copy
 
     df3 = copy.copy(df2)
@@ -446,27 +480,22 @@ def sheet(df2):
     del df3["Friday Work Location"]
     del df3["Saturday Work Location"]
     del df3["Sunday Work Location"]
-    #st.markdown("### Intersting Column names:")
-    #st.table(df3.head(0))
-    #st.markdown("### All Column names:")
-    #st.table(df2.head(0))
 
     column_genre = my_expander.radio(
-        "Choose Spread Sheet Column:",list(df3.columns),
+        "Choose Spread Sheet Column:",
+        list(df3.columns),
     )
-
-    #my_expander = st.beta_expander("Interrogate Column By Name:")
-    #user_input = my_expander.text_input("Enter a Column Name", "Main Transport Mode")
     my_expander.write(df2[column_genre])
-
 
 
 def get_table_download_link_csv(df):
     import base64
+
     csv = df.to_csv().encode()
     b64 = base64.b64encode(csv).decode()
     href = f'<a href="data:file/csv;base64,{b64}" download="captura.csv" target="_blank">Download csv file</a>'
     return href
+
 
 def __main__():
     st.title("Your Councils Work Commute")
@@ -507,11 +536,14 @@ def __main__():
     if genre == "Sankey Chart":
         make_sankey_chart(df, transport_types)
     if genre == "Histogram Distances":
-        make_multi_histogram(df,transport_types)
+        make_multi_histogram(df, transport_types)
     if genre == "Density Heatmap":
         density_heatmap_(df)
         trans_options = list(transport_types)
-        sub_genre = st.radio("Choose transport Option:",trans_options,)
+        sub_genre = st.radio(
+            "Choose transport Option:",
+            trans_options,
+        )
         st.markdown("distribution plot of:")
         st.markdown(sub_genre)
         df3 = df[df["Main Transport Mode"] == sub_genre]
@@ -529,9 +561,9 @@ def __main__():
         make_cluster_gram(df)
 
     # st.title("Distribution plots")
-    #if 1 == 0:
-        # for transport in transport_types:
-    #dcc.Graph(figure=clustergram)
+    # if 1 == 0:
+    # for transport in transport_types:
+    # dcc.Graph(figure=clustergram)
 
     # make_scatter_matrix(df)
 
