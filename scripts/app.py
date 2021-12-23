@@ -9,6 +9,9 @@ import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.graph_objects as go
+import pandas as pd
+import dash_bio as dashbio
+
 
 # st.set_page_config(layout="wide")
 try:
@@ -59,7 +62,7 @@ def total_distance_travelled(df, transport_types):
     #    names.append(str(k)+str(" (km)"))
 
     # fig = px.pie(values=list(odtt.values()), names=names)
-    total_km = np.round(np.sum(list(tt.values())), 1)
+    total_km = np.round(np.sum(list(tt.values())), 0)
     st.sidebar.markdown("#### Total commute Distance")
     st.sidebar.markdown("of all survey respondants {0} (km)".format(total_km))
 
@@ -215,8 +218,45 @@ def make_cluster_gram(df):
     del df2["Friday Work Location"]
     del df2["Saturday Work Location"]
     del df2["Sunday Work Location"]
-    # st.text(df2.columns)
-    # st.markdown("plotly scatter matrix")
+
+    df2['Main Transport Mode']=df['Main Transport Mode'].astype('category').cat.codes
+    df2['Department']=df['Department'].astype('category').cat.codes
+
+    d = df2
+    corr = d.corr()
+    # Generate a mask for the upper triangle
+    mask = np.triu(np.ones_like(corr, dtype=bool))
+    # Set up the matplotlib figure
+    f, ax = plt.subplots(figsize=(11, 9))
+    # Generate a custom diverging colormap
+    cmap = sns.diverging_palette(230, 20, as_cmap=True)
+    st.markdown("### A Correlogram")
+    #")
+    with st.expander("Correlogram Explantion:"):
+        st.markdown(
+            "This heat map answers the question: Which Variables are correlated and anti correlated?"
+        )
+
+    # Draw the heatmap with the mask and correct aspect ratio
+    sns.heatmap(corr, mask=mask, cmap=cmap, vmax=.3, center=0,
+                square=True, linewidths=.5, cbar_kws={"shrink": .5})
+
+    st.pyplot(f)
+
+
+    with st.expander("Distribution Plots Explantion:"):
+        st.markdown(
+            "In the following plots we see that the most correlated variables are distance to office and number of trips to office both seem Normally distributed"
+        )
+    fig = sns.pairplot(df2, hue='Main Transport Mode')
+    st.pyplot(fig)
+
+
+    f, ax = plt.subplots(figsize=(11, 9))
+
+    fig = sns.pairplot(df2, hue='Department')
+    st.pyplot(fig)
+
 
 
 def make_scatter_matrix(df):
@@ -291,9 +331,13 @@ def __main__():
     total_distance_travelled(df, transport_types)
     make_pie_chart(df, transport_types)
     make_sankey_chart(df, transport_types)
+    make_cluster_gram(df)
+
     st.markdown(
-        "### Distribution plots number of Trips to Office versus Distance (all transport)"
+        "### Distribution plots number of Trips to Office versus Distance"
     )
+    st.markdown("all transport")
+
     fig = px.density_heatmap(
         df,
         x="One-Way Daily Commute Distance (km)",
@@ -316,6 +360,7 @@ def __main__():
             marginal_y="histogram",
         )
         st.write(fig)
+    #dcc.Graph(figure=clustergram)
 
     # make_scatter_matrix(df)
 
