@@ -407,34 +407,7 @@ def make_scatter_matrix(df):
 
     st.write(fig)
 
-
-def __main__():
-
-    # toc = Toc()
-
-    st.title("Your Councils Work Commute")
-    # st.title("Your Councils Work Commute")
-    st.markdown(
-        "With your help, were building an understanding of how our commute effects our future environment. \n"
-    )
-    st.markdown(
-        "Below is a summary of the data collected, with some comparisons of the total staff distance travelled and associated carbon emissions."
-    )
-
-    # for a in range(10):
-    #    st.write("Blabla...")
-
-    try:
-        df = pd.read_csv("scripts/ttws.csv")
-    except:
-        df = pd.read_csv("ttws.csv")
-    transport_types = set(df["Main Transport Mode"])
-    total_distance_travelled(df, transport_types)
-    make_pie_chart(df, transport_types)
-    make_sankey_chart(df, transport_types)
-    make_multi_histogram(df,transport_types)
-
-    make_corr_gram(df)
+def density_heatmap_(df):
 
     st.markdown(
         "### Distribution plots number of Trips to Office versus Distance"
@@ -449,14 +422,77 @@ def __main__():
         marginal_y="histogram",
     )
     st.write(fig)
-    make_cluster_gram(df)
 
-    # st.title("Distribution plots")
-    if 1 == 0:
-        # for transport in transport_types:
+
+
+def sheet(df2):
+    st.markdown("Processed anonymized data that is visualized")
+    st.markdown(get_table_download_link_csv(df2), unsafe_allow_html=True)
+    my_expander = st.beta_expander("View Spread Sheet Here:")
+    my_expander.table(df2)
+    my_expander = st.beta_expander("Interrogate Column By Name:")
+    st.markdown("### Column names:")
+    st.markdown(df2.columns.values)
+    #my_expander = st.beta_expander("Interrogate Column By Name:")
+    user_input = my_expander.text_input("Enter a Column Name", "Main Transport Mode")
+    my_expander.write(df2[user_input])
+
+
+
+def get_table_download_link_csv(df):
+    import base64
+    csv = df.to_csv().encode()
+    b64 = base64.b64encode(csv).decode()
+    href = f'<a href="data:file/csv;base64,{b64}" download="captura.csv" target="_blank">Download csv file</a>'
+    return href
+
+def __main__():
+    st.title("Your Councils Work Commute")
+    st.markdown(
+        "With your help, were building an understanding of how our commute effects our future environment. \n"
+    )
+    st.markdown(
+        "Below is a summary of the data collected, with some comparisons of the total staff distance travelled and associated carbon emissions."
+    )
+
+    try:
+        df = pd.read_csv("scripts/ttws.csv")
+    except:
+        df = pd.read_csv("ttws.csv")
+    transport_types = set(df["Main Transport Mode"])
+    total_distance_travelled(df, transport_types)
+
+    genre = st.sidebar.radio(
+        "Choose Graph Layout/Option:",
+        (
+            "Pie Chart",
+            "Sankey Chart",
+            "Correlation and Covariance",
+            "Histogram Distances",
+            "Density Heatmap",
+            "Spreadsheet",
+            "View Source Code",
+        ),
+    )
+    if genre == "View Source Code":
+        st.markdown(
+            """[mostly in this repository](https://github.com/CodeforAustralia/council-emissions-calculator)"""
+        )
+    if genre == "Spreadsheet":
+        sheet(df)
+    if genre == "Pie Chart":
+        make_pie_chart(df, transport_types)
+    if genre == "Sankey Chart":
+        make_sankey_chart(df, transport_types)
+    if genre == "Histogram Distances":
+        make_multi_histogram(df,transport_types)
+    if genre == "Density Heatmap":
+        density_heatmap_(df)
+        trans_options = list(transport_types)
+        sub_genre = st.radio("Choose transport Option:",trans_options,)
         st.markdown("distribution plot of:")
-        st.markdown(transport)
-        df3 = df[df["Main Transport Mode"] == transport]
+        st.markdown(sub_genre)
+        df3 = df[df["Main Transport Mode"] == sub_genre]
         fig = px.density_heatmap(
             df3,
             x="One-Way Daily Commute Distance (km)",
@@ -465,6 +501,14 @@ def __main__():
             marginal_y="histogram",
         )
         st.write(fig)
+    if genre == "Correlation and Covariance":
+        make_corr_gram(df)
+    if genre == "Pair Plots":
+        make_cluster_gram(df)
+
+    # st.title("Distribution plots")
+    #if 1 == 0:
+        # for transport in transport_types:
     #dcc.Graph(figure=clustergram)
 
     # make_scatter_matrix(df)
