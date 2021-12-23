@@ -19,6 +19,68 @@ try:
 except:
     st.expander = st.beta_expander
 
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
+def make_multi_histogram(df,transport_types):
+
+
+    st.markdown("### Distance Travelled By Mode of Transport")
+    st.markdown("This information helps us understand how far staff are happy to travel based on their preferred mode of transport. This would help guide decisions on less carbon intensive forms of travel in the future.")
+
+    data = make_subplots(rows=len(transport_types), cols=1)
+    min = np.min(df["One-Way Daily Commute Distance (km)"])
+    max = np.max(df["One-Way Daily Commute Distance (km)"])
+    step = (max-min)/14.0
+
+    for xx,transport in enumerate(transport_types):  # set(df["Main Transport Mode"]):
+        df2 = df[df["Main Transport Mode"] == transport]
+        trace = go.Histogram(x=df2["One-Way Daily Commute Distance (km)"],  xbins={"start":min,"end":max,"size":step}, autobinx=False,name=transport)
+        data.append_trace(trace,xx+1,1)
+    layout = go.Layout(
+        autosize=False,
+        width=5000,
+        height=5000)
+    fig = go.Figure(data=data, layout=layout)
+
+    st.write(fig)
+
+    all_total_km_list = []
+    for xx,transport in enumerate(transport_types):  # set(df["Main Transport Mode"]):
+        df2 = df[df["Main Transport Mode"] == transport]
+        for i,j in zip(df2["One-Way Daily Commute Distance (km)"],df2["Num trips to office"]):
+            all_total_km_list.append(2*i*j)
+
+    #data = make_subplots(rows=len(transport_types), cols=1)
+    min = np.min(all_total_km_list)
+    max = np.max(all_total_km_list)
+    step = (max-min)/14.0
+
+    fig = make_subplots(rows=len(transport_types), cols=1)
+
+
+    for xx,transport in enumerate(transport_types):  # set(df["Main Transport Mode"]):
+        df2 = df[df["Main Transport Mode"] == transport]
+        total_km_list = []
+
+        for i,j in zip(df2["One-Way Daily Commute Distance (km)"],df2["Num trips to office"]):
+            total_km_list.append(2*i*j)
+        trace = go.Histogram(x=total_km_list,  xbins={"start":min,"end":max,"size":step}, autobinx=False,name=transport)
+
+        #trace = go.Histogram(x=total_km_list, nbinsx=14,name=transport)
+        fig.append_trace(trace,xx+1,1)
+    st.write(fig)
+
+    st.markdown("### Distribution of Commute Distance")
+    st.markdown("This information is useful to understand how far staff have to travel to work, and perhaps guide decisions to prompt less carbon-intensive travel in the future")
+    #fig = go.Figure(data=[go.Histogram(x=df["One-Way Daily Commute Distance (km)"]],nbins=20))
+
+    #st.write(fig)
+    #import plotly.express as px
+    #df = px.data.tips()
+    fig = px.histogram(df, x="One-Way Daily Commute Distance (km)",nbins=30)
+    st.write(fig)
+
 
 def make_pie_chart(df, transport_types):
     tt = {}
@@ -370,6 +432,8 @@ def __main__():
     total_distance_travelled(df, transport_types)
     make_pie_chart(df, transport_types)
     make_sankey_chart(df, transport_types)
+    make_multi_histogram(df,transport_types)
+
     make_corr_gram(df)
 
     st.markdown(
