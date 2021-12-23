@@ -227,11 +227,29 @@ def make_corr_gram(df):
     st.markdown("### A Correlogram")
     with st.expander("Correlogram Explantion:"):
         st.markdown(
-            "This heat map answers the question: 'Which Variables are correlated and anti correlated?'' Color bar indicates degree of correlation/anti-correlation"
+            "This heat map answers the question: 'Which Variables are correlated and anti correlated?'' Color bar indicates degree of correlation/anti-correlation."
         )
     sns.heatmap(corr, mask=mask, cmap=cmap, vmax=.3, center=0,
-                square=True, linewidths=.5)#, cbar_kws={"shrink": .5})
+                square=True, linewidths=.5,annot=True,fmt='.2f')#, cbar_kws={"shrink": .5})
+    plt.title('Correlation matrix showing correlation coefficients')
     st.pyplot(f)
+
+    cov_mat = d.cov()
+    mask = np.triu(np.ones_like(cov_mat, dtype=bool))
+    # Set up the matplotlib figure
+    f, ax = plt.subplots(figsize=(11, 9))
+    # Generate a custom diverging colormap
+    cmap = sns.diverging_palette(230, 20, as_cmap=True)
+    st.markdown("### A Covariance Matrix")
+    with st.expander("Covariance Explantion:"):
+        st.markdown(
+            "This heat map answers the question: 'Which Variables covary togethor?'' Color bar indicates degree of covariance."
+        )
+    sns.heatmap(cov_mat, mask=mask, cmap=cmap, vmax=.3, center=0,
+                square=True, linewidths=.5,annot=True,fmt='.2f')#, cbar_kws={"shrink": .5})
+    plt.title('Covariance matrix showing covariance coefficients')
+    st.pyplot(f)
+
 
 
 def make_cluster_gram(df):
