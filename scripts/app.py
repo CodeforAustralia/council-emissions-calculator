@@ -431,11 +431,26 @@ def sheet(df2):
         st.markdown(get_table_download_link_csv(df2), unsafe_allow_html=True)
     except:
         pass
-    my_expander = st.beta_expander("View Spread Sheet Here:")
+    my_expander = st.beta_expander("View Whole Spread Sheet Here:")
     my_expander.table(df2)
-    my_expander = st.beta_expander("Interrogate Column By Name:")
-    st.markdown("### Column names:")
-    st.markdown(df2.columns.values)
+    my_expander = st.beta_expander("Access Single Column By Name:")
+    import copy
+
+    df3 = copy.copy(df2)
+    del df3["Date"]
+    del df3["Incentive Text"]
+    del df3["Monday Work Location"]
+    del df3["Tuesday Work Location"]
+    del df3["Wednesday Work Location"]
+    del df3["Thursday Work Location"]
+    del df3["Friday Work Location"]
+    del df3["Saturday Work Location"]
+    del df3["Sunday Work Location"]
+    st.markdown("### Intersting Column names:")
+    st.table(df3.head(0))
+    st.markdown("### All Column names:")
+    st.table(df2.head(0))
+
     #my_expander = st.beta_expander("Interrogate Column By Name:")
     user_input = my_expander.text_input("Enter a Column Name", "Main Transport Mode")
     my_expander.write(df2[user_input])
