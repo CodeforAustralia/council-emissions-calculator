@@ -22,13 +22,19 @@ except:
 
 def make_pie_chart(df, transport_types):
     tt = {}
+    tth = {}
+
     for transport in transport_types:  # set(df["Main Transport Mode"]):
         df2 = df[df["Main Transport Mode"] == transport]
-        tt[transport] = 2 * np.round(
-            sum(df2["One-Way Daily Commute Distance (km)"])
-            * sum(df2["Num trips to office"]),
-            2,
-        )
+        total_km_list_half=[]
+        total_km_list = []
+        for i,j in zip(df2["One-Way Daily Commute Distance (km)"],df2["Num trips to office"]):
+            total_km_list.append(2*i*j)
+            total_km_list_half.append(i*j)
+        total_km = np.round(np.sum(total_km_list),0)
+        total_kmh = np.round(np.sum(total_km_list_half),0)
+        tt[transport] = total_km
+        tth[transport] = total_kmh
     odtt = OrderedDict(tt)
     names = []
     for k in odtt.keys():
@@ -48,7 +54,16 @@ def make_pie_chart(df, transport_types):
 
 def total_distance_travelled(df, transport_types):
     #tt = {}
-    total_km = 2 * np.round(sum(df["One-Way Daily Commute Distance (km)"])* sum(df["Num trips to office"]),0)
+    total_km_list = []
+    total_km_list_half = []
+
+    for i,j in zip(df["One-Way Daily Commute Distance (km)"],df["Num trips to office"]):
+        total_km_list.append(2*i*j)
+        total_km_list_half.append(i*j)
+    total_km = np.round(np.sum(total_km_list),0)
+    total_kmh = np.round(np.sum(total_km_list_half),0)
+
+    #total_km = 2 * np.round(sum(df["One-Way Daily Commute Distance (km)"])* sum(df["Num trips to office"]),0)
     # odtt = OrderedDict(tt)
     # names = []
     # for k in odtt.keys():
@@ -59,7 +74,7 @@ def total_distance_travelled(df, transport_types):
     st.sidebar.markdown("#### Total commute Distance")
     st.sidebar.markdown("of all survey respondants (both ways) {0} (km)".format(total_km))
     st.sidebar.markdown("#### Total commute Distance")
-    st.sidebar.markdown("of all survey respondants (one way) {0} (km)".format(total_km/2.0))
+    st.sidebar.markdown("of all survey respondants (one way) {0} (km)".format(total_kmh))
 
     total_employed_response = df.shape[0]  # np.round(np.sum(list(tt.values())),1)
     st.sidebar.markdown("#### Questioniare Response")
