@@ -2,12 +2,9 @@
 An experiment to test the initial design of Civic Maker's 2021 Council Emissions Calculator project.
 
 ---
-
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-9-blue.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/CodeforAustralia/council-emissions-calculator.svg)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/CodeforAustralia/council-emissions-calculator.svg)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/CodeforAustralia/council-emissions-calculator.svg) 
+[![All Contributors](https://img.shields.io/badge/all_contributors-9-blue.svg?style=flat-square)](#contributors-)
 
 - [Project goals](#Project-Goals)
 - [Getting started](#Getting-Started)
@@ -68,7 +65,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Dependencies used in this project
 <details>
-<summary> </summary>
+<summary> Dependencies </summary>
 - Google Sheets as database
 - Google sheets to process form responses and calculate emissions
 - Chakra for UI framework
