@@ -64,6 +64,7 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 </details>
+
 ---
 
 ## Dependencies used in this project
@@ -140,6 +141,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://www.linkedin.com/in/lubiniecki/"><img src="https://avatars.githubusercontent.com/u/22548703?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kris Lubiniecki</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=klubiniecki" title="Code">💻</a></td>
+    <td align="center"><a href="https://blog.codeforaustralia.org"><img src="https://avatars.githubusercontent.com/u/31912?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Matt Sawkill</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=sawks" title="Code">💻</a></td>
   </tr>
 </table>
 
