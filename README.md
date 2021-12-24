@@ -69,11 +69,17 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 ## Dependencies used in this project
 <details>
 <summary> Dependencies </summary>
+     
 - Google Sheets as database
+     
 - Google sheets to process form responses and calculate emissions
+
 - Chakra for UI framework
+
 - Highcharts to build charts in report
+
 - Vercel as hosting platform
+
 </details>
 
 ---
