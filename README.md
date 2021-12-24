@@ -1,6 +1,6 @@
 # Council Emissions Calculator
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 An experiment to test the initial design of Civic Maker's 2021 Council Emissions Calculator project.
 
@@ -142,10 +142,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://blog.codeforaustralia.org"><img src="https://avatars.githubusercontent.com/u/31912?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Matt Sawkill</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=sawks" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/hqtan"><img src="https://avatars.githubusercontent.com/u/4408259?v=4?s=100" width="100px;" alt=""/><br /><sub><b>hqtan</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=hqtan" title="Code">💻</a> <a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=hqtan" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/bhagya099"><img src="https://avatars.githubusercontent.com/u/59786494?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Bhagyashree</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=bhagya099" title="Code">💻</a> <a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=bhagya099" title="Documentation">📖</a></td>
   </tr>
-
-<td align="center"><a href="https://www.linkedin.com/in/lubiniecki/"><img src="https://avatars.githubusercontent.com/u/22548703?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kris Lubiniecki</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=klubiniecki" title="Code">💻</a>
-</td>
 </table>
 
 <!-- markdownlint-restore -->
