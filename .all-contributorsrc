@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "sawks",
+      "name": "Matt Sawkill",
+      "avatar_url": "https://avatars.githubusercontent.com/u/31912?v=4",
+      "profile": "https://blog.codeforaustralia.org",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "council-emissions-calculator",
+  "projectOwner": "russelljjarvis",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
