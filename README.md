@@ -103,12 +103,12 @@ STEPS
 
 #### Option 2 : Using button in your main forked repo
 
-     (located above the code listing right top)
 
 <details>
 <summary> 
 STEPS
 </summary>
+(located above the code listing right top)
 
 1. Click on `fetch upstream` button
 2. Select `Fetch and merge` button
@@ -143,6 +143,11 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://blog.codeforaustralia.org"><img src="https://avatars.githubusercontent.com/u/31912?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Matt Sawkill</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=sawks" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/hqtan"><img src="https://avatars.githubusercontent.com/u/4408259?v=4?s=100" width="100px;" alt=""/><br /><sub><b>hqtan</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=hqtan" title="Code">💻</a> <a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=hqtan" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/bhagya099"><img src="https://avatars.githubusercontent.com/u/59786494?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Bhagyashree</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=bhagya099" title="Code">💻</a> <a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=bhagya099" title="Documentation">📖</a></td>
+
+
+<td align="center"><a href="https://www.linkedin.com/in/lubiniecki/"><img src="https://avatars.githubusercontent.com/u/22548703?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kris Lubiniecki</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=klubiniecki" title="Code">💻</a>
+</td>
+
   </tr>
 </table>
 
