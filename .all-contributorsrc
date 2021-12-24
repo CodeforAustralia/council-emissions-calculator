@@ -6,19 +6,6 @@
   "commit": false,
   "contributors": [
     {
-      "login": "klubiniecki",
-      "name": "Kris Lubiniecki",
-      "avatar_url": "https://avatars.githubusercontent.com/u/22548703?v=4",
-      "profile": "https://www.linkedin.com/in/lubiniecki/",
-      "contributions": [
-        "code"
-      ]
-    }
-  ],
-  "imageSize": 100,
-  "commit": false,
-  "contributors": [
-    {
       "login": "sawks",
       "name": "Matt Sawkill",
       "avatar_url": "https://avatars.githubusercontent.com/u/31912?v=4",
@@ -26,11 +13,21 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "hqtan",
+      "name": "hqtan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4408259?v=4",
+      "profile": "https://github.com/hqtan",
+      "contributions": [
+        "code",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
   "projectName": "council-emissions-calculator",
-  "projectOwner": "",
+  "projectOwner": "russelljjarvis",
   "repoType": "github",
   "repoHost": "https://github.com",
   "skipCi": true
