@@ -26,7 +26,8 @@ An experiment to test the initial design of Civic Maker's 2021 Council Emissions
 
 ## Getting Started
 
-First, install dependencies using your preferred package manager:
+<details>
+<summary> First, install dependencies using your preferred package manager: </summary>
 
 ```
 npm install
@@ -47,25 +48,30 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
 ---
+</details>
 
 ## Learn More about Development
-
+<details>
+<summary> 
 To learn more about Next.js, take a look at the following resources:
-
+</summary> 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
+</details>
 ---
 
 ## Dependencies used in this project
-
+<details>
+<summary> </summary>
 - Google Sheets as database
 - Google sheets to process form responses and calculate emissions
 - Chakra for UI framework
 - Highcharts to build charts in report
 - Vercel as hosting platform
+</details>
+
 ---
 
 ## Collaboration: Working In a Forked Repository
@@ -75,9 +81,10 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 There are 2 options :
 
 #### Option 1 : Using terminal
-
+<details>
+<summary> 
 STEPS
-
+</summary>
 1. Checkout to main branch
 2. `git branch` view list to confirm
 3. `git remote add upstream (URL- copy the URL from Code for Australia CodeforAustralia/council-emissions-calculator-spike git hub)`
@@ -87,12 +94,16 @@ STEPS
 4. `git fetch upstream`
 5. `git merge upstream/main`
 6. `git pull`
+</details>
 
 #### Option 2 : Using button in your main forked repo
 
      (located above the code listing right top)
 
+<details>
+<summary> 
 STEPS
+</summary>
 
 1. Click on `fetch upstream` button
 2. Select `Fetch and merge` button
@@ -103,10 +114,14 @@ STEPS
 4. `git status`
 5. `git add .` or `git add (file/path name)`
 6. `git commit -m “note”`
+</details>
 
 ### To merge the changes to working branch
-
+<details>
+<summary> 
 STEPS
-
+</summary> 
+     
 1. `git checkout (branch name)`
 2. `git merge main`
+</details>
