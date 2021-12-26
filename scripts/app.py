@@ -218,7 +218,7 @@ def total_distance_travelled(df, transport_types):
 def encode_list(input, encode):
     return [encode[i] for i in input]
 
-#@st.cache
+@st.cache
 def make_sankey_chart(df, transport_types):
     encode = {}
     transport_types = list(transport_types)
@@ -472,7 +472,7 @@ def make_scatter_matrix(df):
 def density_heatmap_(df):
     fig = ff.create_2d_density(
         x=df["One-Way Daily Commute Distance (km)"],
-        y=df["Num trips to office"],
+        y=df["Num trips to office"], point_size=4,
     )
     return fig
 
@@ -835,12 +835,12 @@ def __main__():
             st.latex(r"""Slice = 2 \times OWD \times NTTO""")
 
     if genre == "Sankey Charts":
-        st.markdown("### 3 different Sankey Diagrams")
+        st.markdown("### Three different Sankey Diagrams, Scroll down...")
 
         fig = make_sankey_chart(df, transport_types)
         st.plotly_chart(fig, use_container_width=True)
 
-        st.markdown("### Scroll down...")
+        st.markdown("### ")
 
         fig = make_sankey_chart2(df, transport_types)
         st.plotly_chart(fig, use_container_width=True)
@@ -866,6 +866,8 @@ def __main__():
     if genre == "Density Heatmap":
         st.markdown("### Distribution plots number of Trips to Office versus Distance")
         st.markdown("all transport")
+        st.markdown("X-axis is distance, Y-axis is number of trips to office")
+
         fig = density_heatmap_(df)
         #st.write(fig)
         st.plotly_chart(fig, use_container_width=True)
@@ -883,6 +885,7 @@ def __main__():
         fig = ff.create_2d_density(
             x=df3["One-Way Daily Commute Distance (km)"],
             y=df3["Num trips to office"],
+            point_size=4,
         )
         #    return fig
 
