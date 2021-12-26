@@ -1,10 +1,15 @@
 # Council Emissions Calculator
 An experiment to test the initial design of Civic Maker's 2021 Council Emissions Calculator project.
 
----
-![GitHub pull requests](https://img.shields.io/github/issues-pr/CodeforAustralia/council-emissions-calculator.svg)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/CodeforAustralia/council-emissions-calculator.svg) 
-[![All Contributors](https://img.shields.io/badge/all_contributors-9-blue.svg?style=flat-square)](#contributors-)
+
+
+<p align="center">
+  <img alt="GitHub" src="https://img.shields.io/github/issues-pr/CodeforAustralia/council-emissions-calculator.svg">
+  <img alt="GitHub" src="https://img.shields.io/github/commit-activity/m/CodeforAustralia/council-emissions-calculator.svg">
+  <img alt="GitHub" src="https://img.shields.io/badge/all_contributors-9-blue.svg?style=flat-square">
+</p>
+
+
 
 
 
