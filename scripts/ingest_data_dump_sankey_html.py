@@ -14,6 +14,14 @@ import copy
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import plotly
+
+theme = px.colors.diverging.Portland
+colors = [theme[-1], theme[-2]]
+
+theme = px.colors.diverging.Portland
+colors = [theme[0], theme[1]]
+colors = [theme[-1], theme[-2]]
+
 #st.plotly_chart(2000,2000)
 """
 https://stackoverflow.com/questions/36262748/python-save-plotly-plot-to-local-file-and-insert-into-html
@@ -221,7 +229,226 @@ def total_distance_travelled(df, transport_types):
 def encode_list(input, encode):
     return [encode[i] for i in input]
 
-@st.cache
+
+#@st.cache
+def make_sankey_chart3(df, transport_types):
+    df = lump_categories_togethor(df)
+    transport_types = set(df["Main Transport Mode"])
+
+    encode = {}
+    transport_types = list(transport_types)
+    for i, name in enumerate(transport_types):
+        encode[name] = 2 + i
+
+    less_five_src = df[df["One-Way Daily Commute Distance (km)"] < 20.0].index
+    less_five_src = [0.0 for i in range(0, len(less_five_src))]
+    less_five_tgt = df[df["One-Way Daily Commute Distance (km)"] < 20.0][
+            "Main Transport Mode"
+    ]
+    less_five_tgt = encode_list(less_five_tgt, encode)
+
+    print(len(less_five_src))
+    df_filtered = df[df["One-Way Daily Commute Distance (km)"] >= 20.0]
+
+    less_ten_src = (
+        df_filtered.index
+    )  # <10].index #and df["One-Way Daily Commute Distance (km)"]<10].index
+    less_ten_src = [1.0 for i in range(0, len(df_filtered))]
+    print(len(less_ten_src))
+
+    less_ten_tgt = df_filtered["Main Transport Mode"]
+    less_ten_tgt = encode_list(less_ten_tgt, encode)
+
+    srcs = []
+    srcs.extend(less_five_src)
+    srcs.extend(less_ten_src)
+    #srcs.extend(greater_ten_src)
+    tgts = []
+    tgts.extend(less_five_tgt)
+    tgts.extend(less_ten_tgt)
+
+    E = list(zip(srcs,tgts))
+
+    # nodes must be numbers in a sequential range starting at 0 - so this is the
+    # number of nodes. you can assert this is the case as well if desired
+    size = len(set([n for e in E for n in e]))
+    # make an empty adjacency list
+    adjacency = [[0]*size for _ in range(size)]
+    # populate the list for each edge
+    for sink, source in E:
+        adjacency[int(sink)][int(source)] += 1
+    #print(adjacency)
+    assert len(srcs) == len(tgts)
+    labels = ["less than 15km","greater than 15km"]
+    labels.extend(transport_types)
+    #labels.insert(0, "more than 15km")
+    #del labels[-1]
+    #labels.insert(0, "more than 15km")
+    print(srcs)
+    print(tgts)
+    print(labels)
+    print(encode)
+    assert len(transport_types) == len(encode)
+
+    assert len(srcs) == len(tgts)
+    assert len(labels) == 2+len(encode)
+    colors = [
+        "#1f77b4",  # muted blue
+        "#ff7f0e",  # safety orange
+        "#2ca02c",  # cooked asparagus green
+        "#d62728",  # brick red
+        "#9467bd",  # muted purple
+        "#8c564b",  # chestnut brown
+        "#e377c2",  # raspberry yogurt pink
+        "#7f7f7f",  # middle gray
+        "#bcbd22",  # curry yellow-green
+        "#17becf",  # blue-teal
+    ]
+    encode_list(transport_types, encode)
+
+    fig = go.Figure(
+        data=[
+            go.Sankey(
+                valueformat=".0f",
+                valuesuffix="TWh",
+                # Define nodes
+                node=dict(
+                    pad=15,
+                    thickness=15,
+                    line=dict(color="black", width=0.5),
+                    label=labels,
+                    color=colors,
+                ),
+                # Add links
+                link=dict(
+                    source=srcs,  # data['data'][0]['link']['source'],
+                    target=tgts,  # data['data'][0]['link']['target'],
+                    value=tgts,  # [20 for i in range(0,len(srcs))],#[8, 4, 2, 8, 4, 2]
+                ),
+            )
+        ]
+    )
+
+    fig.update_layout(
+    hovermode = 'x',
+    font=dict(size = 10, color = 'white'),
+    plot_bgcolor='black',
+    paper_bgcolor='black')
+    fig.write_html("sankey2.html")
+
+
+    #fig.update_layout(title_text="", font_size=10)
+    return fig
+
+#@st.cache
+def make_sankey_chart2(df, transport_types):
+    encode = {}
+    transport_types = list(transport_types)
+    for i, name in enumerate(transport_types):
+        encode[name] = 2 + i
+
+    less_five_src = df[df["One-Way Daily Commute Distance (km)"] < 20.0].index
+    less_five_src = [0.0 for i in range(0, len(less_five_src))]
+    less_five_tgt = df[df["One-Way Daily Commute Distance (km)"] < 20.0][
+            "Main Transport Mode"
+    ]
+    less_five_tgt = encode_list(less_five_tgt, encode)
+
+    print(len(less_five_src))
+    df_filtered = df[df["One-Way Daily Commute Distance (km)"] >= 20.0]
+
+    less_ten_src = (
+        df_filtered.index
+    )  # <10].index #and df["One-Way Daily Commute Distance (km)"]<10].index
+    less_ten_src = [1.0 for i in range(0, len(df_filtered))]
+    print(len(less_ten_src))
+
+    less_ten_tgt = df_filtered["Main Transport Mode"]
+    less_ten_tgt = encode_list(less_ten_tgt, encode)
+
+    srcs = []
+    srcs.extend(less_five_src)
+    srcs.extend(less_ten_src)
+    #srcs.extend(greater_ten_src)
+    tgts = []
+    tgts.extend(less_five_tgt)
+    tgts.extend(less_ten_tgt)
+
+    E = list(zip(srcs,tgts))
+
+    # nodes must be numbers in a sequential range starting at 0 - so this is the
+    # number of nodes. you can assert this is the case as well if desired
+    size = len(set([n for e in E for n in e]))
+    # make an empty adjacency list
+    adjacency = [[0]*size for _ in range(size)]
+    # populate the list for each edge
+    for sink, source in E:
+        adjacency[int(sink)][int(source)] += 1
+    #print(adjacency)
+    assert len(srcs) == len(tgts)
+    labels = ["less than 15km","greater than 15km"]
+    labels.extend(transport_types)
+    #labels.insert(0, "more than 15km")
+    #del labels[-1]
+    #labels.insert(0, "more than 15km")
+    print(srcs)
+    print(tgts)
+    print(labels)
+    print(encode)
+    assert len(transport_types) == len(encode)
+
+    assert len(srcs) == len(tgts)
+    assert len(labels) == 2+len(encode)
+    colors = [
+        "#1f77b4",  # muted blue
+        "#ff7f0e",  # safety orange
+        "#2ca02c",  # cooked asparagus green
+        "#d62728",  # brick red
+        "#9467bd",  # muted purple
+        "#8c564b",  # chestnut brown
+        "#e377c2",  # raspberry yogurt pink
+        "#7f7f7f",  # middle gray
+        "#bcbd22",  # curry yellow-green
+        "#17becf",  # blue-teal
+    ]
+    encode_list(transport_types, encode)
+
+    fig = go.Figure(
+        data=[
+            go.Sankey(
+                valueformat=".0f",
+                valuesuffix="TWh",
+                # Define nodes
+                node=dict(
+                    pad=15,
+                    thickness=15,
+                    line=dict(color="black", width=0.5),
+                    label=labels,
+                    color=colors,
+                ),
+                # Add links
+                link=dict(
+                    source=srcs,  # data['data'][0]['link']['source'],
+                    target=tgts,  # data['data'][0]['link']['target'],
+                    value=tgts,  # [20 for i in range(0,len(srcs))],#[8, 4, 2, 8, 4, 2]
+                ),
+            )
+        ]
+    )
+
+    fig.update_layout(
+    hovermode = 'x',
+    font=dict(size = 10, color = 'white'),
+    plot_bgcolor='black',
+    paper_bgcolor='black')
+    fig.write_html("sankey1.html")
+
+
+    #fig.update_layout(title_text="", font_size=10)
+    return fig
+
+
+#@st.cache
 def make_sankey_chart(df, transport_types):
     encode = {}
     transport_types = list(transport_types)
@@ -304,11 +531,20 @@ def make_sankey_chart(df, transport_types):
                 link=dict(
                     source=srcs,  # data['data'][0]['link']['source'],
                     target=tgts,  # data['data'][0]['link']['target'],
-                    value=srcs,  # [20 for i in range(0,len(srcs))],#[8, 4, 2, 8, 4, 2]
+                    value=tgts,  # [20 for i in range(0,len(srcs))],#[8, 4, 2, 8, 4, 2]
                 ),
             )
         ]
     )
+
+    fig.update_layout(
+    hovermode = 'x',
+    font=dict(size = 10, color = 'white'),
+    plot_bgcolor='black',
+    paper_bgcolor='black',
+    )
+    fig.write_html("sankey0.html")
+
 
     fig.update_layout(title_text="", font_size=10)
     return fig
@@ -519,14 +755,17 @@ def sheet(df2):
 #    href = f'<a href="data:file/csv;base64,{b64}" download="captura.csv" target="_blank">Download csv file</a>'
 #    return href
 @st.cache
+
+
+
 def lump_categories_togethor(df):
     #st.text(transport_types)
 
     df_lumped = copy.copy(df)
     df_lumped.replace({'Walking': 'Human Powered', 'Bicycle': 'Human Powered'}, inplace=True)
-    df_lumped.replace({'Bus': 'PT', 'Train/tram': 'PT'}, inplace=True)
+    df_lumped.replace({'Bus': 'pooled/', 'Train/tram': 'pooled/PT','Car(passenger)':'pooled/PT'}, inplace=True)
     df_lumped.replace({'E-bike': 'Light Electric', 'E-scooter': 'Light Electric'}, inplace=True)
-    df_lumped.replace({'Car(driver)': 'Petrolium', 'Car(passenger)': 'Petrolium', 'Scooter/motorbike':'Petrolium'}, inplace=True)
+    #df_lumped.replace({'Car(driver)': 'car', 'Car(passenger)': 'Petrolium', 'Scooter/motorbike':'Petrolium'}, inplace=True)
 
     #df_lumped["Main Transport Mode"] = df[df["Main Transport Mode"]=='Walking']
     #pd.concat([df_lumped['human_powered'],df[df["Main Transport Mode"]=='Bicycle']])
@@ -534,8 +773,10 @@ def lump_categories_togethor(df):
     return df_lumped
 
 #import pickle
-@st.cache
+#@st.cache
+import os
 def get_data():
+    os.system('wget --no-check-certificate -O ttws.csv "https://docs.google.com/spreadsheets/d/1t2vrLeczcowJvpkiVkFu_yc1AnfMoYarvdc1uoZXsPo/export?gid=0&format=csv"')
     try:
         df = pd.read_csv("scripts/ttws.csv")
     except:
@@ -563,7 +804,6 @@ def __main__():
     #    ),
     #)
     #if simplify=="Yes":
-    #df = lump_categories_togethor(df)
     df = get_data()
     transport_types = set(df["Main Transport Mode"])
     total_distance_travelled(df, transport_types)
@@ -611,7 +851,9 @@ def __main__():
 
     #if genre == "Sankey Chart":
     fig = make_sankey_chart(df, transport_types)
-    plotly.offline.plot(fig, include_plotlyjs=False, output_type='div', config= {'displaylogo': False})
+    fig = make_sankey_chart2(df, transport_types)
+    fig = make_sankey_chart3(df, transport_types)
+    #plotly.offline.plot(fig, include_plotlyjs=False, output_type='div', config= {'displaylogo': False})
 
     st.markdown("### Sankey Diagram")
     #st.write(fig)
@@ -639,7 +881,7 @@ def __main__():
     fig = density_heatmap_(df)
     #st.write(fig)
     st.plotly_chart(fig, use_container_width=True)
-    plotly.offline.plot(fig, include_plotlyjs=False, output_type='div', config= {'displaylogo': False})
+    #plotly.offline.plot(fig, include_plotlyjs=False, output_type='div', config= {'displaylogo': False})
 
     trans_options = list(transport_types)
     sub_genre = st.radio(
@@ -656,14 +898,17 @@ def __main__():
         marginal_x="histogram",
         marginal_y="histogram",
     )
-    st.plotly_chart(fig, use_container_width=True)
-    plotly.offline.plot(fig, include_plotlyjs=False, output_type='div', config= {'displaylogo': False})
+    fig.write_html("density_heatmap.html")
+
+
+    #st.plotly_chart(fig, use_container_width=True)
+    plotly.offline.plot(fig, include_plotlyjs=False, output_type='div')#, config= {'displaylogo': False})
 
         #st.write(fig)
     #if genre == "Covariance":
     fig = make_corr_gram(df)
     st.pyplot(fig, use_container_width=True)
-    plotly.offline.plot(fig, include_plotlyjs=False, output_type='div', config= {'displaylogo': False})
+    #plotly.offline.plot(fig, include_plotlyjs=False, output_type='div')#, config= {'displaylogo': False})
 
     st.markdown("### A Covariance Matrix")
 

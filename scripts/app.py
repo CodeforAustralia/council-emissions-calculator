@@ -300,7 +300,7 @@ def make_sankey_chart(df, transport_types):
                 link=dict(
                     source=srcs,  # data['data'][0]['link']['source'],
                     target=tgts,  # data['data'][0]['link']['target'],
-                    value=srcs,  # [20 for i in range(0,len(srcs))],#[8, 4, 2, 8, 4, 2]
+                    value=tgts,  # [20 for i in range(0,len(srcs))],#[8, 4, 2, 8, 4, 2]
                 ),
             )
         ]
@@ -467,14 +467,13 @@ def make_scatter_matrix(df):
 
     st.write(fig)
 
-@st.cache
+#@st.cache
+import plotly.figure_factory as ff
+
 def density_heatmap_(df):
-    fig = px.density_heatmap(
-        df,
-        x="One-Way Daily Commute Distance (km)",
-        y="Num trips to office",
-        marginal_x="histogram",
-        marginal_y="histogram",
+    fig = ff.create_2d_density(
+        x=df["One-Way Daily Commute Distance (km)"],
+        y=df["Num trips to office"],
     )
     return fig
 
@@ -536,6 +535,9 @@ def get_data():
         df = pd.read_csv("scripts/ttws.csv")
     except:
         df = pd.read_csv("ttws.csv")
+
+    os.system('wget --no-check-certificate -O ttws.csv "https://docs.google.com/spreadsheets/d/1t2vrLeczcowJvpkiVkFu_yc1AnfMoYarvdc1uoZXsPo/export?gid=0&format=csv"')
+
     return df
 def __main__():
     st.title("Your Councils Work Commute")
@@ -649,13 +651,21 @@ def __main__():
         st.markdown("distribution plot of:")
         st.markdown(sub_genre)
         df3 = df[df["Main Transport Mode"] == sub_genre]
-        fig = px.density_heatmap(
-            df3,
-            x="One-Way Daily Commute Distance (km)",
-            y="Num trips to office",
-            marginal_x="histogram",
-            marginal_y="histogram",
+
+        #def density_heatmap_(df):
+        fig = ff.create_2d_density(
+            x=df3["One-Way Daily Commute Distance (km)"],
+            y=df3["Num trips to office"],
         )
+        #    return fig
+
+        #fig = px.density_heatmap(
+        #    df3,
+        #    x="One-Way Daily Commute Distance (km)",
+        #    y="Num trips to office",
+        #    marginal_x="histogram",
+        #    marginal_y="histogram",
+        #)
         st.plotly_chart(fig, use_container_width=True)
 
         #st.write(fig)
