@@ -518,7 +518,7 @@ def lump_categories_togethor(df):
 
     df_lumped = copy.copy(df)
     df_lumped.replace({'Walking': 'Human Powered', 'Bicycle': 'Human Powered'}, inplace=True)
-    df_lumped.replace({'Bus': 'pooled/', 'Train/tram': 'pooled/PT','Car(passenger)':'pooled/PT'}, inplace=True)
+    df_lumped.replace({'Bus': 'pooled/PT', 'Train/tram': 'pooled/PT','Car(passenger)':'pooled/PT'}, inplace=True)
     df_lumped.replace({'E-bike': 'Light Electric', 'E-scooter': 'Light Electric'}, inplace=True)
     #df_lumped.replace({'Car(driver)': 'car', 'Car(passenger)': 'Petrolium', 'Scooter/motorbike':'Petrolium'}, inplace=True)
 
