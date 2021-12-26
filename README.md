@@ -1,4 +1,9 @@
+<h1 align="center">
+
 # Council Emissions Calculator
+  
+</h1>
+  
 An experiment to test the initial design of Civic Maker's 2021 Council Emissions Calculator project.
 
 
