@@ -9,10 +9,10 @@ An experiment to test the initial design of Civic Maker's 2021 Council Emissions
 
 
 <p align="center">
-  <a href="#Project-Goals">Project goals</a> •
-  <a href="#Getting-Started">Getting started</a> •
-  <a href="#Learn-More-about-Development">Learn More about Development</a> •
-  <a href="#Collaboration-Working-In-a-Forked-Repository">Collaboration Working In a Forked Repository</a>
+  <a href="#Project-Goals">Project Goals</a> •
+  <a href="#Getting-Started">Getting Started</a> •
+  <a href="#Learn-More-about-Development"> Development</a> •
+  <a href="#Collaboration-Working-In-a-Forked-Repository">Collaboration </a>
 </p>
 
 # Project Goals
