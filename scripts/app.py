@@ -218,7 +218,7 @@ def total_distance_travelled(df, transport_types):
 def encode_list(input, encode):
     return [encode[i] for i in input]
 
-@st.cache
+#@st.cache
 def make_sankey_chart(df, transport_types):
     encode = {}
     transport_types = list(transport_types)
@@ -796,7 +796,7 @@ def __main__():
     genre = st.sidebar.radio(
         "Choose Graph Layout/Option:",
         (
-            "Sankey Chart",
+            "Sankey Charts",
             "Density Heatmap",
             "Pie Chart",
             "Covariance",
@@ -835,7 +835,7 @@ def __main__():
             st.latex(r"""Slice = 2 \times OWD \times NTTO""")
 
     if genre == "Sankey Charts":
-        st.markdown("### Sankey Diagram")
+        st.markdown("### 3 different Sankey Diagrams")
 
         fig = make_sankey_chart(df, transport_types)
         st.plotly_chart(fig, use_container_width=True)
