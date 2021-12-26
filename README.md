@@ -1,6 +1,6 @@
 <h1 align="center">
 
-# Council Emissions Calculator
+  Council Emissions Calculator
   
 </h1>
   
