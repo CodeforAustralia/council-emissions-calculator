@@ -7,7 +7,10 @@ from collections import OrderedDict
 import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
-import modin.pandas as pd
+try:
+    import modin.pandas as pd
+except:
+    import pandas as pd
 import copy
 from plotly.subplots import make_subplots
 #st.plotly_chart(2000,2000)
@@ -796,7 +799,6 @@ def __main__():
             "Sankey Charts",
             "Density Heatmap",
             "Pie Chart",
-            "Covariance",
             "Spreadsheet",
             "View Source Code",
         ),
