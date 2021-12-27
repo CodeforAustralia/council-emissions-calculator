@@ -161,7 +161,10 @@ Thanks goes to these wonderful people:
 
   <td align="center"><a href="https://github.com/ymloh"><img src="https://avatars.githubusercontent.com/u/20964807?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ymloh</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=ymloh" title="Code">💻</a> </td>
 
-    <td align="center"><a href="https://github.com/coletto817"><img src="https://avatars.githubusercontent.com/u/83195319?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Colette Liu</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=coletto817" title="Code">💻</a></td>  </tr>
+<td align="center"><a href="https://github.com/coletto817"><img src="https://avatars.githubusercontent.com/u/83195319?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Colette Liu</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=coletto817" title="Code">💻</a>
+  
+  </td>  
+</tr>
 </table>
 
 <!-- markdownlint-restore -->
