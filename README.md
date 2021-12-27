@@ -28,7 +28,9 @@
 - Provide councils with inspirations and next steps to have a more sustainable way of working.
 - Provide councils with inspirations and next steps to engage communities in initiatives that are favorable for the environment.
 - Provide a source of information that facilitates the decision process for councils to become more sustainable.
-- to learn more about this project, check out our [https://docs.google.com/document/d/1h5r1AfbQC8Azy_cdGHGBGOJwSxSqvt0cHKd5MmSd7qo/edit#heading=h.fw4lq2wclkt9](project planning) and [https://trello.com/b/ZXaIkclp/civic-makers-2021-l-use-this-one](trello project board.)
+- to learn more about this project, check out our 
+
+[https://docs.google.com/document/d/1h5r1AfbQC8Azy_cdGHGBGOJwSxSqvt0cHKd5MmSd7qo/edit#heading=h.fw4lq2wclkt9](project planning) and [https://trello.com/b/ZXaIkclp/civic-makers-2021-l-use-this-one](trello project board.)
 
 ---
 
