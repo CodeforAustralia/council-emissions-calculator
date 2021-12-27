@@ -24,14 +24,11 @@
 
 ## Project Goals
 
-<details>
-<summary> 
-  Provide councils a tool to assess their impact on the environment and ...
-</summary>
+- Provide councils a tool to assess their impact on the environment and ...
 - Provide councils with inspirations and next steps to have a more sustainable way of working.
 - Provide councils with inspirations and next steps to engage communities in initiatives that are favorable for the environment.
 - Provide a source of information that facilitates the decision process for councils to become more sustainable.
-- to learn more about this project, check out our <a href="https://docs.google.com/document/d/1h5r1AfbQC8Azy_cdGHGBGOJwSxSqvt0cHKd5MmSd7qo/edit#heading=h.fw4lq2wclkt9" title="project planning"</a> and <a href="https://trello.com/b/ZXaIkclp/civic-makers-2021-l-use-this-one" title="trello project board">
+- to learn more about this project, check out our [https://docs.google.com/document/d/1h5r1AfbQC8Azy_cdGHGBGOJwSxSqvt0cHKd5MmSd7qo/edit#heading=h.fw4lq2wclkt9](project planning) and [https://trello.com/b/ZXaIkclp/civic-makers-2021-l-use-this-one](trello project board.)
 
 ---
 
@@ -65,7 +62,7 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 ## Learn More about Development
 <details>
 <summary> 
-To learn more about Next.js, take a look at the following resources:
+To learn more about Next.js, take a look at the following resources...
 </summary> 
      
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
