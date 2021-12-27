@@ -1,6 +1,5 @@
 import streamlit as st
 import os
-import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import numpy as np
@@ -8,10 +7,8 @@ from collections import OrderedDict
 import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
-import plotly.graph_objects as go
-import pandas as pd
+import modin.pandas as pd
 import copy
-import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 #st.plotly_chart(2000,2000)
 import plotly.figure_factory as ff
@@ -800,7 +797,7 @@ def __main__():
             "Density Heatmap",
             "Pie Chart",
             "Covariance",
-            #"Spreadsheet",
+            "Spreadsheet",
             "View Source Code",
         ),
     )
