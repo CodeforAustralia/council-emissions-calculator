@@ -30,9 +30,7 @@
 - Provide a source of information that facilitates the decision process for councils to become more sustainable.
 - to learn more about this project, check out our 
 
-[https://docs.google.com/document/d/1h5r1AfbQC8Azy_cdGHGBGOJwSxSqvt0cHKd5MmSd7qo/edit#heading=h.fw4lq2wclkt9](project planning) and [https://trello.com/b/ZXaIkclp/civic-makers-2021-l-use-this-one](trello project board.)
-
----
+[project planning](https://docs.google.com/document/d/1h5r1AfbQC8Azy_cdGHGBGOJwSxSqvt0cHKd5MmSd7qo/edit#heading=h.fw4lq2wclkt9) and [trello project board.](https://trello.com/b/ZXaIkclp/civic-makers-2021-l-use-this-one)
 
 ## Getting Started
 
@@ -57,7 +55,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
----
      
 </details>
 
@@ -75,7 +72,6 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
      
 </details>
 
----
 
 ## Dependencies used in this project
 <details>
@@ -93,7 +89,6 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 </details>
 
----
 
 ## Collaboration: Working In a Forked Repository
 
@@ -149,7 +144,7 @@ STEPS
 
 ## Contributors ✨
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Thanks goes to these wonderful people:
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
