@@ -157,14 +157,15 @@ Thanks goes to these wonderful people:
 </tr>
 
 <tr>
-  <td align="center"><a href="https://www.linkedin.com/in/lubiniecki/"><img src="https://avatars.githubusercontent.com/u/22548703?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kris Lubiniecki</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=klubiniecki" title="Code">💻</a>
+    <td align="center"><a href="https://www.linkedin.com/in/lubiniecki/"><img src="https://avatars.githubusercontent.com/u/22548703?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kris Lubiniecki</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=klubiniecki" title="Code">💻</a>
 
-<td align="center"><a href="https://github.com/coletto817"><img src="https://avatars.githubusercontent.com/u/83195319?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Colette Liu</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=coletto817" title="Code">💻</a>
+  <td align="center"><a href="https://github.com/coletto817"><img src="https://avatars.githubusercontent.com/u/83195319?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Colette Liu</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=coletto817" title="Code">💻</a>
+
+      <td align="center"><a href="https://github.com/batteries76"><img src="https://avatars.githubusercontent.com/u/17744107?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Matt McKenzie</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=batteries76" title="Code">💻</a>
+        
+      <td align="center"><a href="https://github.com/oonamcmanus"><img src="https://avatars.githubusercontent.com/u/47853537?v=4?s=100" width="100px;" alt=""/><br /><sub><b>oonamcmanus</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=oonamcmanus" title="Code">💻</a>
   
-  </td>  
-    <td align="center"><a href="https://github.com/batteries76"><img src="https://avatars.githubusercontent.com/u/17744107?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Matt McKenzie</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=batteries76" title="Code">💻</a></td>
-
-    <td align="center"><a href="https://github.com/oonamcmanus"><img src="https://avatars.githubusercontent.com/u/47853537?v=4?s=100" width="100px;" alt=""/><br /><sub><b>oonamcmanus</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=oonamcmanus" title="Code">💻</a></td>
+  </td>
   </tr>
 
 </tr>
