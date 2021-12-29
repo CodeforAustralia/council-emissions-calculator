@@ -76,8 +76,6 @@ def make_multi_histogram(df, transport_types):
             autobinx=False,
             name=transport,
         )
-
-        # trace = go.Histogram(x=total_km_list, nbinsx=14,name=transport)
         fig.append_trace(trace, xx + 1, 1)
     st.write(fig)
 
@@ -85,11 +83,6 @@ def make_multi_histogram(df, transport_types):
     st.markdown(
         "This information is useful to understand how far staff have to travel to work, and perhaps guide decisions to prompt less carbon-intensive travel in the future"
     )
-    # fig = go.Figure(data=[go.Histogram(x=df["One-Way Daily Commute Distance (km)"]],nbins=20))
-
-    # st.write(fig)
-    # import plotly.express as px
-    # df = px.data.tips()
     fig = px.histogram(df, x="One-Way Daily Commute Distance (km)", nbins=30)
     st.write(fig)
 
@@ -168,30 +161,22 @@ def encode_list(input, encode):
 def make_sankey_chart(df, transport_types):
     encode = {}
     transport_types = list(transport_types)
-    # st.text(transport_types)
-    # del transport_types[0]
     for i, name in enumerate(transport_types):
-        # if i!=0:
         encode[name] = 4 + i
 
     less_five_src = df[df["One-Way Daily Commute Distance (km)"] < 5.0].index
-    # st.text(less_five_src)
     less_five_src = [1.0 for i in range(0, len(less_five_src))]
-    # st.text(len(less_five_src))
     less_five_tgt = df[df["One-Way Daily Commute Distance (km)"] < 5.0][
         "Main Transport Mode"
     ]
     less_five_tgt = encode_list(less_five_tgt, encode)
     df_filtered = df[df["One-Way Daily Commute Distance (km)"] >= 5.0]
     df_filtered = df_filtered[df_filtered["One-Way Daily Commute Distance (km)"] < 10.0]
-    # st.text(len(df_filtered))
 
     less_ten_src = (
         df_filtered.index
-    )  # <10].index #and df["One-Way Daily Commute Distance (km)"]<10].index
+    )  
     less_ten_src = [2.0 for i in range(0, len(less_ten_src))]
-    # st.text(len(less_ten_src))
-
     less_ten_tgt = df_filtered["Main Transport Mode"]
     less_ten_tgt = encode_list(less_ten_tgt, encode)
 
