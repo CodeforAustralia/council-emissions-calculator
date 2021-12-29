@@ -159,7 +159,7 @@ def encode_list(input, encode):
 
 @st.cache
 def make_sankey_chart(df, transport_types):
-    encode = {}
+    encode = OrderedDict()
     transport_types = list(transport_types)
     for i, name in enumerate(transport_types):
         encode[name] = 4 + i
