@@ -7,10 +7,7 @@ from collections import OrderedDict
 import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
-try:
-    import modin.pandas as pd
-except:
-    import pandas as pd
+import pandas as pd
 import copy
 from plotly.subplots import make_subplots
 #st.plotly_chart(2000,2000)
