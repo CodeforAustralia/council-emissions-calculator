@@ -230,9 +230,9 @@ def make_sankey_chart(df, transport_types):
                 ),
                 # Add links
                 link=dict(
-                    source=srcs,  # data['data'][0]['link']['source'],
-                    target=tgts,  # data['data'][0]['link']['target'],
-                    value=srcs,  # [20 for i in range(0,len(srcs))],#[8, 4, 2, 8, 4, 2]
+                    source=srcs,  
+                    target=tgts,  
+                    value=srcs,  
                 ),
             )
         ]
