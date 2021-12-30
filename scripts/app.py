@@ -158,12 +158,12 @@ def make_pie_chart(df, transport_types):
     for k in odtt.keys():
         names.append(str(k) + str(" (km)"))
 
-    import plotly.graph_objects as go
+    #import plotly.graph_objects as go
 
     # pull is given as a fraction of the pie radius
-    fig = go.Figure(data=[go.Pie(names=names, values=list(odtt.values()))])
+    #fig = go.Figure(data=[go.Pie(names=names, values=list(odtt.values()))])
 
-    #fig = px.pie(values=list(odtt.values()), names=names)
+    fig = px.pie(values=list(odtt.values()), names=names)
     return fig
 
 @st.cache
