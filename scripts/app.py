@@ -11,6 +11,7 @@ import pandas as pd
 import copy
 from plotly.subplots import make_subplots
 import plotly.figure_factory as ff
+import plotly.express as px
 
 
 try:
@@ -158,9 +159,52 @@ def make_pie_chart(df, transport_types):
     for k in odtt.keys():
         names.append(str(k) + str(" (km)"))
 
-    fig = px.pie(values=list(odtt.values()), names=names)
+    import plotly.graph_objects as go
+
+    l#abels = ['Oxygen','Hydrogen','Carbon_Dioxide','Nitrogen']
+    #values = [4500, 2500, 1053, 500]
+
+    # pull is given as a fraction of the pie radius
+    fig = go.Figure(data=[go.Pie(names=names, values=list(odtt.values()), pull=1.0)])
+    #fig.show()
+
+    #fig = px.pie(values=list(odtt.values()), names=names)
     return fig
 
+@st.cache
+def make_sun_chart(df, transport_types):
+    tt = {}
+    tth = {}
+
+    for transport in transport_types:  # set(df["Main Transport Mode"]):
+        df2 = df[df["Main Transport Mode"] == transport]
+        total_km_list_half = []
+        total_km_list = []
+        for i, j in zip(
+            df2["One-Way Daily Commute Distance (km)"], df2["Num trips to office"]
+        ):
+            total_km_list.append(2 * i * j)
+            total_km_list_half.append(i * j)
+        total_km = np.round(np.sum(total_km_list), 0)
+        total_kmh = np.round(np.sum(total_km_list_half), 0)
+        tt[transport] = total_km
+        tth[transport] = total_kmh
+    odtt = OrderedDict(tt)
+    names = []
+    for k in odtt.keys():
+        names.append(str(k) + str(" (km)"))
+
+    import plotly.graph_objects as go
+
+    l#abels = ['Oxygen','Hydrogen','Carbon_Dioxide','Nitrogen']
+    #values = [4500, 2500, 1053, 500]
+
+    # pull is given as a fraction of the pie radius
+    fig = go.Figure(data=[go.Pie(names=names, values=list(odtt.values()), pull=1.0)])
+    #fig.show()
+
+    #fig = px.pie(values=list(odtt.values()), names=names)
+    return fig
 
 def total_distance_travelled(df, transport_types):
     # tt = {}
@@ -224,7 +268,7 @@ def make_sankey_chart(df, transport_types):
 
     less_ten_src = (
         df_filtered.index
-    )  
+    )
     less_ten_src = [2.0 for i in range(0, len(less_ten_src))]
     less_ten_tgt = df_filtered["Main Transport Mode"]
     less_ten_tgt = encode_list(less_ten_tgt, encode)
@@ -279,9 +323,9 @@ def make_sankey_chart(df, transport_types):
                 ),
                 # Add links
                 link=dict(
-                    source=srcs,  
-                    target=tgts,  
-                    value=srcs,  
+                    source=srcs,
+                    target=tgts,
+                    value=srcs,
                 ),
             )
         ]
@@ -574,13 +618,9 @@ def make_sankey_chart3(df, transport_types):
     # populate the list for each edge
     for sink, source in E:
         adjacency[int(sink)][int(source)] += 1
-    #print(adjacency)
     assert len(srcs) == len(tgts)
-    labels = ["less than 15km","greater than 15km"]
+    labels = ["less than 20km","greater than or equal to 20km"]
     labels.extend(transport_types)
-    #labels.insert(0, "more than 15km")
-    #del labels[-1]
-    #labels.insert(0, "more than 15km")
     print(srcs)
     print(tgts)
     print(labels)
@@ -618,9 +658,9 @@ def make_sankey_chart3(df, transport_types):
                 ),
                 # Add links
                 link=dict(
-                    source=srcs,  # data['data'][0]['link']['source'],
-                    target=tgts,  # data['data'][0]['link']['target'],
-                    value=tgts,  # [20 for i in range(0,len(srcs))],#[8, 4, 2, 8, 4, 2]
+                    source=srcs,
+                    target=tgts,
+                    value=tgts,
                 ),
             )
         ]
@@ -631,10 +671,6 @@ def make_sankey_chart3(df, transport_types):
     font=dict(size = 10, color = 'white'),
     plot_bgcolor='black',
     paper_bgcolor='black')
-    #fig.write_html("sankey2.html")
-
-
-    #fig.update_layout(title_text="", font_size=10)
     return fig
 
 @st.cache
@@ -650,16 +686,12 @@ def make_sankey_chart2(df, transport_types):
             "Main Transport Mode"
     ]
     less_five_tgt = encode_list(less_five_tgt, encode)
-
-    print(len(less_five_src))
     df_filtered = df[df["One-Way Daily Commute Distance (km)"] >= 20.0]
 
     less_ten_src = (
         df_filtered.index
     )  # <10].index #and df["One-Way Daily Commute Distance (km)"]<10].index
     less_ten_src = [1.0 for i in range(0, len(df_filtered))]
-    print(len(less_ten_src))
-
     less_ten_tgt = df_filtered["Main Transport Mode"]
     less_ten_tgt = encode_list(less_ten_tgt, encode)
 
@@ -681,19 +713,10 @@ def make_sankey_chart2(df, transport_types):
     # populate the list for each edge
     for sink, source in E:
         adjacency[int(sink)][int(source)] += 1
-    #print(adjacency)
     assert len(srcs) == len(tgts)
-    labels = ["less than 15km","greater than 15km"]
+    labels = ["less than 20km","greater than or equal to 20km"]
     labels.extend(transport_types)
-    #labels.insert(0, "more than 15km")
-    #del labels[-1]
-    #labels.insert(0, "more than 15km")
-    print(srcs)
-    print(tgts)
-    print(labels)
-    print(encode)
     assert len(transport_types) == len(encode)
-
     assert len(srcs) == len(tgts)
     assert len(labels) == 2+len(encode)
     colors = [
