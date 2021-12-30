@@ -16,7 +16,7 @@ try:
     assert st.expander != None
 except:
     st.expander = st.beta_expander
-#@st.cache
+
 def make_ridge_lines(df, transport_types):
     # Since we do not want to plot 50+ lines, we only select some years to plot
     #year_list = transport_types#[1950, 1960, 1970, 1980, 1990, 2000, 2010]
