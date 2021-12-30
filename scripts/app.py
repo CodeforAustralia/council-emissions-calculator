@@ -161,7 +161,7 @@ def make_pie_chart(df, transport_types):
     import plotly.graph_objects as go
 
     # pull is given as a fraction of the pie radius
-    fig = go.Figure(data=[go.Pie(names=names, values=list(odtt.values()), pull=1.0)])
+    fig = go.Figure(data=[go.Pie(names=names, values=list(odtt.values()), pull=0.5)])
 
     #fig = px.pie(values=list(odtt.values()), names=names)
     return fig
@@ -741,9 +741,9 @@ def make_sankey_chart2(df, transport_types):
                 ),
                 # Add links
                 link=dict(
-                    source=srcs,  
-                    target=tgts,  
-                    value=tgts,  
+                    source=srcs,
+                    target=tgts,
+                    value=tgts,
                 ),
             )
         ]
