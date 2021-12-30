@@ -11,14 +11,13 @@ import pandas as pd
 import copy
 from plotly.subplots import make_subplots
 import plotly.figure_factory as ff
-import plotly.express as px
 
 
 try:
     assert st.expander != None
 except:
     st.expander = st.beta_expander
-#@st.cache
+
 def make_ridge_lines(df, transport_types):
     # Since we do not want to plot 50+ lines, we only select some years to plot
     #year_list = transport_types#[1950, 1960, 1970, 1980, 1990, 2000, 2010]
@@ -161,12 +160,8 @@ def make_pie_chart(df, transport_types):
 
     import plotly.graph_objects as go
 
-    l#abels = ['Oxygen','Hydrogen','Carbon_Dioxide','Nitrogen']
-    #values = [4500, 2500, 1053, 500]
-
     # pull is given as a fraction of the pie radius
     fig = go.Figure(data=[go.Pie(names=names, values=list(odtt.values()), pull=1.0)])
-    #fig.show()
 
     #fig = px.pie(values=list(odtt.values()), names=names)
     return fig
@@ -618,13 +613,11 @@ def make_sankey_chart3(df, transport_types):
     # populate the list for each edge
     for sink, source in E:
         adjacency[int(sink)][int(source)] += 1
+
     assert len(srcs) == len(tgts)
     labels = ["less than 20km","greater than or equal to 20km"]
     labels.extend(transport_types)
-    print(srcs)
-    print(tgts)
-    print(labels)
-    print(encode)
+
     assert len(transport_types) == len(encode)
 
     assert len(srcs) == len(tgts)
@@ -748,9 +741,9 @@ def make_sankey_chart2(df, transport_types):
                 ),
                 # Add links
                 link=dict(
-                    source=srcs,  # data['data'][0]['link']['source'],
-                    target=tgts,  # data['data'][0]['link']['target'],
-                    value=tgts,  # [20 for i in range(0,len(srcs))],#[8, 4, 2, 8, 4, 2]
+                    source=srcs,  
+                    target=tgts,  
+                    value=tgts,  
                 ),
             )
         ]
@@ -759,10 +752,6 @@ def make_sankey_chart2(df, transport_types):
     fig.update_layout(
     hovermode = 'x',
     font=dict(size = 10, color = 'black'))
-    #fig.write_html("sankey1.html")
-
-
-    #fig.update_layout(title_text="", font_size=10)
     return fig
 
 
@@ -775,10 +764,8 @@ def __main__():
         "Below is a summary of the data collected, with some comparisons of the total staff distance travelled and associated carbon emissions."
     )
 
-    #try:
-    #    df = pd.read_csv("scripts/ttws.csv")
-    #except:
-    #    df = pd.read_csv("ttws.csv")
+    df = get_data()
+
     transport_types = set(df["Main Transport Mode"])
     total_distance_travelled(df, transport_types)
 
