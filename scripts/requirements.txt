@@ -4,4 +4,3 @@ plotly==4.5.2
 streamlit
 seaborn
 matplotlib
-modin[ray]
