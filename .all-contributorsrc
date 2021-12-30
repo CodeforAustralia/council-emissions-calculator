@@ -1,0 +1,54 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "sawks",
+      "name": "Matt Sawkill",
+      "avatar_url": "https://avatars.githubusercontent.com/u/31912?v=4",
+      "profile": "https://blog.codeforaustralia.org",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "hqtan",
+      "name": "hqtan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4408259?v=4",
+      "profile": "https://github.com/hqtan",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    
+    {
+      "login": "ymloh",
+      "name": "ymloh",
+      "avatar_url": "https://avatars.githubusercontent.com/u/20964807?v=4",
+      "profile": "https://github.com/ymloh",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "bhagya099",
+      "name": "Bhagyashree",
+      "avatar_url": "https://avatars.githubusercontent.com/u/59786494?v=4",
+      "profile": "https://github.com/bhagya099",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "council-emissions-calculator",
+  "projectOwner": "russelljjarvis",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}

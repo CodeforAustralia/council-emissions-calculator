@@ -10,7 +10,6 @@ import seaborn as sns
 import pandas as pd
 import copy
 from plotly.subplots import make_subplots
-#st.plotly_chart(2000,2000)
 import plotly.figure_factory as ff
 
 
@@ -93,7 +92,6 @@ def make_multi_histogram(df, transport_types):
         )
         data.append_trace(trace, xx + 1, 1)
     layout = go.Layout(autosize=False, width=5000, height=5000)
-
     fig = go.Figure(data=data, layout=layout)
 
     st.write(fig)
@@ -127,8 +125,6 @@ def make_multi_histogram(df, transport_types):
             autobinx=False,
             name=transport,
         )
-
-        # trace = go.Histogram(x=total_km_list, nbinsx=14,name=transport)
         fig.append_trace(trace, xx + 1, 1)
     st.write(fig)
 
@@ -136,11 +132,6 @@ def make_multi_histogram(df, transport_types):
     st.markdown(
         "This information is useful to understand how far staff have to travel to work, and perhaps guide decisions to prompt less carbon-intensive travel in the future"
     )
-    # fig = go.Figure(data=[go.Histogram(x=df["One-Way Daily Commute Distance (km)"]],nbins=20))
-
-    # st.write(fig)
-    # import plotly.express as px
-    # df = px.data.tips()
     fig = px.histogram(df, x="One-Way Daily Commute Distance (km)", nbins=30)
     st.write(fig)
 
@@ -217,32 +208,24 @@ def encode_list(input, encode):
 
 @st.cache
 def make_sankey_chart(df, transport_types):
-    encode = {}
+    encode = OrderedDict()
     transport_types = list(transport_types)
-    # st.text(transport_types)
-    # del transport_types[0]
     for i, name in enumerate(transport_types):
-        # if i!=0:
         encode[name] = 4 + i
 
     less_five_src = df[df["One-Way Daily Commute Distance (km)"] < 5.0].index
-    # st.text(less_five_src)
     less_five_src = [1.0 for i in range(0, len(less_five_src))]
-    # st.text(len(less_five_src))
     less_five_tgt = df[df["One-Way Daily Commute Distance (km)"] < 5.0][
         "Main Transport Mode"
     ]
     less_five_tgt = encode_list(less_five_tgt, encode)
     df_filtered = df[df["One-Way Daily Commute Distance (km)"] >= 5.0]
     df_filtered = df_filtered[df_filtered["One-Way Daily Commute Distance (km)"] < 10.0]
-    # st.text(len(df_filtered))
 
     less_ten_src = (
         df_filtered.index
-    )  # <10].index #and df["One-Way Daily Commute Distance (km)"]<10].index
+    )  
     less_ten_src = [2.0 for i in range(0, len(less_ten_src))]
-    # st.text(len(less_ten_src))
-
     less_ten_tgt = df_filtered["Main Transport Mode"]
     less_ten_tgt = encode_list(less_ten_tgt, encode)
 
@@ -296,9 +279,9 @@ def make_sankey_chart(df, transport_types):
                 ),
                 # Add links
                 link=dict(
-                    source=srcs,  # data['data'][0]['link']['source'],
-                    target=tgts,  # data['data'][0]['link']['target'],
-                    value=tgts,  # [20 for i in range(0,len(srcs))],#[8, 4, 2, 8, 4, 2]
+                    source=srcs,  
+                    target=tgts,  
+                    value=srcs,  
                 ),
             )
         ]
@@ -319,55 +302,50 @@ def get_locations(df2):
     locs.extend(df2["Sunday Work Location"])
     st.text(set(locs))
 
-import copy
+@st.cache
+def make_corr_gram(df):
 
-#@st.cache
-def prep_matrix(df2):
 
-    df2 = copy.copy(df2)
-    if "Date" in df2.columns:
-        del df2["Date"]
-        del df2["Incentive Text"]
-        del df2["Monday Work Location"]
-        del df2["Tuesday Work Location"]
-        del df2["Wednesday Work Location"]
-        del df2["Thursday Work Location"]
-        del df2["Friday Work Location"]
-        del df2["Saturday Work Location"]
-        del df2["Sunday Work Location"]
+    df2 = copy.copy(df)
+    del df2["Date"]
+    del df2["Incentive Text"]
+    del df2["Monday Work Location"]
+    del df2["Tuesday Work Location"]
+    del df2["Wednesday Work Location"]
+    del df2["Thursday Work Location"]
+    del df2["Friday Work Location"]
+    del df2["Saturday Work Location"]
+    del df2["Sunday Work Location"]
     df3 = copy.copy(df2)
     df3["Main Transport Mode"] = df3["Main Transport Mode"].astype("category").cat.codes
     df3["Department"] = df3["Department"].astype("category").cat.codes
-    #
+
     d = df3
-    return d
-    # corr = d.corr()
-    # # Generate a mask for the upper triangle
-    # mask = np.triu(np.ones_like(corr, dtype=bool))
-    # # Set up the matplotlib figure
-    # f1, ax = plt.subplots(figsize=(11, 9))
-    # # Generate a custom diverging colormap
-    # cmap = sns.diverging_palette(230, 20, as_cmap=True)
-    # st.markdown("### A Correlogram")
-    # with st.expander("Correlogram Explantion:"):
-    #     st.markdown(
-    #         "This heat map answers the question: 'Which Variables are correlated and anti correlated?'' Color bar indicates degree of correlation/anti-correlation."
-    #     )
-    # sns.heatmap(
-    #     corr,
-    #     mask=mask,
-    #     cmap=cmap,
-    #     vmax=0.3,
-    #     center=0,
-    #     square=True,
-    #     linewidths=0.5,
-    #     annot=True,
-    #     fmt=".2f",
-    # )  # , cbar_kws={"shrink": .5})
-    # plt.title("Correlation matrix showing correlation coefficients")
-    # st.pyplot(f1)
-def make_corr_gram(df2):
-    d = prep_matrix(df2)
+    corr = d.corr()
+    # Generate a mask for the upper triangle
+    mask = np.triu(np.ones_like(corr, dtype=bool))
+    # Set up the matplotlib figure
+    f1, ax = plt.subplots(figsize=(11, 9))
+    # Generate a custom diverging colormap
+    cmap = sns.diverging_palette(230, 20, as_cmap=True)
+    st.markdown("### A Correlogram")
+    with st.expander("Correlogram Explantion:"):
+        st.markdown(
+            "This heat map answers the question: 'Which Variables are correlated and anti correlated?'' Color bar indicates degree of correlation/anti-correlation."
+        )
+    sns.heatmap(
+        corr,
+        mask=mask,
+        cmap=cmap,
+        vmax=0.3,
+        center=0,
+        square=True,
+        linewidths=0.5,
+        annot=True,
+        fmt=".2f",
+    )  # , cbar_kws={"shrink": .5})
+    plt.title("Correlation matrix showing correlation coefficients")
+    st.pyplot(f1)
 
     cov_mat = d.cov()
     mask = np.triu(np.ones_like(cov_mat, dtype=bool))
@@ -387,7 +365,8 @@ def make_corr_gram(df2):
         fmt=".2f",
     )  # , cbar_kws={"shrink": .5})
     plt.title("Covariance matrix showing covariance coefficients")
-    return f2
+    st.pyplot(f2)
+    return f1,f2
 
 @st.cache
 def make_cluster_gram(df):
@@ -473,6 +452,17 @@ def density_heatmap_(df):
     )
     return fig
 
+@st.cache
+def density_heatmap_old(df):
+    fig = px.density_heatmap(
+        df,
+        x="One-Way Daily Commute Distance (km)",
+        y="Num trips to office",
+        marginal_x="histogram",
+        marginal_y="histogram",
+    )
+    return fig
+
 
 def sheet(df2):
     st.markdown("Processed anonymized data that is visualized")
@@ -483,7 +473,7 @@ def sheet(df2):
     my_expander = st.expander("View Whole Spread Sheet Here:")
     my_expander.table(df2)
     my_expander = st.expander("Access Single Column By Name:")
-    #import copy
+
 
     df3 = copy.copy(df2)
     del df3["Date"]
@@ -761,34 +751,13 @@ def __main__():
     st.markdown(
         "Below is a summary of the data collected, with some comparisons of the total staff distance travelled and associated carbon emissions."
     )
-    #try:
-    #    with open("data_cache.p","rb") as f:
-    #        df = pickle.load(f)
-    #except:
-    #with open("data_cache.p","wb") as f:
-    #    pickle.dump(df,f)
 
-    #simplify = st.sidebar.radio(
-    #    "Simplify Data Frame Transport Categories?:",
-    #    (
-    #        "No", "Yes"
-    #    ),
-    #)
-    #if simplify=="Yes":
-    #df = lump_categories_togethor(df)
-    df = get_data()
+    #try:
+    #    df = pd.read_csv("scripts/ttws.csv")
+    #except:
+    #    df = pd.read_csv("ttws.csv")
     transport_types = set(df["Main Transport Mode"])
     total_distance_travelled(df, transport_types)
-
-
-    #with st.expander("Pie Chart explanation"):
-    #    st.markdown(
-
-    #with st.expander("Legend"):
-    #    st.markdown(" Human Powered is: 'Walking and Bicycle'")
-    #    st.markdown(" PT is: 'Bus and Train/Tram'")
-    #    st.markdown(" Light Electric is: 'E-bike, E-scooter'")
-    #    st.markdown(" Petrolium is: 'car(driver), car(passanger), scooter/motorbike'")
 
     genre = st.sidebar.radio(
         "Choose Graph Layout/Option:",
@@ -801,13 +770,9 @@ def __main__():
         ),
     )
 
-    #"Histogram Distances",
-    #"Ridge Plots",
-
-
     if genre == "Ridge Plots":
         fig = make_ridge_lines(df, transport_types)
-        #st.write(fig)
+
         st.plotly_chart(fig, use_container_width=True)
 
     if genre == "View Source Code":
@@ -821,7 +786,7 @@ def __main__():
         fig = make_pie_chart(df, transport_types)
         st.markdown("#### Total Distance and Transport Type Pie chart")
         st.markdown(" --- ")
-        #st.write(fig)
+
         st.plotly_chart(fig, use_container_width=True)
 
         with st.expander("Pie Chart explanation"):
