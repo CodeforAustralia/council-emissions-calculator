@@ -573,17 +573,9 @@ def make_sankey_chart3(df, transport_types):
     # populate the list for each edge
     for sink, source in E:
         adjacency[int(sink)][int(source)] += 1
-    #print(adjacency)
     assert len(srcs) == len(tgts)
     labels = ["less than 15km","greater than 15km"]
     labels.extend(transport_types)
-    #labels.insert(0, "more than 15km")
-    #del labels[-1]
-    #labels.insert(0, "more than 15km")
-    print(srcs)
-    print(tgts)
-    print(labels)
-    print(encode)
     assert len(transport_types) == len(encode)
 
     assert len(srcs) == len(tgts)
@@ -617,9 +609,9 @@ def make_sankey_chart3(df, transport_types):
                 ),
                 # Add links
                 link=dict(
-                    source=srcs,  # data['data'][0]['link']['source'],
-                    target=tgts,  # data['data'][0]['link']['target'],
-                    value=tgts,  # [20 for i in range(0,len(srcs))],#[8, 4, 2, 8, 4, 2]
+                    source=srcs, 
+                    target=tgts, 
+                    value=tgts,  
                 ),
             )
         ]
@@ -630,10 +622,6 @@ def make_sankey_chart3(df, transport_types):
     font=dict(size = 10, color = 'white'),
     plot_bgcolor='black',
     paper_bgcolor='black')
-    #fig.write_html("sankey2.html")
-
-
-    #fig.update_layout(title_text="", font_size=10)
     return fig
 
 @st.cache
@@ -680,17 +668,9 @@ def make_sankey_chart2(df, transport_types):
     # populate the list for each edge
     for sink, source in E:
         adjacency[int(sink)][int(source)] += 1
-    #print(adjacency)
     assert len(srcs) == len(tgts)
     labels = ["less than 15km","greater than 15km"]
     labels.extend(transport_types)
-    #labels.insert(0, "more than 15km")
-    #del labels[-1]
-    #labels.insert(0, "more than 15km")
-    print(srcs)
-    print(tgts)
-    print(labels)
-    print(encode)
     assert len(transport_types) == len(encode)
 
     assert len(srcs) == len(tgts)
@@ -724,9 +704,9 @@ def make_sankey_chart2(df, transport_types):
                 ),
                 # Add links
                 link=dict(
-                    source=srcs,  # data['data'][0]['link']['source'],
-                    target=tgts,  # data['data'][0]['link']['target'],
-                    value=tgts,  # [20 for i in range(0,len(srcs))],#[8, 4, 2, 8, 4, 2]
+                    source=srcs,  
+                    target=tgts,  
+                    value=tgts,  
                 ),
             )
         ]
@@ -735,10 +715,6 @@ def make_sankey_chart2(df, transport_types):
     fig.update_layout(
     hovermode = 'x',
     font=dict(size = 10, color = 'black'))
-    #fig.write_html("sankey1.html")
-
-
-    #fig.update_layout(title_text="", font_size=10)
     return fig
 
 
@@ -751,10 +727,8 @@ def __main__():
         "Below is a summary of the data collected, with some comparisons of the total staff distance travelled and associated carbon emissions."
     )
 
-    #try:
-    #    df = pd.read_csv("scripts/ttws.csv")
-    #except:
-    #    df = pd.read_csv("ttws.csv")
+    df = get_data()
+
     transport_types = set(df["Main Transport Mode"])
     total_distance_travelled(df, transport_types)
 
