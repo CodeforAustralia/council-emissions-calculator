@@ -174,6 +174,8 @@ Thanks goes to these wonderful people:
 
 <td align="center"><a href="https://github.com/Amutha37"><img src="https://avatars.githubusercontent.com/u/67087939?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Amutha </b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=Amutha37" title="Code">💻</a></td>
 
+<td align="center"><a href="https://russelljjarvis.github.io/home/"><img src="https://avatars.githubusercontent.com/u/7786645?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Russell Jarvis</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=russelljjarvis" title="Code">💻</a></td>
+  
 </table>
 
 <!-- markdownlint-restore -->
