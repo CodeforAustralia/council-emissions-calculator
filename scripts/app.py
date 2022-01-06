@@ -307,8 +307,10 @@ def make_sankey_chart(df, transport_types):
         data=[
             go.Sankey(
                 valueformat=".0f",
-                valuesuffix="TWh",
+                #valuesuffix="TWh",
                 # Define nodes
+
+
                 node=dict(
                     pad=15,
                     thickness=15,
@@ -326,7 +328,14 @@ def make_sankey_chart(df, transport_types):
         ]
     )
 
-    fig.update_layout(title_text="", font_size=10)
+    #fig.update_layout(title_text="", font_size=10)
+
+
+    fig.update_layout(
+    hovermode = 'x',
+    font=dict(size = 10, color = 'white'),
+    plot_bgcolor='black',
+    paper_bgcolor='black')
     return fig
 
 @st.cache
@@ -546,11 +555,6 @@ def lump_categories_togethor(df):
     df_lumped.replace({'Walking': 'Human Powered', 'Bicycle': 'Human Powered'}, inplace=True)
     df_lumped.replace({'Bus': 'pooled/PT', 'Train/tram': 'pooled/PT','Car(passenger)':'pooled/PT'}, inplace=True)
     df_lumped.replace({'E-bike': 'Light Electric', 'E-scooter': 'Light Electric'}, inplace=True)
-    #df_lumped.replace({'Car(driver)': 'car', 'Car(passenger)': 'Petrolium', 'Scooter/motorbike':'Petrolium'}, inplace=True)
-
-    #df_lumped["Main Transport Mode"] = df[df["Main Transport Mode"]=='Walking']
-    #pd.concat([df_lumped['human_powered'],df[df["Main Transport Mode"]=='Bicycle']])
-    #st.write(df_lumped)
     return df_lumped
 
 #import pickle
@@ -640,7 +644,7 @@ def make_sankey_chart3(df, transport_types):
         data=[
             go.Sankey(
                 valueformat=".0f",
-                valuesuffix="TWh",
+                #valuesuffix="TWh",
                 # Define nodes
                 node=dict(
                     pad=15,
@@ -730,7 +734,6 @@ def make_sankey_chart2(df, transport_types):
         data=[
             go.Sankey(
                 valueformat=".0f",
-                valuesuffix="TWh",
                 # Define nodes
                 node=dict(
                     pad=15,
@@ -749,9 +752,18 @@ def make_sankey_chart2(df, transport_types):
         ]
     )
 
+    #fig.update_layout(
+    #hovermode = 'x',
+    #font=dict(size = 10, color = 'black'))
+
+
+
+
     fig.update_layout(
     hovermode = 'x',
-    font=dict(size = 10, color = 'black'))
+    font=dict(size = 10, color = 'white'),
+    plot_bgcolor='black',
+    paper_bgcolor='black')
     return fig
 
 
@@ -790,6 +802,31 @@ def __main__():
         st.markdown(
             """[mostly in this repository](https://github.com/CodeforAustralia/council-emissions-calculator)"""
         )
+        html_code="""
+        <table>
+              <tr>
+                <td align="center"><a href="https://github.com/hqtan"><img src="https://avatars.githubusercontent.com/u/4408259?v=4?s=100" width="100px;" alt=""/><br /><sub><b>hqtan</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=hqtan" title="Code">💻</a> <a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=hqtan" title="Documentation">📖</a></td>
+                <td align="center"><a href="https://github.com/ymloh"><img src="https://avatars.githubusercontent.com/u/20964807?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ymloh</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=ymloh" title="Code">💻</a></td>
+                <td align="center"><a href="https://blog.codeforaustralia.org"><img src="https://avatars.githubusercontent.com/u/31912?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Matt Sawkill</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=sawks" title="Code">💻</a></td>
+                <td align="center"><a href="https://github.com/bhagya099"><img src="https://avatars.githubusercontent.com/u/59786494?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Bhagyashree</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=bhagya099" title="Code">💻</a> <a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=bhagya099" title="Documentation">📖</a></td>
+            </tr>
+            <tr>
+            <td align="center"><a href="https://www.linkedin.com/in/lubiniecki/"><img src="https://avatars.githubusercontent.com/u/22548703?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kris Lubiniecki</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=klubiniecki" title="Code">💻</a>
+            </td>
+            <td align="center"><a href="https://github.com/coletto817"><img src="https://avatars.githubusercontent.com/u/83195319?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Colette Liu</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=coletto817" title="Code">💻</a>
+            </td>
+            <td align="center"><a href="https://github.com/batteries76"><img src="https://avatars.githubusercontent.com/u/17744107?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Matt McKenzie</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=batteries76" title="Code">💻</a>
+            </td>
+            <td align="center"><a href="https://github.com/oonamcmanus"><img src="https://avatars.githubusercontent.com/u/47853537?v=4?s=100" width="100px;" alt=""/><br /><sub><b>oonamcmanus</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=oonamcmanus" title="Code">💻</a>
+            </td>
+            </tr>
+            <td align="center"><a href="https://github.com/Amutha37"><img src="https://avatars.githubusercontent.com/u/67087939?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Amutha </b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=Amutha37" title="Code">💻</a></td>
+            <td align="center"><a href="https://russelljjarvis.github.io/home/"><img src="https://avatars.githubusercontent.com/u/7786645?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Russell Jarvis</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=russelljjarvis" title="Code">💻 📖</a></td>
+            </table>
+            """
+            #)#, unsafe_allow_html=True)
+        st.markdown(html_code, unsafe_allow_html=True)
+
     if genre == "Spreadsheet":
         sheet(df)
     if genre == "Pie Chart":
@@ -811,14 +848,11 @@ def __main__():
         fig = make_sankey_chart(df, transport_types)
         st.plotly_chart(fig, use_container_width=True)
 
-        st.markdown("### ")
+        st.markdown("---")
 
         fig = make_sankey_chart2(df, transport_types)
         st.plotly_chart(fig, use_container_width=True)
-        #st.markdown("### Scroll down...")
-
         fig = make_sankey_chart3(df, transport_types)
-        #st.markdown("### Sankey Diagram")
         st.plotly_chart(fig, use_container_width=True)
         with st.expander("Sankey Diagram Explanation"):
             st.markdown(
