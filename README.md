@@ -8,7 +8,7 @@
 <p align="center">
   <img alt="GitHub" src="https://img.shields.io/github/issues-pr/CodeforAustralia/council-emissions-calculator.svg">
   <img alt="GitHub" src="https://img.shields.io/github/commit-activity/m/CodeforAustralia/council-emissions-calculator.svg">
-  <img alt="GitHub" src="https://img.shields.io/badge/all_contributors-9-blue.svg?style=flat-square">
+  <img alt="GitHub" src="https://img.shields.io/badge/all_contributors-10-blue.svg?style=flat-square">
 </p>
 
 <p align="center">
