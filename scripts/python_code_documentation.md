@@ -14,8 +14,10 @@ python ingest_data_dump_sankey_html.py
 This will make the following graphs:
 
 
-[Sankey1](sankey0.html)
-[Sankey2](sankey1.html)
-[Sankey3](sankey2.html)
+[Sankey1](https://htmlpreview.github.io/?https://github.com/russelljjarvis/council-emissions-calculator/blob/main/scripts/sankey0.html)
+[Sankey2](https://htmlpreview.github.io/?https://github.com/russelljjarvis/council-emissions-calculator/blob/main/scripts/sankey1.html)
+[Sankey3](https://htmlpreview.github.io/?https://github.com/russelljjarvis/council-emissions-calculator/blob/main/scripts/sankey2.html)
+
+[density heatmap](https://htmlpreview.github.io/?https://github.com/russelljjarvis/council-emissions-calculator/blob/main/scripts/density_heatmap.html)
 
 Also see council-emissions-calculator/.github/workflows/python_run.yml
