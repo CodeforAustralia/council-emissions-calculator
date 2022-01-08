@@ -8,7 +8,7 @@
 <p align="center">
   <img alt="GitHub" src="https://img.shields.io/github/issues-pr/CodeforAustralia/council-emissions-calculator.svg">
   <img alt="GitHub" src="https://img.shields.io/github/commit-activity/m/CodeforAustralia/council-emissions-calculator.svg">
-  <img alt="GitHub" src="https://img.shields.io/badge/all_contributors-9-blue.svg?style=flat-square">
+  <img alt="GitHub" src="https://img.shields.io/badge/all_contributors-10-blue.svg?style=flat-square">
 </p>
 
 <p align="center">
@@ -25,15 +25,15 @@
 ## Project Goals
 
 - Provide councils a tool to assess their impact on the environment and ...
-- Provide councils with inspirations and next steps to have a more sustainable way of working.
-- Provide councils with inspirations and next steps to engage communities in initiatives that are favorable for the environment.
+- Provide councils with inspiration and next steps to have a more sustainable way of working.
+- Provide councils with inspiration and next steps to engage communities in initiatives that are favorable for the environment.
 - Provide a source of information that facilitates the decision process for councils to become more sustainable.
 - to learn more about this project, check out our [project planning](https://docs.google.com/document/d/1h5r1AfbQC8Azy_cdGHGBGOJwSxSqvt0cHKd5MmSd7qo/edit#heading=h.fw4lq2wclkt9) and [trello project board.](https://trello.com/b/ZXaIkclp/civic-makers-2021-l-use-this-one)
 
 ## Getting Started
 
 <details>
-<summary> First, install dependencies using your preferred package manager... </summary>
+<summary> Most of the code here is for the website backend. To build the backend first, install dependencies using your preferred package manager... </summary>
 
 ```
 npm install
