@@ -149,7 +149,7 @@ Thanks goes to these wonderful people:
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/hqtan"><img src="https://avatars.githubusercontent.com/u/4408259?v=4?s=100" width="100px;" alt=""/><br /><sub><b>hqtan</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=hqtan" title="Code">💻</a> <a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=hqtan" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/hqtan"><img src="https://avatars.githubusercontent.com/u/4408259?v=4?s=100" width="100px;" alt=""/><br /><sub><b>hqtan</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=hqtan" title="Code">💻🤔🎨🚇</a> <a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=hqtan" title="Documentation">📖</a></td>
       <td align="center"><a href="https://github.com/ymloh"><img src="https://avatars.githubusercontent.com/u/20964807?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ymloh</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=ymloh" title="Code">💻</a>
      </td>
     <td align="center"><a href="https://blog.codeforaustralia.org"><img src="https://avatars.githubusercontent.com/u/31912?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Matt Sawkill</b></sub></a><br /><a href="https://github.com/russelljjarvis/council-emissions-calculator/commits?author=sawks" title="Code">💻</a></td>
