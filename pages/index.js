@@ -1,33 +1,33 @@
-import { Heading, Text, Image, Box, Flex } from '@chakra-ui/react'
-import Layout from '../components/Layout/Layout'
-import LinkButton from '../components/LinkButton/LinkButton'
-import Q1Cloud from '../public/images/clouds/cloud-q1.svg'
-import { sendLogs } from '../utils/sendLogs'
-import useForm from '../components/FormProvider'
-import { useRouter } from 'next/router'
+import { Heading, Text, Image, Box, Flex } from "@chakra-ui/react"
+import Layout from "../components/Layout/Layout"
+import LinkButton from "../components/LinkButton/LinkButton"
+import Q1Cloud from "../public/images/clouds/cloud-q1.svg"
+import { sendLogs } from "../utils/sendLogs"
+import useForm from "../components/FormProvider"
+import { useRouter } from "next/router"
 
 function Animation() {
   return (
     <Box
       backgroundImage="url('/images/busDriver-animation/bus-driver.png')"
-      backgroundPosition='bottom'
-      backgroundRepeat='no-repeat'
-      minW={['200px', '421px']}
-      maxH='421px'
-      overflow='hidden'
+      backgroundPosition="bottom"
+      backgroundRepeat="no-repeat"
+      minW={["200px", "421px"]}
+      maxH="421px"
+      overflow="hidden"
     >
       <Box
-        w={['300px', '421px']}
-        h={['250px', '421px']}
+        w={["300px", "421px"]}
+        h={["250px", "421px"]}
         backgroundImage="url('/images/busDriver-animation/Bus driver.gif')"
-        backgroundSize='cover'
-        backgroundPosition='bottom'
+        backgroundSize="cover"
+        backgroundPosition="bottom"
       />
       <Box
-        pos='relative'
-        bottom='370px'
-        left='120px'
-        display={['none', 'block']}
+        pos="relative"
+        bottom="370px"
+        left="120px"
+        display={["none", "block"]}
       >
         <Q1Cloud />
       </Box>
@@ -44,8 +44,8 @@ export default function Home() {
   const logMessage = (msg) => {
     let incentiveMsg = () => {
       if (!!answers.incentive) {
-        return '<filled>'
-      } else return '<empty>'
+        return "<filled>"
+      } else return "<empty>"
     }
     return {
       page: router.pathname,
@@ -56,11 +56,11 @@ export default function Home() {
   }
 
   return (
-    <Layout isText={true} maxContainerWidth='container.lg'>
-      <Flex alignItems='center' flexDir={['column', 'row']}>
+    <Layout isText={true} maxContainerWidth="container.lg">
+      <Flex alignItems="center" flexDir={["column", "row"]}>
         <Animation />
         <Box p={[5, 10]}>
-          <Heading textAlign={['center', 'start']}>
+          <Heading textAlign={["center", "start"]}>
             Help calculate Council&apos;s carbon emissions
           </Heading>
           <Text mt={spacing}>
@@ -75,9 +75,9 @@ export default function Home() {
             This form will take approximately <b>3 minutes</b> to complete.
           </Text>
           <LinkButton
-            href='/form/Question1'
-            onClick={() => sendLogs(logMessage('Start button clicked'))}
-            width={['90vw', '173px']}
+            href="/form/Question1"
+            onClick={() => sendLogs(logMessage("Start button clicked"))}
+            width={["90vw", "173px"]}
           >
             Start
           </LinkButton>
