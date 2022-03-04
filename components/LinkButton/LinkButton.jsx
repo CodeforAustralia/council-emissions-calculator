@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { Box, Button, Text } from "@chakra-ui/react";
-import BackArrow from "../../public/images/back-arrow.svg";
+import Link from "next/link"
+import { Box, Button, Text } from "@chakra-ui/react"
+import BackArrow from "../../public/images/back-arrow.svg"
 
 export default function LinkButton({
   children,
@@ -37,16 +37,13 @@ export default function LinkButton({
         {children}
       </Button>
     </Link>
-  );
+  )
 }
 
-export function BackButton({ label, href, onClick, variant}) {
+export function BackButton({ label, href, onClick, variant }) {
   return (
     <Link href={href || "/"} passHref>
-      <Button
-        onClick={onClick}
-        variant={variant || "ghost"}
-      >
+      <Button onClick={onClick} variant={variant || "ghost"}>
         <BackArrow />
         <Text ms={2} as="u" color="var(--chakra-colors-blue-600)">
           {label || "Back"}
@@ -59,9 +56,9 @@ export function BackButton({ label, href, onClick, variant}) {
 export function ContinueButton(props) {
   return (
     <LinkButton {...props}>
-      <Text color="#fff">Next</Text>
+      <Text color="#fff">Save</Text>
     </LinkButton>
-  );
+  )
 }
 
 export function SubmitButton(props) {
@@ -69,5 +66,5 @@ export function SubmitButton(props) {
     <LinkButton {...props}>
       <Text>Submit</Text>
     </LinkButton>
-  );
+  )
 }

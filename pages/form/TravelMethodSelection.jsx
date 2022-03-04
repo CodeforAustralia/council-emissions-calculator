@@ -3,7 +3,6 @@ import { useState } from "react"
 import {
   Box,
   FormControl,
-  FormHelperText,
   Heading,
   SimpleGrid,
   Text,
@@ -91,15 +90,23 @@ export default function Question4() {
                 Select the ways you generally travel to work.
               </Text>
             </Box>
-
+            {/* <Flex> */}
             <SimpleGrid
               minChildWidth="115px"
+              // maxChildWidth="153px"
               justifyContent="center"
               defaultValue={transportMode}
               id="selector"
             >
               {modesOfTransport.map((mode, i) => (
-                <Box height="80px" textAlign={"center"} key={mode}>
+                <Box
+                  height="80px"
+                  textAlign={"center"}
+                  key={mode}
+                  // flex={1}
+                  // flexDirection="column"
+                  // justifyContent="center"
+                >
                   {/* buttons */}
                   <Flex justifyContent="center" flexDirection={"row"} mt={2.5}>
                     <Button
@@ -113,12 +120,19 @@ export default function Question4() {
                       onChange={(e) => setTransportMode(e.target.value)}
                       colorScheme="#044B7F"
                       value={mode}
+
+                      // onClick={toggleColorMode}
                     >
                       <Box
+                        // justifyContent="center"
                         pos="absolute"
                         top={["3px", "2px"]}
+                        // display={'block'}
                         fontSize={["17px", "16x"]}
                         pb={["4px", "3px"]}
+                        // mb={4}
+                        // px={2}
+                        // Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
                       >
                         <Icon as={transportIcon[i]} />
                       </Box>
@@ -128,20 +142,38 @@ export default function Question4() {
                 </Box>
               ))}
             </SimpleGrid>
-
-            <FormHelperText id="selectorHelper">*Required</FormHelperText>
+            {/* </Flex> */}
+            {/* <Select
+              fontWeight="bold"
+              onChange={(e) => setTransportMode(e.target.value)}
+              placeholder="Please select"
+              border=".2px solid #044B7F"
+              height="55px"
+              defaultValue={transportMode}
+              id="selector"
+            >
+              {modesOfTransport.map((mode) => (
+                <option
+                  fontSize="lg"
+                  key={mode}
+                  value={mode}
+                >
+                  {mode}
+                </option>
+              ))}
+            </Select> */}
+            <ContinueButton
+              justifyContent="centre"
+              disabled={!transportMode}
+              href="/form/Question5"
+              topMargin={4}
+              width={["17vw", "107px"]}
+              onClick={() => {
+                saveAnswers()
+                sendLogs(logMessage("Next button clicked"))
+              }}
+            />
           </FormControl>
-
-          <ContinueButton
-            disabled={!transportMode}
-            href="/form/Question5"
-            topMargin={4}
-            width="100%"
-            onClick={() => {
-              saveAnswers()
-              sendLogs(logMessage("Next button clicked"))
-            }}
-          />
         </Flex>
       </Flex>
     </Layout>
