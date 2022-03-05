@@ -1,10 +1,10 @@
-import { Heading, Text, Image, Box, Flex } from "@chakra-ui/react"
-import Layout from "../components/Layout/Layout"
-import LinkButton from "../components/LinkButton/LinkButton"
-import Q1Cloud from "../public/images/clouds/cloud-q1.svg"
-import { sendLogs } from "../utils/sendLogs"
-import useForm from "../components/FormProvider"
-import { useRouter } from "next/router"
+import { Heading, Text, Image, Box, Flex } from "@chakra-ui/react";
+import Layout from "../components/Layout/Layout";
+import LinkButton from "../components/LinkButton/LinkButton";
+import Q1Cloud from "../public/images/clouds/cloud-q1.svg";
+import { sendLogs } from "../utils/sendLogs";
+import useForm from "../components/FormProvider";
+import { useRouter } from "next/router";
 
 function Animation() {
   return (
@@ -32,28 +32,28 @@ function Animation() {
         <Q1Cloud />
       </Box>
     </Box>
-  )
+  );
 }
 
-const spacing = 6
+const spacing = 6;
 
 export default function Home() {
-  const { answers, setAnswers } = useForm()
-  const router = useRouter()
+  const { answers, setAnswers } = useForm();
+  const router = useRouter();
 
   const logMessage = (msg) => {
     let incentiveMsg = () => {
       if (!!answers.incentive) {
-        return "<filled>"
-      } else return "<empty>"
-    }
+        return "<filled>";
+      } else return "<empty>";
+    };
     return {
       page: router.pathname,
       event: msg,
       ...answers,
       incentive: incentiveMsg(),
-    }
-  }
+    };
+  };
 
   return (
     <Layout isText={true} maxContainerWidth="container.lg">
@@ -84,5 +84,5 @@ export default function Home() {
         </Box>
       </Flex>
     </Layout>
-  )
+  );
 }

@@ -1,4 +1,4 @@
-import { Box, Button, SimpleGrid, Icon, Flex } from "@chakra-ui/react"
+import { Box, Button, SimpleGrid, Icon, Flex } from "@chakra-ui/react";
 
 export function TravelMethodButtons({
   transportIcon,

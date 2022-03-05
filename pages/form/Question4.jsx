@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from "react";
 
 import {
   Box,
@@ -10,20 +10,20 @@ import {
   Flex,
   Button,
   Icon,
-} from "@chakra-ui/react"
-import { modesOfTransport } from "../../utils/constants"
-import { transportIcon } from "../../utils/constants"
+} from "@chakra-ui/react";
+import { modesOfTransport } from "../../utils/constants";
+import { transportIcon } from "../../utils/constants";
 
 import Layout from "../../components/Layout/Layout"
 import useForm from "../../components/FormProvider"
 import {
   ContinueButton,
   BackButton,
-} from "../../components/LinkButton/LinkButton"
-import Q4Progress from "../../public/images/progress-bar/q4-progress-dots.svg"
-import Q4Cloud from "../../public/images/clouds/cloud-q4.svg"
-import { useRouter } from "next/router"
-import { sendLogs } from "../../utils/sendLogs"
+} from "../../components/LinkButton/LinkButton";
+import Q4Progress from "../../public/images/progress-bar/q4-progress-dots.svg";
+import Q4Cloud from "../../public/images/clouds/cloud-q4.svg";
+import { useRouter } from "next/router";
+import { sendLogs } from "../../utils/sendLogs";
 export default function Question4() {
   const { answers, setAnswers } = useForm()
 

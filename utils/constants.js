@@ -1,11 +1,11 @@
-import bicycle from ".././public/images/transportmode-icons/bicycle.svg"
-import car from ".././public/images/transportmode-icons/car.svg"
-import bus from ".././public/images/transportmode-icons/bus.svg"
-import motorbike from ".././public/images/transportmode-icons/motorbike.svg"
-import carPool from ".././public/images/transportmode-icons/carPool.svg"
-import walking from ".././public/images/transportmode-icons/walking.svg"
-import train from ".././public/images/transportmode-icons/train.svg"
-import taxiRide from ".././public/images/transportmode-icons/taxiRide.svg"
+import bicycle from ".././public/images/transportmode-icons/bicycle.svg";
+import car from ".././public/images/transportmode-icons/car.svg";
+import bus from ".././public/images/transportmode-icons/bus.svg";
+import motorbike from ".././public/images/transportmode-icons/motorbike.svg";
+import carPool from ".././public/images/transportmode-icons/carPool.svg";
+import walking from ".././public/images/transportmode-icons/walking.svg";
+import train from ".././public/images/transportmode-icons/train.svg";
+import taxiRide from ".././public/images/transportmode-icons/taxiRide.svg";
 
 export const daysOfWeek = [
   "Monday",
@@ -15,7 +15,7 @@ export const daysOfWeek = [
   "Friday",
   "Saturday",
   "Sunday",
-]
+];
 
 export const modesOfTransport = [
   "Bicycle",
@@ -26,7 +26,7 @@ export const modesOfTransport = [
   "Train/tram",
   "Walking/running",
   "Other",
-]
+];
 
 export const transportIcon = [
   bicycle,
@@ -37,7 +37,7 @@ export const transportIcon = [
   car,
   train,
   walking,
-]
+];
 
 export const departments = [
   "Active & Healthy Lifestyles",
@@ -63,4 +63,4 @@ export const departments = [
   "Statutory Planning",
   "Tourism & Major Events",
   "Works",
-]
+];
