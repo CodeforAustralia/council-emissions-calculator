@@ -7,8 +7,8 @@ import Q1Progress from "../../public/images/progress-bar/q1-progress-dots.svg";
 import Q1Cloud from "../../public/images/clouds/cloud-q1.svg";
 
 import { useState } from "react";
-import { useRouter } from 'next/router';
-import { sendLogs } from '../../utils/sendLogs';
+import { useRouter } from "next/router";
+import { sendLogs } from "../../utils/sendLogs";
 import useForm from "../../components/FormProvider";
 
 export default function DaysOfTheWeekSelection() {

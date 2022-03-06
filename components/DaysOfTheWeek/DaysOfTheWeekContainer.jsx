@@ -83,15 +83,15 @@ export default function DaysOfTheWeekContainer ({ setNumberOfDays, onSaveEvent }
       py="8%"
     >
       <Flex 
-        px='20'
+        px="20"
         direction={"column"}
       >
         <Text>Select days of the week</Text>
         <SimpleGrid 
           columns={{ md: 4 }}
-          spacing='4'
-          py='10'
-          textAlign='center'
+          spacing="4"
+          py="10"
+          textAlign="center"
         >
         {daysOfTheWeek.map((item) => (
           <GridItem  key={item.id}>
