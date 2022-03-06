@@ -3,7 +3,34 @@ import DaysOfWeekButton from "./DayOfTheWeekButton";
 import { useState } from "react";
 import LinkButton from "../LinkButton/LinkButton";
 
+import { useRouter } from 'next/router';
+import { sendLogs } from '../../utils/sendLogs';
+import useForm from "../../components/FormProvider";
+
 export default function DaysOfTheWeekContainer () {
+
+  /* previous code for question N1 (will be using it for now till we change FormProvider or the data we collect) 
+  even thought the current data will show which days the user has worked, we will only save the number of days
+  */
+  const { answers, setAnswers } = useForm();
+  const [nDays, setNDays] = useState(answers.numDaysWorked);
+
+  const saveAnswers = () => setAnswers(prev => ({ ...prev, numDaysWorked: nDays }));
+
+  const router = useRouter();
+
+  const logMessage = (msg) => {
+    let incentiveMsg = () => {
+      if (!!answers.incentive) {return "<filled>"}
+      else return "<empty>"
+    }
+    return {
+      page: router.pathname,
+      event: msg,
+      ...answers,
+      incentive: incentiveMsg(),
+    }
+  }
 
   // initial state for days of the week has info if it's selected or not (instead of having 2 separate states)
   const [ daysOfTheWeek, setDaysOfTheWeek ] = useState([
@@ -44,21 +71,26 @@ export default function DaysOfTheWeekContainer () {
     }
   ]);
 
+  // state to activate and disable save button (link button)
+  const [ saveButtonActive, setSaveButtonActive ] = useState(true);
+
   // on click, the buttom will change colour and the state will be updated to include selected buttons
   const handleClick = (e) => {
     e.preventDefault();
 
     let updatedData = [...daysOfTheWeek];
 
-    // grab the day name from innerHTML
+    // based on the day name from innerHTML of each button, update the state if selected or unselected
     updatedData.map(item => {
       if (item.day === e.target.innerText) {
         item.isSelected = item.isSelected ? false : true;
       }
     })
-
     setDaysOfTheWeek(updatedData);
-    console.log(updatedData)
+
+    // activate Save button (link button) when something is selected
+    const areDaysSelected = updatedData.find(item => item.isSelected) ? false : true;
+    setSaveButtonActive(areDaysSelected);
 
   }
 
@@ -70,12 +102,11 @@ export default function DaysOfTheWeekContainer () {
       justify="center" 
       borderWidth="2px" 
       borderRadius="lg" 
-      minW="800px" 
-      p="8%"
+      minW="750px" 
+      py="8%"
     >
       <Flex 
-        px='10'
-        W="80%" 
+        px='20'
         direction={"column"}
       >
         <Text>Select days of the week</Text>
@@ -97,11 +128,16 @@ export default function DaysOfTheWeekContainer () {
         </SimpleGrid>
         <Flex justify={"end"}>
           <LinkButton
+            disabled={saveButtonActive}
             href="/form/Question2"
             width={"105px"}
             topMargin="0"
             H="55px"
             justifySelf="right"
+            onClick={() => {
+              saveAnswers();
+              sendLogs(logMessage("Next button clicked"));
+            }}
           >
           Save
           </LinkButton>
@@ -109,5 +145,4 @@ export default function DaysOfTheWeekContainer () {
       </Flex>
     </Box>
   )
-
 }
