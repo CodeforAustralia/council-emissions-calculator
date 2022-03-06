@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Heading, Text, Box, Wrap, Button } from "@chakra-ui/react";
-import DaysOfWeekSelection from "../../components/DaysOfWeek/DaysOfWeek.Component";
+import DaysOfWeekSelection from "../../components/DaysOfTheWeek/DaysOfTheWeekContainer";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 
@@ -10,7 +10,7 @@ import Q1Cloud from "../../public/images/clouds/cloud-q1.svg";
 import { useRouter } from 'next/router';
 import { sendLogs } from '../../utils/sendLogs';
 
-export default function Question1() {
+export default function DaysOfTheWeekSelection() {
   const { answers, setAnswers } = useForm();
 
   const saveAnswers = () => setAnswers(prev => ({ ...prev}));
@@ -43,14 +43,10 @@ export default function Question1() {
       </Box>
       <Q1Cloud />
 
-      <Heading>
+      <Heading mt={10} mb={10}>
         What day(s) do you usually work from home?
       </Heading>
-
-      <Wrap mt={5} w={["100%", "70%"]} justify="center" spacing={[3, 5]}>
         <DaysOfWeekSelection />
-      </Wrap>
-
     </Layout>
   );
 }
