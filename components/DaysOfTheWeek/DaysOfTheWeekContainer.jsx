@@ -1,36 +1,9 @@
+import { useState } from "react";
 import { Text, Box, SimpleGrid, GridItem, Flex } from "@chakra-ui/react";
 import DaysOfWeekButton from "./DayOfTheWeekButton";
-import { useState } from "react";
 import LinkButton from "../LinkButton/LinkButton";
 
-import { useRouter } from 'next/router';
-import { sendLogs } from '../../utils/sendLogs';
-import useForm from "../../components/FormProvider";
-
-export default function DaysOfTheWeekContainer () {
-
-  /* previous code for question N1 (will be using it for now till we change FormProvider or the data we collect) 
-  even thought the current data will show which days the user has worked, we will only save the number of days
-  */
-  const { answers, setAnswers } = useForm();
-  const [nDays, setNDays] = useState(answers.numDaysWorked);
-
-  const saveAnswers = () => setAnswers(prev => ({ ...prev, numDaysWorked: nDays }));
-
-  const router = useRouter();
-
-  const logMessage = (msg) => {
-    let incentiveMsg = () => {
-      if (!!answers.incentive) {return "<filled>"}
-      else return "<empty>"
-    }
-    return {
-      page: router.pathname,
-      event: msg,
-      ...answers,
-      incentive: incentiveMsg(),
-    }
-  }
+export default function DaysOfTheWeekContainer ({ setNumberOfDays, onSaveEvent }) {
 
   // initial state for days of the week has info if it's selected or not (instead of having 2 separate states)
   const [ daysOfTheWeek, setDaysOfTheWeek ] = useState([
@@ -92,6 +65,10 @@ export default function DaysOfTheWeekContainer () {
     const areDaysSelected = updatedData.find(item => item.isSelected) ? false : true;
     setSaveButtonActive(areDaysSelected);
 
+    // get answer to how many days a week user works
+    const workingDaysNumber = updatedData.filter(item => item.isSelected).length;
+    console.log(workingDaysNumber)
+    setNumberOfDays(workingDaysNumber)
   }
 
  // NOTE! I use minW attribute for the Box for now because at the moment the layout component has limitation for width. 
@@ -112,7 +89,7 @@ export default function DaysOfTheWeekContainer () {
         <Text>Select days of the week</Text>
         <SimpleGrid 
           columns={{ md: 4 }}
-          spacing='8'
+          spacing='4'
           py='10'
           textAlign='center'
         >
@@ -134,10 +111,7 @@ export default function DaysOfTheWeekContainer () {
             topMargin="0"
             H="55px"
             justifySelf="right"
-            onClick={() => {
-              saveAnswers();
-              sendLogs(logMessage("Next button clicked"));
-            }}
+            onClick={onSaveEvent}
           >
           Save
           </LinkButton>
