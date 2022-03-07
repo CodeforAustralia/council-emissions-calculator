@@ -3,7 +3,7 @@ import { Text, Box, SimpleGrid, GridItem, Flex } from "@chakra-ui/react";
 import DaysOfWeekButton from "./DayOfTheWeekButton";
 import LinkButton from "../LinkButton/LinkButton";
 
-export default function DaysOfTheWeekContainer ({ setNumberOfDays, onSaveEvent }) {
+export default function DaysOfTheWeekContainer ({ setNumberOfDays, onSaveEvent, customHref }) {
 
   // initial state for days of the week has info if it's selected or not (instead of having 2 separate states)
   const [ daysOfTheWeek, setDaysOfTheWeek ] = useState([
@@ -106,7 +106,7 @@ export default function DaysOfTheWeekContainer ({ setNumberOfDays, onSaveEvent }
         <Flex justify={"end"}>
           <LinkButton
             disabled={saveButtonActive}
-            href="/form/Question2"
+            href={customHref}
             width={"105px"}
             topMargin="0"
             H="55px"

@@ -1,6 +1,6 @@
 import { Heading, Box } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
-import DaysOfWeekSelection from "../../components/DaysOfTheWeek/DaysOfTheWeekContainer";
+import DaysOfTheWeekContainer from "../../components/DaysOfTheWeek/DaysOfTheWeekContainer";
 
 import { BackButton } from "../../components/LinkButton/LinkButton";
 import Q1Progress from "../../public/images/progress-bar/q1-progress-dots.svg";
@@ -62,9 +62,10 @@ export default function DaysOfTheWeekSelection() {
       <Heading mt={10} mb={10}>
         What day(s) do you usually work from home?
       </Heading>
-        <DaysOfWeekSelection 
+        <DaysOfTheWeekContainer 
           setNumberOfDays={() => setNumberOfDays(nDays)}
           onSaveEvent={() => saveDataAndShowLog()}
+          customHref={"/form/Question2"}
         />
     </Layout>
   );
