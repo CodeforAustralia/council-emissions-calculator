@@ -4,12 +4,10 @@ export function TravelMethodButtonsContainer({
   transportIcon,
   modesOfTransport,
   handleTransportMode,
-  transportMode,
 }) {
   return (
     <SimpleGrid
       columns={3}
-      defaultValue={transportMode}
       id="selector"
       width={["305px", "548px"]}
       mr={"auto"}
