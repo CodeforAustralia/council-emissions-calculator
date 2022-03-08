@@ -1,25 +1,25 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import { Box, FormControl, Heading, Text, Flex } from '@chakra-ui/react';
-import { modesOfTransport } from '../../utils/constants';
-import { transportIcon } from '../../utils/constants';
+import { Box, FormControl, Heading, Text, Flex } from "@chakra-ui/react";
+import { modesOfTransport } from "../../utils/constants";
+import { transportIcon } from "../../utils/constants";
 
-import Layout from '../../components/Layout/Layout';
-import useForm from '../../components/FormProvider';
+import Layout from "../../components/Layout/Layout";
+import useForm from "../../components/FormProvider";
 import {
   ContinueButton,
   BackButton,
-} from '../../components/LinkButton/LinkButton';
-import { TravelMethodButtons } from '../../components/TravelMethodButtons/TravelMethodButtons';
-import Q4Progress from '../../public/images/progress-bar/travelMethodSelection-progress-dots.svg';
-import Q4Cloud from '../../public/images/clouds/cloud-travelMethodSelection.svg';
-import { useRouter } from 'next/router';
-import { sendLogs } from '../../utils/sendLogs';
+} from "../../components/LinkButton/LinkButton";
+import { TravelMethodButtons } from "../../components/TravelMethodButtons/TravelMethodButtons";
+import Q4Progress from "../../public/images/progress-bar/travelMethodSelection-progress-dots.svg";
+import Q4Cloud from "../../public/images/clouds/cloud-travelMethodSelection.svg";
+import { useRouter } from "next/router";
+import { sendLogs } from "../../utils/sendLogs";
 export default function Question4() {
   const { answers, setAnswers } = useForm();
 
   const [transportMode, setTransportMode] = useState(
-    answers.mainTransportMode || ''
+    answers.mainTransportMode || ""
   );
 
   const handleTransportMode = (e) => setTransportMode(e.target.value);
@@ -32,8 +32,8 @@ export default function Question4() {
   const logMessage = (msg) => {
     let incentiveMsg = () => {
       if (!!answers.incentive) {
-        return '<filled>';
-      } else return '<empty>';
+        return "<filled>";
+      } else return "<empty>";
     };
     return {
       page: router.pathname,
@@ -50,37 +50,37 @@ export default function Question4() {
       Progress={Q4Progress}
       maxContainerWidth="container.md"
     >
-      <Box pos="absolute" top={['2', '5']} left={['2', '10']}>
+      <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
           href="/form/Question3"
           onClick={() => {
             saveAnswers();
-            sendLogs(logMessage('Back button clicked'));
+            sendLogs(logMessage("Back button clicked"));
           }}
         />
       </Box>
       <Q4Cloud />
 
-      <Heading width={['100%', '60%']} fontSize="16px">
+      <Heading width={["100%", "60%"]} fontSize="16px">
         What are your usual travel methods to work?
       </Heading>
 
-      <Flex mt={5} flexDirection={['column', 'row']}>
+      <Flex mt={5} flexDirection={["column", "row"]}>
         <Flex flex={1} flexDirection="column" ms={[0, 10]} mt={[8, 5]}>
-          <Text fontSize="16px" textAlign={'center'} mb={5}>
+          <Text fontSize="16px" textAlign={"center"} mb={5}>
             Please tell us how you travel to work on particular days.
           </Text>
           <FormControl
             isRequired
             border=".1px solid"
             // px={['15px', '1px']}
-            py={['65px', '67px']}
-            width={['305px', '708px']}
-            height={['503.37px', '503.37px']}
+            py={["65px", "67px"]}
+            width={["305px", "708px"]}
+            height={["503.37px", "503.37px"]}
             borderColor="gray.200"
           >
             <Box flex={1} mb={5}>
-              <Text fontSize="16px" textAlign={'center'}>
+              <Text fontSize="16px" textAlign={"center"}>
                 Select the ways you generally travel to work.
               </Text>
             </Box>
@@ -94,12 +94,12 @@ export default function Question4() {
               disabled={!transportMode}
               href="/form/Question5"
               topMargin={4}
-              width={['15vw', '105px']}
+              width={["15vw", "105px"]}
               height="54.37px"
               right="0"
               onClick={() => {
                 saveAnswers();
-                sendLogs(logMessage('Next button clicked'));
+                sendLogs(logMessage("Next button clicked"));
               }}
             />
           </FormControl>
