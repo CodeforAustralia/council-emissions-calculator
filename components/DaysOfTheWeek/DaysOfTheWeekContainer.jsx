@@ -86,7 +86,7 @@ export default function DaysOfTheWeekContainer ({ setNumberOfDays, onSaveEvent, 
         px="20"
         direction={"column"}
       >
-        <Text>Select days of the week *</Text>
+        <Text fontWeight="500" fontSize="18px">Select days of the week *</Text>
         <SimpleGrid 
           columns={{ md: 4 }}
           spacing="4"
