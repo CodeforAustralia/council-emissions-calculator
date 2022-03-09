@@ -1,47 +1,49 @@
-import { Box, Button, Text, SimpleGrid, Icon, Flex } from "@chakra-ui/react";
+import { Flex, Box, Button, SimpleGrid, Icon } from "@chakra-ui/react";
 
-export function TravelMethodButtonsContainer({
+export function TravelMethodButtons({
   transportIcon,
   modesOfTransport,
   handleTransportMode,
 }) {
   return (
-    <SimpleGrid
-      columns={3}
-      id="selector"
-      width={["305px", "548px"]}
-      mr={"auto"}
-      ml={"auto"}
-    >
-      {modesOfTransport.map((mode, i) => (
-        <Box height="80px" textAlign={"center"} key={mode}>
-          {/* buttons */}
+    <Flex width={"fit container "}>
+      <SimpleGrid
+        columns={3}
+        id="selector"
+        width={["305px", "548px"]}
+        height={["345px", "304px"]}
+        mr={"auto"}
+        ml={"auto"}
+        mt={"6px"}
+      >
+        {modesOfTransport.map((mode, i) => (
+          <Box height="80px" textAlign={"center"} key={mode}>
+            {/* buttons */}
 
-          <Button
-            variant="outline"
-            fontSize={[13, 15]}
-            color="#044B7F"
-            height={["58px", "57px"]}
-            width={["91.67px", "141px"]}
-            border="1px"
-            onChange={handleTransportMode}
-            colorScheme="#044B7F"
-            value={mode}
-          >
-            <Box
-              pos="absolute"
-              top={["3px", "2px"]}
-              pb={["4px", "3px"]}
-              width={["30px", "32px"]}
-              height={["30px", "32px"]}
-              mb="12px"
+            <Button
+              fontSize={["16px", "16px"]}
+              color="#044B7F"
+              height={["100px", "80px"]}
+              width={["91.67px", "150px"]}
+              border="1px"
+              onChange={handleTransportMode}
+              colorScheme="#044B7F"
+              value={mode}
             >
-              <Icon as={transportIcon[i]} />
-            </Box>
-            {mode}
-          </Button>
-        </Box>
-      ))}
-    </SimpleGrid>
+              <Box
+                pos="absolute"
+                width={["30px", "32px"]}
+                height={["30px", "32px"]}
+                fontSize={"16px"}
+                mb={"22px"}
+              >
+                <Icon as={transportIcon[i]} />
+              </Box>
+              {mode}
+            </Button>
+          </Box>
+        ))}
+      </SimpleGrid>
+    </Flex>
   );
 }
