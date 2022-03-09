@@ -1,10 +1,8 @@
 import { Flex, Box, Button, SimpleGrid, Icon } from "@chakra-ui/react";
+import { modesOfTransport } from "../../utils/constants";
+import { transportIcon } from "../../utils/constants";
 
-export function TravelMethodButtons({
-  transportIcon,
-  modesOfTransport,
-  handleTransportMode,
-}) {
+export function TravelMethodButtons({ handleTransportMode }) {
   return (
     <Flex width={"fit container "}>
       <SimpleGrid
