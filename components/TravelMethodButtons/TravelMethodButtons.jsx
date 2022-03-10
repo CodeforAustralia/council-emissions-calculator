@@ -1,8 +1,8 @@
-import { Flex, Box, Button, SimpleGrid, Icon } from "@chakra-ui/react";
+import { Flex, Box, SimpleGrid } from "@chakra-ui/react";
 import { modesOfTransport } from "../../utils/constants";
-import { transportIcon } from "../../utils/constants";
+import { TravelMethodButton } from "./TravelMethodButton";
 
-export function TravelMethodButtons({ handleTransportMode }) {
+export function TravelMethodButtons({ handleTransPortMode }) {
   return (
     <Flex width={"fit container "}>
       <SimpleGrid
@@ -17,8 +17,12 @@ export function TravelMethodButtons({ handleTransportMode }) {
         {modesOfTransport.map((mode, i) => (
           <Box height="80px" textAlign={"center"} key={mode}>
             {/* buttons */}
-
-            <Button
+            <TravelMethodButton
+              handleTransPortMode={handleTransPortMode}
+              mode={mode}
+              ind={i}
+            />
+            {/* <Button
               fontSize={["16px", "16px"]}
               color="#044B7F"
               height={["100px", "80px"]}
@@ -38,7 +42,7 @@ export function TravelMethodButtons({ handleTransportMode }) {
                 <Icon as={transportIcon[i]} />
               </Box>
               {mode}
-            </Button>
+            </Button> */}
           </Box>
         ))}
       </SimpleGrid>
