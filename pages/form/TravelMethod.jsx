@@ -1,23 +1,11 @@
 import { useState } from "react";
-
-import {
-  useMediaQuery,
-  Box,
-  FormControl,
-  Heading,
-  Text,
-  Flex,
-} from "@chakra-ui/react";
-import { modesOfTransport } from "../../utils/constants";
-import { transportIcon } from "../../utils/constants";
-
+import { Box, FormControl, Heading, Text, Flex } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
-// import {
-//   ContinueButton,
-//   BackButton,
-// } from '../../components/LinkButton/LinkButton';
-import LinkButton, { BackButton } from "../../components/LinkButton/LinkButton";
+import {
+  ContinueButton,
+  BackButton,
+} from "../../components/LinkButton/LinkButton";
 import { TravelMethodButtons } from "../../components/TravelMethodButtons/TravelMethodButtons";
 import Q4Progress from "../../public/images/progress-bar/travelMethodSelection-progress-dots.svg";
 import Q4Cloud from "../../public/images/clouds/cloud-travelMethodSelection.svg";
@@ -29,8 +17,6 @@ export default function Question4() {
   const [transportMode, setTransportMode] = useState(
     answers.mainTransportMode || ""
   );
-
-  const [isLargerThan375] = useMediaQuery("(min-width: px375)");
 
   const handleTransportMode = (e) => setTransportMode(e.target.value);
 
@@ -78,9 +64,7 @@ export default function Question4() {
       <Flex mt={5} flexDirection={"column"}>
         <Flex flex={1} flexDirection="column" ms={[0, 10]} mt={[8, 5]}>
           <Text fontSize="16px" textAlign={"center"} mb={5}>
-            {isLargerThan375
-              ? "Please tell us how you travel to work on particular days."
-              : ""}
+            Please tell us how you travel to work on particular days.
           </Text>
           <FormControl
             isRequired
@@ -95,14 +79,10 @@ export default function Question4() {
                 Select the ways you generally travel to work.
               </Text>
             </Box>
-            <TravelMethodButtons
-              handleTransportMode={handleTransportMode}
-              modesOfTransport={modesOfTransport}
-              transportIcon={transportIcon}
-            />
+            <TravelMethodButtons handleTransportMode={handleTransportMode} />
 
             <Flex justify={["center", "end"]}>
-              <LinkButton
+              <ContinueButton
                 disabled={!transportMode}
                 href="/form/Question5"
                 width={["99px", "105px"]}
@@ -113,7 +93,7 @@ export default function Question4() {
                 }}
               >
                 Save
-              </LinkButton>
+              </ContinueButton>
             </Flex>
           </FormControl>
         </Flex>
