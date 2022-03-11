@@ -66,11 +66,11 @@ export default function Home() {
           </Heading>
           <Text mt={spacing}>
             We&apos;ll ask some questions about how you usually travel to and
-            from work. You&apos;ll also have the apportunity to suggest how
+            from work. You&apos;ll also have the opportunity to suggest how
             council could incentivise you to travel differently.
           </Text>
           <Text mt={spacing}>
-            Your response will be compiled to help calculate Counci&apos;ll
+            Your response will be compiled to help calculate Council&apos;s
             carbon emissions, and shared by your team representative.
           </Text>
           <Text mt={spacing}>
