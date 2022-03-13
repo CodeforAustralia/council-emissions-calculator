@@ -72,7 +72,6 @@ export default function Question4() {
             width={["305px", "708px"]}
             height={["400px", "503.37px"]}
             borderColor={["white", "gray.200"]}
-            // width={"fit-content"}
           >
             <Box flex={1} mb={5} mt={5}>
               <Text fontSize="16px" textAlign={"center"}>
