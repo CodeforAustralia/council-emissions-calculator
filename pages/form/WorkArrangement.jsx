@@ -122,6 +122,7 @@ export default function WorkArrangement() {
                 py="12px" 
                 bg="#D4EDDA"
                 borderRadius="lg" 
+                textAlign="center"
               >
                 We will use this information to calculate the emissions you save by working at home.
               </Text>
