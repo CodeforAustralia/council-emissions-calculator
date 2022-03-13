@@ -75,7 +75,7 @@ export default function Home() {
             This form will take approximately <b>3 minutes</b> to complete.
           </Text>
           <LinkButton
-            href="/form/Question1"
+            href="/form/WorkArrangement"
             onClick={() => sendLogs(logMessage("Start button clicked"))}
             width={["90vw", "173px"]}
           >
