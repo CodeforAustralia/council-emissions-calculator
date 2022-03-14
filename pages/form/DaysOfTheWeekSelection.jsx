@@ -61,7 +61,7 @@ export default function DaysOfTheWeekSelection() {
     <Layout isText={true} Progress={Q1Progress}>
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
-          href="/"
+          href="/form/WorkArrangement"
           onClick={() => saveDataAndShowLog("Back button clicked")}
         />
       </Box>
