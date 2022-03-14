@@ -45,9 +45,16 @@ export default function DaysOfTheWeekSelection() {
   }
 
   // we  pass this function as props to our child component to update Form data and logs
-  const saveDataAndShowLog = () => {
+  const saveDataAndShowLog = (logMsg) => {
+
+    // log to be removed once the project is completed
+    // see logs from the number of days the user selected
+    console.log(`Data from the child component: ${nDays}`);
+    // logs for when the button got clicked
+    console.log(logMsg)
+
     saveAnswers();
-    sendLogs(logMessage("Next button clicked"));
+    sendLogs(logMessage(logMsg));
   }
 
   return (
@@ -55,7 +62,7 @@ export default function DaysOfTheWeekSelection() {
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
           href="/"
-          onClick={saveDataAndShowLog}
+          onClick={() => saveDataAndShowLog("Back button clicked")}
         />
       </Box>
       <Q1Cloud />
@@ -63,8 +70,8 @@ export default function DaysOfTheWeekSelection() {
         What day(s) do you usually work from home?
       </Heading>
         <DaysOfTheWeekContainer 
-          setNumberOfDays={() => setNumberOfDays(nDays)}
-          onSaveEvent={() => saveDataAndShowLog()}
+          setNumberOfDays={days => setNumberOfDays(days)}
+          saveDataAndLogs={() => saveDataAndShowLog("Next button clicked")}
           customHref={"/form/Question2"}
         />
     </Layout>
