@@ -26,10 +26,10 @@ const initialAnswers = {
   department: "",
 };
 
-const transactionId = Math.random().toString(36).substr(2,8);
+const transactionId = Math.random().toString(36).substr(2, 8);
 
 const FormProvider = ({ children }) => {
-  const [answers, setAnswers] = useState({transactionId, ...initialAnswers});
+  const [answers, setAnswers] = useState({ transactionId, ...initialAnswers });
   const value = {
     answers,
     setAnswers,
@@ -37,5 +37,5 @@ const FormProvider = ({ children }) => {
 
   return <FormContext.Provider value={value}>{children}</FormContext.Provider>;
 };
- 
+
 export default FormProvider;

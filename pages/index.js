@@ -61,7 +61,7 @@ export default function Home() {
         <Animation />
         <Box p={[5, 10]}>
           <Heading textAlign={["center", "start"]}>
-            {" "}
+            {/* {" "} */}
             Help calculate Council&apos;s carbon emissions
           </Heading>
           <Text mt={spacing}>

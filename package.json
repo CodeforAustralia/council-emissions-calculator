@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "npx prettier --write . && next dev",
     "build": "next build",
     "export": "next export",
     "start": "next start",
@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "eslint": "7.30.0",
-    "eslint-config-next": "11.0.1"
+    "eslint-config-next": "11.0.1",
+    "prettier": "2.5.1"
   }
 }
