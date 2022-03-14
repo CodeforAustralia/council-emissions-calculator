@@ -175,7 +175,7 @@ export default function WorkArrangement() {
               justifySelf="right"
               onClick={() => saveDataAndShowLog("Next button clicked")}
             >
-              Save
+              Next
             </LinkButton>
           </Flex>
         </Flex>
