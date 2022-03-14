@@ -67,7 +67,7 @@ export default function DaysOfTheWeekContainer ({ setNumberOfDays, onSaveEvent, 
 
     // get answer to how many days a week user works
     const workingDaysNumber = updatedData.filter(item => item.isSelected).length;
-    console.log(workingDaysNumber)
+    
     setNumberOfDays(workingDaysNumber)
   }
 
@@ -111,9 +111,9 @@ export default function DaysOfTheWeekContainer ({ setNumberOfDays, onSaveEvent, 
             topMargin="0"
             H="55px"
             justifySelf="right"
-            onClick={onSaveEvent}
+            onClick={() => onSaveEvent()}
           >
-          Save
+          Next
           </LinkButton>
         </Flex>
       </Flex>
