@@ -44,9 +44,6 @@ export default function DaysOfTheWeekContainer ({ setNumberOfDays, saveDataAndLo
     }
   ]);
 
-  // state to activate and disable save button (link button)
-  const [ saveButtonActive, setSaveButtonActive ] = useState(true);
-
   // on click, the buttom will change colour and the state will be updated to include selected buttons
   const handleClick = (value) => {
 
@@ -59,10 +56,6 @@ export default function DaysOfTheWeekContainer ({ setNumberOfDays, saveDataAndLo
       }
     })
     setDaysOfTheWeek(updatedData);
-
-    // activate Save button (link button) when something is selected
-    const areDaysSelected = updatedData.find(item => item.isSelected) ? false : true;
-    setSaveButtonActive(areDaysSelected);
 
     // get answer to how many days a week user works
     const workingDaysNumber = updatedData.filter(item => item.isSelected).length;
@@ -104,14 +97,14 @@ export default function DaysOfTheWeekContainer ({ setNumberOfDays, saveDataAndLo
         </SimpleGrid>
         <Flex justify={"end"}>
           <LinkButton
-            disabled={saveButtonActive}
+            disabled={!daysOfTheWeek.find(item => item.isSelected)}
             href={customHref}
             width={"105px"}
             topMargin="0"
             H="55px"
             justifySelf="right"
             onClick={() => {
-              setNumberOfDays(3);
+              setNumberOfDays();
               saveDataAndLogs();
             }}
           >
