@@ -3,7 +3,7 @@ import { Text, Box, SimpleGrid, GridItem, Flex } from "@chakra-ui/react";
 import DaysOfWeekButton from "./DayOfTheWeekButton";
 import LinkButton from "../LinkButton/LinkButton";
 
-export default function DaysOfTheWeekContainer ({ setNumberOfDays, onSaveEvent, customHref }) {
+export default function DaysOfTheWeekContainer ({ setNumberOfDays, saveDataAndLogs, customHref }) {
 
   // initial state for days of the week has info if it's selected or not (instead of having 2 separate states)
   const [ daysOfTheWeek, setDaysOfTheWeek ] = useState([
@@ -44,30 +44,22 @@ export default function DaysOfTheWeekContainer ({ setNumberOfDays, onSaveEvent, 
     }
   ]);
 
-  // state to activate and disable save button (link button)
-  const [ saveButtonActive, setSaveButtonActive ] = useState(true);
-
   // on click, the buttom will change colour and the state will be updated to include selected buttons
-  const handleClick = (e) => {
-    e.preventDefault();
+  const handleClick = (value) => {
 
     let updatedData = [...daysOfTheWeek];
 
-    // based on the day name from innerHTML of each button, update the state if selected or unselected
+    // based on the day name from the value of each button, update the state if selected or unselected
     updatedData.map(item => {
-      if (item.day === e.target.innerText) {
+      if (item.day === value) {
         item.isSelected = item.isSelected ? false : true;
       }
     })
     setDaysOfTheWeek(updatedData);
 
-    // activate Save button (link button) when something is selected
-    const areDaysSelected = updatedData.find(item => item.isSelected) ? false : true;
-    setSaveButtonActive(areDaysSelected);
-
     // get answer to how many days a week user works
     const workingDaysNumber = updatedData.filter(item => item.isSelected).length;
-    console.log(workingDaysNumber)
+    
     setNumberOfDays(workingDaysNumber)
   }
 
@@ -98,22 +90,25 @@ export default function DaysOfTheWeekContainer ({ setNumberOfDays, onSaveEvent, 
             <DaysOfWeekButton 
               label={item.day}
               isActive={item.isSelected}
-              onClick={e => handleClick(e)}
+              onClick={value => handleClick(value)}
             />
           </GridItem>
           ))}
         </SimpleGrid>
         <Flex justify={"end"}>
           <LinkButton
-            disabled={saveButtonActive}
+            disabled={!daysOfTheWeek.find(item => item.isSelected)}
             href={customHref}
             width={"105px"}
             topMargin="0"
             H="55px"
             justifySelf="right"
-            onClick={onSaveEvent}
+            onClick={() => {
+              setNumberOfDays();
+              saveDataAndLogs();
+            }}
           >
-          Save
+          Next
           </LinkButton>
         </Flex>
       </Flex>

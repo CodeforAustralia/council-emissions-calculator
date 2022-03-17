@@ -4,6 +4,8 @@ import { Button, Text } from "@chakra-ui/react";
 
 export default function DaysOfTheWeekButton ({ label, onClick, isActive }) {
 
+  // pass innerHTML value from each button to the parent component on click
+
   return (
     <Button
       w="130px" 
@@ -11,7 +13,7 @@ export default function DaysOfTheWeekButton ({ label, onClick, isActive }) {
       borderRadius="6%"
       colorScheme="blue"
       variant={isActive ? "solid" : "outline"}
-      onClick={onClick}
+      onClick={(e) => onClick(e.target.innerText)}
     >
       <Text fontSize="18px">{label}</Text>
     </Button>
