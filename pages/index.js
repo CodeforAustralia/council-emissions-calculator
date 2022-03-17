@@ -77,7 +77,7 @@ export default function Home() {
             This survey will take <b>approximately 5 minutes</b> to complete.
           </Text>
           <LinkButton
-            href="/form/Question1"
+            href="/form/WorkArrangement"
             onClick={() => sendLogs(logMessage("Start button clicked"))}
             width={["90vw", "173px"]}
           >
