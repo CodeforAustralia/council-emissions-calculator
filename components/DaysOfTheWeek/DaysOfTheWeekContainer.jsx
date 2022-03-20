@@ -3,46 +3,70 @@ import { Text, Box, SimpleGrid, GridItem, Flex } from "@chakra-ui/react";
 import DaysOfWeekButton from "./DayOfTheWeekButton";
 import LinkButton from "../LinkButton/LinkButton";
 
-export default function DaysOfTheWeekContainer ({ setNumberOfDays, saveDataAndLogs, customHref }) {
+export default function DaysOfTheWeekContainer ({ 
+  setNumberOfDays, 
+  saveDataAndLogs, 
+  customHref,
+  disabledDays
+ }) {
 
   // initial state for days of the week has info if it's selected or not (instead of having 2 separate states)
   const [ daysOfTheWeek, setDaysOfTheWeek ] = useState([
     {
       id: 0,
       day: "Monday",
-      isSelected: false
+      isSelected: false,
+      isDisable: false
     },
     {
       id: 1,
       day: "Tuesday",
-      isSelected: false
+      isSelected: false,
+      isDisable: false
     },
     {
       id: 2,
       day: "Wednesday",
-      isSelected: false
+      isSelected: false,
+      isDisable: false
     },
     {
       id: 3,
       day: "Thursday",
-      isSelected: false
+      isSelected: false,
+      isDisable: false
     },
     {
       id: 4,
       day: "Friday",
-      isSelected: false
+      isSelected: false,
+      isDisable: false
     },
     {
       id: 5,
       day: "Saturday",
-      isSelected: false
+      isSelected: false,
+      isDisable: false
     },
     {
       id: 6,
       day: "Sunday",
-      isSelected: false
+      isSelected: false,
+      isDisable: false
     }
   ]);
+
+  // disable days already selected in the previous step by comparing to the props array
+  const disableSelectedDaysOnLoad = (days) => {
+    days.forEach(day => {
+      daysOfTheWeek.map(item => {
+        if (item.day == day) {
+          item.isDisable = true
+        }
+      })
+    })
+  }
+  disableSelectedDaysOnLoad(disabledDays);
 
   // on click, the buttom will change colour and the state will be updated to include selected buttons
   const handleClick = (value) => {
@@ -91,6 +115,7 @@ export default function DaysOfTheWeekContainer ({ setNumberOfDays, saveDataAndLo
               label={item.day}
               isActive={item.isSelected}
               onClick={value => handleClick(value)}
+              disabled={item.isDisable}
             />
           </GridItem>
           ))}
