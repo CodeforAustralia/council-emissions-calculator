@@ -60,9 +60,8 @@ export default function DaysOfTheWeekSelection() {
   /* 
   !! Hybrid mode 
   temporary solution - passing dummy data with the dates which were already selected
-  so we can disable them in the component
+  so we can disable them in the component:
   */
-
   const DaysAlreadySelected = [ "Monday", "Tuesday", "Wednesday" ]
 
   return (
