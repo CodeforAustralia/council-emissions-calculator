@@ -1,40 +1,40 @@
 import { useState } from "react";
-import {
-  Box,
-  Heading,
-  Text,
-  Textarea,
-} from "@chakra-ui/react";
+import { Box, Heading, Text, Textarea } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
-import { BackButton, SubmitButton } from "../../components/LinkButton/LinkButton";
+import {
+  BackButton,
+  SubmitButton,
+} from "../../components/LinkButton/LinkButton";
 import Q6Progress from "../../public/images/progress-bar/q6-progress-dots.svg";
-import Q6Cloud from "../../public/images/clouds/cloud-q6.svg"
+import Q6Cloud from "../../public/images/clouds/cloud-q6.svg";
 import { sendFormResponse } from "../../utils/dbApi";
-import { useRouter } from 'next/router';
-import { sendLogs } from '../../utils/sendLogs';
+import { useRouter } from "next/router";
+import { sendLogs } from "../../utils/sendLogs";
 
 export default function Question6() {
   const { answers, setAnswers } = useForm();
   const [incentive, setIncentive] = useState(answers.incentive);
 
-  const saveAnswers = () => setAnswers( prev => ({...prev, incentive: incentive}) );
+  const saveAnswers = () =>
+    setAnswers((prev) => ({ ...prev, incentive: incentive }));
 
   const router = useRouter();
 
-  const logMessage = (msg) => { 
+  const logMessage = (msg) => {
     let incentiveMsg = () => {
-      if (!!incentive) {return "<filled>"}
-      else return "<empty>"
-    }
+      if (!!incentive) {
+        return "<filled>";
+      } else return "<empty>";
+    };
 
     return {
       page: router.pathname,
       event: msg,
       ...answers,
       incentive: incentiveMsg(),
-    }
-  }
+    };
+  };
 
   return (
     <Layout isText={true} Progress={Q6Progress}>
@@ -49,12 +49,16 @@ export default function Question6() {
       </Box>
       <Q6Cloud />
 
-      <Heading>
-        Share your suggestions
-      </Heading>
+      <Heading>Share your suggestions</Heading>
 
-      <Text fontSize="18px" mt={10} w={["100%", "90%"]} textAlign={["center", "left"]}>
-        What can Council do to support and incentivise staff to choose more sustainable modes of transport to and from work?
+      <Text
+        fontSize="18px"
+        mt={10}
+        w={["100%", "90%"]}
+        textAlign={["center", "left"]}
+      >
+        What can Council do to support and incentivise staff to choose more
+        sustainable modes of transport to and from work?
       </Text>
       <Textarea
         mt={3}
