@@ -18,10 +18,6 @@
   <a href="#Collaboration-Working-In-a-Forked-Repository">Collaboration </a>
 </p>
 
-
-
-
-
 ## Project Goals
 
 - Provide councils a tool to assess their impact on the environment and ...
@@ -53,10 +49,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-     
 </details>
 
 ## Learn More about Development
+
 <details>
 <summary> 
 To learn more about Next.js, take a look at the following resources...
@@ -67,11 +63,11 @@ To learn more about Next.js, take a look at the following resources...
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-     
+
 </details>
 
-
 ## Dependencies used in this project
+
 <details>
 <summary> Dependencies </summary>
      
@@ -87,7 +83,6 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 </details>
 
-
 ## Collaboration: Working In a Forked Repository
 
 ### How to fetch upstream main/master
@@ -95,6 +90,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 There are 2 options :
 
 #### Option 1 : Using terminal
+
 <details>
 <summary> 
 STEPS
@@ -111,7 +107,6 @@ STEPS
 </details>
 
 #### Option 2 : Using button in your main forked repo
-
 
 <details>
 <summary> 
@@ -131,6 +126,7 @@ STEPS
 </details>
 
 ### To merge the changes to working branch
+
 <details>
 <summary> 
 STEPS

@@ -17,8 +17,8 @@ import {
 } from "../../components/LinkButton/LinkButton";
 import Q4Progress from "../../public/images/progress-bar/q4-progress-dots.svg";
 import Q4Cloud from "../../public/images/clouds/cloud-q4.svg";
-import { useRouter } from 'next/router';
-import { sendLogs } from '../../utils/sendLogs';
+import { useRouter } from "next/router";
+import { sendLogs } from "../../utils/sendLogs";
 
 export default function Question4() {
   const { answers, setAnswers } = useForm();
@@ -34,20 +34,25 @@ export default function Question4() {
 
   const logMessage = (msg) => {
     let incentiveMsg = () => {
-      if (!!answers.incentive) {return "<filled>"}
-      else return "<empty>"
-    }
+      if (!!answers.incentive) {
+        return "<filled>";
+      } else return "<empty>";
+    };
     return {
       page: router.pathname,
       event: msg,
       ...answers,
       mainTransportMode: transportMode,
       incentive: incentiveMsg(),
-    }
-  }
+    };
+  };
 
   return (
-    <Layout isText={true} Progress={Q4Progress} maxContainerWidth="container.md">
+    <Layout
+      isText={true}
+      Progress={Q4Progress}
+      maxContainerWidth="container.md"
+    >
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
           href="/form/Question3"
@@ -66,7 +71,9 @@ export default function Question4() {
       <Flex mt={5} flexDirection={["column", "row"]}>
         <Box flex={1} mt={5}>
           <Text fontSize="18px" textAlign={["center", "left"]}>
-            For example, if you usually drive 2km to the train and then catch the train for 15km, choose ‘Train’ as the main way you travel to work.
+            For example, if you usually drive 2km to the train and then catch
+            the train for 15km, choose ‘Train’ as the main way you travel to
+            work.
           </Text>
         </Box>
 
@@ -82,18 +89,12 @@ export default function Question4() {
               id="selector"
             >
               {modesOfTransport.map((mode) => (
-                <option
-                  fontSize="lg"
-                  key={mode}
-                  value={mode}
-                >
+                <option fontSize="lg" key={mode} value={mode}>
                   {mode}
                 </option>
               ))}
             </Select>
-            <FormHelperText id="selectorHelper">
-              *Required
-            </FormHelperText>
+            <FormHelperText id="selectorHelper">*Required</FormHelperText>
           </FormControl>
 
           <ContinueButton

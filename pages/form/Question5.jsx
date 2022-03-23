@@ -18,8 +18,8 @@ import {
 import capitalize from "../../utils/capitalize";
 import Q5Progress from "../../public/images/progress-bar/q5-progress-dots.svg";
 import Q5Cloud from "../../public/images/clouds/cloud-q5.svg";
-import { useRouter } from 'next/router';
-import { sendLogs } from '../../utils/sendLogs';
+import { useRouter } from "next/router";
+import { sendLogs } from "../../utils/sendLogs";
 
 export default function Question5() {
   const { answers, setAnswers } = useForm();
@@ -32,20 +32,25 @@ export default function Question5() {
 
   const logMessage = (msg) => {
     let incentiveMsg = () => {
-      if (!!answers.incentive) {return "<filled>"}
-      else return "<empty>"
-    }
+      if (!!answers.incentive) {
+        return "<filled>";
+      } else return "<empty>";
+    };
     return {
       page: router.pathname,
       event: msg,
       ...answers,
       department: department,
       incentive: incentiveMsg(),
-    }
-  }
+    };
+  };
 
   return (
-    <Layout isText={true} Progress={Q5Progress} maxContainerWidth="container.md">
+    <Layout
+      isText={true}
+      Progress={Q5Progress}
+      maxContainerWidth="container.md"
+    >
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
           href="/form/Question4"
@@ -79,10 +84,7 @@ export default function Question5() {
               id="selector"
             >
               {departments.map((department) => (
-                <option
-                  key={department}
-                  value={department}
-                >
+                <option key={department} value={department}>
                   {capitalize(department)}
                 </option>
               ))}
