@@ -57,6 +57,13 @@ export default function DaysOfTheWeekSelection() {
     sendLogs(logMessage(logMsg));
   }
 
+  /* 
+  !! Hybrid mode 
+  temporary solution - passing dummy data with the dates which were already selected
+  so we can disable them in the component:
+  */
+  const DaysAlreadySelected = [ "Monday", "Tuesday", "Wednesday" ]
+
   return (
     <Layout isText={true} Progress={Q1Progress}>
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
@@ -72,6 +79,7 @@ export default function DaysOfTheWeekSelection() {
         <DaysOfTheWeekContainer 
           setNumberOfDays={days => setNumberOfDays(days)}
           saveDataAndLogs={() => saveDataAndShowLog("Next button clicked")}
+          disabledDays={DaysAlreadySelected}
           customHref={"/form/Question2"}
         />
     </Layout>
