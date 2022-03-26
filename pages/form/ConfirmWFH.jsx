@@ -12,6 +12,8 @@ import LinkButton, { BackButton } from "../../components/LinkButton/LinkButton";
 import { useRouter } from "next/router";
 import { sendLogs } from "../../utils/sendLogs";
 
+import ConfirmDetailsContainer from "../../components/ConfirmDetailsContainer/ConfirmDetailsContainer";
+
 export default function ConfirmWFH() {
 
   // code from previoud version below, no changes made
@@ -74,6 +76,7 @@ export default function ConfirmWFH() {
             Please confirm the details below
           </Heading>
         </Flex>
+        <ConfirmDetailsContainer/>
         <Flex
           justify="end"
         >
