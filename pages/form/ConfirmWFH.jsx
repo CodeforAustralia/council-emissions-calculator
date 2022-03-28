@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { 
   Box,
   Heading,
@@ -13,6 +12,12 @@ import { useRouter } from "next/router";
 import { sendLogs } from "../../utils/sendLogs";
 
 import ConfirmDetailsContainer from "../../components/ConfirmDetailsContainer/ConfirmDetailsContainer";
+
+/* for now, we pass hard-coded data from the porent component (icon and title), 
+eventually will render based on what user selects during previous steps:
+*/
+import House from "../../public/images/other/House.svg";
+const title = "Work from Home";
 
 export default function ConfirmWFH() {
 
@@ -76,11 +81,15 @@ export default function ConfirmWFH() {
             Please confirm the details below
           </Heading>
         </Flex>
-        <ConfirmDetailsContainer/>
+        <ConfirmDetailsContainer
+          methodIcon={House}
+          title={title}
+        />
         <Flex
           justify="end"
         >
           <LinkButton
+            pt="10px"
             href={"/form/Distance"}
             width="105px"
             topMargin="0"
