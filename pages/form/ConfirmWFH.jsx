@@ -1,7 +1,8 @@
 import { 
   Box,
   Heading,
-  Flex
+  Flex,
+  Text
 } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
@@ -51,6 +52,36 @@ export default function ConfirmWFH() {
     sendLogs(logMessage(logMsg));
   };
 
+  
+  const Description = () => (<Flex>
+    <Text
+      fontWeight="500"
+      fontSize="22px"
+    >
+      I work from home on&nbsp;
+    </Text>
+    <Text 
+      fontWeight="500"
+      fontSize="22px"
+      color="#3389D2"
+    > 
+      Monday&nbsp; 
+    </Text>
+    <Text
+      fontWeight="500"
+      fontSize="22px"
+    >
+      to&nbsp;
+    </Text>
+    <Text 
+      fontWeight="500"
+      fontSize="22px"
+      color="#3389D2"
+    > 
+      Wednesday.
+    </Text>
+  </Flex>)
+
   return (
     <Layout 
       isText={true} 
@@ -68,7 +99,7 @@ export default function ConfirmWFH() {
           }}
         />
       </Box>
-      <Box>
+      <Box minW="720px">
         <Flex
           justify="center"
           direction="column"
@@ -84,15 +115,17 @@ export default function ConfirmWFH() {
         <ConfirmDetailsContainer
           methodIcon={House}
           title={title}
-        />
+          describtion={<Description />}
+        >
+          <Text>Child element will be here</Text>
+        </ConfirmDetailsContainer>
         <Flex
           justify="end"
         >
           <LinkButton
-            pt="10px"
+            mt="10px"
             href={"/form/Distance"}
             width="105px"
-            topMargin="0"
             H="55px"
             justifySelf="right"
             onClick={() => saveDataAndShowLog("Next button clicked")}
