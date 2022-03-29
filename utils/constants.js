@@ -20,12 +20,12 @@ export const daysOfWeek = [
 export const modesOfTransport = [
   "Bicycle",
   "Bus",
+  "Carpool",
+  "Motorbike",
+  "Taxi/Ride",
   "Car",
-  "Motorbike/scooter",
-  "Taxi/ride share",
+  "Walk/run", 
   "Train/tram",
-  "Walking/running",
-  "Other",
 ];
 
 export const transportIcon = [
