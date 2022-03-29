@@ -17,7 +17,7 @@ import ConfirmDetailsContainer from "../../components/ConfirmDetailsContainer/Co
 /* for now, we pass hard-coded data from the porent component (icon and title), 
 eventually will render based on what user selects during previous steps:
 */
-import House from "../../public/images/other/House.svg";
+import House from "../../public/images/other/house.svg";
 const title = "Work from Home";
 
 export default function ConfirmWFH() {
