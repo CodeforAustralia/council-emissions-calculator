@@ -22,9 +22,9 @@ export const modesOfTransport = [
   "Bus",
   "Carpool",
   "Motorbike",
-  "Taxi/Ride",
+  "Taxi Ride",
   "Car",
-  "Walk/run", 
+  "Walk", 
   "Train/tram",
 ];
 
