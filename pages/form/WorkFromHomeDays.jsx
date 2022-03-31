@@ -13,15 +13,11 @@ import useForm from "../../components/FormProvider";
 
 export default function DaysOfTheWeekSelection() {
 
-  /* previous code for question N1 (will be using it for now till we change FormProvider or the data we collect).
-  Even thought the current data inside container component will show exactly which days the user has worked, 
-  we will only save the number of days
-  */
-
   const { answers, setAnswers } = useForm();
   const [ nDays, setNDays ] = useState(answers.numDaysWorked);
+  const [ wfhDays, setWFHDays ] = useState(answers.wfhDays);
 
-  const saveAnswers = () => setAnswers(prev => ({ ...prev, numDaysWorked: nDays }));
+  const saveAnswers = () => setAnswers(prev => ({ ...prev, numDaysWorked: nDays, wfhDays: wfhDays }));
 
   const router = useRouter();
 
@@ -34,19 +30,16 @@ export default function DaysOfTheWeekSelection() {
       page: router.pathname,
       event: msg,
       ...answers,
-      nWorkDays: nDays,
+      numDaysWorked: wfhDays.concat(answers.onsiteDays).length,
+      wfhDays: wfhDays.join(),
       incentive: incentiveMsg(),
     }
-  }
-
-  // we  pass this function as props to our child component to count humber of days
-  const setNumberOfDays = (days) => {
-    setNDays(days)
   }
 
   // we  pass this function as props to our child component to update Form data and logs
   const saveDataAndShowLog = (logMsg) => {
 
+    setNDays(wfhDays.concat(answers.onsiteDays).length);
     // log to be removed once the project is completed
     // see logs from the number of days the user selected
     console.log(`Data from the child component: ${nDays}`);
@@ -57,12 +50,12 @@ export default function DaysOfTheWeekSelection() {
     sendLogs(logMessage(logMsg));
   }
 
-  /* 
-  !! Hybrid mode 
-  temporary solution - passing dummy data with the dates which were already selected
-  so we can disable them in the component:
-  */
-  const DaysAlreadySelected = [ "Monday", "Tuesday", "Wednesday" ]
+  // TODO: UPDATE THIS
+  // * need a way to have buttons for already selected wfh days to stay selected 
+  //   (but not disabled)
+
+  // disable buttons selected for onsite days
+  const DaysDisabled = answers.onsiteDays;
 
   return (
     <Layout isText={true} Progress={Q1Progress}>
@@ -77,9 +70,9 @@ export default function DaysOfTheWeekSelection() {
         What day(s) do you usually work from home?
       </Heading>
         <DaysOfTheWeekContainer 
-          setNumberOfDays={days => setNumberOfDays(days)}
+          setNumberOfDays={days => setWFHDays(days)}
           saveDataAndLogs={() => saveDataAndShowLog("Next button clicked")}
-          disabledDays={DaysAlreadySelected}
+          disabledDays={DaysDisabled}
           customHref={"/form/Question2"}
         />
     </Layout>
