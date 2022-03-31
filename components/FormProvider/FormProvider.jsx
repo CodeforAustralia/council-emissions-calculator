@@ -2,54 +2,9 @@ import { useState, createContext } from "react";
 
 export const FormContext = createContext();
 
-// initial state for days of the week has info if it's selected or not (instead of having 2 separate states)
-const daysOfTheWeek = [
-  {
-    id: 0,
-    day: "Monday",
-    isSelected: false,
-    isDisable: false
-  },
-  {
-    id: 1,
-    day: "Tuesday",
-    isSelected: false,
-    isDisable: false
-  },
-  {
-    id: 2,
-    day: "Wednesday",
-    isSelected: false,
-    isDisable: false
-  },
-  {
-    id: 3,
-    day: "Thursday",
-    isSelected: false,
-    isDisable: false
-  },
-  {
-    id: 4,
-    day: "Friday",
-    isSelected: false,
-    isDisable: false
-  },
-  {
-    id: 5,
-    day: "Saturday",
-    isSelected: false,
-    isDisable: false
-  },
-  {
-    id: 6,
-    day: "Sunday",
-    isSelected: false,
-    isDisable: false
-  }
-];
-
 // Example set of answers
 // {
+//     workMode: "hybrid"  // one of "wfh", "onsite" or "hybrid"
 //     km: 12, // value is an integer
 //     numDaysWorked: 5, // value is an integer from 1-7
 //     wfhDays: ["Wednesday", "Friday", "Saturday"]
@@ -69,18 +24,18 @@ const daysOfTheWeek = [
 // };
 
 const initialAnswers = {
+  workMode: "",
   km: "",
   numDaysWorked: 0,
   wfhDays: [],
   onsiteDays: [],
   travelDays: [],
-  workMode: "",
   mainTransportMode: "",
   incentive: "",
   department: "",
 };
 
-const transactionId = Math.random().toString(36).substr(2, 8);
+const transactionId = Math.random().toString(36).substring(2, 8);
 
 const FormProvider = ({ children }) => {
   const [answers, setAnswers] = useState({ transactionId, ...initialAnswers });
