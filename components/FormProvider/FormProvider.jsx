@@ -4,8 +4,15 @@ export const FormContext = createContext();
 
 // Example set of answers
 // {
+//     workMode: "hybrid"  // one of "wfh", "onsite" or "hybrid"
 //     km: 12, // value is an integer
 //     numDaysWorked: 5, // value is an integer from 1-7
+//     wfhDays: ["Wednesday", "Friday", "Saturday"]
+//          // value is a list of length 0-7 containing days of week,
+//          // where respondent worked from home
+//     onsiteDays: ["Monday", "Tuesday"]
+//          // value is a list of length 0-7 containing days of week,
+//          // where respondent worked onsite
 //     travelDays: ["Monday", "Wednesday", "Friday"],
 //          // value is a list of length 0-7 containing days of week
 //     mainTransportMode: "bus",
@@ -17,16 +24,18 @@ export const FormContext = createContext();
 // };
 
 const initialAnswers = {
+  workMode: "",
   km: "",
   numDaysWorked: 0,
+  wfhDays: [],
+  onsiteDays: [],
   travelDays: [],
-  workMode: "",
   mainTransportMode: "",
   incentive: "",
   department: "",
 };
 
-const transactionId = Math.random().toString(36).substr(2, 8);
+const transactionId = Math.random().toString(36).substring(2, 8);
 
 const FormProvider = ({ children }) => {
   const [answers, setAnswers] = useState({ transactionId, ...initialAnswers });
