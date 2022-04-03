@@ -43,7 +43,7 @@ export default function ConfirmDetailsContainer({ methodIcon, title, children, d
           >
             {title}
           </Text>
-          { describtion }
+          { description }
         </Flex>
       </Flex>
       <Spacer />
