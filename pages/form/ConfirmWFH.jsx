@@ -115,7 +115,7 @@ export default function ConfirmWFH() {
         <ConfirmDetailsContainer
           methodIcon={House}
           title={title}
-          describtion={<Description />}
+          description={<Description />}
         >
           <Text>Child element will be here</Text>
         </ConfirmDetailsContainer>

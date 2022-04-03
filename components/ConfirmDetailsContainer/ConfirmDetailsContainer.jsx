@@ -2,7 +2,7 @@ import { Children, useState } from "react";
 import { Text, Box, Flex, Collapse, Spacer, Icon, Button } from "@chakra-ui/react";
 import Pencil from "../../public/images/other/pencil.svg"
 
-export default function ConfirmDetailsContainer({ methodIcon, title, children, describtion }) {
+export default function ConfirmDetailsContainer({ methodIcon, title, children, description }) {
 
   const [ openContainer, setOpenContainer ] = useState(false);
 
