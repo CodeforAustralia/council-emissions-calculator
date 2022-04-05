@@ -100,7 +100,6 @@ import ContinueButton, {
         <Container
           border=".1px solid"
           width={["305px", "708px"]}
-          height="740px"
           maxHeight={"974px"}
           borderColor="gray.200"
           centerContent
@@ -159,7 +158,7 @@ import ContinueButton, {
   
           {/* NEXT BUTTON  */}
   
-          <Flex justify={["center", "end"]}>
+          <Flex mb="30px" justify={["center", "end"]} width={["305px", "500px"]}>
             <ContinueButton
               // mainTransportMode: transportMode,
               disabled={!transportMode.length > 0}
