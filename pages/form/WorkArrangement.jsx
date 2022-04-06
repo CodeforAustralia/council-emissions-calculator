@@ -168,7 +168,7 @@ export default function WorkArrangement() {
           >
             <LinkButton
               disabled={!workMode}
-              href={"/form/DaysOfTheWeekSelection"}
+              href={(workMode === workFromHome) ? "/form/WorkFromHomeDays" : "/form/PageNotFound"}
               width={"105px"}
               topMargin="0"
               H="55px"
