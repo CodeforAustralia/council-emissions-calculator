@@ -73,7 +73,7 @@ export default function DaysOfTheWeekSelection() {
           setNumberOfDays={days => setWFHDays(days)}
           saveDataAndLogs={() => saveDataAndShowLog("Next button clicked")}
           disabledDays={DaysDisabled}
-          customHref={"/form/Question2"}
+          customHref={"/form/TravelMethod"}
         />
     </Layout>
   );
