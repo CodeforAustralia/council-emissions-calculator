@@ -101,10 +101,11 @@ export default function DaysOfTheWeekContainer({
     <Center
       justify="center"
       borderWidth="2px"
-      borderRadius="lg"
+      borderRadius="8px"
       borderColor={["white", "gray.200"]}
       width={["375px", "700px"]}
       height={["516px", "320px"]}
+      mt={10}
     >
       <Flex direction={"column"}>
         <Flex justify={["center", "left"]}>
@@ -112,18 +113,19 @@ export default function DaysOfTheWeekContainer({
             fontWeight="500"
             fontSize="18px"
             justify={["center", "left"]}
-            mt={["100px", "10px"]}
+            // mt={["100px", "20px"]}
+
+            mt={20}
           >
             Select days of the week *
           </Text>
         </Flex>
         <SimpleGrid
+          py="10"
           columns={{ md: 4 }}
           spacingX="15px"
           spacingY="15px"
-          py="10"
           textAlign="center"
-          // width={["375px", "700px"]}
         >
           {daysOfTheWeek.map((item) => (
             <GridItem key={item.id}>
@@ -136,7 +138,7 @@ export default function DaysOfTheWeekContainer({
             </GridItem>
           ))}
         </SimpleGrid>
-        <Flex justify={["center", "end"]}>
+        <Flex justify={["center", "end"]} mb={65}>
           <LinkButton
             width={["305px", "105px"]}
             height={["60px", "54.37px"]}
