@@ -8,9 +8,9 @@ export default function DaysOfTheWeekButton ({ label, onClick, isActive, disable
 
   return (
     <Button
-      w="130px" 
+    w={["305px", "128.75px"]}
       h="55px"
-      borderRadius="6%"
+      borderRadius="8px"
       colorScheme="blue"
       variant={isActive ? "solid" : "outline"}
       onClick={(e) => onClick(e.target.innerText)}
@@ -24,7 +24,9 @@ export default function DaysOfTheWeekButton ({ label, onClick, isActive, disable
       }}
       disabled={disabled}
     >
-      <Text fontSize="18px">{label}</Text>
+      <Text fontSize="18px"  fontFamily="Public Sans"
+        fontWeight="500"
+        lineHeight="28px">{label}</Text>
     </Button>
   )
   

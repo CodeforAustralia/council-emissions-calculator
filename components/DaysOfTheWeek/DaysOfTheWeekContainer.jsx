@@ -1,12 +1,5 @@
 import { useState } from "react";
-import {
-  Center,
-  Text,
-  Box,
-  SimpleGrid,
-  GridItem,
-  Flex,
-} from "@chakra-ui/react";
+import { Center, Flex, GridItem, SimpleGrid, Text } from "@chakra-ui/react";
 import DaysOfWeekButton from "./DayOfTheWeekButton";
 import LinkButton from "../LinkButton/LinkButton";
 
@@ -86,16 +79,11 @@ export default function DaysOfTheWeekContainer({
     });
     setDaysOfTheWeek(updatedData);
 
-    // get answer to how many days a week user works
-    const workingDaysNumber = updatedData.filter(
-      (item) => item.isSelected
-    ).length;
-
-    setNumberOfDays(workingDaysNumber);
-  };
-
-  // NOTE! I use minW attribute for the Box for now because at the moment the layout component has limitation for width.
-  // Please change once Layout is changed
+    // get answer to which days of the week user works
+    const workingDays = updatedData.filter(item => item.isSelected).map(x => x.day);
+    
+    setNumberOfDays(workingDays)
+  }
 
   return (
     <Center
