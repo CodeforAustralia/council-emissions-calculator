@@ -17,7 +17,7 @@ import {
   BackButton,
   ContinueButton,
 } from "../../components/LinkButton/LinkButton";
-import Q3Progress from "../../public/images/progress-bar/q3-progress-dots.svg";
+import Q6Progress from "../../public/images/progress-bar/q6-progress-dots.svg";
 import Q3Cloud from "../../public/images/clouds/cloud-q3.svg";
 import { useRouter } from "next/router";
 import { sendLogs } from "../../utils/sendLogs";
@@ -51,7 +51,7 @@ export default function Question3() {
   return (
     <Layout
       isText={true}
-      Progress={Q3Progress}
+      Progress={Q6Progress}
       maxContainerWidth="container.md"
     >
       <Box 
