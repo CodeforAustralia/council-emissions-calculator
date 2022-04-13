@@ -1,31 +1,4 @@
-        <Box w={["100%", "48%"]} ml={["0", "4"]}>
-          <FormControl mt={["10", "4"]}>
-            <FormLabel>In kilometers:</FormLabel>
-            <NumberInput isRequired={true} defaultValue={km}>
-              <NumberInputField
-                w="100%"
-                id="km-input"
-                placeholder={"Distance in kms"}
-                onChange={(e) => setKm(e.target.value)}
-              />
-            </NumberInput>
-            <FormHelperText id="km-input-helper">*Required</FormHelperText>
-          </FormControl>
-          <ContinueButton
-            disabled={!km}
-            href="/form/Question4"
-            width="100%"
-            topMargin={4}
-            onClick={() => {
-              saveAnswers();
-              sendLogs(logMessage("Next button clicked"));
-            }}
-          />
-        </Box>
-      </Flex>
-    </Layout>
-  );
-}
+import { useState } from "react";
 import {
   Box,
   Flex,
@@ -103,3 +76,54 @@ export default function Question3() {
         flexDirection={["column", "row"]}
         mt="40px"
       >
+          <Flex
+            flexDirection="column" 
+            width={["100%", "48%"]}
+          >
+            <Text
+              mt="4"
+              textAlign={["center", "left"]}
+              fontWeight="500"
+              fontSize="20px"
+            >
+            If you usually work from home, 
+            we will use the information you provide to calculate the emissions you save 
+            by working at home.
+            </Text>
+            <Text
+              mt="4"
+              textAlign={["center", "left"]}
+              fontWeight="500"
+              fontSize="20px"
+            >
+            You can use <Link color="#5DA9E9" href="https://www.google.com/maps">Google Maps</Link> to calculate the distance from home to your place of work if needed.
+            </Text>
+        </Flex>
+        <Box w={["100%", "48%"]} ml={["0", "4"]}>
+          <FormControl mt={["10", "4"]}>
+            <FormLabel>In kilometers:</FormLabel>
+            <NumberInput isRequired={true} defaultValue={km}>
+              <NumberInputField
+                w="100%"
+                id="km-input"
+                placeholder={"Distance in kms"}
+                onChange={(e) => setKm(e.target.value)}
+              />
+            </NumberInput>
+            <FormHelperText id="km-input-helper">*Required</FormHelperText>
+          </FormControl>
+          <ContinueButton
+            disabled={!km}
+            href="/form/Question4"
+            width="100%"
+            topMargin={4}
+            onClick={() => {
+              saveAnswers();
+              sendLogs(logMessage("Next button clicked"));
+            }}
+          />
+        </Box>
+      </Flex>
+    </Layout>
+  );
+}
