@@ -8,21 +8,21 @@ import { createBreakpoints } from "@chakra-ui/theme-tools";
 const breakpoints = createBreakpoints({
   sm: "630px",
   lg: "1400px",
-})
+});
 
 const headingStyle = {
   baseStyle: {
     fontWeight: 700,
     as: "h1",
     mt: ["24px", "97px"],
-    textAlign: "center"
+    textAlign: "center",
   },
   sizes: {
     xl: {
-      fontSize: [26, 36]
-    }
-  }
-}
+      fontSize: [26, 36],
+    },
+  },
+};
 
 const theme = extendTheme({
   fonts: {
@@ -31,8 +31,8 @@ const theme = extendTheme({
   },
   breakpoints,
   components: {
-    Heading: headingStyle
-  }
+    Heading: headingStyle,
+  },
 });
 
 function MyApp({ Component, pageProps }) {

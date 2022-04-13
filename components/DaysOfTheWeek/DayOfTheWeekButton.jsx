@@ -2,18 +2,31 @@ import { Button, Text } from "@chakra-ui/react";
 
 // this is a child component of the DaysOfTheWeekContainer 
 
-export default function DaysOfTheWeekButton ({ label, onClick, isActive }) {
+export default function DaysOfTheWeekButton ({ label, onClick, isActive, disabled }) {
+
+  // pass innerHTML value from each button to the parent component on click
 
   return (
     <Button
-      w="130px" 
+    w={["305px", "128.75px"]}
       h="55px"
-      borderRadius="6%"
+      borderRadius="8px"
       colorScheme="blue"
       variant={isActive ? "solid" : "outline"}
-      onClick={onClick}
+      onClick={(e) => onClick(e.target.innerText)}
+      _disabled={{
+        bg: "#D0D9DF",
+        _hover: {
+          cursor: "not-allowed",
+          bg: "#D0D9DF",
+        },
+        color: "white"
+      }}
+      disabled={disabled}
     >
-      <Text fontSize="18px">{label}</Text>
+      <Text fontSize="18px"  fontFamily="Public Sans"
+        fontWeight="500"
+        lineHeight="28px">{label}</Text>
     </Button>
   )
   

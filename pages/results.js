@@ -5,12 +5,12 @@ import Layout from "../components/Layout/Layout";
 import capitalize from "../utils/capitalize";
 import { FiDownload } from "react-icons/fi";
 import { getTripTotalsTop3 } from "./api/trips";
-import Highcharts from 'highcharts';
-import HighchartsExporting from 'highcharts/modules/exporting';
-import HighchartsReact from 'highcharts-react-official';
+import Highcharts from "highcharts";
+import HighchartsExporting from "highcharts/modules/exporting";
+import HighchartsReact from "highcharts-react-official";
 
-if (typeof Highcharts === 'object') {
-  HighchartsExporting(Highcharts)
+if (typeof Highcharts === "object") {
+  HighchartsExporting(Highcharts);
 }
 
 export async function getServerSideProps() {
@@ -21,53 +21,50 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      data: tripjson
-    }
+      data: tripjson,
+    },
   };
 }
 
 const TripsChart = ({ data }) => {
   // console.log(`data: ${ JSON.stringify(data) }`);
 
-  if (!data) return <div>I got nothing...</div>
+  if (!data) return <div>I got nothing...</div>;
 
-  let topTransportModes = data.map(t => t[0]);
-  let tripCounts = data.map(t => Number(t[1]));
+  let topTransportModes = data.map((t) => t[0]);
+  let tripCounts = data.map((t) => Number(t[1]));
   // console.log(`topTransportModes: ${ JSON.stringify(topTransportModes) }`);
   // console.log(`tripCounts: ${ JSON.stringify(tripCounts) }`);
 
   const hichartsOpts = {
     title: {
-      text: 'Trip Count by Transport Mode'
+      text: "Trip Count by Transport Mode",
     },
     chart: {
-      type: 'bar'
+      type: "bar",
     },
     xAxis: {
       // categories: ['Walking', 'Train/tram', 'E-scooter']
-      categories: topTransportModes
+      categories: topTransportModes,
     },
-    series: [{
-      name: 'Trip Count',
-      data: tripCounts
-      // data: [37, 30, 28]
-    }]
-  }
+    series: [
+      {
+        name: "Trip Count",
+        data: tripCounts,
+        // data: [37, 30, 28]
+      },
+    ],
+  };
 
-  return (
-    <HighchartsReact
-      highcharts={Highcharts}
-      options={hichartsOpts}
-    />
-  );
-}
+  return <HighchartsReact highcharts={Highcharts} options={hichartsOpts} />;
+};
 
 export default function Results({ data }) {
   const { answers } = useForm();
   const { km, mainTransportMode, department, incentive } = answers;
 
   return (
-    <Layout isText={true} >
+    <Layout isText={true}>
       {/* Button for download */}
       <Button className="resultbtn" colorScheme="blue">
         Download as PDF or CSV {""}
