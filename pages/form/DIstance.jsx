@@ -30,6 +30,9 @@ export default function Question3() {
 
   const router = useRouter();
 
+  // function to block input of special characters
+  const blockInvalidChar = e => ['e', 'E', '+', '-'].includes(e.key) && e.preventDefault();
+
   const logMessage = (msg) => {
     let incentiveMsg = () => {
       if (!!answers.incentive) {
@@ -107,6 +110,7 @@ export default function Question3() {
                 w="100%"
                 id="km-input"
                 placeholder={"Distance in kms"}
+                onKeyDown={blockInvalidChar}
                 onChange={(e) => setKm(e.target.value)}
               />
             </NumberInput>
