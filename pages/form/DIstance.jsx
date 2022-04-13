@@ -4,7 +4,6 @@ import {
   Flex,
   FormControl,
   FormLabel,
-  FormHelperText,
   Heading,
   Text,
   NumberInput,
@@ -89,9 +88,8 @@ export default function Question3() {
               fontWeight="500"
               fontSize="20px"
             >
-            If you usually work from home, 
-            we will use the information you provide to calculate the emissions you save 
-            by working at home.
+              If you usually work from home, we will use the information you provide to calculate 
+              the emissions you save by working at home.
             </Text>
             <Text
               mt="4"
@@ -99,17 +97,30 @@ export default function Question3() {
               fontWeight="500"
               fontSize="20px"
             >
-            You can use <Link color="#5DA9E9" href="https://www.google.com/maps">Google Maps</Link> to calculate the distance from home to your place of work if needed.
+              You can use <Link color="#5DA9E9" target="_blank" href="https://www.google.com/maps">Google Maps</Link> to calculate the distance from home to your place of work if needed.
             </Text>
         </Flex>
-        <Box w={["100%", "48%"]} ml={["0", "4"]}>
+        <Flex 
+          w={["100%", "48%"]} 
+          ml={["0", "4"]}
+          flexDirection="column"
+          justifyContent="center"
+        >
           <FormControl mt={["10", "4"]}>
-            <FormLabel>In kilometers:</FormLabel>
-            <NumberInput isRequired={true} defaultValue={km}>
+            <FormLabel 
+              fontSize="20px"
+            >
+              In kilometers:
+            </FormLabel>
+            <NumberInput 
+              isRequired={true} 
+              defaultValue={km}
+            >
               <NumberInputField
                 w="100%"
                 id="km-input"
-                placeholder={"Distance in kms"}
+                placeholder={"Distance in km"}
+                h="55px"
                 onKeyDown={blockInvalidChar}
                 onChange={(e) => setKm(e.target.value)}
               />
@@ -120,12 +131,13 @@ export default function Question3() {
             href="/form/Suggestions"
             width="100%"
             topMargin={4}
+            h="55px"
             onClick={() => {
               saveAnswers();
               sendLogs(logMessage("Next button clicked"));
             }}
           />
-        </Box>
+        </Flex>
       </Flex>
     </Layout>
   );
