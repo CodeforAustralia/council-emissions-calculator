@@ -47,6 +47,12 @@ export default function Question3() {
     };
   };
 
+  // function to save data and show logs on save
+  const saveDataAndShowLog = (logMsg) => {
+    saveAnswers();
+    sendLogs(logMessage(logMsg));
+  };
+
   return (
     <Layout
       isText={true}
@@ -60,10 +66,7 @@ export default function Question3() {
       >
         <BackButton
           href="/form/ConfirmWFH"
-          onClick={() => {
-            saveAnswers();
-            sendLogs(logMessage("Back button clicked"));
-          }}
+          onClick={() => saveDataAndShowLog("Back button clicked")}
         />
       </Box>
       <Q3Cloud />
@@ -132,10 +135,7 @@ export default function Question3() {
             width="100%"
             topMargin={4}
             h="55px"
-            onClick={() => {
-              saveAnswers();
-              sendLogs(logMessage("Next button clicked"));
-            }}
+            onClick={() => saveDataAndShowLog("Next button clicked")}
           />
         </Flex>
       </Flex>
