@@ -110,11 +110,10 @@ export default function Question3() {
                 onChange={(e) => setKm(e.target.value)}
               />
             </NumberInput>
-            <FormHelperText id="km-input-helper">*Required</FormHelperText>
           </FormControl>
           <ContinueButton
             disabled={!km}
-            href="/form/Question4"
+            href="/form/Suggestions"
             width="100%"
             topMargin={4}
             onClick={() => {
