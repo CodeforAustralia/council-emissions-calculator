@@ -8,7 +8,6 @@ import {
 } from "../../components/LinkButton/LinkButton";
 import Q7Progress from "../../public/images/progress-bar/q7-progress-dots.svg";
 import Q6Cloud from "../../public/images/clouds/cloud-q6.svg";
-import { sendFormResponse } from "../../utils/dbApi";
 import { useRouter } from "next/router";
 import { sendLogs } from "../../utils/sendLogs";
 
@@ -43,29 +42,40 @@ export default function Question6() {
   };
 
   return (
-    <Layout isText={true} Progress={Q7Progress}>
-      <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
+    <Layout 
+      isText={true} 
+      Progress={Q7Progress}
+    >
+      <Box 
+        pos="absolute" 
+        top={["2", "5"]} 
+        left={["2", "10"]}
+      >
         <BackButton
           href="/form/Distance"
           onClick={() => saveDataAndShowLog("Back button clicked")}
         />
       </Box>
       <Q6Cloud />
-
-      <Heading>Share your suggestions</Heading>
-
+      <Heading
+        mt="40px"
+      >
+        Share your suggestions
+      </Heading>
       <Text
         fontSize="18px"
         mt={10}
         w={["100%", "90%"]}
         textAlign={["center", "left"]}
       >
-        What can Council do to support and incentivise staff to choose more
-        sustainable modes of transport to and from work?
+        What can council do to support and incentivise staff to 
+        choose more sustainable modes of transport to and from work?
       </Text>
       <Textarea
         mt={3}
         value={incentive}
+        borderColor="#000000"
+        resize="none"
         onChange={(e) => setIncentive(e.target.value)}
         placeholder="Eg. Changing room facilities for getting ready after cycling to work."
         w={["100%", "90%"]}
