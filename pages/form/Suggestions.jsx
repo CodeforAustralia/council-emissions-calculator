@@ -11,7 +11,7 @@ import Q6Cloud from "../../public/images/clouds/cloud-q6.svg";
 import { useRouter } from "next/router";
 import { sendLogs } from "../../utils/sendLogs";
 
-export default function Question6() {
+export default function Suggestions() {
   const { answers, setAnswers } = useForm();
   const [incentive, setIncentive] = useState(answers.incentive);
 
