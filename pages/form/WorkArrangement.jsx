@@ -66,9 +66,7 @@ export default function WorkArrangement() {
       >
         <BackButton
           href="/"
-          onClick={() => {
-            saveDataAndShowLog("Back button clicked");
-          }}
+          onClick={() => saveDataAndShowLog("Back button clicked")}
         />
       </Box>
       <Cloud />
@@ -76,7 +74,7 @@ export default function WorkArrangement() {
         mt={10} 
         mb={10}
       >
-      What is your usual work arrangement?
+        What is your usual work arrangement?
       </Heading>
       <Box 
         justify="center" 
@@ -141,7 +139,7 @@ export default function WorkArrangement() {
                 fontSize={[18, 20]} 
                 fontWeight={700}
               >
-              {workOnSite}
+                {workOnSite}
               </Text>
             </Radio>
 
