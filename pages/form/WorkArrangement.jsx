@@ -11,7 +11,7 @@ import {
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import Q1Progress from "../../public/images/progress-bar/q1-progress-dots.svg";
-import Q3Cloud from "../../public/images/clouds/cloud-q3.svg";
+import Cloud from "../../public/images/clouds/cloud-work-arrangement.svg";
 import LinkButton, { BackButton } from "../../components/LinkButton/LinkButton";
 import { useRouter } from "next/router";
 import { sendLogs } from "../../utils/sendLogs";
@@ -71,7 +71,7 @@ export default function WorkArrangement() {
           }}
         />
       </Box>
-      <Q3Cloud />
+      <Cloud />
       <Heading 
         mt={10} 
         mb={10}
