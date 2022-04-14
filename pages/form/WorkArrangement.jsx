@@ -115,7 +115,7 @@ export default function WorkArrangement() {
 
             <Collapse in={workMode === workFromHome}>
               <Text 
-                fontSize={[15, 17]}       
+                fontSize={[15, 17]} 
                 px="20px" 
                 py="12px" 
                 bg="#D4EDDA"
