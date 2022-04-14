@@ -117,14 +117,14 @@ export default function WorkArrangement() {
 
             <Collapse in={workMode === workFromHome}>
               <Text 
-                fontSize={[15, 17]} 
+                fontSize={[15, 17]}       
                 px="20px" 
                 py="12px" 
                 bg="#D4EDDA"
                 borderRadius="lg" 
                 textAlign="center"
               >
-                We will use this information to calculate the emissions you save by working at home.
+                Council will use the information provided to understand commute patterns
               </Text>
             </Collapse>
 
