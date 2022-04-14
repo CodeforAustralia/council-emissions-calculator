@@ -6,7 +6,7 @@ import {
   BackButton,
   SubmitButton,
 } from "../../components/LinkButton/LinkButton";
-import Q6Progress from "../../public/images/progress-bar/q6-progress-dots.svg";
+import Q7Progress from "../../public/images/progress-bar/q7-progress-dots.svg";
 import Q6Cloud from "../../public/images/clouds/cloud-q6.svg";
 import { sendFormResponse } from "../../utils/dbApi";
 import { useRouter } from "next/router";
@@ -37,7 +37,7 @@ export default function Question6() {
   };
 
   return (
-    <Layout isText={true} Progress={Q6Progress}>
+    <Layout isText={true} Progress={Q7Progress}>
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
           href="/form/Question5"
