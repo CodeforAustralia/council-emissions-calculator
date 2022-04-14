@@ -4,7 +4,7 @@ import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import {
   BackButton,
-  SubmitButton,
+  ContinueButton
 } from "../../components/LinkButton/LinkButton";
 import Q7Progress from "../../public/images/progress-bar/q7-progress-dots.svg";
 import Q6Cloud from "../../public/images/clouds/cloud-q6.svg";
@@ -71,10 +71,10 @@ export default function Question6() {
         w={["100%", "90%"]}
         height={["9em", "5em"]}
       />
-
-      <SubmitButton
+      <ContinueButton
         topMargin={8}
         href="/form/Department"
+        disabled={!incentive}
         onClick={() => saveDataAndShowLog("Next button clicked")}
         width={["100%", "90%"]}
       />
