@@ -21,7 +21,7 @@ import Q3Cloud from "../../public/images/clouds/cloud-q3.svg";
 import { useRouter } from "next/router";
 import { sendLogs } from "../../utils/sendLogs";
 
-export default function Question3() {
+export default function Distance() {
   const { answers, setAnswers } = useForm();
   const [km, setKm] = useState(answers.km);
 
