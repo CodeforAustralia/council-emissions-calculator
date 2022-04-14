@@ -46,7 +46,7 @@ export default function Question6() {
     <Layout isText={true} Progress={Q7Progress}>
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
-          href="/form/Question5"
+          href="/form/Distance"
           onClick={() => saveDataAndShowLog("Back button clicked")}
         />
       </Box>
@@ -74,7 +74,7 @@ export default function Question6() {
 
       <SubmitButton
         topMargin={8}
-        href="/form/Thankyou"
+        href="/form/Department"
         onClick={() => saveDataAndShowLog("Next button clicked")}
         width={["100%", "90%"]}
       />
