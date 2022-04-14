@@ -36,15 +36,18 @@ export default function Question6() {
     };
   };
 
+  // function to save data and show logs on save
+  const saveDataAndShowLog = (logMsg) => {
+    saveAnswers();
+    sendLogs(logMessage(logMsg));
+  };
+
   return (
     <Layout isText={true} Progress={Q7Progress}>
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
           href="/form/Question5"
-          onClick={() => {
-            saveAnswers();
-            sendLogs(logMessage("Back button clicked"));
-          }}
+          onClick={() => saveDataAndShowLog("Back button clicked")}
         />
       </Box>
       <Q6Cloud />
@@ -72,14 +75,7 @@ export default function Question6() {
       <SubmitButton
         topMargin={8}
         href="/form/Thankyou"
-        onClick={() =>
-          setAnswers((prev) => {
-            const response = { ...prev, incentive: incentive };
-            sendLogs(logMessage("Submit button clicked"));
-            sendFormResponse(response);
-            return response;
-          })
-        }
+        onClick={() => saveDataAndShowLog("Next button clicked")}
         width={["100%", "90%"]}
       />
     </Layout>
