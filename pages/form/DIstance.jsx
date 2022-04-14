@@ -124,6 +124,7 @@ export default function Distance() {
                 id="km-input"
                 placeholder={"Distance in km"}
                 h="55px"
+                borderColor="#000000"
                 onKeyDown={blockInvalidChar}
                 onChange={(e) => setKm(e.target.value)}
               />
