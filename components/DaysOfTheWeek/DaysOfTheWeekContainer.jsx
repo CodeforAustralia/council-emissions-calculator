@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Center, Flex, GridItem, SimpleGrid, Text } from "@chakra-ui/react";
 import DaysOfWeekButton from "./DayOfTheWeekButton";
 import LinkButton from "../LinkButton/LinkButton";
+import useForm from "../../components/FormProvider";
 
 export default function DaysOfTheWeekContainer({
   setNumberOfDays,
@@ -9,48 +10,52 @@ export default function DaysOfTheWeekContainer({
   customHref,
   disabledDays,
 }) {
+  const { answers, _ } = useForm();
+  const [ wfhDays, __ ] = useState(answers.wfhDays);
+  const [ onsiteDays, ___ ] = useState(answers.onsiteDays);
+
   // initial state for days of the week has info if it's selected or not (instead of having 2 separate states)
   const [daysOfTheWeek, setDaysOfTheWeek] = useState([
     {
       id: 0,
       day: "Monday",
-      isSelected: false,
+      isSelected: wfhDays.includes("Monday") || onsiteDays.includes("Monday"),
       isDisable: false,
     },
     {
       id: 1,
       day: "Tuesday",
-      isSelected: false,
+      isSelected: wfhDays.includes("Tuesday" || onsiteDays.includes("Tuesday")),
       isDisable: false,
     },
     {
       id: 2,
       day: "Wednesday",
-      isSelected: false,
+      isSelected: wfhDays.includes("Wednesday") || onsiteDays.includes("Wednesday"),
       isDisable: false,
     },
     {
       id: 3,
       day: "Thursday",
-      isSelected: false,
+      isSelected: wfhDays.includes("Thursday") || onsiteDays.includes("Thursday"),
       isDisable: false,
     },
     {
       id: 4,
       day: "Friday",
-      isSelected: false,
+      isSelected: wfhDays.includes("Friday") || onsiteDays.includes("Friday"),
       isDisable: false,
     },
     {
       id: 5,
       day: "Saturday",
-      isSelected: false,
+      isSelected: wfhDays.includes("Saturday") || onsiteDays.includes("Saturday"),
       isDisable: false,
     },
     {
       id: 6,
       day: "Sunday",
-      isSelected: false,
+      isSelected: wfhDays.includes("Sunday") || onsiteDays.includes("Sunday"),
       isDisable: false,
     },
   ]);
