@@ -54,6 +54,18 @@ export default function WorkArrangement() {
     sendLogs(logMessage(logMsg));
   };
 
+  const getHref = (workArrangement) => {
+    let href = "";
+    switch (workArrangement) {
+      case "wfh":
+        href = "/form/WorkFromHomeDays";
+        break;
+      default:
+        href = "/form/PageNotFound";
+    }
+    return href;
+  };
+
   return (
     <Layout 
       isText={true} 
@@ -105,7 +117,7 @@ export default function WorkArrangement() {
               mb={5} 
               name={workFromHome} 
               id={workFromHome} 
-              value={workFromHome}
+              value={"wfh"}
             >
               <Text 
                 fontSize={[18, 20]} 
@@ -135,7 +147,7 @@ export default function WorkArrangement() {
               mb={5} 
               name={workOnSite} 
               id={workOnSite} 
-              value={workOnSite}
+              value={"onsite"}
             >
               <Text 
                 fontSize={[18, 20]} 
@@ -151,7 +163,7 @@ export default function WorkArrangement() {
               mt={5} 
               name={hybridMode} 
               id={hybridMode} 
-              value={hybridMode}
+              value={"hybrid"}
             >
               <Text 
                 fontSize={[18, 20]} 
@@ -168,7 +180,7 @@ export default function WorkArrangement() {
           >
             <LinkButton
               disabled={!workMode}
-              href={(workMode === workFromHome) ? "/form/WorkFromHomeDays" : "/form/PageNotFound"}
+              href={getHref(workMode)}
               width={"105px"}
               topMargin="0"
               H="55px"
