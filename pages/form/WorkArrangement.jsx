@@ -11,7 +11,7 @@ import {
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import Q1Progress from "../../public/images/progress-bar/q1-progress-dots.svg";
-import Q3Cloud from "../../public/images/clouds/cloud-q3.svg";
+import Cloud from "../../public/images/clouds/cloud-work-arrangement.svg";
 import LinkButton, { BackButton } from "../../components/LinkButton/LinkButton";
 import { useRouter } from "next/router";
 import { sendLogs } from "../../utils/sendLogs";
@@ -66,17 +66,15 @@ export default function WorkArrangement() {
       >
         <BackButton
           href="/"
-          onClick={() => {
-            saveDataAndShowLog("Back button clicked");
-          }}
+          onClick={() => saveDataAndShowLog("Back button clicked")}
         />
       </Box>
-      <Q3Cloud />
+      <Cloud />
       <Heading 
         mt={10} 
         mb={10}
       >
-      What is your usual work arrangement?
+        What is your usual work arrangement?
       </Heading>
       <Box 
         justify="center" 
@@ -124,7 +122,7 @@ export default function WorkArrangement() {
                 borderRadius="lg" 
                 textAlign="center"
               >
-                We will use this information to calculate the emissions you save by working at home.
+                Council will use the information provided to understand commute patterns
               </Text>
             </Collapse>
 
@@ -141,7 +139,7 @@ export default function WorkArrangement() {
                 fontSize={[18, 20]} 
                 fontWeight={700}
               >
-              {workOnSite}
+                {workOnSite}
               </Text>
             </Radio>
 
