@@ -11,8 +11,8 @@ export default function DaysOfTheWeekContainer({
   disabledDays,
 }) {
   const { answers, _ } = useForm();
-  const [ wfhDays, __ ] = useState(answers.wfhDays);
-  const [ onsiteDays, ___ ] = useState(answers.onsiteDays);
+  const [wfhDays, __] = useState(answers.wfhDays);
+  const [onsiteDays, ___] = useState(answers.onsiteDays);
 
   // initial state for days of the week has info if it's selected or not (instead of having 2 separate states)
   const [daysOfTheWeek, setDaysOfTheWeek] = useState([
@@ -31,13 +31,15 @@ export default function DaysOfTheWeekContainer({
     {
       id: 2,
       day: "Wednesday",
-      isSelected: wfhDays.includes("Wednesday") || onsiteDays.includes("Wednesday"),
+      isSelected:
+        wfhDays.includes("Wednesday") || onsiteDays.includes("Wednesday"),
       isDisable: false,
     },
     {
       id: 3,
       day: "Thursday",
-      isSelected: wfhDays.includes("Thursday") || onsiteDays.includes("Thursday"),
+      isSelected:
+        wfhDays.includes("Thursday") || onsiteDays.includes("Thursday"),
       isDisable: false,
     },
     {
@@ -49,7 +51,8 @@ export default function DaysOfTheWeekContainer({
     {
       id: 5,
       day: "Saturday",
-      isSelected: wfhDays.includes("Saturday") || onsiteDays.includes("Saturday"),
+      isSelected:
+        wfhDays.includes("Saturday") || onsiteDays.includes("Saturday"),
       isDisable: false,
     },
     {
@@ -85,10 +88,12 @@ export default function DaysOfTheWeekContainer({
     setDaysOfTheWeek(updatedData);
 
     // get answer to which days of the week user works
-    const workingDays = updatedData.filter(item => item.isSelected).map(x => x.day);
-    
-    setNumberOfDays(workingDays)
-  }
+    const workingDays = updatedData
+      .filter((item) => item.isSelected)
+      .map((x) => x.day);
+
+    setNumberOfDays(workingDays);
+  };
 
   return (
     <Center
