@@ -100,7 +100,7 @@ export default function Distance() {
               fontWeight="500"
               fontSize="20px"
             >
-              You can use <Link color="#5DA9E9" target="_blank" href="https://www.google.com/maps">Google Maps</Link> to calculate the distance from home to your place of work if needed.
+              You can use <Link color="#5DA9E9" target="_blank" href="https://www.google.com/maps/dir///@">Google Maps</Link> to calculate the distance from home to your place of work if needed.
             </Text>
         </Flex>
         <Flex 
