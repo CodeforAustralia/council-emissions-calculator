@@ -102,7 +102,7 @@ export default function WorkArrangement() {
               </Text>
             </Radio>
 
-            <Collapse in={workMode === workFromHome}>
+            <Collapse in={workMode === "wfh"}>
               <Text
                 fontSize={[15, 17]}
                 px="20px"
