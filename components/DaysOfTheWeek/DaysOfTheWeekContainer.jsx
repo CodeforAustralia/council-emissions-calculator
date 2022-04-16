@@ -25,7 +25,7 @@ export default function DaysOfTheWeekContainer({
     {
       id: 1,
       day: "Tuesday",
-      isSelected: wfhDays.includes("Tuesday" || onsiteDays.includes("Tuesday")),
+      isSelected: wfhDays.includes("Tuesday") || onsiteDays.includes("Tuesday"),
       isDisable: false,
     },
     {
@@ -89,6 +89,7 @@ export default function DaysOfTheWeekContainer({
 
     // get answer to which days of the week user works
     const workingDays = updatedData
+      .filter((item) => item.isDisable === false)
       .filter((item) => item.isSelected)
       .map((x) => x.day);
 
@@ -111,8 +112,6 @@ export default function DaysOfTheWeekContainer({
             fontWeight="500"
             fontSize="18px"
             justify={["center", "left"]}
-            // mt={["100px", "20px"]}
-
             mt={20}
           >
             Select days of the week *
@@ -140,9 +139,8 @@ export default function DaysOfTheWeekContainer({
           <LinkButton
             width={["305px", "105px"]}
             height={["60px", "54.37px"]}
-            disabled={!daysOfTheWeek.find((item) => item.isSelected)}
+            disabled={!daysOfTheWeek.some((item) => item.isSelected && !item.isDisable)}
             href={customHref}
-            // width={"105px"}
             topMargin="0"
             H="55px"
             justifySelf="right"
