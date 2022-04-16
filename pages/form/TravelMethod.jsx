@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, FormControl, Heading, Text, Flex } from "@chakra-ui/react";
+import { Box, FormControl, Heading, Text, Flex ,  Collapse,} from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import {
@@ -78,8 +78,21 @@ export default function Question4() {
                 Select the ways you generally travel to work.
               </Text>
             </Box>
-            <TravelMethodButtons handleTransportMode={handleTransportMode} />
-
+            <TravelMethodButtons handleTransportMode={handleTransportMode}  />
+{/* Collapse on carpool selection*/}
+<Collapse in={transportMode === "Carpool"}>
+          <Text
+            mb={5}
+            fontSize={[15, 17]}
+            px="20px"
+            py="12px"
+            color="#155724"
+            bg="#D4EDDA"
+          >
+           How many other people would you most likely to carpool with?
+          </Text>
+        </Collapse>
+        {/* Button for next page */}
             <Flex justify={["center", "end"]}>
               <ContinueButton
                 disabled={!transportMode}
