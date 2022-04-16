@@ -12,20 +12,25 @@ import { sendLogs } from "../../utils/sendLogs";
 import useForm from "../../components/FormProvider";
 
 export default function WorkOnSiteDays() {
-
   const { answers, setAnswers } = useForm();
-  const [ nDays, setNDays ] = useState(answers.numDaysWorked);
-  const [ onsiteDays, setOnsiteDays ] = useState(answers.onsiteDays);
+  const [nDays, setNDays] = useState(answers.numDaysWorked);
+  const [onsiteDays, setOnsiteDays] = useState(answers.onsiteDays);
 
-  const saveAnswers = () => setAnswers(prev => ({ ...prev, numDaysWorked: nDays, onsiteDays: onsiteDays }));
+  const saveAnswers = () =>
+    setAnswers((prev) => ({
+      ...prev,
+      numDaysWorked: nDays,
+      onsiteDays: onsiteDays,
+    }));
 
   const router = useRouter();
 
   const logMessage = (msg) => {
     let incentiveMsg = () => {
-      if (!!answers.incentive) {return "<filled>"}
-      else return "<empty>"
-    }
+      if (!!answers.incentive) {
+        return "<filled>";
+      } else return "<empty>";
+    };
     return {
       page: router.pathname,
       event: msg,
@@ -33,22 +38,21 @@ export default function WorkOnSiteDays() {
       numDaysWorked: onsiteDays.concat(answers.wfhDays).length,
       onsiteDays: onsiteDays.join(),
       incentive: incentiveMsg(),
-    }
-  }
+    };
+  };
 
   // we  pass this function as props to our child component to update Form data and logs
   const saveDataAndShowLog = (logMsg) => {
-
     setNDays(onsiteDays.concat(answers.wfhDays).length);
     // log to be removed once the project is completed
     // see logs from the number of days the user selected
     console.log(`Data from the child component: ${nDays}`);
     // logs for when the button got clicked
-    console.log(logMsg)
+    console.log(logMsg);
 
     saveAnswers();
     sendLogs(logMessage(logMsg));
-  }
+  };
 
   // disable buttons selected for wfh days
   const DaysDisabled = answers.wfhDays;
@@ -65,12 +69,12 @@ export default function WorkOnSiteDays() {
       <Heading mt={10} mb={10}>
         Which day(s) do you work on-site?
       </Heading>
-        <DaysOfTheWeekContainer
-          setNumberOfDays={days => setOnsiteDays(days)}
-          saveDataAndLogs={() => saveDataAndShowLog("Next button clicked")}
-          disabledDays={DaysDisabled}
-          customHref={"/form/TravelMethod"} //TODO: ENSURE LINK TO NEXT PAGE IS CORRECT!
-        />
+      <DaysOfTheWeekContainer
+        setNumberOfDays={(days) => setOnsiteDays(days)}
+        saveDataAndLogs={() => saveDataAndShowLog("Next button clicked")}
+        disabledDays={DaysDisabled}
+        customHref={"/form/TravelMethod"} //TODO: ENSURE LINK TO NEXT PAGE IS CORRECT!
+      />
     </Layout>
   );
 }
