@@ -50,10 +50,6 @@ export default function DaysOfTheWeekSelection() {
     sendLogs(logMessage(logMsg));
   }
 
-  // TODO: UPDATE THIS
-  // * need a way to have buttons for already selected wfh days to stay selected 
-  //   (but not disabled)
-
   // disable buttons selected for onsite days
   const DaysDisabled = answers.onsiteDays;
 
@@ -67,13 +63,13 @@ export default function DaysOfTheWeekSelection() {
       </Box>
       <Q1Cloud />
       <Heading mt={10} mb={10}>
-        What day(s) do you usually work from home?
+        Which day(s) do you usually work from home?
       </Heading>
         <DaysOfTheWeekContainer 
           setNumberOfDays={days => setWFHDays(days)}
           saveDataAndLogs={() => saveDataAndShowLog("Next button clicked")}
           disabledDays={DaysDisabled}
-          customHref={"/form/TravelMethod"}
+          customHref={"/form/WorkOnSiteDays"} //TODO: ENSURE LINK TO NEXT PAGE IS CORRECT!
         />
     </Layout>
   );
