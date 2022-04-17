@@ -26,7 +26,7 @@ const ModesOfTransportButtons = ({
       <Center width={["305px", "548px"]} height={["351px", "304px"]}>
         <SimpleGrid columns={3} id="selector" spacingX="15px" spacingY="15px">
           {modesOfTransport.map((mode, i) => (
-            <Center key={mode}>
+            <Center key={i}>
               <TravelMethodButton
                 mode={mode}
                 isActive={status[i]}

@@ -27,7 +27,6 @@ export default function TravelMethod() {
   const saveAnswers = () =>
     setAnswers((prev) => ({ ...prev, mainTransportMode: transportMode }));
   
-
   // handle when method button clicked
 
   const methodClickHandler = (eventText) => {
@@ -39,9 +38,9 @@ export default function TravelMethod() {
     setStatus(copy);
 
     let selected = transportMode;
-    // ? This line may be needed once data object methods to save data is finalised
-    // if (selected.includes(e.target.value)) {
-    //   const selected = selected.filter((mode) => mode !== e.target.value);
+   
+    // if (selected.includes(eventText)) {
+    //   const selected = selected.filter((mode) => mode !== eventText);
     // } else {
     selected = [...selected, eventText];
     // }

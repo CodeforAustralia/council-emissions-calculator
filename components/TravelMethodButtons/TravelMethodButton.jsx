@@ -42,8 +42,6 @@ export default function ModeButton({
           </Text>
         </Box>
       </Flex>
-
-      
     </Button>
   );
 }
