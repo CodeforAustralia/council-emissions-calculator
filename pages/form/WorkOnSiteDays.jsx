@@ -19,7 +19,7 @@ export default function WorkOnSiteDays() {
   const saveAnswers = () =>
     setAnswers((prev) => ({
       ...prev,
-      numDaysWorked: nDays,
+      numDaysWorked: onsiteDays.concat(answers.wfhDays).length,
       onsiteDays: onsiteDays,
     }));
 
@@ -44,11 +44,6 @@ export default function WorkOnSiteDays() {
   // we  pass this function as props to our child component to update Form data and logs
   const saveDataAndShowLog = (logMsg) => {
     setNDays(onsiteDays.concat(answers.wfhDays).length);
-    // log to be removed once the project is completed
-    // see logs from the number of days the user selected
-    console.log(`Data from the child component: ${nDays}`);
-    // logs for when the button got clicked
-    console.log(logMsg);
 
     saveAnswers();
     sendLogs(logMessage(logMsg));
@@ -73,7 +68,7 @@ export default function WorkOnSiteDays() {
         setNumberOfDays={(days) => setOnsiteDays(days)}
         saveDataAndLogs={() => saveDataAndShowLog("Next button clicked")}
         disabledDays={DaysDisabled}
-        customHref={"/form/TravelMethod"} //TODO: ENSURE LINK TO NEXT PAGE IS CORRECT!
+        customHref={"/form/TravelMethod"}
       />
     </Layout>
   );
