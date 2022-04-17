@@ -1,28 +1,49 @@
-import { Button, Box, Icon } from "@chakra-ui/react";
+import { Button, Text, Icon, Flex, Box } from "@chakra-ui/react";
 import { transportIcon } from "../../utils/constants";
 
-export function TravelMethodButton({ handleTransPortMode, mode, ind }) {
+export default function ModeButton({
+  mode,
+  onClick,
+  isActive,
+  ind,
+}) {
+
   return (
     <Button
-      fontSize={["12px", "16px"]}
-      color="#044B7F"
+      fontSize="16px"
       height={["100px", "80px"]}
       width={["91.67px", "150px"]}
       border="1px"
-      onChange={handleTransPortMode}
-      colorScheme="#044B7F"
-      value={mode}
+      p="0px"
+      onClick={(e) => onClick(e.target.innerText)}
+      variant={isActive ? "solid" : "outline"}
+      _active={{ border: "solid" }}
+      _hover={{
+        bg: "var(--chakra-colors-blue-500)",
+        color: "#fff",
+      }}
+      colorScheme="blue"
     >
-      <Box
-        pos="absolute"
-        width={["30px", "32px"]}
-        height={["30px", "32px"]}
-        fontSize={"16px"}
-        mb={"22px"}
-      >
-        <Icon as={transportIcon[ind]} />
-      </Box>
-      {mode}
+      <Flex justify="center" align="center" direction="column"> 
+        <Icon
+          as={transportIcon[ind]}
+          fontSize={"20px"}
+        />
+        <Box width="100%" p="0px" mt={1}>
+          <Text
+            d="inline"
+            fontSize="16px"
+            fontFamily="Public Sans"
+            fontWeight="400"
+            lineHeight="19px"
+            letterSpacing="0.022em"
+          >
+            {mode}
+          </Text>
+        </Box>
+      </Flex>
+
+      
     </Button>
   );
 }

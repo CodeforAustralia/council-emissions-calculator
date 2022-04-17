@@ -1,27 +1,52 @@
-import { useState } from "react";
-import { Box, FormControl, Heading, Text, Flex ,  Collapse,} from "@chakra-ui/react";
-import Layout from "../../components/Layout/Layout";
-import useForm from "../../components/FormProvider";
-import {
-  ContinueButton,
+import { useRouter } from "next/router";
+import ContinueButton, {
   BackButton,
 } from "../../components/LinkButton/LinkButton";
-import { TravelMethodButtons } from "../../components/TravelMethodButtons/TravelMethodButtons";
+import { useState } from "react";
+import { Box, Heading, Flex, Container } from "@chakra-ui/react";
+import Layout from "../../components/Layout/Layout";
+import useForm from "../../components/FormProvider";
+import ModesOfTransportButtons from "../../components/TravelMethodButtons/TravelMethodButtons";
 import Q4Progress from "../../public/images/progress-bar/travelMethodSelection-progress-dots.svg";
+
+import { modesOfTransport } from "../../utils/constants";
 import Q4Cloud from "../../public/images/clouds/cloud-travelMethodSelection.svg";
-import { useRouter } from "next/router";
 import { sendLogs } from "../../utils/sendLogs";
-export default function Question4() {
+
+export default function TravelMethod() {
   const { answers, setAnswers } = useForm();
 
   const [transportMode, setTransportMode] = useState(
-    answers.mainTransportMode || ""
+    answers.mainTransportMode || []
   );
-
-  const handleTransportMode = (e) => setTransportMode(e.target.value);
+  const [count, setCount] = useState(0);
+  const [status, setStatus] = useState(
+    new Array(modesOfTransport.length).fill(false)
+  );
 
   const saveAnswers = () =>
     setAnswers((prev) => ({ ...prev, mainTransportMode: transportMode }));
+  
+
+  // handle when method button clicked
+
+  const methodClickHandler = (eventText) => {
+  
+    const ind = modesOfTransport.indexOf(eventText);
+   
+    const copy = [...status];
+    copy[ind] = !copy[ind];
+    setStatus(copy);
+
+    let selected = transportMode;
+    // ? This line may be needed once data object methods to save data is finalised
+    // if (selected.includes(e.target.value)) {
+    //   const selected = selected.filter((mode) => mode !== e.target.value);
+    // } else {
+    selected = [...selected, eventText];
+    // }
+    setTransportMode(selected);
+  };
 
   const router = useRouter();
 
@@ -39,7 +64,10 @@ export default function Question4() {
       incentive: incentiveMsg(),
     };
   };
+  // counter function
+  const handleMinus = () => setCount(count - 1);
 
+  const handlePlus = () => setCount(count + 1);
   return (
     <Layout
       isText={true}
@@ -48,7 +76,7 @@ export default function Question4() {
     >
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
-          href="/form/Question3"
+          href="/"
           onClick={() => {
             saveAnswers();
             sendLogs(logMessage("Back button clicked"));
@@ -56,60 +84,46 @@ export default function Question4() {
         />
       </Box>
       <Q4Cloud />
-
-      <Heading width={["100%", "60%"]} fontSize="16px">
-        What are your usual travel methods to work?
+      <Heading width={["100%", "60%"]} mb="16px" fontSize="16px">
+        {" "}
+        Please tell us how you travel to work on particular days.
       </Heading>
 
-      <Flex mt={5} flexDirection={"column"}>
-        <Flex flex={1} flexDirection="column" ms={[0, 10]} mt={[8, 5]}>
-          <Text fontSize="16px" textAlign={"center"} mb={5}>
-            Please tell us how you travel to work on particular days.
-          </Text>
-          <FormControl
-            isRequired
-            border=".1px solid"
-            width={["305px", "708px"]}
-            height={["400px", "503.37px"]}
-            borderColor={["white", "gray.200"]}
+      <Container
+        border={["0px none", ".1px solid"]}
+        width={["305px", "708px"]}
+        maxHeight={"974px"}
+        borderColor={["white", "gray.200"]}
+        centerContent
+      >
+        <ModesOfTransportButtons
+          transportMode={transportMode}
+          methodClickHandler={methodClickHandler}
+          handleMinus={handleMinus}
+          handlePlus={handlePlus}
+          count={count}
+          status={status}
+        />
+
+        {/* NEXT BUTTON  */}
+
+        <Flex mb="30px" justify={["center", "end"]} width={["305px", "500px"]}>
+          <ContinueButton
+            // mainTransportMode: transportMode,
+            disabled={!transportMode.length > 0}
+            href="/form/ConfirmWFH"
+            width={["305px", "105px"]}
+            height={["60px", "54.37px"]}
+            justifySelf="right"
+            onClick={() => {
+              saveAnswers();
+              sendLogs(logMessage("Next button clicked"));
+            }}
           >
-            <Box flex={1} mb={5} mt={5}>
-              <Text fontSize="16px" textAlign={"center"}>
-                Select the ways you generally travel to work.
-              </Text>
-            </Box>
-            <TravelMethodButtons handleTransportMode={handleTransportMode}  />
-{/* Collapse on carpool selection*/}
-<Collapse in={transportMode === "Carpool"}>
-          <Text
-            mb={5}
-            fontSize={[15, 17]}
-            px="20px"
-            py="12px"
-            color="#155724"
-            bg="#D4EDDA"
-          >
-           How many other people would you most likely to carpool with?
-          </Text>
-        </Collapse>
-        {/* Button for next page */}
-            <Flex justify={["center", "end"]}>
-              <ContinueButton
-                disabled={!transportMode}
-                href="/form/Question5"
-                width={["99px", "105px"]}
-                height={["60px", "54.37px"]}
-                onClick={() => {
-                  saveAnswers();
-                  sendLogs(logMessage("Next button clicked"));
-                }}
-              >
-                Save
-              </ContinueButton>
-            </Flex>
-          </FormControl>
+            Next
+          </ContinueButton>
         </Flex>
-      </Flex>
+      </Container>
     </Layout>
   );
 }
