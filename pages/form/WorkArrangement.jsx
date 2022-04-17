@@ -29,8 +29,7 @@ export default function WorkArrangement() {
   const saveAnswers = () => {
     if (workMode === "wfh") {
       setAnswers((prev) => ({ ...prev, workMode: workMode, onsiteDays: [] }));
-    } else
-    if (workMode === "onsite") {
+    } else if (workMode === "onsite") {
       setAnswers((prev) => ({ ...prev, workMode: workMode, wfhDays: [] }));
     } else {
       setAnswers((prev) => ({ ...prev, workMode: workMode }));
@@ -54,8 +53,7 @@ export default function WorkArrangement() {
         onsiteDays: [].join(),
         incentive: incentiveMsg(),
       };
-    } else
-    if (workMode === "onsite") {
+    } else if (workMode === "onsite") {
       return {
         page: router.pathname,
         event: msg,

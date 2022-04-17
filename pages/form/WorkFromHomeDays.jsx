@@ -17,7 +17,11 @@ export default function DaysOfTheWeekSelection() {
   const [wfhDays, setWFHDays] = useState(answers.wfhDays);
 
   const saveAnswers = () =>
-    setAnswers((prev) => ({ ...prev, numDaysWorked: wfhDays.concat(answers.onsiteDays).length, wfhDays: wfhDays }));
+    setAnswers((prev) => ({
+      ...prev,
+      numDaysWorked: wfhDays.concat(answers.onsiteDays).length,
+      wfhDays: wfhDays,
+    }));
 
   const router = useRouter();
 
