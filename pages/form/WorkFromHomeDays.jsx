@@ -17,7 +17,7 @@ export default function DaysOfTheWeekSelection() {
   const [wfhDays, setWFHDays] = useState(answers.wfhDays);
 
   const saveAnswers = () =>
-    setAnswers((prev) => ({ ...prev, numDaysWorked: nDays, wfhDays: wfhDays }));
+    setAnswers((prev) => ({ ...prev, numDaysWorked: wfhDays.concat(answers.onsiteDays).length, wfhDays: wfhDays }));
 
   const router = useRouter();
 
@@ -40,18 +40,28 @@ export default function DaysOfTheWeekSelection() {
   // we  pass this function as props to our child component to update Form data and logs
   const saveDataAndShowLog = (logMsg) => {
     setNDays(wfhDays.concat(answers.onsiteDays).length);
-    // log to be removed once the project is completed
-    // see logs from the number of days the user selected
-    console.log(`Data from the child component: ${nDays}`);
-    // logs for when the button got clicked
-    console.log(logMsg);
-
     saveAnswers();
     sendLogs(logMessage(logMsg));
   };
 
   // disable buttons selected for onsite days
   const DaysDisabled = answers.onsiteDays;
+
+  const getHref = (workArrangement) => {
+    let href = "";
+    switch (workArrangement) {
+      case "wfh":
+      case "onsite":
+        href = "/form/TravelMethod";
+        break;
+      case "hybrid":
+        href = "/form/WorkOnSiteDays";
+        break;
+      default:
+        href = "/form/PageNotFound";
+    }
+    return href;
+  };
 
   return (
     <Layout isText={true} Progress={Q1Progress}>
@@ -69,7 +79,7 @@ export default function DaysOfTheWeekSelection() {
         setNumberOfDays={(days) => setWFHDays(days)}
         saveDataAndLogs={() => saveDataAndShowLog("Next button clicked")}
         disabledDays={DaysDisabled}
-        customHref={"/form/WorkOnSiteDays"} //TODO: ENSURE LINK TO NEXT PAGE IS CORRECT!
+        customHref={getHref(answers.workMode)}
       />
     </Layout>
   );
