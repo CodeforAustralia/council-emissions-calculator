@@ -27,8 +27,13 @@ export default function WorkArrangement() {
   const [workMode, setWorkMode] = useState(answers.workMode);
 
   const saveAnswers = () => {
-    // saving radio button selection
-    setAnswers((prev) => ({ ...prev, workMode: workMode }));
+    if (workMode === "wfh") {
+      setAnswers((prev) => ({ ...prev, workMode: workMode, onsiteDays: [] }));
+    } else if (workMode === "onsite") {
+      setAnswers((prev) => ({ ...prev, workMode: workMode, wfhDays: [] }));
+    } else {
+      setAnswers((prev) => ({ ...prev, workMode: workMode }));
+    }
   };
 
   const router = useRouter();
@@ -39,13 +44,33 @@ export default function WorkArrangement() {
         return "<filled>";
       } else return "<empty>";
     };
-    return {
-      page: router.pathname,
-      event: msg,
-      ...answers,
-      workMode: workMode,
-      incentive: incentiveMsg(),
-    };
+    if (workMode === "wfh") {
+      return {
+        page: router.pathname,
+        event: msg,
+        ...answers,
+        workMode: workMode,
+        onsiteDays: [].join(),
+        incentive: incentiveMsg(),
+      };
+    } else if (workMode === "onsite") {
+      return {
+        page: router.pathname,
+        event: msg,
+        ...answers,
+        workMode: workMode,
+        wfhDays: [].join(),
+        incentive: incentiveMsg(),
+      };
+    } else {
+      return {
+        page: router.pathname,
+        event: msg,
+        ...answers,
+        workMode: workMode,
+        incentive: incentiveMsg(),
+      };
+    }
   };
 
   // function to save data and show logs on save
@@ -58,7 +83,11 @@ export default function WorkArrangement() {
     let href = "";
     switch (workArrangement) {
       case "wfh":
+      case "hybrid":
         href = "/form/WorkFromHomeDays";
+        break;
+      case "onsite":
+        href = "/form/WorkOnSiteDays";
         break;
       default:
         href = "/form/PageNotFound";
