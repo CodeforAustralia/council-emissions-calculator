@@ -14,6 +14,7 @@ const ModesOfTransportButtons = ({
   handlePlus,
   count,
   status,
+  
 }) => {
   
   return (
@@ -23,10 +24,11 @@ const ModesOfTransportButtons = ({
       </Flex>
 
       {/*ALL travel method button selection */}
-      <Center width={["305px", "548px"]} height={["351px", "304px"]}>
-        <SimpleGrid columns={3} id="selector" spacingX="15px" spacingY="15px">
+      <Flex  direction="column"
+        justifyt="center" width={["305px", "548px"]} height={["351px", "304px"]}>
+        <SimpleGrid columns={3} id="selector" spacingX="15px" spacingY="15px"   >
           {modesOfTransport.map((mode, i) => (
-            <Center key={i}>
+            <Center justify="center" key={i} direction="column" >
               <TravelMethodButton
                 mode={mode}
                 isActive={status[i]}
@@ -36,7 +38,7 @@ const ModesOfTransportButtons = ({
             </Center>
           ))}
         </SimpleGrid>
-      </Center>
+      </Flex>
       {/* Carpool counter */}
       {status[2] && (
         <Counter

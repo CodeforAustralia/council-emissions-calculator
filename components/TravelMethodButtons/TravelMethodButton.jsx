@@ -1,4 +1,4 @@
-import { Button, Text, Icon, Flex, Box } from "@chakra-ui/react";
+import { Button, Text, Icon, Flex, Box,Container } from "@chakra-ui/react";
 import { transportIcon } from "../../utils/constants";
 
 export default function ModeButton({
@@ -14,7 +14,8 @@ export default function ModeButton({
       height={["100px", "80px"]}
       width={["91.67px", "150px"]}
       border="1px"
-      p="0px"
+     p="0px"
+   
       onClick={(e) => onClick(e.target.innerText)}
       variant={isActive ? "solid" : "outline"}
       _active={{ border: "solid" }}
@@ -30,16 +31,20 @@ export default function ModeButton({
           fontSize={"20px"}
         />
         <Box width="100%" p="0px" mt={1}>
+          
           <Text
-            d="inline"
+    d="inline" 
             fontSize="16px"
             fontFamily="Public Sans"
             fontWeight="400"
             lineHeight="19px"
             letterSpacing="0.022em"
+      
           >
             {mode}
           </Text>
+         
+         
         </Box>
       </Flex>
     </Button>

@@ -13,6 +13,18 @@ import { modesOfTransport } from "../../utils/constants";
 import Q4Cloud from "../../public/images/clouds/cloud-travelMethodSelection.svg";
 import { sendLogs } from "../../utils/sendLogs";
 
+// testing data object
+
+let answ = {
+  traveledWay:[
+      { Bus: [] },
+      { Car: [] },]
+}
+
+const tranKey = (Object.keys(Object.assign({}, ...answ.traveledWay)));
+console.log(tranKey)
+// Testing works for collection initial answered saved transport mode collected in tranKey
+
 export default function TravelMethod() {
   const { answers, setAnswers } = useForm();
 
@@ -75,7 +87,7 @@ export default function TravelMethod() {
     >
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
-          href="/"
+          href="/form/WorkFromHome"
           onClick={() => {
             saveAnswers();
             sendLogs(logMessage("Back button clicked"));
@@ -109,7 +121,7 @@ export default function TravelMethod() {
         <Flex mb="30px" justify={["center", "end"]} width={["305px", "500px"]}>
           <ContinueButton
             // mainTransportMode: transportMode,
-            disabled={!transportMode.length > 0}
+            disabled={!status.includes(true)}
             href="/form/ConfirmWFH"
             width={["305px", "105px"]}
             height={["60px", "54.37px"]}
