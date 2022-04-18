@@ -40,6 +40,22 @@ export default function Question4() {
     };
   };
 
+  const getBackHref = (workArrangement) => {
+    let href = "";
+    switch (workArrangement) {
+      case "wfh":
+        href = "/form/WorkFromHomeDays";
+        break;
+      case "onsite":
+      case "hybrid":
+        href = "/form/WorkOnSiteDays";
+        break;
+      default:
+        href = "/form/PageNotFound";
+    }
+    return href;
+  };
+
   return (
     <Layout
       isText={true}
@@ -48,7 +64,7 @@ export default function Question4() {
     >
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
-          href="/form/Question3"
+          href={getBackHref(answers.workMode)}
           onClick={() => {
             saveAnswers();
             sendLogs(logMessage("Back button clicked"));
