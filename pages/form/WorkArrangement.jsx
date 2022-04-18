@@ -28,9 +28,19 @@ export default function WorkArrangement() {
 
   const saveAnswers = () => {
     if (workMode === "wfh") {
-      setAnswers((prev) => ({ ...prev, workMode: workMode, numDaysWorked: answers.wfhDays.length, onsiteDays: [] }));
+      setAnswers((prev) => ({
+        ...prev,
+        workMode: workMode,
+        numDaysWorked: answers.wfhDays.length,
+        onsiteDays: [],
+      }));
     } else if (workMode === "onsite") {
-      setAnswers((prev) => ({ ...prev, workMode: workMode, numDaysWorked: answers.onsiteDays.length, wfhDays: [] }));
+      setAnswers((prev) => ({
+        ...prev,
+        workMode: workMode,
+        numDaysWorked: answers.onsiteDays.length,
+        wfhDays: [],
+      }));
     } else {
       setAnswers((prev) => ({ ...prev, workMode: workMode }));
     }
