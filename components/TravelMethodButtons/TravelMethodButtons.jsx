@@ -21,6 +21,7 @@ export function TravelMethodButtons({ handleTransPortMode }) {
               handleTransPortMode={handleTransPortMode}
               mode={mode}
               ind={i}
+              value={mode}
             />
           </Box>
         ))}
