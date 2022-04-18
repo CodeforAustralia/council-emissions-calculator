@@ -11,13 +11,17 @@ import { useRouter } from "next/router";
 import { sendLogs } from "../../utils/sendLogs";
 import useForm from "../../components/FormProvider";
 
-export default function DaysOfTheWeekSelection() {
+export default function WorkOnSiteDays() {
   const { answers, setAnswers } = useForm();
   const [nDays, setNDays] = useState(answers.numDaysWorked);
-  const [wfhDays, setWFHDays] = useState(answers.wfhDays);
+  const [onsiteDays, setOnsiteDays] = useState(answers.onsiteDays);
 
   const saveAnswers = () =>
-    setAnswers((prev) => ({ ...prev, numDaysWorked: nDays, wfhDays: wfhDays }));
+    setAnswers((prev) => ({
+      ...prev,
+      numDaysWorked: nDays,
+      onsiteDays: onsiteDays,
+    }));
 
   const router = useRouter();
 
@@ -31,15 +35,15 @@ export default function DaysOfTheWeekSelection() {
       page: router.pathname,
       event: msg,
       ...answers,
-      numDaysWorked: wfhDays.concat(answers.onsiteDays).length,
-      wfhDays: wfhDays.join(),
+      numDaysWorked: onsiteDays.concat(answers.wfhDays).length,
+      onsiteDays: onsiteDays.join(),
       incentive: incentiveMsg(),
     };
   };
 
   // we  pass this function as props to our child component to update Form data and logs
   const saveDataAndShowLog = (logMsg) => {
-    setNDays(wfhDays.concat(answers.onsiteDays).length);
+    setNDays(onsiteDays.concat(answers.wfhDays).length);
     // log to be removed once the project is completed
     // see logs from the number of days the user selected
     console.log(`Data from the child component: ${nDays}`);
@@ -50,8 +54,8 @@ export default function DaysOfTheWeekSelection() {
     sendLogs(logMessage(logMsg));
   };
 
-  // disable buttons selected for onsite days
-  const DaysDisabled = answers.onsiteDays;
+  // disable buttons selected for wfh days
+  const DaysDisabled = answers.wfhDays;
 
   return (
     <Layout isText={true} Progress={Q1Progress}>
@@ -63,13 +67,13 @@ export default function DaysOfTheWeekSelection() {
       </Box>
       <Q1Cloud />
       <Heading mt={10} mb={10}>
-        Which day(s) do you usually work from home?
+        Which day(s) do you work on-site?
       </Heading>
       <DaysOfTheWeekContainer
-        setNumberOfDays={(days) => setWFHDays(days)}
+        setNumberOfDays={(days) => setOnsiteDays(days)}
         saveDataAndLogs={() => saveDataAndShowLog("Next button clicked")}
         disabledDays={DaysDisabled}
-        customHref={"/form/WorkOnSiteDays"} //TODO: ENSURE LINK TO NEXT PAGE IS CORRECT!
+        customHref={"/form/TravelMethod"} //TODO: ENSURE LINK TO NEXT PAGE IS CORRECT!
       />
     </Layout>
   );
