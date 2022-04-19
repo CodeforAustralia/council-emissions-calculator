@@ -49,11 +49,7 @@ export default function TravelMethod() {
 
     let selected = transportMode;
    
-    // if (selected.includes(eventText)) {
-    //   const selected = selected.filter((mode) => mode !== eventText);
-    // } else {
     selected = [...selected, eventText];
-    // }
     setTransportMode(selected);
   };
 
