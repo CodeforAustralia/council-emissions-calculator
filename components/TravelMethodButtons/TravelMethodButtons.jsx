@@ -41,7 +41,7 @@ const ModesOfTransportButtons = ({
       </Flex>
       {/* Carpool counter */}
       {status[2] && (
-        <Counter
+        <CarpoolCounter
           handleMinus={handleMinus}
           handlePlus={handlePlus}
           count={count}
