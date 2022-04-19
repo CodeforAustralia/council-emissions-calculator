@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { BackButton, ContinueButton } from "../../components/LinkButton/LinkButton";
 import { useState } from "react";
-import { Box, Heading, Flex, Container,Text } from "@chakra-ui/react";
+import { Box, Container, Flex, Heading, Text } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import TravelMethodButtons from "../../components/TravelMethodButtons/TravelMethodButtons";
@@ -73,6 +73,23 @@ export default function TravelMethod() {
   const handleMinus = () => setCount(count - 1);
 
   const handlePlus = () => setCount(count + 1);
+
+  const getBackHref = (workArrangement) => {
+    let href = "";
+    switch (workArrangement) {
+      case "wfh":
+        href = "/form/WorkFromHomeDays";
+        break;
+      case "onsite":
+      case "hybrid":
+        href = "/form/WorkOnSiteDays";
+        break;
+      default:
+        href = "/form/PageNotFound";
+    }
+    return href;
+  };
+
   return (
     <Layout
       isText={true}
@@ -81,7 +98,7 @@ export default function TravelMethod() {
     >
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
-          href="/form/WorkFromHomeDays"
+          href={getBackHref(answers.workMode)}
           onClick={() => {
             saveAnswers();
             sendLogs(logMessage("Back button clicked"));

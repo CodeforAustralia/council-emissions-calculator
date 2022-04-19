@@ -28,9 +28,19 @@ export default function WorkArrangement() {
 
   const saveAnswers = () => {
     if (workMode === "wfh") {
-      setAnswers((prev) => ({ ...prev, workMode: workMode, onsiteDays: [] }));
+      setAnswers((prev) => ({
+        ...prev,
+        workMode: workMode,
+        numDaysWorked: answers.wfhDays.length,
+        onsiteDays: [],
+      }));
     } else if (workMode === "onsite") {
-      setAnswers((prev) => ({ ...prev, workMode: workMode, wfhDays: [] }));
+      setAnswers((prev) => ({
+        ...prev,
+        workMode: workMode,
+        numDaysWorked: answers.onsiteDays.length,
+        wfhDays: [],
+      }));
     } else {
       setAnswers((prev) => ({ ...prev, workMode: workMode }));
     }
@@ -50,6 +60,7 @@ export default function WorkArrangement() {
         event: msg,
         ...answers,
         workMode: workMode,
+        numDaysWorked: answers.wfhDays.length,
         onsiteDays: [].join(),
         incentive: incentiveMsg(),
       };
@@ -59,6 +70,7 @@ export default function WorkArrangement() {
         event: msg,
         ...answers,
         workMode: workMode,
+        numDaysWorked: answers.onsiteDays.length,
         wfhDays: [].join(),
         incentive: incentiveMsg(),
       };
