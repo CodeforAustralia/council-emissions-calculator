@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { Box, FormControl, Heading, Text, Flex ,  Collapse,} from "@chakra-ui/react";
+import {
+  Box,
+  FormControl,
+  Heading,
+  Text,
+  Flex,
+  Collapse,
+} from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import {
@@ -40,6 +47,22 @@ export default function Question4() {
     };
   };
 
+  const getBackHref = (workArrangement) => {
+    let href = "";
+    switch (workArrangement) {
+      case "wfh":
+        href = "/form/WorkFromHomeDays";
+        break;
+      case "onsite":
+      case "hybrid":
+        href = "/form/WorkOnSiteDays";
+        break;
+      default:
+        href = "/form/PageNotFound";
+    }
+    return href;
+  };
+
   return (
     <Layout
       isText={true}
@@ -48,7 +71,7 @@ export default function Question4() {
     >
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
-          href="/form/Question3"
+          href={getBackHref(answers.workMode)}
           onClick={() => {
             saveAnswers();
             sendLogs(logMessage("Back button clicked"));
@@ -78,21 +101,21 @@ export default function Question4() {
                 Select the ways you generally travel to work.
               </Text>
             </Box>
-            <TravelMethodButtons handleTransportMode={handleTransportMode}  />
-{/* Collapse on carpool selection*/}
-<Collapse in={transportMode === "Carpool"}>
-          <Text
-            mb={5}
-            fontSize={[15, 17]}
-            px="20px"
-            py="12px"
-            color="#155724"
-            bg="#D4EDDA"
-          >
-           How many other people would you most likely to carpool with?
-          </Text>
-        </Collapse>
-        {/* Button for next page */}
+            <TravelMethodButtons handleTransportMode={handleTransportMode} />
+            {/* Collapse on carpool selection*/}
+            <Collapse in={transportMode === "Carpool"}>
+              <Text
+                mb={5}
+                fontSize={[15, 17]}
+                px="20px"
+                py="12px"
+                color="#155724"
+                bg="#D4EDDA"
+              >
+                How many other people would you most likely to carpool with?
+              </Text>
+            </Collapse>
+            {/* Button for next page */}
             <Flex justify={["center", "end"]}>
               <ContinueButton
                 disabled={!transportMode}
