@@ -11,16 +11,16 @@ import { useRouter } from "next/router";
 import { sendLogs } from "../../utils/sendLogs";
 import useForm from "../../components/FormProvider";
 
-export default function DaysOfTheWeekSelection() {
+export default function WorkOnSiteDays() {
   const { answers, setAnswers } = useForm();
   const [nDays, setNDays] = useState(answers.numDaysWorked);
-  const [wfhDays, setWFHDays] = useState(answers.wfhDays);
+  const [onsiteDays, setOnsiteDays] = useState(answers.onsiteDays);
 
   const saveAnswers = () =>
     setAnswers((prev) => ({
       ...prev,
-      numDaysWorked: wfhDays.concat(answers.onsiteDays).length,
-      wfhDays: wfhDays,
+      numDaysWorked: onsiteDays.concat(answers.wfhDays).length,
+      onsiteDays: onsiteDays,
     }));
 
   const router = useRouter();
@@ -35,37 +35,22 @@ export default function DaysOfTheWeekSelection() {
       page: router.pathname,
       event: msg,
       ...answers,
-      numDaysWorked: wfhDays.concat(answers.onsiteDays).length,
-      wfhDays: wfhDays.join(),
+      numDaysWorked: onsiteDays.concat(answers.wfhDays).length,
+      onsiteDays: onsiteDays.join(),
       incentive: incentiveMsg(),
     };
   };
 
   // we  pass this function as props to our child component to update Form data and logs
   const saveDataAndShowLog = (logMsg) => {
-    setNDays(wfhDays.concat(answers.onsiteDays).length);
+    setNDays(onsiteDays.concat(answers.wfhDays).length);
+
     saveAnswers();
     sendLogs(logMessage(logMsg));
   };
 
-  // disable buttons selected for onsite days
-  const DaysDisabled = answers.onsiteDays;
-
-  const getHref = (workArrangement) => {
-    let href = "";
-    switch (workArrangement) {
-      case "wfh":
-      case "onsite":
-        href = "/form/TravelMethod";
-        break;
-      case "hybrid":
-        href = "/form/WorkOnSiteDays";
-        break;
-      default:
-        href = "/form/PageNotFound";
-    }
-    return href;
-  };
+  // disable buttons selected for wfh days
+  const DaysDisabled = answers.wfhDays;
 
   return (
     <Layout isText={true} Progress={Q1Progress}>
@@ -77,13 +62,13 @@ export default function DaysOfTheWeekSelection() {
       </Box>
       <Q1Cloud />
       <Heading mt={10} mb={10}>
-        Which day(s) do you usually work from home?
+        Which day(s) do you work on-site?
       </Heading>
       <DaysOfTheWeekContainer
-        setNumberOfDays={(days) => setWFHDays(days)}
+        setNumberOfDays={(days) => setOnsiteDays(days)}
         saveDataAndLogs={() => saveDataAndShowLog("Next button clicked")}
         disabledDays={DaysDisabled}
-        customHref={getHref(answers.workMode)}
+        customHref={"/form/TravelMethod"}
       />
     </Layout>
   );

@@ -1,7 +1,5 @@
 import { useRouter } from "next/router";
-import  {
-  ContinueButton, BackButton,
-} from "../../components/LinkButton/LinkButton";
+import { BackButton, ContinueButton } from "../../components/LinkButton/LinkButton";
 import { useState } from "react";
 import { Box, Heading, Flex, Container,Text } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
@@ -50,6 +48,7 @@ export default function TravelMethod() {
     setStatus(copy);
 
     let selected = transportMode;
+   
     selected = [...selected, eventText];
     setTransportMode(selected);
   };
@@ -95,7 +94,8 @@ export default function TravelMethod() {
         What is your usual travel method to work?
       </Heading>
 
-      <Flex justify={["center", "left"]}>
+      <Flex justify={["center", "left"]}
+      mb={10}>
         <Text fontSize="18px"  >
         Please tell us how you travel to work on particular days.
         </Text>

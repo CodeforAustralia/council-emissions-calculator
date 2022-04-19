@@ -7,18 +7,17 @@ import { modesOfTransport } from "../../utils/constants";
 import CarpoolCounter from "./CarpoolCounter";
 import TravelMethodButton from "./TravelMethodButton";
 
-const TravelMethodButtons  = ({
+const TravelMethodButtons = ({
   methodClickHandler,
   handleMinus,
   handlePlus,
   count,
   status,
-  
 }) => {
   
   return (
     <>
-      <Flex mt={5} width={["268px", "480px"]} justify={["center", "left"]} mb="12px" >
+      <Flex mt={5} width={["268px", "480px"]} justify={["center", "left"]} mb="15px" >
         <Text fontSize="18px">Select the ways you generally travel to work.</Text>
       </Flex>
 
@@ -49,4 +48,4 @@ const TravelMethodButtons  = ({
   );
 };
 
-export default TravelMethodButtons ;
+export default TravelMethodButtons;
