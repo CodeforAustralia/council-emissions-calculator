@@ -8,7 +8,7 @@ import { modesOfTransport } from "../../utils/constants";
 import CarpoolCounter from "./CarpoolCounter";
 import TravelMethodButton from "./TravelMethodButton";
 
-const ModesOfTransportButtons = ({
+const TravelMethodButtons = ({
   methodClickHandler,
   handleMinus,
   handlePlus,
