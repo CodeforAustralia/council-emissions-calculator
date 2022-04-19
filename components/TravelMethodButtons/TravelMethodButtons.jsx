@@ -1,31 +1,51 @@
-import { Flex, Box, SimpleGrid } from "@chakra-ui/react";
+import {
+  Flex,
+  Text,
+  SimpleGrid,
+} from "@chakra-ui/react";
 import { modesOfTransport } from "../../utils/constants";
-import { TravelMethodButton } from "./TravelMethodButton";
+import CarpoolCounter from "./CarpoolCounter";
+import TravelMethodButton from "./TravelMethodButton";
 
-export function TravelMethodButtons({ handleTransPortMode }) {
+const TravelMethodButtons = ({
+  methodClickHandler,
+  handleMinus,
+  handlePlus,
+  count,
+  status,
+}) => {
+  
   return (
-    <Flex width={"fit container "}>
-      <SimpleGrid
-        columns={3}
-        id="selector"
-        width={["305px", "548px"]}
-        height={["345px", "304px"]}
-        mr={"auto"}
-        ml={"auto"}
-        mt={"6px"}
-      >
-        {modesOfTransport.map((mode, i) => (
-          <Box height="80px" textAlign={"center"} key={mode}>
-            {/* buttons */}
-            <TravelMethodButton
-              handleTransPortMode={handleTransPortMode}
-              mode={mode}
-              ind={i}
-              value={mode}
-            />
-          </Box>
-        ))}
-      </SimpleGrid>
-    </Flex>
+    <>
+      <Flex mt={5} width={["268px", "480px"]} justify={["center", "left"]} mb="15px" >
+        <Text fontSize="18px">Select the ways you generally travel to work.</Text>
+      </Flex>
+
+      {/*ALL travel method button selection */}
+     
+        <SimpleGrid columns={3} spacingX="20px" spacingY="20px"   >
+          {modesOfTransport.map((mode, i) => (
+            <Flex justify="center" key={i} direction="column" >
+              <TravelMethodButton
+                mode={mode}
+                isActive={status[i]}
+                onClick={methodClickHandler}
+                ind={i}
+              />
+            </Flex>
+          ))}
+        </SimpleGrid>
+    
+      {/* Carpool counter */}
+      {status[2] && (
+        <CarpoolCounter
+          handleMinus={handleMinus}
+          handlePlus={handlePlus}
+          count={count}
+        />
+      )}
+    </>
   );
-}
+};
+
+export default TravelMethodButtons;
