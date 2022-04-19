@@ -52,11 +52,27 @@ export default function WorkOnSiteDays() {
   // disable buttons selected for wfh days
   const DaysDisabled = answers.wfhDays;
 
+  const getBackHref = (workArrangement) => {
+    let href = "";
+    switch (workArrangement) {
+      case "wfh":
+      case "onsite":
+        href = "/form/WorkArrangement";
+        break;
+      case "hybrid":
+        href = "/form/WorkFromHomeDays";
+        break;
+      default:
+        href = "/form/PageNotFound";
+    }
+    return href;
+  };
+
   return (
     <Layout isText={true} Progress={Q1Progress}>
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
-          href="/form/WorkArrangement"
+          href={getBackHref(answers.workMode)}
           onClick={() => saveDataAndShowLog("Back button clicked")}
         />
       </Box>
