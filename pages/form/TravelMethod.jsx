@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Box, Heading, Flex, Container } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
-import ModesOfTransportButtons from "../../components/TravelMethodButtons/TravelMethodButtons";
+import TravelMethodButtons from "../../components/TravelMethodButtons/TravelMethodButtons";
 import Q4Progress from "../../public/images/progress-bar/travelMethodSelection-progress-dots.svg";
 
 import { modesOfTransport } from "../../utils/constants";
