@@ -51,4 +51,4 @@ const TravelMethodButtons = ({
   );
 };
 
-export default ModesOfTransportButtons;
+export default TravelMethodButtons;
