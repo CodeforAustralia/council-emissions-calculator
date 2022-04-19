@@ -1,7 +1,5 @@
 import { useRouter } from "next/router";
-import ContinueButton, {
-  BackButton,
-} from "../../components/LinkButton/LinkButton";
+import { BackButton, ContinueButton } from "../../components/LinkButton/LinkButton";
 import { useState } from "react";
 import { Box, Heading, Flex, Container } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
