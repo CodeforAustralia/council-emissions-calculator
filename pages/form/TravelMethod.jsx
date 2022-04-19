@@ -101,7 +101,7 @@ export default function TravelMethod() {
         borderColor={["white", "gray.200"]}
         centerContent
       >
-        <ModesOfTransportButtons
+        <TravelMethodButtons
           transportMode={transportMode}
           methodClickHandler={methodClickHandler}
           handleMinus={handleMinus}
