@@ -5,7 +5,7 @@ import {
   Center,
 } from "@chakra-ui/react";
 import { modesOfTransport } from "../../utils/constants";
-import Counter from "./CarpoolCounter";
+import CarpoolCounter from "./CarpoolCounter";
 import TravelMethodButton from "./TravelMethodButton";
 
 const ModesOfTransportButtons = ({
