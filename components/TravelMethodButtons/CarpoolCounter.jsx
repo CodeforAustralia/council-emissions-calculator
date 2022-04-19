@@ -73,4 +73,4 @@ const CarpoolCounter = ({ handleMinus, handlePlus, count }) => {
   );
 };
 
-export default Counter;
+export default CarpoolCounter;
