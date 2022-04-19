@@ -1,6 +1,6 @@
 import { Flex, Text, SimpleGrid, GridItem, Container } from "@chakra-ui/react";
 
-const Counter = ({ handleMinus, handlePlus, count }) => {
+const CarpoolCounter = ({ handleMinus, handlePlus, count }) => {
   return (
     <Container width={["268px", "499px"]} textAlign={["center", "left"]}>
       <Flex
@@ -73,4 +73,4 @@ const Counter = ({ handleMinus, handlePlus, count }) => {
   );
 };
 
-export default Counter;
+export default CarpoolCounter;

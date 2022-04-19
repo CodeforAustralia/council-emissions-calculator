@@ -2,13 +2,12 @@ import {
   Flex,
   Text,
   SimpleGrid,
-  Center,
 } from "@chakra-ui/react";
 import { modesOfTransport } from "../../utils/constants";
-import Counter from "./CarpoolCounter";
+import CarpoolCounter from "./CarpoolCounter";
 import TravelMethodButton from "./TravelMethodButton";
 
-const ModesOfTransportButtons = ({
+const TravelMethodButtons  = ({
   methodClickHandler,
   handleMinus,
   handlePlus,
@@ -19,29 +18,28 @@ const ModesOfTransportButtons = ({
   
   return (
     <>
-      <Flex mt={5} width={["268px", "480px"]} justify={["center", "left"]}>
-        <Text mb="12px">Select the ways you generally travel to work.</Text>
+      <Flex mt={5} width={["268px", "480px"]} justify={["center", "left"]} mb="12px" >
+        <Text fontSize="18px">Select the ways you generally travel to work.</Text>
       </Flex>
 
       {/*ALL travel method button selection */}
-      <Flex  direction="column"
-        justifyt="center" width={["305px", "548px"]} height={["351px", "304px"]}>
-        <SimpleGrid columns={3} id="selector" spacingX="15px" spacingY="15px"   >
+     
+        <SimpleGrid columns={3} spacingX="20px" spacingY="20px"   >
           {modesOfTransport.map((mode, i) => (
-            <Center justify="center" key={i} direction="column" >
+            <Flex justify="center" key={i} direction="column" >
               <TravelMethodButton
                 mode={mode}
                 isActive={status[i]}
                 onClick={methodClickHandler}
                 ind={i}
               />
-            </Center>
+            </Flex>
           ))}
         </SimpleGrid>
-      </Flex>
+    
       {/* Carpool counter */}
       {status[2] && (
-        <Counter
+        <CarpoolCounter
           handleMinus={handleMinus}
           handlePlus={handlePlus}
           count={count}
@@ -51,4 +49,4 @@ const ModesOfTransportButtons = ({
   );
 };
 
-export default ModesOfTransportButtons;
+export default TravelMethodButtons ;

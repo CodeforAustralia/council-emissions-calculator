@@ -1,12 +1,12 @@
 import { useRouter } from "next/router";
-import ContinueButton, {
-  BackButton,
+import  {
+  ContinueButton, BackButton,
 } from "../../components/LinkButton/LinkButton";
 import { useState } from "react";
-import { Box, Heading, Flex, Container } from "@chakra-ui/react";
+import { Box, Heading, Flex, Container,Text } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
-import ModesOfTransportButtons from "../../components/TravelMethodButtons/TravelMethodButtons";
+import TravelMethodButtons from "../../components/TravelMethodButtons/TravelMethodButtons";
 import Q4Progress from "../../public/images/progress-bar/travelMethodSelection-progress-dots.svg";
 
 import { modesOfTransport } from "../../utils/constants";
@@ -50,12 +50,7 @@ export default function TravelMethod() {
     setStatus(copy);
 
     let selected = transportMode;
-   
-    // if (selected.includes(eventText)) {
-    //   const selected = selected.filter((mode) => mode !== eventText);
-    // } else {
     selected = [...selected, eventText];
-    // }
     setTransportMode(selected);
   };
 
@@ -87,7 +82,7 @@ export default function TravelMethod() {
     >
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
-          href="/form/WorkFromHome"
+          href="/form/WorkFromHomeDays"
           onClick={() => {
             saveAnswers();
             sendLogs(logMessage("Back button clicked"));
@@ -95,19 +90,26 @@ export default function TravelMethod() {
         />
       </Box>
       <Q4Cloud />
-      <Heading width={["100%", "60%"]} mb="16px" fontSize="16px">
-        {" "}
-        Please tell us how you travel to work on particular days.
+
+      <Heading mt={10} mb={10}   fontWeight="700">
+        What is your usual travel method to work?
       </Heading>
+
+      <Flex justify={["center", "left"]}>
+        <Text fontSize="18px"  >
+        Please tell us how you travel to work on particular days.
+        </Text>
+      </Flex>
 
       <Container
         border={["0px none", ".1px solid"]}
-        width={["305px", "708px"]}
+        width={["375px", "708px"]}
         maxHeight={"974px"}
         borderColor={["white", "gray.200"]}
         centerContent
+        p="0px"
       >
-        <ModesOfTransportButtons
+        <TravelMethodButtons
           transportMode={transportMode}
           methodClickHandler={methodClickHandler}
           handleMinus={handleMinus}
@@ -120,7 +122,6 @@ export default function TravelMethod() {
 
         <Flex mb="30px" justify={["center", "end"]} width={["305px", "500px"]}>
           <ContinueButton
-            // mainTransportMode: transportMode,
             disabled={!status.includes(true)}
             href="/form/ConfirmWFH"
             width={["305px", "105px"]}
