@@ -13,6 +13,7 @@ export const FormContext = createContext();
 //     onsiteDays: ["Monday", "Tuesday"]
 //          // value is a list of length 0-7 containing days of week,
 //          // where respondent worked onsite
+//     carpoolPassengerCount: 0, // integer value from 1-7
 //     travelDays: ["Monday", "Wednesday", "Friday"],
 //          // value is a list of length 0-7 containing days of week
 //     mainTransportMode: "bus",
@@ -29,6 +30,7 @@ const initialAnswers = {
   numDaysWorked: 0,
   wfhDays: [],
   onsiteDays: [],
+  carpoolPassengerCount: 0,
   travelDays: [],
   mainTransportMode: "",
   incentive: "",
