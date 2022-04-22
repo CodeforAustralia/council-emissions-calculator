@@ -9,9 +9,6 @@ import TravelMethodButton from "./TravelMethodButton";
 
 const TravelMethodButtons = ({
   methodClickHandler,
-  handleMinus,
-  handlePlus,
-  count,
   status,
 }) => {
   
@@ -38,11 +35,7 @@ const TravelMethodButtons = ({
     
       {/* Carpool counter */}
       {status[2] && (
-        <CarpoolCounter
-          handleMinus={handleMinus}
-          handlePlus={handlePlus}
-          count={count}
-        />
+        <CarpoolCounter />
       )}
     </>
   );

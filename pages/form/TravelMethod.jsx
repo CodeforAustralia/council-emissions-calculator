@@ -69,10 +69,6 @@ export default function TravelMethod() {
       incentive: incentiveMsg(),
     };
   };
-  // counter function
-  const handleMinus = () => setCount(count - 1);
-
-  const handlePlus = () => setCount(count + 1);
 
   const getBackHref = (workArrangement) => {
     let href = "";
@@ -127,11 +123,7 @@ export default function TravelMethod() {
         p="0px"
       >
         <TravelMethodButtons
-          transportMode={transportMode}
           methodClickHandler={methodClickHandler}
-          handleMinus={handleMinus}
-          handlePlus={handlePlus}
-          count={count}
           status={status}
         />
 
