@@ -1,6 +1,16 @@
 import { Flex, Text, SimpleGrid, GridItem, Container } from "@chakra-ui/react";
+import useForm from "../../components/FormProvider";
 
-const CarpoolCounter = ({ handleMinus, handlePlus, count }) => {
+const CarpoolCounter = () => {
+  const { answers, setAnswers } = useForm();
+
+  const setCarpoolCount = (count) => {
+    let result = 1;
+    if (count >= 1 && count <= 7) { result = count }
+    else if (count > 7) { result = 7 }
+    setAnswers((prev) => ({ ...prev, carpoolPassengerCount: result }));
+  }
+
   return (
     <Container width={["268px", "499px"]} textAlign={["center", "left"]}>
       <Flex
@@ -39,7 +49,7 @@ const CarpoolCounter = ({ handleMinus, handlePlus, count }) => {
             w="4"
             bg="#044B7F"
             color="#fff"
-            onClick={handleMinus}
+            onClick={() => setCarpoolCount(answers.carpoolPassengerCount - 1)}
             borderRightRadius="0"
           >
             <Text fontSize="13px" textAlign="center">
@@ -53,7 +63,7 @@ const CarpoolCounter = ({ handleMinus, handlePlus, count }) => {
             fontSize="13px"
             textAlign="center"
           >
-            {count}
+            {answers.carpoolPassengerCount}
           </GridItem>
 
           <GridItem
@@ -62,7 +72,7 @@ const CarpoolCounter = ({ handleMinus, handlePlus, count }) => {
             bg="#044B7F"
             color="#fff"
             fontSize="12px"
-            onClick={handlePlus}
+            onClick={() => setCarpoolCount(answers.carpoolPassengerCount + 1)}
             textAlign="center"
           >
             +
