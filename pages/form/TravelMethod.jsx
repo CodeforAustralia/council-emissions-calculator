@@ -27,30 +27,13 @@ console.log(tranKey);
 export default function TravelMethod() {
   const { answers, setAnswers } = useForm();
 
+  //TODO: REMOVE TRANSPORTmODE STATE HOOKS AND ITS REFERENCES
   const [transportMode, setTransportMode] = useState(
     answers.mainTransportMode || []
-  );
-  const [status, setStatus] = useState(
-    new Array(travelMethods.length).fill(false)
   );
 
   const saveAnswers = () =>
     setAnswers((prev) => ({ ...prev, mainTransportMode: transportMode }));
-
-  // handle when method button clicked
-
-  const methodClickHandler = (eventText) => {
-    const ind = travelMethods.indexOf(eventText);
-
-    const copy = [...status];
-    copy[ind] = !copy[ind];
-    setStatus(copy);
-
-    let selected = transportMode;
-
-    selected = [...selected, eventText];
-    setTransportMode(selected);
-  };
 
   const router = useRouter();
 
@@ -120,16 +103,13 @@ export default function TravelMethod() {
         centerContent
         p="0px"
       >
-        <TravelMethodButtons
-          methodClickHandler={methodClickHandler}
-          status={status}
-        />
+        <TravelMethodButtons />
 
         {/* NEXT BUTTON  */}
 
         <Flex mb="30px" justify={["center", "end"]} width={["305px", "500px"]}>
           <ContinueButton
-            disabled={!status.includes(true)}
+            disabled={answers.travelMethods.length === 0}
             href="/form/ConfirmWFH"
             width={["305px", "105px"]}
             height={["60px", "54.37px"]}
