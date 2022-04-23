@@ -14,26 +14,8 @@ import { travelMethods } from "../../utils/constants";
 import Q4Cloud from "../../public/images/clouds/cloud-travelMethodSelection.svg";
 import { sendLogs } from "../../utils/sendLogs";
 
-// testing data object
-
-let answ = {
-  traveledWay: [{ Bus: [] }, { Car: [] }],
-};
-
-const tranKey = Object.keys(Object.assign({}, ...answ.traveledWay));
-console.log(tranKey);
-// Testing works for collection initial answered saved transport mode collected in tranKey
-
 export default function TravelMethod() {
-  const { answers, setAnswers } = useForm();
-
-  //TODO: REMOVE TRANSPORTmODE STATE HOOKS AND ITS REFERENCES
-  const [transportMode, setTransportMode] = useState(
-    answers.mainTransportMode || []
-  );
-
-  const saveAnswers = () =>
-    setAnswers((prev) => ({ ...prev, mainTransportMode: transportMode }));
+  const { answers, _ } = useForm();
 
   const router = useRouter();
 
@@ -47,7 +29,6 @@ export default function TravelMethod() {
       page: router.pathname,
       event: msg,
       ...answers,
-      mainTransportMode: transportMode,
       incentive: incentiveMsg(),
     };
   };
@@ -78,7 +59,6 @@ export default function TravelMethod() {
         <BackButton
           href={getBackHref(answers.workMode)}
           onClick={() => {
-            saveAnswers();
             sendLogs(logMessage("Back button clicked"));
           }}
         />
@@ -115,7 +95,6 @@ export default function TravelMethod() {
             height={["60px", "54.37px"]}
             justifySelf="right"
             onClick={() => {
-              saveAnswers();
               sendLogs(logMessage("Next button clicked"));
             }}
           >
