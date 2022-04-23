@@ -29,7 +29,6 @@ export default function TravelMethod() {
   const [transportMode, setTransportMode] = useState(
     answers.mainTransportMode || []
   );
-  const [count, setCount] = useState(0);
   const [status, setStatus] = useState(
     new Array(travelMethods.length).fill(false)
   );
