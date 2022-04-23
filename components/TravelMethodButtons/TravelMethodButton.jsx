@@ -1,8 +1,8 @@
-import { Button, Text, Icon, Flex, Box,Container } from "@chakra-ui/react";
+import { Box, Button, Flex, Icon, Text } from "@chakra-ui/react";
 import { transportIcon } from "../../utils/constants";
 
-export default function ModeButton({
-  mode,
+export default function TravelMethodButton({
+  name,
   onClick,
   isActive,
   ind,
@@ -33,7 +33,7 @@ export default function ModeButton({
         <Box width="100%" p="0px" mt={1}>
           
           <Text
-    d="inline" 
+            d="inline"
             fontSize="16px"
             fontFamily="Public Sans"
             fontWeight="400"
@@ -41,7 +41,7 @@ export default function ModeButton({
             letterSpacing="0.022em"
       
           >
-            {mode}
+            {name}
           </Text>
          
          
