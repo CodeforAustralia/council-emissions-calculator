@@ -6,10 +6,13 @@ const CarpoolCounter = () => {
 
   const setCarpoolCount = (count) => {
     let result = 1;
-    if (count >= 1 && count <= 7) { result = count }
-    else if (count > 7) { result = 7 }
+    if (count >= 1 && count <= 7) {
+      result = count;
+    } else if (count > 7) {
+      result = 7;
+    }
     setAnswers((prev) => ({ ...prev, carpoolPassengerCount: result }));
-  }
+  };
 
   return (
     <Container width={["268px", "499px"]} textAlign={["center", "left"]}>
@@ -56,13 +59,7 @@ const CarpoolCounter = () => {
               -
             </Text>
           </GridItem>
-          <GridItem
-            h="4"
-            w="4"
-            color="#000"
-            fontSize="13px"
-            textAlign="center"
-          >
+          <GridItem h="4" w="4" color="#000" fontSize="13px" textAlign="center">
             {answers.carpoolPassengerCount}
           </GridItem>
 

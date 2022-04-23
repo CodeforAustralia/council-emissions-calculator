@@ -1,5 +1,8 @@
 import { useRouter } from "next/router";
-import { BackButton, ContinueButton } from "../../components/LinkButton/LinkButton";
+import {
+  BackButton,
+  ContinueButton,
+} from "../../components/LinkButton/LinkButton";
 import { useState } from "react";
 import { Box, Container, Flex, Heading, Text } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
@@ -14,13 +17,11 @@ import { sendLogs } from "../../utils/sendLogs";
 // testing data object
 
 let answ = {
-  traveledWay:[
-      { Bus: [] },
-      { Car: [] },]
-}
+  traveledWay: [{ Bus: [] }, { Car: [] }],
+};
 
-const tranKey = (Object.keys(Object.assign({}, ...answ.traveledWay)));
-console.log(tranKey)
+const tranKey = Object.keys(Object.assign({}, ...answ.traveledWay));
+console.log(tranKey);
 // Testing works for collection initial answered saved transport mode collected in tranKey
 
 export default function TravelMethod() {
@@ -35,19 +36,18 @@ export default function TravelMethod() {
 
   const saveAnswers = () =>
     setAnswers((prev) => ({ ...prev, mainTransportMode: transportMode }));
-  
+
   // handle when method button clicked
 
   const methodClickHandler = (eventText) => {
-  
     const ind = travelMethods.indexOf(eventText);
-   
+
     const copy = [...status];
     copy[ind] = !copy[ind];
     setStatus(copy);
 
     let selected = transportMode;
-   
+
     selected = [...selected, eventText];
     setTransportMode(selected);
   };
@@ -102,14 +102,13 @@ export default function TravelMethod() {
       </Box>
       <Q4Cloud />
 
-      <Heading mt={10} mb={10}   fontWeight="700">
+      <Heading mt={10} mb={10} fontWeight="700">
         What is your usual travel method to work?
       </Heading>
 
-      <Flex justify={["center", "left"]}
-      mb={10}>
-        <Text fontSize="18px"  >
-        Please tell us how you travel to work on particular days.
+      <Flex justify={["center", "left"]} mb={10}>
+        <Text fontSize="18px">
+          Please tell us how you travel to work on particular days.
         </Text>
       </Flex>
 
