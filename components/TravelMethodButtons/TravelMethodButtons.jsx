@@ -23,8 +23,7 @@ const TravelMethodButtons = () => {
     let updatedState = travelMethodButtonStates.map((item) => {
       if (item.travelMethod === buttonName) {
         return { ...item, isSelected: !item.isSelected };
-      }
-      else return { ...item };
+      } else return { ...item };
     });
 
     let selectedTravelMethods = updatedState
@@ -35,14 +34,14 @@ const TravelMethodButtons = () => {
       if (selectedTravelMethods.includes("Carpool")) {
         if (answers.carpoolPassengerCount === 0) return 1;
         else return answers.carpoolPassengerCount;
-      }
-      else return 0;
+      } else return 0;
     };
 
     setTravelMethodButtonStates(updatedState);
-    setAnswers((prev) => ({ ...prev,
+    setAnswers((prev) => ({
+      ...prev,
       travelMethods: selectedTravelMethods,
-      carpoolPassengerCount: updateCarpoolPassengerCount()
+      carpoolPassengerCount: updateCarpoolPassengerCount(),
     }));
   };
 
