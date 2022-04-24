@@ -1,5 +1,6 @@
 import {
   Box,
+  GridItem,
   Heading,
   Flex,
   Text
@@ -86,11 +87,13 @@ export default function TravelDays() {
         </Flex>
         {
           answers.travelMethods.map((tm) => (
-            <TravelDayButtonsContainer
-              methodIcon={House}
-              title={tm}
-              description={<Description title={tm} />}
-            />
+            <GridItem key={tm}>
+              <TravelDayButtonsContainer
+                methodIcon={House}
+                title={tm}
+                description={<Description title={tm} />}
+              />
+            </GridItem>
           ))
         }
         <Flex
