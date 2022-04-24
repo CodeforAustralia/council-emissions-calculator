@@ -5,19 +5,19 @@ import { travelMethods } from "../../utils/constants";
 export default function TravelDayButton ({ label, travelMethod, onClick, isActive, disabled }) {
   const { answers, setAnswers } = useForm();
 
-  console.log(`answers.travelDays: ${JSON.stringify(answers.travelDays, null, " ")}`);
+  console.log(`answers.travelMethodByDay: ${JSON.stringify(answers.travelMethodByDay, null, " ")}`);
 
   const isSelected = () => {
-    if ( travelMethods.includes(answers.travelDays[label]) ) {
+    if ( travelMethods.includes(answers.travelMethodByDay[label]) ) {
       return true;
     } else return false;
   };
 
   const isDisabled = () => {
     //does this day have a travel method?
-    if ( travelMethods.includes(answers.travelDays[label]) ) {
+    if ( travelMethods.includes(answers.travelMethodByDay[label]) ) {
       //is this day already taken by a different travel method?
-      if ( answers.travelDays[label] === travelMethod ) {
+      if ( answers.travelMethodByDay[label] === travelMethod ) {
         return false;
       } else return true;
     } else return false;
@@ -25,7 +25,7 @@ export default function TravelDayButton ({ label, travelMethod, onClick, isActiv
 
   const handleClick = (e) => {
     let day = e.target.innerText;
-    let updatedTravelDays = { ...answers.travelDays };
+    let updatedTravelDays = { ...answers.travelMethodByDay };
 
     // if button already selected, unset travelMethod for day
     if (isSelected()) updatedTravelDays[day] = "";
@@ -33,7 +33,7 @@ export default function TravelDayButton ({ label, travelMethod, onClick, isActiv
 
     setAnswers((prev) => ({
       ...prev,
-      travelDays: updatedTravelDays,
+      travelMethodByDay: updatedTravelDays,
     }));
   };
 
