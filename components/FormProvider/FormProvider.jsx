@@ -14,10 +14,19 @@ export const FormContext = createContext();
 //          // value is a list of length 0-7 containing days of week,
 //          // where respondent worked onsite
 //     carpoolPassengerCount: 0, // integer value from 1-7
-//     travelDays: ["Monday", "Wednesday", "Friday"],
-//          // value is a list of length 0-7 containing days of week
+//     travelDays: {
+//        "Monday": "Car",
+//        "Tuesday": "",
+//        "Wednesday": "Bus",
+//        "Thursday": "",
+//        "Friday": "Car"
+//        "Saturday": "",
+//        "Sunday": ""
+//     },
+//          // A JSON object with days of the week as keys, and
+//          // travel methods as the values. Each day contains one travel method from `travelMethods` list (in constants.js).
 //     mainTransportMode: "bus",
-//          // value is a string containing a transport mode from `travelMethods` list (in constants.js)
+//          // [DEPRECATED] value is a string containing a transport mode from `travelMethods` list (in constants.js)
 //     incentive: "I'd like to have better biking lanes.",
 //          // value is a free text string
 //     department: "Education",
@@ -32,7 +41,15 @@ const initialAnswers = {
   onsiteDays: [],
   travelMethods: [],
   carpoolPassengerCount: 0,
-  travelDays: [],
+  travelDays: {
+    "Monday": "",
+    "Tuesday": "",
+    "Wednesday": "",
+    "Thursday": "",
+    "Friday": "",
+    "Saturday": "",
+    "Sunday": ""
+  },
   mainTransportMode: "",
   incentive: "",
   department: "",
