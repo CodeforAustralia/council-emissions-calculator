@@ -90,7 +90,7 @@ export default function TravelMethod() {
         <Flex mb="30px" justify={["center", "end"]} width={["305px", "500px"]}>
           <ContinueButton
             disabled={answers.travelMethods.length === 0}
-            href="/form/ConfirmWFH"
+            href="/form/TravelDays"
             width={["305px", "105px"]}
             height={["60px", "54.37px"]}
             justifySelf="right"
