@@ -90,9 +90,7 @@ export default function TravelDays() {
               methodIcon={House}
               title={tm}
               description={<Description title={tm} />}
-            >
-              <Text>Child element will be here</Text>
-            </TravelDayButtonsContainer>
+            />
           ))
         }
         <Flex

@@ -1,9 +1,9 @@
-import { Children, useState } from "react";
+import { useState } from "react";
 import { Box, Button, Collapse, Flex, GridItem, Icon, SimpleGrid, Spacer, Text } from "@chakra-ui/react";
 import TravelDayButton from "./TravelDayButton";
 import { daysOfWeek } from "../../utils/constants";
 
-export default function TravelDayButtonsContainer({ methodIcon, title, children, description }) {
+export default function TravelDayButtonsContainer({ methodIcon, title, description }) {
 
   return (
     <Box
