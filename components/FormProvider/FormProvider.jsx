@@ -30,6 +30,7 @@ const initialAnswers = {
   numDaysWorked: 0,
   wfhDays: [],
   onsiteDays: [],
+  travelMethods: [],
   carpoolPassengerCount: 0,
   travelDays: [],
   mainTransportMode: "",

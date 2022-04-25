@@ -14,43 +14,8 @@ import { travelMethods } from "../../utils/constants";
 import Q4Cloud from "../../public/images/clouds/cloud-travelMethodSelection.svg";
 import { sendLogs } from "../../utils/sendLogs";
 
-// testing data object
-
-let answ = {
-  traveledWay: [{ Bus: [] }, { Car: [] }],
-};
-
-const tranKey = Object.keys(Object.assign({}, ...answ.traveledWay));
-console.log(tranKey);
-// Testing works for collection initial answered saved transport mode collected in tranKey
-
 export default function TravelMethod() {
-  const { answers, setAnswers } = useForm();
-
-  const [transportMode, setTransportMode] = useState(
-    answers.mainTransportMode || []
-  );
-  const [status, setStatus] = useState(
-    new Array(travelMethods.length).fill(false)
-  );
-
-  const saveAnswers = () =>
-    setAnswers((prev) => ({ ...prev, mainTransportMode: transportMode }));
-
-  // handle when method button clicked
-
-  const methodClickHandler = (eventText) => {
-    const ind = travelMethods.indexOf(eventText);
-
-    const copy = [...status];
-    copy[ind] = !copy[ind];
-    setStatus(copy);
-
-    let selected = transportMode;
-
-    selected = [...selected, eventText];
-    setTransportMode(selected);
-  };
+  const { answers, _ } = useForm();
 
   const router = useRouter();
 
@@ -64,7 +29,6 @@ export default function TravelMethod() {
       page: router.pathname,
       event: msg,
       ...answers,
-      mainTransportMode: transportMode,
       incentive: incentiveMsg(),
     };
   };
@@ -95,7 +59,6 @@ export default function TravelMethod() {
         <BackButton
           href={getBackHref(answers.workMode)}
           onClick={() => {
-            saveAnswers();
             sendLogs(logMessage("Back button clicked"));
           }}
         />
@@ -120,22 +83,18 @@ export default function TravelMethod() {
         centerContent
         p="0px"
       >
-        <TravelMethodButtons
-          methodClickHandler={methodClickHandler}
-          status={status}
-        />
+        <TravelMethodButtons />
 
         {/* NEXT BUTTON  */}
 
         <Flex mb="30px" justify={["center", "end"]} width={["305px", "500px"]}>
           <ContinueButton
-            disabled={!status.includes(true)}
+            disabled={answers.travelMethods.length === 0}
             href="/form/ConfirmWFH"
             width={["305px", "105px"]}
             height={["60px", "54.37px"]}
             justifySelf="right"
             onClick={() => {
-              saveAnswers();
               sendLogs(logMessage("Next button clicked"));
             }}
           >
