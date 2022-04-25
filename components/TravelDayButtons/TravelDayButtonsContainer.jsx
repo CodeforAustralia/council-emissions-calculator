@@ -50,6 +50,7 @@ export default function TravelDayButtonsContainer({ methodIcon, title, descripti
         spacingY="15px"
         textAlign="center"
       >
+        {/* [TODO]: SHOULD ONLY SHOW WFH+ONSITE DAYS TO SELECT FROM */}
         {daysOfWeek.map((item) => (
           <GridItem key={item}>
             <TravelDayButton

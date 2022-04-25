@@ -36,6 +36,7 @@ export default function TravelDays() {
       page: router.pathname,
       event: msg,
       ...answers,
+      //[TODO]: JSON.stringify `travelMethodByDay` value
       incentive: incentiveMsg(),
     }
   }
@@ -103,6 +104,7 @@ export default function TravelDays() {
             disabled={
               //check if any response has been given;
               //disable button if no response given
+              //[TODO]: DISABLE WHEN NO SELECTIONS PROVIDED FOR ALL WFH+ONSITE DAYS
               Object.values(answers.travelMethodByDay)
               .filter((tm) => answers.travelMethods.includes(tm))
               .length === 0
