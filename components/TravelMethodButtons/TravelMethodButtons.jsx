@@ -3,7 +3,7 @@ import {
   Text,
   SimpleGrid,
 } from "@chakra-ui/react";
-import { modesOfTransport } from "../../utils/constants";
+import { travelMethods } from "../../utils/constants";
 import CarpoolCounter from "./CarpoolCounter";
 import TravelMethodButton from "./TravelMethodButton";
 
@@ -24,7 +24,7 @@ const TravelMethodButtons = ({
       {/*ALL travel method button selection */}
      
         <SimpleGrid columns={3} spacingX="20px" spacingY="20px"   >
-          {modesOfTransport.map((mode, i) => (
+          {travelMethods.map((mode, i) => (
             <Flex justify="center" key={i} direction="column" >
               <TravelMethodButton
                 mode={mode}

@@ -16,7 +16,7 @@ export const FormContext = createContext();
 //     travelDays: ["Monday", "Wednesday", "Friday"],
 //          // value is a list of length 0-7 containing days of week
 //     mainTransportMode: "bus",
-//          // value is a string containing a transport mode from `modesOfTransport` list (in constants.js)
+//          // value is a string containing a transport mode from `travelMethods` list (in constants.js)
 //     incentive: "I'd like to have better biking lanes.",
 //          // value is a free text string
 //     department: "Education",

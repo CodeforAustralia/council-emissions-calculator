@@ -7,7 +7,7 @@ import useForm from "../../components/FormProvider";
 import TravelMethodButtons from "../../components/TravelMethodButtons/TravelMethodButtons";
 import Q4Progress from "../../public/images/progress-bar/travelMethodSelection-progress-dots.svg";
 
-import { modesOfTransport } from "../../utils/constants";
+import { travelMethods } from "../../utils/constants";
 import Q4Cloud from "../../public/images/clouds/cloud-travelMethodSelection.svg";
 import { sendLogs } from "../../utils/sendLogs";
 
@@ -31,7 +31,7 @@ export default function TravelMethod() {
   );
   const [count, setCount] = useState(0);
   const [status, setStatus] = useState(
-    new Array(modesOfTransport.length).fill(false)
+    new Array(travelMethods.length).fill(false)
   );
 
   const saveAnswers = () =>
@@ -41,7 +41,7 @@ export default function TravelMethod() {
 
   const methodClickHandler = (eventText) => {
   
-    const ind = modesOfTransport.indexOf(eventText);
+    const ind = travelMethods.indexOf(eventText);
    
     const copy = [...status];
     copy[ind] = !copy[ind];
