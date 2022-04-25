@@ -2,7 +2,7 @@ import { Button, Text } from "@chakra-ui/react";
 import useForm from "../../components/FormProvider";
 import { travelMethods } from "../../utils/constants";
 
-export default function TravelDayButton ({ label, travelMethod, onClick, isActive, disabled }) {
+export default function TravelDayButton ({ label, travelMethod }) {
   const { answers, setAnswers } = useForm();
 
   console.log(`answers.travelMethodByDay: ${JSON.stringify(answers.travelMethodByDay, null, " ")}`);
@@ -27,7 +27,7 @@ export default function TravelDayButton ({ label, travelMethod, onClick, isActiv
     let day = e.target.innerText;
     let updatedTravelDays = { ...answers.travelMethodByDay };
 
-    // if button already selected, unset travelMethod for day
+    // if button already selected, unset travel method for day on click
     if (isSelected()) updatedTravelDays[day] = "";
     else updatedTravelDays[day] = travelMethod;  // set travelMethod for day
 
