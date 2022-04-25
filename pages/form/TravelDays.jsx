@@ -100,6 +100,13 @@ export default function TravelDays() {
           justify="end"
         >
           <LinkButton
+            disabled={
+              //check if any response has been given;
+              //disable button if no response given
+              Object.values(answers.travelMethodByDay)
+              .filter((tm) => answers.travelMethods.includes(tm))
+              .length === 0
+            }
             mt="10px"
             href={"/form/Distance"}
             width="105px"
