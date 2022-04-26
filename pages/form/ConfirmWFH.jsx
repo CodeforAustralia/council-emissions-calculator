@@ -52,36 +52,6 @@ export default function ConfirmWFH() {
     sendLogs(logMessage(logMsg));
   };
 
-  
-  const Description = () => (<Flex>
-    <Text
-      fontWeight="500"
-      fontSize="22px"
-    >
-      I work from home on&nbsp;
-    </Text>
-    <Text 
-      fontWeight="500"
-      fontSize="22px"
-      color="#3389D2"
-    > 
-      Monday&nbsp; 
-    </Text>
-    <Text
-      fontWeight="500"
-      fontSize="22px"
-    >
-      to&nbsp;
-    </Text>
-    <Text 
-      fontWeight="500"
-      fontSize="22px"
-      color="#3389D2"
-    > 
-      Wednesday.
-    </Text>
-  </Flex>)
-
   return (
     <Layout 
       isText={true} 
@@ -115,9 +85,35 @@ export default function ConfirmWFH() {
         <ConfirmDetailsContainer
           methodIcon={House}
           title={title}
-          description={<Description />}
         >
-          <Text>Child element will be here</Text>
+        <Flex>
+        <Text
+          fontWeight="500"
+          fontSize="22px"
+        >
+          I work from home on&nbsp;
+        </Text>
+        <Text 
+          fontWeight="500"
+          fontSize="22px"
+          color="#3389D2"
+        > 
+          Monday&nbsp; 
+        </Text>
+        <Text
+          fontWeight="500"
+          fontSize="22px"
+        >
+          to&nbsp;
+        </Text>
+        <Text 
+          fontWeight="500"
+          fontSize="22px"
+          color="#3389D2"
+        > 
+          Wednesday.
+        </Text>
+      </Flex>
         </ConfirmDetailsContainer>
         <Flex
           justify="end"
