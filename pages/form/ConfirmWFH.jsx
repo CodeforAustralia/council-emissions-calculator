@@ -6,7 +6,7 @@ import {
 } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
-import Q1Progress from "../../public/images/progress-bar/q1-progress-dots.svg";
+import Q4Progress from "../../public/images/progress-bar/q4-progress-dots.svg";
 import Q3Cloud from "../../public/images/clouds/cloud-q3.svg";
 import LinkButton, { BackButton } from "../../components/LinkButton/LinkButton";
 import { useRouter } from "next/router";
@@ -55,7 +55,7 @@ export default function ConfirmWFH() {
   return (
     <Layout 
       isText={true} 
-      Progress={Q1Progress}
+      Progress={Q4Progress}
     >
       <Box 
         pos="absolute" 
@@ -86,34 +86,34 @@ export default function ConfirmWFH() {
           methodIcon={House}
           title={title}
         >
-        <Flex>
-        <Text
-          fontWeight="500"
-          fontSize="22px"
-        >
-          I work from home on&nbsp;
-        </Text>
-        <Text 
-          fontWeight="500"
-          fontSize="22px"
-          color="#3389D2"
-        > 
-          Monday&nbsp; 
-        </Text>
-        <Text
-          fontWeight="500"
-          fontSize="22px"
-        >
-          to&nbsp;
-        </Text>
-        <Text 
-          fontWeight="500"
-          fontSize="22px"
-          color="#3389D2"
-        > 
-          Wednesday.
-        </Text>
-      </Flex>
+          <Flex>
+            <Text
+              fontWeight="500"
+              fontSize="22px"
+            >
+              I work from home on&nbsp;
+            </Text>
+            <Text 
+              fontWeight="500"
+              fontSize="22px"
+              color="#3389D2"
+            > 
+              Monday&nbsp; 
+            </Text>
+            <Text
+              fontWeight="500"
+              fontSize="22px"
+            >
+              to&nbsp;
+            </Text>
+            <Text 
+              fontWeight="500"
+              fontSize="22px"
+              color="#3389D2"
+            > 
+              Wednesday.
+            </Text>
+          </Flex>
         </ConfirmDetailsContainer>
         <Flex
           justify="end"
