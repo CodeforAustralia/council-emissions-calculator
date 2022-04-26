@@ -18,7 +18,10 @@ import ConfirmDetailsContainer from "../../components/ConfirmDetailsContainer/Co
 eventually will render based on what user selects during previous steps:
 */
 import House from "../../public/images/other/house.svg";
-const title = "Work from Home";
+import Arrows from "../../public/images/other/arrows.svg";
+
+const titleWFH = "Work from Home";
+const titleTravelMethods = "Work from Home";
 
 export default function ConfirmWFH() {
 
@@ -53,15 +56,8 @@ export default function ConfirmWFH() {
   };
 
   return (
-    <Layout 
-      isText={true} 
-      Progress={Q4Progress}
-    >
-      <Box 
-        pos="absolute" 
-        top={["2", "5"]} 
-        left={["2", "10"]}
-      >
+    <Layout isText={true} Progress={Q4Progress}>
+      <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
           href="/"
           onClick={() => {
@@ -70,54 +66,51 @@ export default function ConfirmWFH() {
         />
       </Box>
       <Box minW="720px">
-        <Flex
-          justify="center"
-          direction="column"
-        >
+        <Flex justify="center" direction="column">
           <Q3Cloud />
-          <Heading 
-            mt={10} 
-            mb={10}
-          >
+          <Heading mt={10} mb={10}>
             Please confirm the details below
           </Heading>
         </Flex>
         <ConfirmDetailsContainer
           methodIcon={House}
-          title={title}
+          title={titleWFH}
         >
           <Flex>
-            <Text
-              fontWeight="500"
-              fontSize="22px"
-            >
+            <Text fontWeight="500" fontSize="22px">
               I work from home on&nbsp;
             </Text>
-            <Text 
-              fontWeight="500"
-              fontSize="22px"
-              color="#3389D2"
-            > 
+            <Text fontWeight="500" fontSize="22px" color="#3389D2"> 
               Monday&nbsp; 
             </Text>
-            <Text
-              fontWeight="500"
-              fontSize="22px"
-            >
+            <Text fontWeight="500" fontSize="22px" >
               to&nbsp;
             </Text>
-            <Text 
-              fontWeight="500"
-              fontSize="22px"
-              color="#3389D2"
-            > 
+            <Text fontWeight="500" fontSize="22px" color="#3389D2"> 
               Wednesday.
             </Text>
           </Flex>
         </ConfirmDetailsContainer>
-        <Flex
-          justify="end"
+        <ConfirmDetailsContainer
+          methodIcon={Arrows}
+          title={titleTravelMethods}
         >
+          <Flex>
+            <Text fontWeight="500" fontSize="22px">
+              I would travel to work by&nbsp;
+            </Text>
+            <Text fontWeight="500" fontSize="22px" color="#3389D2"> 
+              bicycle&nbsp; 
+            </Text>
+            <Text fontWeight="500" fontSize="22px" >
+              and&nbsp;
+            </Text>
+            <Text fontWeight="500" fontSize="22px" color="#3389D2"> 
+              carpool.
+            </Text>
+          </Flex>
+        </ConfirmDetailsContainer>
+        <Flex justify="end">
           <LinkButton
             mt="10px"
             href={"/form/Distance"}

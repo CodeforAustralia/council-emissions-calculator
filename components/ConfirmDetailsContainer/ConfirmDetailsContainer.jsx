@@ -1,7 +1,6 @@
-import { Children } from "react";
 import { Text, Box, Flex, Spacer, Icon } from "@chakra-ui/react";
 
-export default function ConfirmDetailsContainer({ methodIcon, title, Children }) {
+export default function ConfirmDetailsContainer({ methodIcon, title, children }) {
 
   return (
     <Box 
@@ -36,7 +35,7 @@ export default function ConfirmDetailsContainer({ methodIcon, title, Children })
             >
               {title}
             </Text>
-            { Children }
+            { children }
           </Flex>
         </Flex>
       </Flex>
