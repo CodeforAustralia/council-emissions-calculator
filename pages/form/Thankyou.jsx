@@ -44,7 +44,7 @@ export default function Thankyou() {
           >
             As part of Climate Change and Environment Strategy (2021 to 2026), 
             we’ve set a challenge that 20% of staff trips to work are by active, 
-            shared and public transport by 2026. So I’ll be interesting to see where 
+            shared and public transport by 2026. So It’ll be interesting to see where 
             we are at and where we need to improve.
           </Text>
           <Text
