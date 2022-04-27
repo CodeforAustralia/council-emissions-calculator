@@ -7,8 +7,8 @@ export default function Thankyou() {
     <Layout isText background="#044B7F">
       <Flex
         alignItems="center"
+        pl="5%"
         flexDir="column"
-        w="90%"
         pos="relative"
         top="-35px"
       >
