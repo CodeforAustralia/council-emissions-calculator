@@ -8,7 +8,7 @@ import {
   Text,
   Flex,
 } from "@chakra-ui/react";
-import { modesOfTransport } from "../../utils/constants";
+import { travelMethods } from "../../utils/constants";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import {
@@ -88,7 +88,7 @@ export default function Question4() {
               defaultValue={transportMode}
               id="selector"
             >
-              {modesOfTransport.map((mode) => (
+              {travelMethods.map((mode) => (
                 <option fontSize="lg" key={mode} value={mode}>
                   {mode}
                 </option>
