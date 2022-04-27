@@ -8,43 +8,55 @@ export default function Thankyou() {
       <Flex
         alignItems="center"
         flexDir="column"
-        w="90%"
         pos="relative"
         top="-35px"
       >
         <TYCloud />
-        <Heading color="#fff" mt={5} mb={5}>
-          Thank you for participating!
-        </Heading>
-        <Text
-          color="#fff"
-          mt={5}
-          fontSize="18px"
-          textAlign={["center", "start"]}
-          w="100%"
-        >
-          We’re collecting responses from 1 - 19 November, and the results will
-          be shared by your work representative at the end of the survey.
-        </Text>
-        <Text
-          color="#fff"
-          mt={5}
-          fontSize="18px"
-          textAlign={["center", "start"]}
-          w="100%"
-        >
-          Your response helps us understand how our work commute affects our
-          future environment, and find ways to reduce your impact.
-        </Text>
-        <Text
-          color="#fff"
-          mt={5}
-          fontSize="18px"
-          textAlign={["center", "start"]}
-          w="100%"
-        >
-          It’s safe to close this tab now.
-        </Text>
+        <Flex px={["0px","9%"]} flexDir="column" alignItems={["center", "start"]}>
+          <Heading color="#fff" mt={5} mb={5} textAlign={["center", "start"]}>
+            Thank you for participating!
+          </Heading>
+          <Text
+            color="#fff"
+            mt={5}
+            fontSize="18px"
+            textAlign={["center", "start"]}
+            w="100%"
+          >
+            Thanks for participating, your time is greatly appreciated!
+          </Text>
+          <Text
+            color="#fff"
+            mt={5}
+            fontSize="18px"
+            textAlign={["center", "start"]}
+            w="100%"
+          >
+            We’re collecting responses from 26th April 2022 to better understand 
+            how City staff travel to and from work.
+          </Text>
+          <Text
+            color="#fff"
+            mt={5}
+            fontSize="18px"
+            textAlign={["center", "start"]}
+            w="100%"
+          >
+            As part of Climate Change and Environment Strategy (2021 to 2026), 
+            we’ve set a challenge that 20% of staff trips to work are by active, 
+            shared and public transport by 2026. So It’ll be interesting to see where 
+            we are at and where we need to improve.
+          </Text>
+          <Text
+            color="#fff"
+            mt={5}
+            fontSize="18px"
+            textAlign={["center", "start"]}
+            w="100%"
+          >
+            The results will be shared at the end of the survey.
+          </Text>
+        </Flex>
       </Flex>
     </Layout>
   );
