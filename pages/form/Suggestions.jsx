@@ -84,7 +84,6 @@ export default function Suggestions() {
       <ContinueButton
         topMargin={8}
         href="/form/Department"
-        disabled={!incentive}
         onClick={() => saveDataAndShowLog("Next button clicked")}
         width={["100%", "90%"]}
       />
