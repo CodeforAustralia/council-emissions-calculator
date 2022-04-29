@@ -1,3 +1,4 @@
+
 import {
   Box,
   GridItem,
@@ -12,10 +13,8 @@ import Q3Cloud from "../../public/images/clouds/cloud-q3.svg";
 import LinkButton, { BackButton } from "../../components/LinkButton/LinkButton";
 import { useRouter } from "next/router";
 import { sendLogs } from "../../utils/sendLogs";
-
 import TravelDayButtonsContainer from "../../components/TravelDayButtons/TravelDayButtonsContainer";
-
-import House from "../../public/images/other/house.svg";
+import { travelMethods } from "../../utils/constants";
 
 export default function TravelDays() {
 
@@ -26,7 +25,6 @@ export default function TravelDays() {
   }
 
   const router = useRouter();
-
   const logMessage = (msg) => {
     let incentiveMsg = () => {
       if (!!answers.incentive) {return "<filled>"}
@@ -47,14 +45,18 @@ export default function TravelDays() {
     sendLogs(logMessage(logMsg));
   };
 
-  const Description = ({title}) => (<Flex>
-    <Text
-      fontWeight="500"
-      fontSize="22px"
-    >
-      Select the days you travel to work by {title}.
-    </Text>
-  </Flex>)
+  const travelComponent = ( tm ) => {
+
+    const ind = travelMethods.indexOf( tm )
+ 
+  
+  return(  <GridItem >
+              <TravelDayButtonsContainer
+      title={tm}
+      methodIcondIndex={ind}
+              />
+            </GridItem>
+   ) }
 
   return (
     <Layout
@@ -88,13 +90,16 @@ export default function TravelDays() {
         </Flex>
         {
           answers.travelMethods.map((tm) => (
-            <GridItem key={tm}>
-              <TravelDayButtonsContainer
-                methodIcon={House}
-                title={tm}
-                description={<Description title={tm} />}
-              />
-            </GridItem>
+            <Box key={tm}>
+                {travelComponent(tm)}
+          </Box>
+          
+            // <GridItem key={tm}>
+            //   <TravelDayButtonsContainer
+            //     title={tm}
+               
+            //   />
+            // </GridItem>
           ))
         }
         <Flex

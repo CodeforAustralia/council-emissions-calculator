@@ -1,10 +1,13 @@
-import { useState } from "react";
 import { Box, Flex, GridItem, Icon, SimpleGrid, Spacer, Text } from "@chakra-ui/react";
 import TravelDayButton from "./TravelDayButton";
 import { daysOfWeek } from "../../utils/constants";
+import { transportIcon } from "../../utils/constants";
 
-export default function TravelDayButtonsContainer({ methodIcon, title, description }) {
+  
+export default function TravelDayButtonsContainer({ title, methodIcondIndex }) {
+  
 
+  
   return (
     <Box
       direction="column"
@@ -23,7 +26,7 @@ export default function TravelDayButtonsContainer({ methodIcon, title, descripti
             justifySelf="end"
             w={7}
             h={7}
-            as={methodIcon}
+            as={transportIcon[ methodIcondIndex]}
           />
           <Spacer />
           <Flex
@@ -38,7 +41,15 @@ export default function TravelDayButtonsContainer({ methodIcon, title, descripti
             >
               {title}
             </Text>
-            { description }
+            <Flex>
+    <Text
+      fontWeight="500"
+      fontSize="22px"
+    >
+      Select the days you travel to work by {title}.
+    </Text>
+  </Flex>
+            {/* { description } */}
           </Flex>
         </Flex>
         <Spacer />
