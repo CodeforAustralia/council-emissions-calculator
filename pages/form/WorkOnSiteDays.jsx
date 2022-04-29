@@ -3,7 +3,7 @@ import Layout from "../../components/Layout/Layout";
 import DaysOfTheWeekContainer from "../../components/DaysOfTheWeek/DaysOfTheWeekContainer";
 
 import { BackButton } from "../../components/LinkButton/LinkButton";
-import Q1Progress from "../../public/images/progress-bar/q1-progress-dots.svg";
+import Q2Progress from "../../public/images/progress-bar/q2-progress-dots.svg";
 import Q1Cloud from "../../public/images/clouds/cloud-q1.svg";
 
 import { useState } from "react";
@@ -69,7 +69,7 @@ export default function WorkOnSiteDays() {
   };
 
   return (
-    <Layout isText={true} Progress={Q1Progress}>
+    <Layout isText={true} Progress={Q2Progress}>
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
           href={getBackHref(answers.workMode)}
