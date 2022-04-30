@@ -1,7 +1,7 @@
 import { Box, Flex, GridItem, Heading } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
-import Q1Progress from "../../public/images/progress-bar/q1-progress-dots.svg";
+import Q5Progress from "../../public/images/progress-bar/q5-progress-dots.svg";
 import Q3Cloud from "../../public/images/clouds/cloud-q3.svg";
 import LinkButton, { BackButton } from "../../components/LinkButton/LinkButton";
 import { useRouter } from "next/router";
@@ -49,7 +49,7 @@ export default function TravelDays() {
   };
 
   return (
-    <Layout isText={true} Progress={Q1Progress}>
+    <Layout isText={true} Progress={Q5Progress}>
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
           href={"/form/TravelMethod"}
