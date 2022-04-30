@@ -1,11 +1,4 @@
-
-import {
-  Box,
-  GridItem,
-  Heading,
-  Flex,
-  Text
-} from "@chakra-ui/react";
+import { Box, Flex, GridItem, Heading } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import Q1Progress from "../../public/images/progress-bar/q1-progress-dots.svg";
@@ -17,27 +10,27 @@ import TravelDayButtonsContainer from "../../components/TravelDayButtons/TravelD
 import { travelMethods } from "../../utils/constants";
 
 export default function TravelDays() {
-
   const { answers, setAnswers } = useForm();
 
   const saveAnswers = () => {
-    setAnswers(prev => ({ ...prev }));
-  }
+    setAnswers((prev) => ({ ...prev }));
+  };
 
   const router = useRouter();
   const logMessage = (msg) => {
     let incentiveMsg = () => {
-      if (!!answers.incentive) {return "<filled>"}
-      else return "<empty>"
-    }
+      if (!!answers.incentive) {
+        return "<filled>";
+      } else return "<empty>";
+    };
     return {
       page: router.pathname,
       event: msg,
       ...answers,
       //[TODO]: JSON.stringify `travelMethodByDay` value
       incentive: incentiveMsg(),
-    }
-  }
+    };
+  };
 
   // function to save data and show logs on save
   const saveDataAndShowLog = (logMsg) => {
@@ -45,29 +38,19 @@ export default function TravelDays() {
     sendLogs(logMessage(logMsg));
   };
 
-  const travelComponent = ( tm ) => {
+  const travelComponent = (tm) => {
+    const ind = travelMethods.indexOf(tm);
 
-    const ind = travelMethods.indexOf( tm )
- 
-  
-  return(  <GridItem >
-              <TravelDayButtonsContainer
-      title={tm}
-      methodIcondIndex={ind}
-              />
-            </GridItem>
-   ) }
+    return (
+      <GridItem>
+        <TravelDayButtonsContainer title={tm} methodIcondIndex={ind} />
+      </GridItem>
+    );
+  };
 
   return (
-    <Layout
-      isText={true}
-      Progress={Q1Progress}
-    >
-      <Box
-        pos="absolute"
-        top={["2", "5"]}
-        left={["2", "10"]}
-      >
+    <Layout isText={true} Progress={Q1Progress}>
+      <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
           href={"/form/TravelMethod"}
           onClick={() => {
@@ -76,43 +59,25 @@ export default function TravelDays() {
         />
       </Box>
       <Box minW="720px">
-        <Flex
-          justify="center"
-          direction="column"
-        >
+        <Flex justify="center" direction="column">
           <Q3Cloud />
-          <Heading
-            mt={10}
-            mb={10}
-          >
-            Please select the days you travel to work using the selected travel methods
+          <Heading mt={10} mb={10}>
+            Please select the days you travel to work using the selected travel
+            methods
           </Heading>
         </Flex>
-        {
-          answers.travelMethods.map((tm) => (
-            <Box key={tm}>
-                {travelComponent(tm)}
-          </Box>
-          
-            // <GridItem key={tm}>
-            //   <TravelDayButtonsContainer
-            //     title={tm}
-               
-            //   />
-            // </GridItem>
-          ))
-        }
-        <Flex
-          justify="end"
-        >
+        {answers.travelMethods.map((tm) => (
+          <Box key={tm}>{travelComponent(tm)}</Box>
+        ))}
+        <Flex justify="end">
           <LinkButton
             disabled={
               //check if any response has been given;
               //disable button if no response given
               //[TODO]: DISABLE WHEN NO SELECTIONS PROVIDED FOR ALL WFH+ONSITE DAYS
-              Object.values(answers.travelMethodByDay)
-              .filter((tm) => answers.travelMethods.includes(tm))
-              .length === 0
+              Object.values(answers.travelMethodByDay).filter((tm) =>
+                answers.travelMethods.includes(tm)
+              ).length === 0
             }
             mt="10px"
             href={"/form/Distance"}
