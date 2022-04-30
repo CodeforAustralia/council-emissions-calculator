@@ -43,7 +43,7 @@ export default function TravelDays() {
 
     return (
       <GridItem>
-        <TravelDayButtonsContainer title={tm} methodIcondIndex={ind} />
+        <TravelDayButtonsContainer title={tm} methodIconIndex={ind} />
       </GridItem>
     );
   };

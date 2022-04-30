@@ -11,7 +11,7 @@ import TravelDayButton from "./TravelDayButton";
 import { daysOfWeek } from "../../utils/constants";
 import { transportIcon } from "../../utils/constants";
 
-export default function TravelDayButtonsContainer({ title, methodIcondIndex }) {
+export default function TravelDayButtonsContainer({ title, methodIconIndex }) {
   return (
     <Box
       direction="column"
@@ -28,7 +28,7 @@ export default function TravelDayButtonsContainer({ title, methodIcondIndex }) {
             justifySelf="end"
             w={7}
             h={7}
-            as={transportIcon[methodIcondIndex]}
+            as={transportIcon[methodIconIndex]}
           />
           <Spacer />
           <Flex direction="column" align="left" pl="15px">
