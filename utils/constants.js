@@ -17,7 +17,7 @@ export const daysOfWeek = [
   "Sunday",
 ];
 
-export const modesOfTransport = [
+export const travelMethods = [
   "Bicycle",
   "Bus",
   "Carpool",
