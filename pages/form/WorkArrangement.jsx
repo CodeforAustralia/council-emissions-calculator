@@ -108,7 +108,7 @@ export default function WorkArrangement() {
   };
 
   return (
-    <Layout isText={true} Progress={Q1Progress}>
+    <Layout isText={true} Progress={Q1Progress} maxContainerWidth={"750"}>
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
           href="/"
