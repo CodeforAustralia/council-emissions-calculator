@@ -28,6 +28,10 @@ export default function TravelMethodButton({ name, onClick, isActive, ind }) {
             fontWeight="400"
             lineHeight="19px"
             letterSpacing="0.022em"
+            style={{
+              whiteSpace: "normal",
+              wordWrap: "break-word",
+            }}
           >
             {name}
           </Text>
