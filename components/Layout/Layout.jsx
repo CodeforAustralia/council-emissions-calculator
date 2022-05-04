@@ -98,7 +98,7 @@ export function Content({ children, background, maxContainerWidth }) {
         centerContent
         maxW={maxContainerWidth || "container.sm"}
         px={5}
-        py={["0px", "0px"]}
+        py={["20px", "0px"]}
       >
         {children}
       </Container>
