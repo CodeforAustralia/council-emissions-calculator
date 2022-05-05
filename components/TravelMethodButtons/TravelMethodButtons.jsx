@@ -10,11 +10,24 @@ const TravelMethodButtons = () => {
 
   const [travelMethodButtonStates, setTravelMethodButtonStates] = useState(
     travelMethods.map((tm, idx) => {
+      // make sure to disable button ONLY if:
+      // * button not already selected, and
+      // * travel method selection limit has been reached
+      let updateDisabledState = () => {
+        if (
+          !answers.travelMethods.includes(tm)
+          &&
+          (answers.travelMethods.length >= answers.onsiteDays.length)
+        ) {
+          return true;
+        } else return false;
+      }
+
       return {
         id: idx,
         travelMethod: tm,
         isSelected: answers.travelMethods.includes(tm),
-        isDisabled: false,
+        isDisabled: updateDisabledState(),
       };
     })
   );
@@ -24,6 +37,17 @@ const TravelMethodButtons = () => {
       if (item.travelMethod === buttonName) {
         return { ...item, isSelected: !item.isSelected };
       } else return { ...item };
+    });
+
+    const updatedNumTravelMethod = updatedState
+      .filter((tm) => tm.isSelected)
+      .length;
+
+    // disable buttons if travel method selection limit reached...
+    updatedState = updatedState.map((item) => {
+      if (!item.isSelected && (updatedNumTravelMethod >= answers.onsiteDays.length)) {
+        return { ...item, isDisabled: true };
+      } else return { ...item, isDisabled: false };
     });
 
     let selectedTravelMethods = updatedState
@@ -66,6 +90,7 @@ const TravelMethodButtons = () => {
             <TravelMethodButton
               name={item.travelMethod}
               isActive={item.isSelected}
+              isDisabled={item.isDisabled}
               onClick={handleTravelMethodButtonClick}
               ind={item.id}
             />
