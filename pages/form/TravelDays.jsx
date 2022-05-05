@@ -49,7 +49,7 @@ export default function TravelDays() {
   };
 
   return (
-    <Layout isText={true} Progress={Q5Progress}>
+    <Layout isText={true} Progress={Q5Progress} maxContainerWidth={"750"}>
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
           href={"/form/TravelMethod"}
@@ -58,7 +58,7 @@ export default function TravelDays() {
           }}
         />
       </Box>
-      <Box minW="720px">
+      <Box>
         <Flex justify="center" direction="column">
           <Q3Cloud />
           <Heading mt={10} mb={10}>
