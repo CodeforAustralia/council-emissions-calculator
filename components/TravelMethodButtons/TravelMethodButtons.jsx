@@ -8,6 +8,22 @@ import useForm from "../../components/FormProvider";
 const TravelMethodButtons = () => {
   const { answers, setAnswers } = useForm();
 
+  const workDays = (
+    workArrangement = answers.workMode,
+    workOnSiteDays = answers.onsiteDays.length,
+    wfhDays = answers.wfhDays.length
+  ) => {
+    switch (workArrangement) {
+      case "hybrid":
+      case "onsite":
+        return workOnSiteDays
+      case "wfh":
+        return wfhDays;
+      default:
+        return 0;
+    }
+  }
+
   const [travelMethodButtonStates, setTravelMethodButtonStates] = useState(
     travelMethods.map((tm, idx) => {
       // make sure to disable button ONLY if:
@@ -17,7 +33,7 @@ const TravelMethodButtons = () => {
         if (
           !answers.travelMethods.includes(tm)
           &&
-          (answers.travelMethods.length >= answers.onsiteDays.length)
+          (answers.travelMethods.length >= workDays())
         ) {
           return true;
         } else return false;
@@ -45,7 +61,7 @@ const TravelMethodButtons = () => {
 
     // disable buttons if travel method selection limit reached...
     updatedState = updatedState.map((item) => {
-      if (!item.isSelected && (updatedNumTravelMethod >= answers.onsiteDays.length)) {
+      if (!item.isSelected && (updatedNumTravelMethod >= workDays())) {
         return { ...item, isDisabled: true };
       } else return { ...item, isDisabled: false };
     });
