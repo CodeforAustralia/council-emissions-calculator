@@ -24,6 +24,15 @@ const TravelMethodButtons = () => {
     }
   }
 
+  const updatedTravelMethods = (
+    travelMethods = answers.travelMethods
+  ) => {
+    if (travelMethods.length > workDays()) {
+      let diff = workDays() - travelMethods.length;
+      return travelMethods.slice(0,diff);
+    } else return travelMethods;
+  }
+
   const [travelMethodButtonStates, setTravelMethodButtonStates] = useState(
     travelMethods.map((tm, idx) => {
       // make sure to disable button ONLY if:
@@ -31,9 +40,9 @@ const TravelMethodButtons = () => {
       // * travel method selection limit has been reached
       let updateDisabledState = () => {
         if (
-          !answers.travelMethods.includes(tm)
+          !updatedTravelMethods().includes(tm)
           &&
-          (answers.travelMethods.length >= workDays())
+          (updatedTravelMethods().length >= workDays())
         ) {
           return true;
         } else return false;
@@ -42,7 +51,7 @@ const TravelMethodButtons = () => {
       return {
         id: idx,
         travelMethod: tm,
-        isSelected: answers.travelMethods.includes(tm),
+        isSelected: updatedTravelMethods().includes(tm),
         isDisabled: updateDisabledState(),
       };
     })
@@ -115,7 +124,7 @@ const TravelMethodButtons = () => {
       </SimpleGrid>
 
       {/* Carpool counter */}
-      {answers.travelMethods.includes("Carpool") && <CarpoolCounter />}
+      {updatedTravelMethods().includes("Carpool") && <CarpoolCounter />}
     </>
   );
 };
