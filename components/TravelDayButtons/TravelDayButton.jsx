@@ -41,7 +41,7 @@ export default function TravelDayButton ({ label, travelMethod }) {
 
   return (
     <Button
-      w={["305px", "128.75px"]}
+      w={["90%", "128.75px"]}
       h="55px"
       borderRadius="8px"
       colorScheme="blue"
