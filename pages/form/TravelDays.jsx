@@ -68,7 +68,7 @@ export default function TravelDays() {
         {answers.travelMethods.map((tm) => (
           <Box key={tm}>{travelComponent(tm)}</Box>
         ))}
-        <Flex justify="end">
+        <Flex justify={["center", "end"]}>
           <LinkButton
             disabled={
               //check if any response has been given;
@@ -80,7 +80,7 @@ export default function TravelDays() {
             }
             mt="10px"
             href={"/form/Distance"}
-            width="105px"
+            width={["100%", "105px"]}
             H="55px"
             justifySelf="right"
             onClick={() => saveDataAndShowLog("Next button clicked")}
