@@ -38,7 +38,11 @@ export default function TravelDayButtonsContainer({ title, methodIconIndex }) {
             </Text>
           </Flex>
           <Flex pl="15px" ml={[0, 9]}>
-            <Text fontWeight="500" fontSize="22px" textAlign={["center", "left"]}>
+            <Text
+              fontWeight="500"
+              fontSize="22px"
+              textAlign={["center", "left"]}
+            >
               Select the days you travel to work by {title}.
             </Text>
           </Flex>
