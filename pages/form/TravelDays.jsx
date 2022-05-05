@@ -62,8 +62,7 @@ export default function TravelDays() {
         <Flex justify="center" direction="column">
           <Q3Cloud />
           <Heading mt={10} mb={10}>
-            Please select the days you travel to work using the selected travel
-            methods
+            Please select the days for your travel
           </Heading>
         </Flex>
         {answers.travelMethods.map((tm) => (
