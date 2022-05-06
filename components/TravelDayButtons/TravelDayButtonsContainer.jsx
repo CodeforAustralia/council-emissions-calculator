@@ -15,7 +15,7 @@ export default function TravelDayButtonsContainer({ title, methodIconIndex }) {
   return (
     <Box
       direction="column"
-      align="space-between"
+      align={["center", "space-between"]}
       borderWidth="2px"
       borderRadius="lg"
       px="3%"
@@ -23,23 +23,28 @@ export default function TravelDayButtonsContainer({ title, methodIconIndex }) {
       mb="5%"
     >
       <Flex>
-        <Flex align="flex-start">
-          <Icon
-            justifySelf="end"
-            w={7}
-            h={7}
-            as={transportIcon[methodIconIndex]}
-          />
-          <Spacer />
-          <Flex direction="column" align="left" pl="15px">
+        <Flex align={["center", "flex-start"]} direction="column">
+          <Flex>
+            <Icon
+              justifySelf="end"
+              w={7}
+              h={7}
+              as={transportIcon[methodIconIndex]}
+              mx={3}
+            />
+            <Spacer />
             <Text color="#044B7F" fontWeight="500" fontSize="24px">
               {title}
             </Text>
-            <Flex>
-              <Text fontWeight="500" fontSize="22px">
-                Select the days you travel to work by {title}.
-              </Text>
-            </Flex>
+          </Flex>
+          <Flex pl="15px" ml={[0, 9]}>
+            <Text
+              fontWeight="500"
+              fontSize="22px"
+              textAlign={["center", "left"]}
+            >
+              Select the days you travel to work by {title}.
+            </Text>
           </Flex>
         </Flex>
         <Spacer />

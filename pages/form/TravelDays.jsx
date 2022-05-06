@@ -49,7 +49,7 @@ export default function TravelDays() {
   };
 
   return (
-    <Layout isText={true} Progress={Q5Progress}>
+    <Layout isText={true} Progress={Q5Progress} maxContainerWidth={"750"}>
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
           href={"/form/TravelMethod"}
@@ -58,18 +58,17 @@ export default function TravelDays() {
           }}
         />
       </Box>
-      <Box minW="720px">
+      <Box>
         <Flex justify="center" direction="column">
           <Q3Cloud />
           <Heading mt={10} mb={10}>
-            Please select the days you travel to work using the selected travel
-            methods
+            Please select the days for your travel
           </Heading>
         </Flex>
         {answers.travelMethods.map((tm) => (
           <Box key={tm}>{travelComponent(tm)}</Box>
         ))}
-        <Flex justify="end">
+        <Flex justify={["center", "end"]}>
           <LinkButton
             disabled={
               //check if any response has been given;
@@ -81,7 +80,7 @@ export default function TravelDays() {
             }
             mt="10px"
             href={"/form/Distance"}
-            width="105px"
+            width={["100%", "105px"]}
             H="55px"
             justifySelf="right"
             onClick={() => saveDataAndShowLog("Next button clicked")}
