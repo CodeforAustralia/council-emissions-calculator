@@ -80,7 +80,7 @@ export default function Department() {
               fontWeight="bold"
               width="100%"
               height="55px"
-              placeholder="Please select"
+              placeholder="Select one"
               onChange={(e) => setDepartment(e.target.value)}
               defaultValue={answers.department}
               id="selector"
