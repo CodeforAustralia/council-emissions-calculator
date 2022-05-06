@@ -1,7 +1,13 @@
 import { Box, Button, Flex, Icon, Text } from "@chakra-ui/react";
 import { transportIcon } from "../../utils/constants";
 
-export default function TravelMethodButton({ name, onClick, isActive, isDisabled, ind }) {
+export default function TravelMethodButton({
+  name,
+  onClick,
+  isActive,
+  isDisabled,
+  ind,
+}) {
   return (
     <Button
       fontSize="16px"
@@ -23,7 +29,7 @@ export default function TravelMethodButton({ name, onClick, isActive, isDisabled
           cursor: "not-allowed",
           bg: "#D0D9DF",
         },
-        color: "white"
+        color: "white",
       }}
       disabled={isDisabled}
     >

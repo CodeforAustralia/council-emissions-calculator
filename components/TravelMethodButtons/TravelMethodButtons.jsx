@@ -16,22 +16,20 @@ const TravelMethodButtons = () => {
     switch (workArrangement) {
       case "hybrid":
       case "onsite":
-        return workOnSiteDays
+        return workOnSiteDays;
       case "wfh":
         return wfhDays;
       default:
         return 0;
     }
-  }
+  };
 
-  const updatedTravelMethods = (
-    travelMethods = answers.travelMethods
-  ) => {
+  const updatedTravelMethods = (travelMethods = answers.travelMethods) => {
     if (travelMethods.length > workDays()) {
       let diff = workDays() - travelMethods.length;
-      return travelMethods.slice(0,diff);
+      return travelMethods.slice(0, diff);
     } else return travelMethods;
-  }
+  };
 
   const [travelMethodButtonStates, setTravelMethodButtonStates] = useState(
     travelMethods.map((tm, idx) => {
@@ -40,13 +38,12 @@ const TravelMethodButtons = () => {
       // * travel method selection limit has been reached
       let updateDisabledState = () => {
         if (
-          !updatedTravelMethods().includes(tm)
-          &&
-          (updatedTravelMethods().length >= workDays())
+          !updatedTravelMethods().includes(tm) &&
+          updatedTravelMethods().length >= workDays()
         ) {
           return true;
         } else return false;
-      }
+      };
 
       return {
         id: idx,
@@ -64,13 +61,13 @@ const TravelMethodButtons = () => {
       } else return { ...item };
     });
 
-    const updatedNumTravelMethod = updatedState
-      .filter((tm) => tm.isSelected)
-      .length;
+    const updatedNumTravelMethod = updatedState.filter(
+      (tm) => tm.isSelected
+    ).length;
 
     // disable buttons if travel method selection limit reached...
     updatedState = updatedState.map((item) => {
-      if (!item.isSelected && (updatedNumTravelMethod >= workDays())) {
+      if (!item.isSelected && updatedNumTravelMethod >= workDays()) {
         return { ...item, isDisabled: true };
       } else return { ...item, isDisabled: false };
     });
