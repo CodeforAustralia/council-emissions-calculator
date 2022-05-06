@@ -105,7 +105,7 @@ export default function Department() {
                 return response;
               })
             }
-            width={["100%", "90%"]}
+            width="100%"
           />
         </Box>
       </Flex>
