@@ -17,7 +17,7 @@ import {
   SubmitButton,
 } from "../../components/LinkButton/LinkButton";
 import capitalize from "../../utils/capitalize";
-import Q5Progress from "../../public/images/progress-bar/q5-progress-dots.svg";
+import Q8Progress from "../../public/images/progress-bar/q8-progress-dots.svg";
 import Q5Cloud from "../../public/images/clouds/cloud-q5.svg";
 import { useRouter } from "next/router";
 import { sendLogs } from "../../utils/sendLogs";
@@ -50,8 +50,7 @@ export default function Department() {
   return (
     <Layout
       isText={true}
-      Progress={Q5Progress}
-      maxContainerWidth="container.md"
+      Progress={Q8Progress}
     >
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
