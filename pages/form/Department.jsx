@@ -51,6 +51,7 @@ export default function Department() {
     <Layout
       isText={true}
       Progress={Q8Progress}
+      maxContainerWidth={"750"}
     >
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
