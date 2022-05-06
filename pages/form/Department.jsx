@@ -91,7 +91,6 @@ export default function Department() {
                 </option>
               ))}
             </Select>
-            <FormHelperText id="selectorHelper">*Required</FormHelperText>
           </FormControl>
           <SubmitButton
             disabled={!department}
