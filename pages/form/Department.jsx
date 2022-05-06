@@ -64,7 +64,7 @@ export default function Department() {
       </Box>
       <Q5Cloud />
 
-      <Heading>Which department do you work for?</Heading>
+      <Heading mt={10}>Which department do you work for?</Heading>
 
       <Flex flexDirection={["column", "row"]} w="100%" mt={7}>
         <Box width={["100", "50%"]} mt={5}>
@@ -74,8 +74,8 @@ export default function Department() {
           </Text>
         </Box>
 
-        <Box width={["100%"]} flex={1} mt={[12, 5]} ms={[0, 5]}>
-          <FormControl isRequired>
+        <Box width={["100%"]} flex={1} mt={5} ms={[0, 5]}>
+          <FormControl isRequired mb="13px">
             <Select
               fontWeight="bold"
               width="100%"
