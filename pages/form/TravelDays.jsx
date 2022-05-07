@@ -39,9 +39,9 @@ export default function TravelDays() {
   };
 
   const workDays = (
-    workArrangement = answers.workMode,
-    workOnSiteDays = answers.onsiteDays,
-    wfhDays = answers.wfhDays
+    workArrangement = answers.workMode || "",
+    workOnSiteDays = answers.onsiteDays || [],
+    wfhDays = answers.wfhDays || [],
   ) => {
     switch (workArrangement) {
       case "hybrid":
@@ -50,7 +50,7 @@ export default function TravelDays() {
       case "wfh":
         return wfhDays;
       default:
-        return 0;
+        return [];
     }
   };
 
