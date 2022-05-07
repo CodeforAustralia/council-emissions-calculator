@@ -102,9 +102,8 @@ export default function TravelDays() {
         <Flex justify={["center", "end"]}>
           <LinkButton
             disabled={
-              //check if any response has been given;
-              //disable button if no response given
-              //[TODO]: DISABLE WHEN NO SELECTIONS PROVIDED FOR ALL WFH+ONSITE DAYS
+              //check if following 3 conditions are true;
+              //disable button if ANY are true
               [
                 checkIfNotAnySelected,
                 checkIfNotAllWorkDaysHasTravelMethod,
