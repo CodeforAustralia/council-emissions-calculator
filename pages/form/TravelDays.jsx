@@ -38,6 +38,37 @@ export default function TravelDays() {
     sendLogs(logMessage(logMsg));
   };
 
+  const workDays = (
+    workArrangement = answers.workMode,
+    workOnSiteDays = answers.onsiteDays,
+    wfhDays = answers.wfhDays
+  ) => {
+    switch (workArrangement) {
+      case "hybrid":
+      case "onsite":
+        return workOnSiteDays;
+      case "wfh":
+        return wfhDays;
+      default:
+        return 0;
+    }
+  };
+
+  const checkIfNotAnySelected = Object.values(answers.travelMethodByDay).filter((tm) =>
+    answers.travelMethods.includes(tm)
+  ).length === 0 ;
+
+  const checkIfNotAllWorkDaysHasTravelMethod = !workDays().map((day) => {
+    return answers.travelMethodByDay[day];
+  }).every((tm) => answers.travelMethods.includes(tm));
+
+  const checkIfNotAllTravelMethodsSelected = !answers.travelMethods.map((tm) => {
+    let selectedTms = Object.values(answers.travelMethodByDay);
+    if (selectedTms.includes(tm)) {
+      return tm;
+    } else return "";
+  }).every((tm) => answers.travelMethods.includes(tm));
+
   const travelComponent = (tm) => {
     const ind = travelMethods.indexOf(tm);
 
@@ -74,9 +105,11 @@ export default function TravelDays() {
               //check if any response has been given;
               //disable button if no response given
               //[TODO]: DISABLE WHEN NO SELECTIONS PROVIDED FOR ALL WFH+ONSITE DAYS
-              Object.values(answers.travelMethodByDay).filter((tm) =>
-                answers.travelMethods.includes(tm)
-              ).length === 0
+              [
+                checkIfNotAnySelected,
+                checkIfNotAllWorkDaysHasTravelMethod,
+                checkIfNotAllTravelMethodsSelected
+              ].some((x) => x === true)
             }
             mt="10px"
             href={"/form/Distance"}
