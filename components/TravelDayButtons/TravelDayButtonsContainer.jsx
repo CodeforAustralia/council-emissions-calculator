@@ -26,7 +26,7 @@ export default function TravelDayButtonsContainer({ title, methodIconIndex }) {
       case "wfh":
         return wfhDays;
       default:
-        return 0;
+        return [];
     }
   };
 
