@@ -18,6 +18,7 @@ const TravelMethodButtons = () => {
 
   const workOnSiteDaysNumber = answers.onsiteDays.length;
   const travelMethodsNumber = answers.travelMethods.length;
+  const wfhDaysNumber = answers.wfhDays.length;
 
   const workDays = (
     workArrangement = answers.workMode,
@@ -118,7 +119,7 @@ const TravelMethodButtons = () => {
       <Alert
         status="error"
         mb={5}
-        display={travelMethodsNumber < workOnSiteDaysNumber ? "none" : "block"}
+        display={((answers.workMode === "wfh")&&(travelMethodsNumber < wfhDaysNumber) || (answers.workMode !== "wfh")&&(travelMethodsNumber < workOnSiteDaysNumber)) ? "none" : "block"}
         width="83%"
         borderRadius="lg"
       >
@@ -127,7 +128,7 @@ const TravelMethodButtons = () => {
           <AlertTitle>Travel method limit is reached</AlertTitle>
         </Flex>
         <AlertDescription>
-          {(answers.workMode === "wfh") ? "Please select one mode of transport for each work day" : "Please select one mode of transport for each one-site work day"}
+          Please select one mode of transport for each {(answers.workMode !== "wfh")&&"on-site"} work day
         </AlertDescription>
       </Alert>
 
