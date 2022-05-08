@@ -4,13 +4,7 @@ import {
   ContinueButton,
 } from "../../components/LinkButton/LinkButton";
 import { useState } from "react";
-import {
-  Box,
-  Container,
-  Flex,
-  Heading,
-  Text
-} from "@chakra-ui/react";
+import { Box, Container, Flex, Heading, Text } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import TravelMethodButtons from "../../components/TravelMethodButtons/TravelMethodButtons";
@@ -71,7 +65,7 @@ export default function TravelMethod() {
       </Box>
       <Q4Cloud />
 
-      <Heading mt={10} mb={5} fontWeight="700">
+      <Heading mt={10} mb={10} fontWeight="700">
         What is your usual travel method to work?
       </Heading>
 
