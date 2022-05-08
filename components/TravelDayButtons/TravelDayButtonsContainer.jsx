@@ -8,10 +8,28 @@ import {
   Text,
 } from "@chakra-ui/react";
 import TravelDayButton from "./TravelDayButton";
-import { daysOfWeek } from "../../utils/constants";
 import { transportIcon } from "../../utils/constants";
+import useForm from "../../components/FormProvider";
 
 export default function TravelDayButtonsContainer({ title, methodIconIndex }) {
+  const { answers, _ } = useForm();
+
+  const workDays = (
+    workArrangement = answers.workMode,
+    workOnSiteDays = answers.onsiteDays,
+    wfhDays = answers.wfhDays
+  ) => {
+    switch (workArrangement) {
+      case "hybrid":
+      case "onsite":
+        return workOnSiteDays;
+      case "wfh":
+        return wfhDays;
+      default:
+        return [];
+    }
+  };
+
   return (
     <Box
       direction="column"
@@ -56,8 +74,7 @@ export default function TravelDayButtonsContainer({ title, methodIconIndex }) {
         spacingY="15px"
         textAlign="center"
       >
-        {/* [TODO]: SHOULD ONLY SHOW WFH+ONSITE DAYS TO SELECT FROM */}
-        {daysOfWeek.map((item) => (
+        {workDays().map((item) => (
           <GridItem key={item}>
             <TravelDayButton label={item} travelMethod={title} />
           </GridItem>
