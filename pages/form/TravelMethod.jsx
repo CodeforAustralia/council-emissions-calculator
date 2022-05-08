@@ -9,11 +9,7 @@ import {
   Container,
   Flex,
   Heading,
-  Text,
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription,
+  Text
 } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
@@ -26,9 +22,6 @@ import { sendLogs } from "../../utils/sendLogs";
 
 export default function TravelMethod() {
   const { answers, _ } = useForm();
-
-  const workOnSiteDays = answers.onsiteDays.length;
-  const travelMethods = answers.travelMethods.length;
 
   const router = useRouter();
 
@@ -81,18 +74,6 @@ export default function TravelMethod() {
       <Heading mt={10} mb={5} fontWeight="700">
         What is your usual travel method to work?
       </Heading>
-
-      <Alert
-        status="error"
-        mb={5}
-        display={travelMethods < workOnSiteDays ? "none" : "flex"}
-      >
-        <AlertIcon />
-        <AlertTitle>Travel method limit is reached</AlertTitle>
-        <AlertDescription>
-          You can not select more travel methods than work days
-        </AlertDescription>
-      </Alert>
 
       <Flex justify={["center", "left"]} mb={10}>
         <Text fontSize="18px">
