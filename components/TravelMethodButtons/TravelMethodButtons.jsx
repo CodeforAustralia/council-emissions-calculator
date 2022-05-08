@@ -1,4 +1,12 @@
-import { Flex, Text, SimpleGrid, Alert, AlertIcon, AlertTitle, AlertDescription } from "@chakra-ui/react";
+import {
+  Flex,
+  Text,
+  SimpleGrid,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+} from "@chakra-ui/react";
 import { travelMethods } from "../../utils/constants";
 import CarpoolCounter from "./CarpoolCounter";
 import TravelMethodButton from "./TravelMethodButton";
@@ -115,9 +123,7 @@ const TravelMethodButtons = () => {
       >
         <Flex>
           <AlertIcon />
-          <AlertTitle>
-            Travel method limit is reached
-          </AlertTitle>
+          <AlertTitle>Travel method limit is reached</AlertTitle>
         </Flex>
         <AlertDescription>
           You can not select more travel methods than work days
