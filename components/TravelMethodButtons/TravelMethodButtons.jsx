@@ -7,7 +7,7 @@ import {
   AlertTitle,
   AlertDescription,
 } from "@chakra-ui/react";
-import { travelMethods } from "../../utils/constants";
+import { daysOfWeek, travelMethods } from "../../utils/constants";
 import CarpoolCounter from "./CarpoolCounter";
 import TravelMethodButton from "./TravelMethodButton";
 import { useState } from "react";
@@ -87,6 +87,20 @@ const TravelMethodButtons = () => {
       .filter((tm) => tm.isSelected)
       .map((tm) => tm.travelMethod);
 
+    // update `TravelDay` responses when selected travel methods change
+    const updateTravelMethodByDay = (
+      travelMethodByDay = answers.travelMethodByDay
+    ) => {
+      let updatedTmDay = {};
+      daysOfWeek.map((day) => {
+        if (selectedTravelMethods.includes(travelMethodByDay[day])) {
+          updatedTmDay[day] = travelMethodByDay[day];
+        } else updatedTmDay[day] = "";
+      });
+
+      return updatedTmDay;
+    };
+
     const updateCarpoolPassengerCount = () => {
       if (selectedTravelMethods.includes("Carpool")) {
         if (answers.carpoolPassengerCount === 0) return 1;
@@ -98,6 +112,7 @@ const TravelMethodButtons = () => {
     setAnswers((prev) => ({
       ...prev,
       travelMethods: selectedTravelMethods,
+      travelMethodByDay: updateTravelMethodByDay(),
       carpoolPassengerCount: updateCarpoolPassengerCount(),
     }));
   };
