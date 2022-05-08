@@ -132,7 +132,7 @@ const TravelMethodButtons = () => {
       </Flex>
 
       <Alert
-        status="error"
+        status="success"
         mb={5}
         display={((answers.workMode === "wfh")&&(travelMethodsNumber < wfhDaysNumber) || (answers.workMode !== "wfh")&&(travelMethodsNumber < workOnSiteDaysNumber)) ? "none" : "block"}
         width="83%"
@@ -143,7 +143,7 @@ const TravelMethodButtons = () => {
           <AlertTitle>Travel method limit is reached</AlertTitle>
         </Flex>
         <AlertDescription>
-          Please select one mode of transport for each {(answers.workMode !== "wfh")&&"on-site"} work day
+          You can not select more travel methods than work days
         </AlertDescription>
       </Alert>
 
