@@ -68,7 +68,7 @@ export default function TravelMethod() {
       </Box>
       <Q4Cloud />
 
-      <Heading mt={10} mb={10} fontWeight="700">
+      <Heading mt={10} mb={5} fontWeight="700">
         What is your usual travel method to work?
       </Heading>
 
