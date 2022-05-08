@@ -19,7 +19,7 @@ const CarpoolCounter = () => {
       <Flex
         mt={10}
         mb={2}
-        border={["1px dashed", ""]}
+        border={["1px dashed", "none"]}
         borderColor="var(--chakra-colors-blue-500)"
         width={["240px", "0px"]}
         alignItems="center"

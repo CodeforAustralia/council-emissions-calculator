@@ -1,4 +1,12 @@
-import { Flex, Text, SimpleGrid } from "@chakra-ui/react";
+import {
+  Flex,
+  Text,
+  SimpleGrid,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+} from "@chakra-ui/react";
 import { daysOfWeek, travelMethods } from "../../utils/constants";
 import CarpoolCounter from "./CarpoolCounter";
 import TravelMethodButton from "./TravelMethodButton";
@@ -7,6 +15,10 @@ import useForm from "../../components/FormProvider";
 
 const TravelMethodButtons = () => {
   const { answers, setAnswers } = useForm();
+
+  const workOnSiteDaysNumber = answers.onsiteDays.length;
+  const travelMethodsNumber = answers.travelMethods.length;
+  const wfhDaysNumber = answers.wfhDays.length;
 
   const workDays = (
     workArrangement = answers.workMode,
@@ -118,6 +130,22 @@ const TravelMethodButtons = () => {
           Select the ways you generally travel to work.
         </Text>
       </Flex>
+
+      <Alert
+        status="success"
+        mb={5}
+        display={((answers.workMode === "wfh")&&(travelMethodsNumber < wfhDaysNumber) || (answers.workMode !== "wfh")&&(travelMethodsNumber < workOnSiteDaysNumber)) ? "none" : "block"}
+        width="83%"
+        borderRadius="lg"
+      >
+        <Flex>
+          <AlertIcon />
+          <AlertTitle>Travel method limit is reached</AlertTitle>
+        </Flex>
+        <AlertDescription>
+          You can not select more travel methods than work days
+        </AlertDescription>
+      </Alert>
 
       {/*ALL travel method button selection */}
 
