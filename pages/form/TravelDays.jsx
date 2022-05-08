@@ -41,7 +41,7 @@ export default function TravelDays() {
   const workDays = (
     workArrangement = answers.workMode || "",
     workOnSiteDays = answers.onsiteDays || [],
-    wfhDays = answers.wfhDays || [],
+    wfhDays = answers.wfhDays || []
   ) => {
     switch (workArrangement) {
       case "hybrid":
@@ -54,20 +54,25 @@ export default function TravelDays() {
     }
   };
 
-  const checkIfNotAnySelected = Object.values(answers.travelMethodByDay).filter((tm) =>
-    answers.travelMethods.includes(tm)
-  ).length === 0 ;
+  const checkIfNotAnySelected =
+    Object.values(answers.travelMethodByDay).filter((tm) =>
+      answers.travelMethods.includes(tm)
+    ).length === 0;
 
-  const checkIfNotAllWorkDaysHasTravelMethod = !workDays().map((day) => {
-    return answers.travelMethodByDay[day];
-  }).every((tm) => answers.travelMethods.includes(tm));
+  const checkIfNotAllWorkDaysHasTravelMethod = !workDays()
+    .map((day) => {
+      return answers.travelMethodByDay[day];
+    })
+    .every((tm) => answers.travelMethods.includes(tm));
 
-  const checkIfNotAllTravelMethodsSelected = !answers.travelMethods.map((tm) => {
-    let selectedTms = Object.values(answers.travelMethodByDay);
-    if (selectedTms.includes(tm)) {
-      return tm;
-    } else return "";
-  }).every((tm) => answers.travelMethods.includes(tm));
+  const checkIfNotAllTravelMethodsSelected = !answers.travelMethods
+    .map((tm) => {
+      let selectedTms = Object.values(answers.travelMethodByDay);
+      if (selectedTms.includes(tm)) {
+        return tm;
+      } else return "";
+    })
+    .every((tm) => answers.travelMethods.includes(tm));
 
   const travelComponent = (tm) => {
     const ind = travelMethods.indexOf(tm);
@@ -107,7 +112,7 @@ export default function TravelDays() {
               [
                 checkIfNotAnySelected,
                 checkIfNotAllWorkDaysHasTravelMethod,
-                checkIfNotAllTravelMethodsSelected
+                checkIfNotAllTravelMethodsSelected,
               ].some((x) => x === true)
             }
             mt="10px"
