@@ -127,7 +127,7 @@ const TravelMethodButtons = () => {
           <AlertTitle>Travel method limit is reached</AlertTitle>
         </Flex>
         <AlertDescription>
-          You can not select more travel methods than work days
+          {(answers.workMode === "wfh") ? "Please select one mode of transport for each work day" : "Please select one mode of transport for each one-site work day"}
         </AlertDescription>
       </Alert>
 
