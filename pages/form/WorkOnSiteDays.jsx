@@ -69,7 +69,7 @@ export default function WorkOnSiteDays() {
     return href;
   };
 
-  const getProgressBar = (workArrangement = answers.workMode) => {
+  const getProgressBar = (workArrangement=answers.workMode) => {
     let progressBar = Q2Progress;
     switch (workArrangement) {
       case "wfh":
@@ -83,7 +83,7 @@ export default function WorkOnSiteDays() {
         progressBar = Q2Progress;
     }
     return progressBar;
-  };
+  }
 
   return (
     <Layout isText={true} Progress={getProgressBar()}>

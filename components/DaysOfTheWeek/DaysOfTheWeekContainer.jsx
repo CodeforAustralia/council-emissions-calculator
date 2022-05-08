@@ -139,9 +139,7 @@ export default function DaysOfTheWeekContainer({
           <LinkButton
             width={["305px", "105px"]}
             height={["60px", "54.37px"]}
-            disabled={
-              !daysOfTheWeek.some((item) => item.isSelected && !item.isDisable)
-            }
+            disabled={!daysOfTheWeek.some((item) => item.isSelected && !item.isDisable)}
             href={customHref}
             topMargin="0"
             H="55px"

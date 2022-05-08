@@ -1,4 +1,9 @@
-import { Box, Heading, Flex, Text } from "@chakra-ui/react";
+import { 
+  Box,
+  Heading,
+  Flex,
+  Text
+} from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import Q4Progress from "../../public/images/progress-bar/q4-progress-dots.svg";
@@ -19,30 +24,30 @@ const titleWFH = "Work from Home";
 const titleTravelMethods = "Work from Home";
 
 export default function ConfirmWFH() {
+
   // code from previoud version below, no changes made
 
   const { answers, setAnswers } = useForm();
 
   const saveAnswers = () => {
     // saving radio button selection
-    setAnswers((prev) => ({ ...prev }));
-  };
+    setAnswers(prev => ({ ...prev }));
+  }
 
   const router = useRouter();
 
   const logMessage = (msg) => {
     let incentiveMsg = () => {
-      if (!!answers.incentive) {
-        return "<filled>";
-      } else return "<empty>";
-    };
+      if (!!answers.incentive) {return "<filled>"}
+      else return "<empty>"
+    }
     return {
       page: router.pathname,
       event: msg,
       ...answers,
       incentive: incentiveMsg(),
-    };
-  };
+    }
+  }
 
   // function to save data and show logs on save
   const saveDataAndShowLog = (logMsg) => {
@@ -67,34 +72,40 @@ export default function ConfirmWFH() {
             Please confirm the details below
           </Heading>
         </Flex>
-        <ConfirmDetailsContainer methodIcon={House} title={titleWFH}>
+        <ConfirmDetailsContainer
+          methodIcon={House}
+          title={titleWFH}
+        >
           <Flex>
             <Text fontWeight="500" fontSize="22px">
               I work from home on&nbsp;
             </Text>
-            <Text fontWeight="500" fontSize="22px" color="#3389D2">
-              Monday&nbsp;
+            <Text fontWeight="500" fontSize="22px" color="#3389D2"> 
+              Monday&nbsp; 
             </Text>
-            <Text fontWeight="500" fontSize="22px">
+            <Text fontWeight="500" fontSize="22px" >
               to&nbsp;
             </Text>
-            <Text fontWeight="500" fontSize="22px" color="#3389D2">
+            <Text fontWeight="500" fontSize="22px" color="#3389D2"> 
               Wednesday.
             </Text>
           </Flex>
         </ConfirmDetailsContainer>
-        <ConfirmDetailsContainer methodIcon={Arrows} title={titleTravelMethods}>
+        <ConfirmDetailsContainer
+          methodIcon={Arrows}
+          title={titleTravelMethods}
+        >
           <Flex>
             <Text fontWeight="500" fontSize="22px">
               I would travel to work by&nbsp;
             </Text>
-            <Text fontWeight="500" fontSize="22px" color="#3389D2">
-              bicycle&nbsp;
+            <Text fontWeight="500" fontSize="22px" color="#3389D2"> 
+              bicycle&nbsp; 
             </Text>
-            <Text fontWeight="500" fontSize="22px">
+            <Text fontWeight="500" fontSize="22px" >
               and&nbsp;
             </Text>
-            <Text fontWeight="500" fontSize="22px" color="#3389D2">
+            <Text fontWeight="500" fontSize="22px" color="#3389D2"> 
               carpool.
             </Text>
           </Flex>
