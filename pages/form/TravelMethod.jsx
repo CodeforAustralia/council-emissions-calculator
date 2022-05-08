@@ -17,6 +17,9 @@ import { sendLogs } from "../../utils/sendLogs";
 export default function TravelMethod() {
   const { answers, _ } = useForm();
 
+  const workOnSiteDays = answers.onsiteDays.length;
+  const travelMethods = answers.travelMethods.length;
+
   const router = useRouter();
 
   const logMessage = (msg) => {
