@@ -8,13 +8,48 @@ import useForm from "../../components/FormProvider";
 const TravelMethodButtons = () => {
   const { answers, setAnswers } = useForm();
 
+  const workDays = (
+    workArrangement = answers.workMode,
+    workOnSiteDays = answers.onsiteDays.length,
+    wfhDays = answers.wfhDays.length
+  ) => {
+    switch (workArrangement) {
+      case "hybrid":
+      case "onsite":
+        return workOnSiteDays;
+      case "wfh":
+        return wfhDays;
+      default:
+        return 0;
+    }
+  };
+
+  const updatedTravelMethods = (travelMethods = answers.travelMethods) => {
+    if (travelMethods.length > workDays()) {
+      let diff = workDays() - travelMethods.length;
+      return travelMethods.slice(0, diff);
+    } else return travelMethods;
+  };
+
   const [travelMethodButtonStates, setTravelMethodButtonStates] = useState(
     travelMethods.map((tm, idx) => {
+      // make sure to disable button ONLY if:
+      // * button not already selected, and
+      // * travel method selection limit has been reached
+      let updateDisabledState = () => {
+        if (
+          !updatedTravelMethods().includes(tm) &&
+          updatedTravelMethods().length >= workDays()
+        ) {
+          return true;
+        } else return false;
+      };
+
       return {
         id: idx,
         travelMethod: tm,
-        isSelected: answers.travelMethods.includes(tm),
-        isDisabled: false,
+        isSelected: updatedTravelMethods().includes(tm),
+        isDisabled: updateDisabledState(),
       };
     })
   );
@@ -24,6 +59,17 @@ const TravelMethodButtons = () => {
       if (item.travelMethod === buttonName) {
         return { ...item, isSelected: !item.isSelected };
       } else return { ...item };
+    });
+
+    const updatedNumTravelMethod = updatedState.filter(
+      (tm) => tm.isSelected
+    ).length;
+
+    // disable buttons if travel method selection limit reached...
+    updatedState = updatedState.map((item) => {
+      if (!item.isSelected && updatedNumTravelMethod >= workDays()) {
+        return { ...item, isDisabled: true };
+      } else return { ...item, isDisabled: false };
     });
 
     let selectedTravelMethods = updatedState
@@ -66,6 +112,7 @@ const TravelMethodButtons = () => {
             <TravelMethodButton
               name={item.travelMethod}
               isActive={item.isSelected}
+              isDisabled={item.isDisabled}
               onClick={handleTravelMethodButtonClick}
               ind={item.id}
             />
@@ -74,7 +121,7 @@ const TravelMethodButtons = () => {
       </SimpleGrid>
 
       {/* Carpool counter */}
-      {answers.travelMethods.includes("Carpool") && <CarpoolCounter />}
+      {updatedTravelMethods().includes("Carpool") && <CarpoolCounter />}
     </>
   );
 };

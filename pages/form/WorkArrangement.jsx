@@ -108,7 +108,7 @@ export default function WorkArrangement() {
   };
 
   return (
-    <Layout isText={true} Progress={Q1Progress}>
+    <Layout isText={true} Progress={Q1Progress} maxContainerWidth={"750"}>
       <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
           href="/"
@@ -116,17 +116,17 @@ export default function WorkArrangement() {
         />
       </Box>
       <Cloud />
-      <Heading mt={10} mb={10}>
+      <Heading mt={10} mb={10} w={["100%", "60%"]}>
         What is your usual work arrangement?
       </Heading>
       <Box
         justify="center"
         borderWidth="2px"
         borderRadius="lg"
-        // minW="750px"
         py="8%"
+        w="100%"
       >
-        <Flex px="20" direction={"column"}>
+        <Flex px={["10", "20"]} direction={"column"}>
           <Text fontWeight="500" fontSize="18px">
             Select your work arrangement
           </Text>
