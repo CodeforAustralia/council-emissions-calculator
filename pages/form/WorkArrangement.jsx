@@ -123,7 +123,7 @@ export default function WorkArrangement() {
         justify="center"
         borderWidth="2px"
         borderRadius="lg"
-        minW="750px"
+        // minW="750px"
         py="8%"
       >
         <Flex px="20" direction={"column"}>
