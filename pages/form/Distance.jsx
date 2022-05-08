@@ -30,7 +30,8 @@ export default function Distance() {
   const router = useRouter();
 
   // function to block input of special characters
-  const blockInvalidChar = e => ['e', 'E', '+', '-'].includes(e.key) && e.preventDefault();
+  const blockInvalidChar = (e) =>
+    ["e", "E", "+", "-"].includes(e.key) && e.preventDefault();
 
   const logMessage = (msg) => {
     let incentiveMsg = () => {
@@ -59,21 +60,14 @@ export default function Distance() {
       Progress={Q6Progress}
       maxContainerWidth="container.md"
     >
-      <Box 
-        pos="absolute" 
-        top={["2", "5"]} 
-        left={["2", "10"]}
-      >
+      <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
           href="/form/TravelDays"
           onClick={() => saveDataAndShowLog("Back button clicked")}
         />
       </Box>
       <Q3Cloud />
-      <Heading 
-        mt="40px"
-        width={["100%", "80%"]}
-      >
+      <Heading mt="40px" width={["100%", "80%"]}>
         How many kilometres do you usually travel to work, one-way?
       </Heading>
       <Flex
@@ -81,44 +75,42 @@ export default function Distance() {
         flexDirection={["column", "row"]}
         mt="40px"
       >
-          <Flex
-            flexDirection="column" 
-            width={["100%", "48%"]}
+        <Flex flexDirection="column" width={["100%", "48%"]}>
+          <Text
+            mt="4"
+            textAlign={["center", "left"]}
+            fontWeight="500"
+            fontSize="20px"
           >
-            <Text
-              mt="4"
-              textAlign={["center", "left"]}
-              fontWeight="500"
-              fontSize="20px"
+            If you usually work from home, we will use the information you
+            provide to calculate the emissions you save by working at home.
+          </Text>
+          <Text
+            mt="4"
+            textAlign={["center", "left"]}
+            fontWeight="500"
+            fontSize="20px"
+          >
+            You can use{" "}
+            <Link
+              color="#5DA9E9"
+              target="_blank"
+              href="https://www.google.com/maps/dir///@"
             >
-              If you usually work from home, we will use the information you provide to calculate 
-              the emissions you save by working at home.
-            </Text>
-            <Text
-              mt="4"
-              textAlign={["center", "left"]}
-              fontWeight="500"
-              fontSize="20px"
-            >
-              You can use <Link color="#5DA9E9" target="_blank" href="https://www.google.com/maps/dir///@">Google Maps</Link> to calculate the distance from home to your place of work if needed.
-            </Text>
+              Google Maps
+            </Link>{" "}
+            to calculate the distance from home to your place of work if needed.
+          </Text>
         </Flex>
-        <Flex 
-          w={["100%", "48%"]} 
+        <Flex
+          w={["100%", "48%"]}
           ml={["0", "4"]}
           flexDirection="column"
           justifyContent="center"
         >
           <FormControl mt={["10", "4"]}>
-            <FormLabel 
-              fontSize="20px"
-            >
-              In kilometers:
-            </FormLabel>
-            <NumberInput 
-              isRequired={true} 
-              defaultValue={km}
-            >
+            <FormLabel fontSize="20px">In kilometers:</FormLabel>
+            <NumberInput isRequired={true} defaultValue={km}>
               <NumberInputField
                 w="100%"
                 id="km-input"

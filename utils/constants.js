@@ -24,7 +24,7 @@ export const travelMethods = [
   "Motorbike",
   "Taxi/ride Share",
   "Car",
-  "Walk/run", 
+  "Walk/run",
   "Train/tram",
 ];
 

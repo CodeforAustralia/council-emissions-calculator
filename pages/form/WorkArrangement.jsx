@@ -138,12 +138,7 @@ export default function WorkArrangement() {
             value={workMode}
           >
             <Flex direction={"column"}>
-              <Radio 
-                mb={3} 
-                name={workFromHome} 
-                id={workFromHome} 
-                value={"wfh"}
-              >
+              <Radio mb={3} name={workFromHome} id={workFromHome} value={"wfh"}>
                 <Text fontSize={[18, 20]} fontWeight={700}>
                   {workFromHome}
                 </Text>
@@ -158,8 +153,8 @@ export default function WorkArrangement() {
                   borderRadius="lg"
                   textAlign="center"
                 >
-                  Council will use the information provided to understand commute
-                  patterns
+                  Council will use the information provided to understand
+                  commute patterns
                 </Text>
               </Collapse>
 
@@ -175,12 +170,7 @@ export default function WorkArrangement() {
                 </Text>
               </Radio>
 
-              <Radio 
-                mt={3} 
-                name={hybridMode} 
-                id={hybridMode} 
-                value={"hybrid"}
-              >
+              <Radio mt={3} name={hybridMode} id={hybridMode} value={"hybrid"}>
                 <Text fontSize={[18, 20]} fontWeight={700}>
                   {hybridMode}
                 </Text>

@@ -5,14 +5,13 @@ import TYCloud from "../../public/images/clouds/cloud-thank-you.svg";
 export default function Thankyou() {
   return (
     <Layout isText background="#044B7F">
-      <Flex
-        alignItems="center"
-        flexDir="column"
-        pos="relative"
-        top="-35px"
-      >
+      <Flex alignItems="center" flexDir="column" pos="relative" top="-35px">
         <TYCloud />
-        <Flex px={["0px","9%"]} flexDir="column" alignItems={["center", "start"]}>
+        <Flex
+          px={["0px", "9%"]}
+          flexDir="column"
+          alignItems={["center", "start"]}
+        >
           <Heading color="#fff" mt={5} mb={5} textAlign={["center", "start"]}>
             Thank you for participating!
           </Heading>
@@ -32,7 +31,7 @@ export default function Thankyou() {
             textAlign={["center", "start"]}
             w="100%"
           >
-            We’re collecting responses from 26th April 2022 to better understand 
+            We’re collecting responses from 26th April 2022 to better understand
             how City staff travel to and from work.
           </Text>
           <Text
@@ -42,10 +41,10 @@ export default function Thankyou() {
             textAlign={["center", "start"]}
             w="100%"
           >
-            As part of Climate Change and Environment Strategy (2021 to 2026), 
-            we’ve set a challenge that 20% of staff trips to work are by active, 
-            shared and public transport by 2026. So It’ll be interesting to see where 
-            we are at and where we need to improve.
+            As part of Climate Change and Environment Strategy (2021 to 2026),
+            we’ve set a challenge that 20% of staff trips to work are by active,
+            shared and public transport by 2026. So It’ll be interesting to see
+            where we are at and where we need to improve.
           </Text>
           <Text
             color="#fff"
