@@ -156,9 +156,7 @@ export default function WorkArrangement() {
                 patterns
               </Text>
             </Collapse>
-
-            <br />
-
+            
             <Radio
               mt={5}
               mb={5}
