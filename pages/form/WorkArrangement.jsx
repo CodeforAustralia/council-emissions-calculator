@@ -128,54 +128,64 @@ export default function WorkArrangement() {
       >
         <Flex px={["10", "20"]} direction={"column"}>
           <Text fontWeight="500" fontSize="18px">
-            Select your work arrangement
+            Select your work arrangement:
           </Text>
           <RadioGroup
-            mt={12}
+            mt={8}
             w="100%"
             textAlign="left"
             onChange={(e) => setWorkMode(e)}
             value={workMode}
           >
-            <Radio mb={5} name={workFromHome} id={workFromHome} value={"wfh"}>
-              <Text fontSize={[18, 20]} fontWeight={700}>
-                {workFromHome}
-              </Text>
-            </Radio>
-
-            <Collapse in={workMode === "wfh"}>
-              <Text
-                fontSize={[15, 17]}
-                px="20px"
-                py="12px"
-                bg="#D4EDDA"
-                borderRadius="lg"
-                textAlign="center"
+            <Flex direction={"column"}>
+              <Radio 
+                mb={3} 
+                name={workFromHome} 
+                id={workFromHome} 
+                value={"wfh"}
               >
-                Council will use the information provided to understand commute
-                patterns
-              </Text>
-            </Collapse>
-            
-            <Radio
-              mt={5}
-              mb={5}
-              name={workOnSite}
-              id={workOnSite}
-              value={"onsite"}
-            >
-              <Text fontSize={[18, 20]} fontWeight={700}>
-                {workOnSite}
-              </Text>
-            </Radio>
+                <Text fontSize={[18, 20]} fontWeight={700}>
+                  {workFromHome}
+                </Text>
+              </Radio>
 
-            <br />
+              <Collapse in={workMode === "wfh"}>
+                <Text
+                  fontSize={[15, 17]}
+                  px="20px"
+                  py="12px"
+                  bg="#D4EDDA"
+                  borderRadius="lg"
+                  textAlign="center"
+                >
+                  Council will use the information provided to understand commute
+                  patterns
+                </Text>
+              </Collapse>
 
-            <Radio mt={5} name={hybridMode} id={hybridMode} value={"hybrid"}>
-              <Text fontSize={[18, 20]} fontWeight={700}>
-                {hybridMode}
-              </Text>
-            </Radio>
+              <Radio
+                mt={3}
+                mb={3}
+                name={workOnSite}
+                id={workOnSite}
+                value={"onsite"}
+              >
+                <Text fontSize={[18, 20]} fontWeight={700}>
+                  {workOnSite}
+                </Text>
+              </Radio>
+
+              <Radio 
+                mt={3} 
+                name={hybridMode} 
+                id={hybridMode} 
+                value={"hybrid"}
+              >
+                <Text fontSize={[18, 20]} fontWeight={700}>
+                  {hybridMode}
+                </Text>
+              </Radio>
+            </Flex>
           </RadioGroup>
 
           <Flex justify={"end"} mt={10}>
