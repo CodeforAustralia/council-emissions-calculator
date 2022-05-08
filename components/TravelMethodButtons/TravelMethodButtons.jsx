@@ -120,6 +120,7 @@ const TravelMethodButtons = () => {
         mb={5}
         display={travelMethodsNumber < workOnSiteDaysNumber ? "none" : "block"}
         width="83%"
+        borderRadius="lg"
       >
         <Flex>
           <AlertIcon />
