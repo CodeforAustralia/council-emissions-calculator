@@ -11,7 +11,7 @@ export default function Thankyou() {
         pos="relative"
       >
         <TYCloud />
-        <Flex px={["0px","9%"]} flexDir="column" alignItems={["center", "start"]}>
+        <Flex px={["10px","9%"]} flexDir="column" alignItems={["center", "start"]}>
           <Heading color="#fff" mt={10} mb={5} textAlign={["center", "start"]}>
             Thank you for participating!
           </Heading>
