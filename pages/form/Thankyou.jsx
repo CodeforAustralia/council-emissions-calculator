@@ -53,7 +53,7 @@ export default function Thankyou() {
             textAlign={["center", "start"]}
             w="100%"
           >
-            The results will be shared at the end of the survey.
+            The results will be shared at the end of the survey period.
           </Text>
         </Flex>
       </Flex>
