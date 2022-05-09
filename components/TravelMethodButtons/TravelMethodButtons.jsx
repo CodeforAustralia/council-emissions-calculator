@@ -143,7 +143,7 @@ const TravelMethodButtons = () => {
           <AlertTitle>Travel method limit is reached</AlertTitle>
         </Flex>
         <AlertDescription>
-          You can not select more travel methods than work days
+          You can only select as many travel methods as there are days you work on-site
         </AlertDescription>
       </Alert>
 
