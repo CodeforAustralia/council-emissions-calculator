@@ -123,7 +123,7 @@ export default function WorkArrangement() {
         justify="center"
         borderWidth="2px"
         borderRadius="lg"
-        py="8%"
+        py="6%"
         w="100%"
       >
         <Flex px={["10", "20"]} direction={"column"}>
