@@ -103,7 +103,6 @@ export default function DaysOfTheWeekContainer({
       borderRadius="8px"
       borderColor={["white", "gray.200"]}
       width={["375px", "700px"]}
-      // height={["516px", "320px"]}
       py={10}
     >
       <Flex direction={"column"}>
@@ -112,7 +111,6 @@ export default function DaysOfTheWeekContainer({
             fontWeight="500"
             fontSize="18px"
             justify={["center", "left"]}
-            // mt={20}
           >
             Select days of the week *
           </Text>

@@ -74,7 +74,7 @@ const TravelMethodButtons = () => {
     });
 
     const updatedNumTravelMethod = updatedState.filter(
-      (tm) => tm.isSelected
+      (travelMethod) => travelMethod.isSelected
     ).length;
 
     // disable buttons if travel method selection limit reached...
@@ -85,8 +85,8 @@ const TravelMethodButtons = () => {
     });
 
     let selectedTravelMethods = updatedState
-      .filter((tm) => tm.isSelected)
-      .map((tm) => tm.travelMethod);
+                                  .filter((tm) => tm.isSelected)
+                                  .map((tm) => tm.travelMethod);
 
     // update `TravelDay` responses when selected travel methods change
     const updateTravelMethodByDay = (
@@ -110,6 +110,7 @@ const TravelMethodButtons = () => {
     };
 
     setTravelMethodButtonStates(updatedState);
+    
     setAnswers((prev) => ({
       ...prev,
       travelMethods: selectedTravelMethods,
