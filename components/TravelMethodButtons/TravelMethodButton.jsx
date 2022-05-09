@@ -34,7 +34,8 @@ export default function TravelMethodButton({
       disabled={isDisabled}
     >
       <Flex justify="center" align="center" direction="column">
-        <Icon as={transportIcon[ind]} fontSize={"20px"} />
+        <Icon as={transportIcon[ind]} fontSize={"20px"} style={{ fill: isActive ? "white" : "#044B7F" }} 
+ />
         <Box width="100%" p="0px" mt={1}>
           <Text
             d="inline"
