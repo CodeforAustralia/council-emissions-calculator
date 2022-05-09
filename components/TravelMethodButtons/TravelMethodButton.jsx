@@ -18,10 +18,6 @@ export default function TravelMethodButton({
       onClick={(e) => onClick(e.target.innerText)}
       variant={isActive ? "solid" : "outline"}
       _active={{ border: "solid" }}
-      _hover={{
-        bg: "var(--chakra-colors-blue-500)",
-        color: "#fff",
-      }}
       colorScheme="blue"
       _disabled={{
         bg: "#D0D9DF",

@@ -27,22 +27,34 @@ export default function WorkArrangement() {
   const [workMode, setWorkMode] = useState(answers.workMode);
 
   const saveAnswers = () => {
-    if (workMode === "wfh") {
-      setAnswers((prev) => ({
-        ...prev,
-        workMode: workMode,
-        numDaysWorked: answers.wfhDays.length,
-        onsiteDays: [],
-      }));
-    } else if (workMode === "onsite") {
-      setAnswers((prev) => ({
-        ...prev,
-        workMode: workMode,
-        numDaysWorked: answers.onsiteDays.length,
-        wfhDays: [],
-      }));
+    if (answers.workMode === workMode) {
+      // if response has not changed, return saved response
+      setAnswers((prev) => ({ ...prev }));
     } else {
-      setAnswers((prev) => ({ ...prev, workMode: workMode }));
+      if (workMode === "wfh") {
+        setAnswers((prev) => ({
+          ...prev,
+          workMode: workMode,
+          numDaysWorked: answers.wfhDays.length,
+          onsiteDays: [],
+        }));
+      } else if (workMode === "onsite") {
+        setAnswers((prev) => ({
+          ...prev,
+          workMode: workMode,
+          numDaysWorked: answers.onsiteDays.length,
+          wfhDays: [],
+        }));
+      } else if (workMode === "hybrid") {
+        setAnswers((prev) => ({
+          ...prev,
+          workMode: workMode,
+          numDaysWorked: answers.onsiteDays.length,
+          onsiteDays: [],
+        }));
+      } else {
+        setAnswers((prev) => ({ ...prev, workMode: workMode }));
+      }
     }
   };
 
