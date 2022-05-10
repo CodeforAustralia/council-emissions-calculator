@@ -104,6 +104,19 @@ export default function TravelDays() {
         {answers.travelMethods.map((tm) => (
           <Box key={tm}>{travelComponent(tm)}</Box>
         ))}
+        <Alert
+          status="success"
+          width="100%"
+          borderRadius="lg"
+        >
+          <Flex>
+            <AlertIcon />
+            <AlertTitle>Incomplete selection</AlertTitle>
+          </Flex>
+          <AlertDescription>
+            Please select at least one work day for each travel method. 
+          </AlertDescription>
+        </Alert>
         <Flex justify={["center", "end"]}>
           <LinkButton
             disabled={
