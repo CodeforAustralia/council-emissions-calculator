@@ -110,9 +110,11 @@ export default function TravelDays() {
             Please select the days for your travel
           </Heading>
         </Flex>
-        {answers.travelMethods.map((tm) => (
-          <Box key={tm}>{travelComponent(tm)}</Box>
-        ))}
+        <Flex justify="center" direction="column" pb="20px">
+          {answers.travelMethods.map((tm) => (
+            <Box key={tm}>{travelComponent(tm)}</Box>
+          ))}
+        </Flex>
         <Alert
           status="success"
           display={
