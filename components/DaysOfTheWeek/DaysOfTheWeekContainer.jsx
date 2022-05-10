@@ -103,8 +103,7 @@ export default function DaysOfTheWeekContainer({
       borderRadius="8px"
       borderColor={["white", "gray.200"]}
       width={["375px", "700px"]}
-      height={["516px", "320px"]}
-      mt={10}
+      py={10}
     >
       <Flex direction={"column"}>
         <Flex justify={["center", "left"]}>
@@ -112,7 +111,6 @@ export default function DaysOfTheWeekContainer({
             fontWeight="500"
             fontSize="18px"
             justify={["center", "left"]}
-            mt={20}
           >
             Select days of the week *
           </Text>
@@ -135,7 +133,7 @@ export default function DaysOfTheWeekContainer({
             </GridItem>
           ))}
         </SimpleGrid>
-        <Flex justify={["center", "end"]} mb={65}>
+        <Flex justify={["center", "end"]} mb={0}>
           <LinkButton
             width={["305px", "105px"]}
             height={["60px", "54.37px"]}
