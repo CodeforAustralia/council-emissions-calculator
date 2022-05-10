@@ -106,6 +106,13 @@ export default function TravelDays() {
         ))}
         <Alert
           status="success"
+          display={
+            ![
+              checkIfNotAnySelected,
+              checkIfNotAllWorkDaysHasTravelMethod,
+              checkIfNotAllTravelMethodsSelected,
+            ].some((x) => x === true) ? "none" : "block"
+          }
           width="100%"
           borderRadius="lg"
         >
