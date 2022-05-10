@@ -1,4 +1,13 @@
-import { Box, Flex, GridItem, Heading, Alert, AlertIcon, AlertTitle, AlertDescription } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  GridItem,
+  Heading,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+} from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import Q5Progress from "../../public/images/progress-bar/q5-progress-dots.svg";
@@ -111,7 +120,9 @@ export default function TravelDays() {
               checkIfNotAnySelected,
               checkIfNotAllWorkDaysHasTravelMethod,
               checkIfNotAllTravelMethodsSelected,
-            ].some((x) => x === true) ? "none" : "block"
+            ].some((x) => x === true)
+              ? "none"
+              : "block"
           }
           width="100%"
           borderRadius="lg"
@@ -121,7 +132,7 @@ export default function TravelDays() {
             <AlertTitle>Incomplete selection</AlertTitle>
           </Flex>
           <AlertDescription>
-            Please select at least one work day for each travel method. 
+            Please select at least one work day for each travel method.
           </AlertDescription>
         </Alert>
         <Flex justify={["center", "end"]}>
