@@ -135,7 +135,6 @@ export default function TravelDays() {
                 checkIfNotAllTravelMethodsSelected,
               ].some((x) => x === true)
             }
-            mt="10px"
             href={"/form/Distance"}
             width={["100%", "105px"]}
             H="55px"
