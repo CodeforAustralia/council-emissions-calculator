@@ -14,14 +14,6 @@ export default function DaysOfTheWeekButton ({ label, onClick, isActive, disable
       colorScheme="blue"
       variant={isActive ? "solid" : "outline"}
       onClick={(e) => onClick(e.target.innerText)}
-      _disabled={{
-        bg: "#D0D9DF",
-        _hover: {
-          cursor: "not-allowed",
-          bg: "#D0D9DF",
-        },
-        color: "white"
-      }}
       disabled={disabled}
     >
       <Text fontSize="18px"  fontFamily="Public Sans"
