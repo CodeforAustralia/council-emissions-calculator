@@ -1,4 +1,13 @@
-import { Box, Flex, GridItem, Heading } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  GridItem,
+  Heading,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+} from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import Q5Progress from "../../public/images/progress-bar/q5-progress-dots.svg";
@@ -101,9 +110,33 @@ export default function TravelDays() {
             Please select the days for your travel
           </Heading>
         </Flex>
-        {answers.travelMethods.map((tm) => (
-          <Box key={tm}>{travelComponent(tm)}</Box>
-        ))}
+        <Flex justify="center" direction="column" pb="20px">
+          {answers.travelMethods.map((tm) => (
+            <Box key={tm}>{travelComponent(tm)}</Box>
+          ))}
+        </Flex>
+        <Alert
+          status="success"
+          display={
+            ![
+              checkIfNotAnySelected,
+              checkIfNotAllWorkDaysHasTravelMethod,
+              checkIfNotAllTravelMethodsSelected,
+            ].some((x) => x === true)
+              ? "none"
+              : "block"
+          }
+          width="100%"
+          borderRadius="lg"
+        >
+          <Flex>
+            <AlertIcon />
+            <AlertTitle>Incomplete selection</AlertTitle>
+          </Flex>
+          <AlertDescription>
+            Please select at least one work day for each travel method.
+          </AlertDescription>
+        </Alert>
         <Flex justify={["center", "end"]}>
           <LinkButton
             disabled={
@@ -115,7 +148,6 @@ export default function TravelDays() {
                 checkIfNotAllTravelMethodsSelected,
               ].some((x) => x === true)
             }
-            mt="10px"
             href={"/form/Distance"}
             width={["100%", "105px"]}
             H="55px"
