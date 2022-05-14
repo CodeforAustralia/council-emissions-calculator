@@ -118,8 +118,8 @@ const convertFormResponseToList = (formResp) => {
   //   department: "Education",
   // };
 
-  const processField = (response, answers=formResp) => {
-    let result = ""
+  const processField = (response, answers = formResp) => {
+    let result = "";
     switch (response) {
       case "wfhDays":
       case "onsiteDays":
@@ -133,7 +133,7 @@ const convertFormResponseToList = (formResp) => {
         result = answers[response];
     }
     return result;
-  }
+  };
 
   const surveyFields = [
     "timestamp",
@@ -147,8 +147,8 @@ const convertFormResponseToList = (formResp) => {
     "carpoolPassengerCount",
     "km",
     "department",
-    "incentive"
-    ];
+    "incentive",
+  ];
 
   let result = surveyFields.reduce(
     (prev, curr) => prev.concat(processField(curr)),
