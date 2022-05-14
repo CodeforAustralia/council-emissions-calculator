@@ -59,11 +59,11 @@ const sheeter = async (req, res) => {
 const getFormData = async (sheets_client) => {
   var params = {
     // The ID of the spreadsheet to update.
-    spreadsheetId: process.env["SPREADSHEET_ID"],
+    spreadsheetId: process.env["SURVEY_SHEET_ID"],
 
     // The A1 notation of a range to search for a logical table of data.
     // Values will be appended after the last row of the table.
-    range: "Form Responses 1!A13:P",
+    range: process.env["SURVEY_RESPONSE_SHEETNAME_AND_CELLRANGE"],
   };
 
   const resp = await sheets_client.spreadsheets.values.get(params);
@@ -73,11 +73,11 @@ const getFormData = async (sheets_client) => {
 const sendFormResponse = async (sheets_client, form_data) => {
   var params = {
     // The ID of the spreadsheet to update.
-    spreadsheetId: process.env["SPREADSHEET_ID"],
+    spreadsheetId: process.env["SURVEY_SHEET_ID"],
 
     // The A1 notation of a range to search for a logical table of data.
     // Values will be appended after the last row of the table.
-    range: "Form Responses 1!A13:P",
+    range: process.env["SURVEY_RESPONSE_SHEETNAME_AND_CELLRANGE"],
 
     // How the input data should be interpreted.
     valueInputOption: "RAW",
