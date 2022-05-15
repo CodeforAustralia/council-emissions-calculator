@@ -134,7 +134,9 @@ export default function TravelDays() {
             <AlertTitle>Incomplete selection</AlertTitle>
           </Flex>
           <AlertDescription>
-            {(!checkIfNotAllTravelMethodsSelected)?"Please select a travel method for each work day.":"Please select at least one work day for each travel method."}
+            {!checkIfNotAllTravelMethodsSelected
+              ? "Please select a travel method for each work day."
+              : "Please select at least one work day for each travel method."}
           </AlertDescription>
         </Alert>
         <Flex justify={["center", "end"]}>
