@@ -6,7 +6,7 @@ const sheeter = async (req, res) => {
   // and caches preflight response for 3600s
   res.setHeader("Access-Control-Allow-Origin", "*");
 
-  console.log(`[INFO] request hostname: ${req.hostname}`);
+  // console.log(`[INFO] request hostname: ${req.hostname}`);
 
   if (req.method === "OPTIONS") {
     // Send response to OPTIONS requests
@@ -48,9 +48,9 @@ const sheeter = async (req, res) => {
     }
 
     // console.log(req.body);
-    console.log(
-      `[INFO] response from sheets: ${JSON.stringify(shres, null, "  ")}`
-    );
+    // console.log(
+    //   `[INFO] response from sheets: ${JSON.stringify(shres, null, "  ")}`
+    // );
 
     res.send(shres.data);
   }
@@ -59,11 +59,11 @@ const sheeter = async (req, res) => {
 const getFormData = async (sheets_client) => {
   var params = {
     // The ID of the spreadsheet to update.
-    spreadsheetId: "1d4UQSXPPOcjFtu7RkJsh6DvhRKt11xVCW8WyTC8GeqE", // personal
+    spreadsheetId: process.env["SURVEY_SHEET_ID"],
 
     // The A1 notation of a range to search for a logical table of data.
     // Values will be appended after the last row of the table.
-    range: "Form Responses 1!A13:P",
+    range: process.env["SURVEY_RESPONSE_SHEETNAME_AND_CELLRANGE"],
   };
 
   const resp = await sheets_client.spreadsheets.values.get(params);
@@ -73,11 +73,11 @@ const getFormData = async (sheets_client) => {
 const sendFormResponse = async (sheets_client, form_data) => {
   var params = {
     // The ID of the spreadsheet to update.
-    spreadsheetId: "1d4UQSXPPOcjFtu7RkJsh6DvhRKt11xVCW8WyTC8GeqE", // personal
+    spreadsheetId: process.env["SURVEY_SHEET_ID"],
 
     // The A1 notation of a range to search for a logical table of data.
     // Values will be appended after the last row of the table.
-    range: "Form Responses 1!A13:P",
+    range: process.env["SURVEY_RESPONSE_SHEETNAME_AND_CELLRANGE"],
 
     // How the input data should be interpreted.
     valueInputOption: "RAW",
@@ -97,27 +97,66 @@ const sendFormResponse = async (sheets_client, form_data) => {
 const convertFormResponseToList = (formResp) => {
   // Example form response:
   // {
-  //   "transactionId": "4rrh40sy",
-  //   "km": "12",
-  //   "numDaysWorked": 5,
-  //   "travelMethodByDay": ["Monday", "Wednesday", "Friday"],
-  //   "mainTransportMode": "bus",
-  //   "incentive": "I'd like to have better biking lanes.",
-  //   "department": "Education",
+  //   transactionId: "4rrh40sy",
+  //   workMode: "hybrid",
+  //   numDaysWorked: 5,
+  //   wfhDays: ["Wednesday", "Friday", "Saturday"],
+  //   onsiteDays: ["Monday", "Tuesday"],
+  //   travelMethods: ["Bus", "Car"],
+  //   travelMethodByDay: {
+  //     "Monday": "Car",
+  //     "Tuesday": "Bus",
+  //     "Wednesday": "",
+  //     "Thursday": "",
+  //     "Friday": "",
+  //     "Saturday": "",
+  //     "Sunday": ""
+  //   },
+  //   carpoolPassengerCount: 0,
+  //   km: 12,
+  //   incentive: "I'd like to have better biking lanes.",
+  //   department: "Education",
   // };
-  let xs = [];
 
-  for (const [unused, v] of Object.entries(formResp)) {
-    // if v is a list, concatenate on to xs
-    if (Array.isArray(v)) {
-      xs = xs.concat(v);
-    } else {
-      xs.push(v);
+  const processField = (response, answers = formResp) => {
+    let result = "";
+    switch (response) {
+      case "wfhDays":
+      case "onsiteDays":
+      case "travelMethods":
+        result = answers[response].join(", ");
+        break;
+      case "travelMethodByDay":
+        result = Object.values(answers[response]);
+        break;
+      default:
+        result = answers[response];
     }
-  }
+    return result;
+  };
 
-  console.log(`transformed response: ${xs}`);
-  return xs;
+  const surveyFields = [
+    "timestamp",
+    "transactionId",
+    "workMode",
+    "numDaysWorked",
+    "wfhDays",
+    "onsiteDays",
+    "travelMethods",
+    "travelMethodByDay",
+    "carpoolPassengerCount",
+    "km",
+    "department",
+    "incentive",
+  ];
+
+  let result = surveyFields.reduce(
+    (prev, curr) => prev.concat(processField(curr)),
+    []
+  );
+
+  // console.log(`transformed response: ${result}`);
+  return result;
 };
 
 export default sheeter;
