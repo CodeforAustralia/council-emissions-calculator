@@ -19,6 +19,13 @@ export default function TravelMethodButton({
       variant={isActive ? "solid" : "outline"}
       _active={{ border: "solid" }}
       colorScheme="blue"
+      _disabled={{
+        bg: "#ACCCEB",
+        _hover: {
+          color: "#ACCCEB",
+        },
+        color: "white",
+      }}
       disabled={isDisabled}
     >
       <Flex justify="center" align="center" direction="column">
