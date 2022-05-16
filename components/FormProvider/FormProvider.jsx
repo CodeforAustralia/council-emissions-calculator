@@ -45,13 +45,13 @@ const initialAnswers = {
   onsiteDays: [],
   travelMethods: [],
   travelMethodByDay: {
-    "Monday": "",
-    "Tuesday": "",
-    "Wednesday": "",
-    "Thursday": "",
-    "Friday": "",
-    "Saturday": "",
-    "Sunday": ""
+    Monday: "",
+    Tuesday: "",
+    Wednesday: "",
+    Thursday: "",
+    Friday: "",
+    Saturday: "",
+    Sunday: "",
   },
   carpoolPassengerCount: 0,
   travelDays: [],
@@ -63,7 +63,10 @@ const initialAnswers = {
 const transactionId = Math.random().toString(36).substring(2, 8);
 
 const FormProvider = ({ children }) => {
-  const [answers, setAnswers] = useState({ transactionId, ...initialAnswers });
+  const [answers, setAnswers] = useState({
+    transactionId: transactionId,
+    ...initialAnswers,
+  });
   const value = {
     answers,
     setAnswers,
