@@ -149,9 +149,7 @@ export default function TravelDays() {
           </Flex>
           <AlertDescription>
             {!checkIfNotAllTravelMethodsSelected
-              ? `Please select a travel method for ${daysNotYetSelected().map(
-                  (day) => ` ${day}`
-                )}.`
+              ? `Please select a travel method for ${daysNotYetSelected().join(", ")}.`
               : "Please select at least one work day for each travel method."}
           </AlertDescription>
         </Alert>
