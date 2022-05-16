@@ -127,7 +127,7 @@ export default function TravelDays() {
           ))}
         </Flex>
         <Alert
-          status="success"
+          status={!checkIfNotAllTravelMethodsSelected?"warning":"success"}
           display={
             ![
               checkIfNotAnySelected,
