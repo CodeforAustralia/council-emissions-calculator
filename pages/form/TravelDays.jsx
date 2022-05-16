@@ -83,6 +83,17 @@ export default function TravelDays() {
     })
     .every((tm) => answers.travelMethods.includes(tm));
 
+  const daysNotYetSelected = () => {
+    const travelMethodsByDays = answers.travelMethodByDay;
+    let daysLeft = [];
+    workDays().map(key => {
+      if (Object.keys(travelMethodsByDays).includes(key)&&!travelMethodsByDays[key]) {
+        daysLeft.push(key);
+      }
+    })
+    return daysLeft;
+  }
+
   const travelComponent = (tm) => {
     const ind = travelMethods.indexOf(tm);
 
