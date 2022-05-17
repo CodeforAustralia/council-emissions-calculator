@@ -83,6 +83,20 @@ export default function TravelDays() {
     })
     .every((tm) => answers.travelMethods.includes(tm));
 
+  const daysNotYetSelected = () => {
+    const travelMethodsByDays = answers.travelMethodByDay;
+    let daysLeft = [];
+    workDays().map((key) => {
+      if (
+        Object.keys(travelMethodsByDays).includes(key) &&
+        !travelMethodsByDays[key]
+      ) {
+        daysLeft.push(key);
+      }
+    });
+    return daysLeft;
+  };
+
   const travelComponent = (tm) => {
     const ind = travelMethods.indexOf(tm);
 
@@ -116,7 +130,7 @@ export default function TravelDays() {
           ))}
         </Flex>
         <Alert
-          status="success"
+          status={!checkIfNotAllTravelMethodsSelected ? "warning" : "success"}
           display={
             ![
               checkIfNotAnySelected,
@@ -134,7 +148,9 @@ export default function TravelDays() {
             <AlertTitle>Incomplete selection</AlertTitle>
           </Flex>
           <AlertDescription>
-            Please select at least one work day for each travel method.
+            {!checkIfNotAllTravelMethodsSelected
+              ? `Please select a travel method for ${daysNotYetSelected().join(", ")}.`
+              : "Please select at least one work day for each travel method."}
           </AlertDescription>
         </Alert>
         <Flex justify={["center", "end"]}>
