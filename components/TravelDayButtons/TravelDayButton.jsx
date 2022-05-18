@@ -53,14 +53,6 @@ export default function TravelDayButton({ label, travelMethod }) {
       colorScheme="blue"
       variant={isSelected() ? "solid" : "outline"}
       onClick={handleClick}
-      _disabled={{
-        bg: "#D0D9DF",
-        _hover: {
-          cursor: "not-allowed",
-          bg: "#D0D9DF",
-        },
-        color: "white",
-      }}
       disabled={isDisabled()}
     >
       <Text

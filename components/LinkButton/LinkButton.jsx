@@ -23,13 +23,6 @@ export default function LinkButton({
         _hover={{
           bg: "var(--chakra-colors-blue-500)",
         }}
-        _disabled={{
-          bg: "#D0D9DF",
-          _hover: {
-            cursor: "not-allowed",
-            bg: "#D0D9DF",
-          },
-        }}
         color={color || "#fff"}
         onClick={onClick}
         disabled={disabled}

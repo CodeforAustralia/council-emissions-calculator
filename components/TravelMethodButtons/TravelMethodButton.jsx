@@ -20,10 +20,9 @@ export default function TravelMethodButton({
       _active={{ border: "solid" }}
       colorScheme="blue"
       _disabled={{
-        bg: "#D0D9DF",
+        bg: "#ACCCEB",
         _hover: {
-          cursor: "not-allowed",
-          bg: "#D0D9DF",
+          color: "#ACCCEB",
         },
         color: "white",
       }}
