@@ -29,7 +29,7 @@ export default function Results({ data }) {
     <Layout isText={true}>
       <div style={"border: 2px solid red"}>
         Intro section...
-      <div/>
+      </div>
           
     </Layout>
   );
