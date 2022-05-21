@@ -1,4 +1,4 @@
-import { Heading, Text, Button } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
 import React from "react";
 import useForm from "../components/FormProvider";
 import Layout from "../components/Layout/Layout";
@@ -27,10 +27,17 @@ export default function Results({ data }) {
 
   return (
     <Layout isText={true}>
-      <div style={"border: 2px solid red"}>
-        Intro section...
-      </div>
-          
+      <Flex border="2px solid red">
+
+        <Flex border="2px solid red">
+          Left column section...
+        </Flex>
+
+        <Flex border="2px solid red">
+          Right column section...
+        </Flex>
+
+      </Flex>
     </Layout>
   );
 }
