@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
+import { Flex, Img } from "@chakra-ui/react";
 import React from "react";
 import useForm from "../components/FormProvider";
 import Layout from "../components/Layout/Layout";
@@ -40,7 +40,7 @@ export default function Results({ data }) {
       <Flex border="2px solid red" width="100%" p="20px" mt="20px" direction="column">
         Survey params
         <Img border="2px solid grey" src="https://user-images.githubusercontent.com/88268603/169676634-470eca48-e065-491e-b062-019f7d91d951.png"/>
-        </Flex>
+      </Flex>
       <Flex border="2px solid red" width="100%" p="20px" mt="20px" direction="column">
         Distance, Trip count, Emission stats
         <Img border="2px solid grey" src="https://user-images.githubusercontent.com/88268603/169676707-89578bf8-47cf-4dc7-9068-81e9ada36700.png"/>
