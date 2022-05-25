@@ -27,7 +27,7 @@ export default function Results({ data }) {
   const { km, mainTransportMode, department, incentive } = answers;
 
   return (
-    <Layout isText={true} maxContainerWidth="1000px">
+    <Layout isText={true} maxContainerWidth="100%">
       <Flex width="100%" gap="20px">
         <Flex border="2px solid red" flex={2} p="20px" direction="column">
           Left column section...
