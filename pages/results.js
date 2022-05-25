@@ -2,6 +2,7 @@ import { Flex, Img } from "@chakra-ui/react";
 import React from "react";
 import useForm from "../components/FormProvider";
 import Layout from "../components/Layout/Layout";
+import DownloadResults from "../components/ResultsPageComponents/DownloadResults/DownloadResults";
 // import capitalize from "../utils/capitalize";
 // import { FiDownload } from "react-icons/fi";
 // import { getTripTotalsTop3 } from "./api/trips";
@@ -32,10 +33,7 @@ export default function Results({ data }) {
           Left column section...
           <Img border="2px solid grey" src="https://user-images.githubusercontent.com/88268603/169676461-291523f6-2cfe-48f3-8075-cc50cfc2a82a.png"/>
         </Flex>
-        <Flex border="2px solid red" W="100%" flex={1} p="20px" direction="column">
-          Right column section...
-          <Img border="2px solid grey" src="https://user-images.githubusercontent.com/88268603/169676506-fa0501d6-268b-486e-b18c-e050b31f64c8.png"/>
-        </Flex>
+        <DownloadResults />
       </Flex>
       <Flex border="2px solid red" width="100%" p="20px" mt="20px" direction="column">
         Survey params
