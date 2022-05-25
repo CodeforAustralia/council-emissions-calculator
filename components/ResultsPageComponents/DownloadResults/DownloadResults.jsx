@@ -10,14 +10,26 @@ export default function DownloadResults() {
 
   return (
     <Flex
+      minwidth="364px"
       direction="column"
-      align={["center", "space-between"]}
-      borderWidth="2px"
+      align="center"
+      justify="center"
     >
-      <Flex>
-        <Flex>
-          <DownloadPdf />
-          <Text>Download this page</Text>
+      <Flex gap="17px" justify="center">
+        <Flex 
+          direction="column" 
+          background="rgba(221, 221, 229, 0.1)" 
+          border="0.613005px solid #DDDDE5"
+          boxShadow="0px 0px 22.5px rgba(35, 47, 78, 0.14)"
+          borderRadius="13.5px 0px 0px 0px"
+          align="center"
+          justify="center"
+          width="173px"
+          height="86px"
+          px="30%"
+        >
+          <Box><DownloadPdf /></Box>
+          <Text fontSize="12px" font="Public Sans" fontWeight={600} lineHeight="13px">Download this page</Text>
         </Flex>
         <Flex>
           <DownloadCsv />
