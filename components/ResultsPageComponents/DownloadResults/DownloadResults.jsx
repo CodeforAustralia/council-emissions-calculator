@@ -26,6 +26,7 @@ export default function DownloadResults() {
           align="center"
           justify="center"
           width="180px"
+          _hover={{ bg: '#ebedf0' }}
         >
           <Box><DownloadPdf /></Box>
           <Text textAlign="center" fontSize="12px" font="Public Sans" fontWeight={600} px="35%" lineHeight="13px">Download this page</Text>
@@ -39,9 +40,10 @@ export default function DownloadResults() {
           align="center"
           justify="center"
           width="180px"
+          _hover={{ bg: '#ebedf0' }}
         >
           <DownloadCsv />
-          <Text fontSize="12px" font="Public Sans" fontWeight={600} textAlign="center" px="29%" lineHeight="13px">Downaload survey data</Text>
+          <Text fontSize="12px" fontFamily="Public Sans" fontWeight={600} textAlign="center" px="29%" lineHeight="13px">Downaload survey data</Text>
         </Flex>
       </Flex>
       <Flex 
@@ -52,23 +54,23 @@ export default function DownloadResults() {
         align="center"
         justify="center"
         width="377px"
-        gap="17px"
         >
         <Flex height="65px" background="#E5F4E3" width="100%" justify="center" align="center">
           <Lamp />
         </Flex>
-        <Flex>
+        <Flex height="125px" px="20px" align="center">
           <Flex direction="column">
-            <Text>How is it calculated?</Text>
-            <Text>Developed in compliance with Greenhouse Gas Protocol.</Text>
+            <Text fontFamily="Public Sans" fontWeight={600} fontSize="21px">How is it calculated?</Text>
+            <Text fontFamily="Public Sans" fontWeight={300} fontSize="15px" lineHeight="18px">Developed in compliance with Greenhouse Gas Protocol.</Text>
           </Flex>
           <Flex>
             <GHGProtocol />
           </Flex>
         </Flex>
-        <Flex>
-          <Text>Read how we have calculated and reported your emissions:</Text>
-          <Button>Read</Button>
+        <Flex width="90%" border="0.5px solid #DDDDE5" my={0} />
+        <Flex height="67px" padding="20px" justify="space-between" align="center">
+          <Text width="55%" fontFamily="Public Sans" fontWeight={200} fontSize="12px" lineHight="14px">Read how we have calculated and reported your emissions:</Text>
+          <Button variant="outline" width="40%" color="#366F99">Read</Button>
         </Flex>
       </Flex>
       
