@@ -1,6 +1,6 @@
 import { Text, Flex, Button, Box } from "@chakra-ui/react";
 import DownloadPdf from "../../../public/images/download-results-icons/DownloadPdf.svg";
-import DownloadCsv from "../../../public/images/download-results-icons/DownloadCsv.svg";
+import DownloadCsv from "../../../public/images/download-results-icons/DownloadCSV.svg";
 import Lamp from "../../../public/images/download-results-icons/Lamp.svg";
 import GHGProtocol from "../../../public/images/download-results-icons/GHGProtocol.svg";
 
