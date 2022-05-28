@@ -35,6 +35,7 @@ export default function DownloadResults() {
             fontWeight={600}
             px="35%"
             lineHeight="13px"
+            color="#044B7F"
           >
             Download this page
           </Text>
@@ -58,6 +59,7 @@ export default function DownloadResults() {
             textAlign="center"
             px="29%"
             lineHeight="13px"
+            color="#044B7F"
           >
             Downaload survey data
           </Text>
