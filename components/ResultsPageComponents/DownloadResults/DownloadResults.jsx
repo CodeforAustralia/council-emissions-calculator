@@ -117,7 +117,7 @@ export default function DownloadResults() {
           >
             Read how we have calculated and reported your emissions:
           </Text>
-          <Button variant="outline" width="40%" color="#366F99">
+          <Button variant="outline" width="40%" color="#366F99" height="31px">
             Read
           </Button>
         </Flex>
