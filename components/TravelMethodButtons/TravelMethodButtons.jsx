@@ -85,8 +85,8 @@ const TravelMethodButtons = () => {
     });
 
     let selectedTravelMethods = updatedState
-                                  .filter((tm) => tm.isSelected)
-                                  .map((tm) => tm.travelMethod);
+      .filter((tm) => tm.isSelected)
+      .map((tm) => tm.travelMethod);
 
     // update `TravelDay` responses when selected travel methods change
     const updateTravelMethodByDay = (
@@ -110,7 +110,7 @@ const TravelMethodButtons = () => {
     };
 
     setTravelMethodButtonStates(updatedState);
-    
+
     setAnswers((prev) => ({
       ...prev,
       travelMethods: selectedTravelMethods,
@@ -135,7 +135,13 @@ const TravelMethodButtons = () => {
       <Alert
         status="success"
         mb={5}
-        display={((answers.workMode === "wfh")&&(travelMethodsNumber < wfhDaysNumber) || (answers.workMode !== "wfh")&&(travelMethodsNumber < workOnSiteDaysNumber)) ? "none" : "block"}
+        display={
+          (answers.workMode === "wfh" && travelMethodsNumber < wfhDaysNumber) ||
+          (answers.workMode !== "wfh" &&
+            travelMethodsNumber < workOnSiteDaysNumber)
+            ? "none"
+            : "block"
+        }
         width="83%"
         borderRadius="lg"
       >
@@ -144,7 +150,8 @@ const TravelMethodButtons = () => {
           <AlertTitle>Travel method limit is reached</AlertTitle>
         </Flex>
         <AlertDescription>
-          You can only select as many travel methods as there are days you work on-site
+          You can only select as many travel methods as there are days you work
+          on-site
         </AlertDescription>
       </Alert>
 
