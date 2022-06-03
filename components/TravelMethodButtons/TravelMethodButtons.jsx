@@ -128,7 +128,7 @@ const TravelMethodButtons = () => {
         mb="15px"
       >
         <Text fontSize="18px">
-          Select the ways you generally travel to work.
+          Select ALL the ways you generally travel to work.
         </Text>
       </Flex>
 

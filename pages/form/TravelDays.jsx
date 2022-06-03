@@ -1,12 +1,13 @@
 import {
-  Box,
-  Flex,
-  GridItem,
-  Heading,
   Alert,
   AlertIcon,
   AlertTitle,
   AlertDescription,
+  Box,
+  Flex,
+  GridItem,
+  Heading,
+  Text,
 } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
@@ -125,6 +126,10 @@ export default function TravelDays() {
           </Heading>
         </Flex>
         <Flex justify="center" direction="column" pb="20px">
+          <Text mb={10} fontSize="18px">
+            If you don't have a regular schedule, please enter your best guess
+            for which days you use each travel method.
+          </Text>
           {answers.travelMethods.map((tm) => (
             <Box key={tm}>{travelComponent(tm)}</Box>
           ))}
