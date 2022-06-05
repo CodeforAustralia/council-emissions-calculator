@@ -12,6 +12,16 @@ export default function SurveyInfo() {
             <Text fontSize="26px" color="#03385F" lineHeight={1}>April</Text>
           </Flex>
         </Flex>
+        <Flex flex={1} justify="center">
+          <Flex height="90%">
+            <Respondents />
+          </Flex>
+          <Flex direction="column" justify="space-around" paddingX="13px">
+            <Text fontSize={["26px","49px"]} color="#03385F" lineHeight={1}>220</Text>
+            <Text fontSize="26px" color="#03385F" lineHeight={1}>Respondents</Text>
+          </Flex>
+        </Flex>
+      </Flex>
       </Flex>
     </Flex>
   );
