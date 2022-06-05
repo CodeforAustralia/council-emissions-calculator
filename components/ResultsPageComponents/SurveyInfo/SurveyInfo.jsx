@@ -22,6 +22,24 @@ export default function SurveyInfo() {
           </Flex>
         </Flex>
       </Flex>
+      <Flex>
+        <Flex flex={1} direction="column" align="center">
+          <Flex>
+            <Path />
+          </Flex>
+          <Flex align="center">
+            <Flex direction="column" justify="space-around" paddingX="13px">
+              <Text fontSize="12px" color="#03385F" lineHeight={1}>Total distance</Text>
+              <Text fontSize="18px" color="#03385F" lineHeight={1}>16,000 km</Text>
+            </Flex>
+            <DottedLine />
+            <Flex direction="column" justify="space-around" paddingX="13px">
+              <Text fontSize="12px" color="#03385F" lineHeight={1}>Av dis per trip</Text>
+              <Text fontSize="18px" color="#03385F" lineHeight={1}>18 km</Text>
+            </Flex>
+          </Flex>
+        </Flex>
+        <Flex flex={1} justify="center">test4</Flex>
       </Flex>
     </Flex>
   );
