@@ -1,7 +1,21 @@
 import { Text, Flex, Button, Box } from "@chakra-ui/react";
+import Background from "../../../public/images/survey-info-icons/background.svg";
+import Calendar from "../../../public/images/survey-info-icons/calendar.svg";
+import Cloud from "../../../public/images/survey-info-icons/cloud.svg";
+import DottedLine from "../../../public/images/survey-info-icons/dotted-line.svg";
+import Path from "../../../public/images/survey-info-icons/path.svg";
+import Respondents from "../../../public/images/survey-info-icons/respondents.svg";
 
 export default function SurveyInfo() {
   return (
+    <Flex
+      direction="column"
+      height="220px"
+      backgroundImage={`url(${Background}) no-repeat`}
+      minWidth="300px"
+      width="100%"
+      alignSelf={["center","start"]}
+    >
       <Flex>
         <Flex flex={1} justify="center">
           <Flex height="90%">
