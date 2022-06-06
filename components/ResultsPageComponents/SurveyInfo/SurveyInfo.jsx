@@ -42,13 +42,29 @@ export default function SurveyInfo() {
             <Path />
           </Flex>
           <Flex align="center">
-            <Flex direction="column" justify="space-around" paddingX="13px">
-              <Text fontSize="12px" color="#03385F" lineHeight={1}>Total distance</Text>
-              <Text fontSize="18px" color="#03385F" lineHeight={1}>16,000 km</Text>
+            <Flex direction="column" paddingX="13px" marginLeft="40px">
+              <Text fontSize="12px" color="#03385F" lineHeight={1} width="70%">Total distance</Text>
+              <Text fontSize="18px" color="#03385F" lineHeight={1} minWidth="90px">16,000 km</Text>
             </Flex>
             <DottedLine />
             <Flex direction="column" justify="space-around" paddingX="13px">
-              <Text fontSize="12px" color="#03385F" lineHeight={1}>Av dis per trip</Text>
+              <Text fontSize="12px" color="#03385F" lineHeight={1} width="50%">Average distance per trip</Text>
+              <Text fontSize="18px" color="#03385F" lineHeight={1}>18 km</Text>
+            </Flex>
+          </Flex>
+        </Flex>
+        <Flex flex={1} direction="column" align="center" justify="space-between" py="50px">
+          <Flex>
+            <Cloud />
+          </Flex>
+          <Flex align="center" justify="center" marginLeft="40px">
+            <Flex direction="column" paddingX="13px">
+              <Text fontSize="12px" color="#03385F" lineHeight={1} width="70%">Total distance</Text>
+              <Text fontSize="18px" color="#03385F" lineHeight={1} minWidth="90px">16,000 km</Text>
+            </Flex>
+            <DottedLine />
+            <Flex direction="column" paddingX="13px">
+              <Text fontSize="12px" color="#03385F" lineHeight={1} width="50%">Average emission per trip</Text>
               <Text fontSize="18px" color="#03385F" lineHeight={1}>18 km</Text>
             </Flex>
           </Flex>
