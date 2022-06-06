@@ -10,14 +10,14 @@ export default function SurveyInfo() {
   return (
     <Flex
       direction="column"
-      height="220px"
       backgroundImage={`url(${Background}) no-repeat`}
       minWidth="300px"
-      width="100%"
+      width="75%"
       alignSelf={["center","start"]}
+      my="50px"
     >
-      <Flex>
-        <Flex flex={1} justify="center">
+      <Flex borderBottom={["none", "1px solid #D69E2E"]} flexWrap="wrap">
+        <Flex flex={1} justify="center" borderRight={["none", "1px solid #D69E2E"]} py="50px">
           <Flex height="90%">
             <Calendar />
           </Flex>
@@ -26,7 +26,7 @@ export default function SurveyInfo() {
             <Text fontSize="26px" color="#03385F" lineHeight={1}>April</Text>
           </Flex>
         </Flex>
-        <Flex flex={1} justify="center">
+        <Flex flex={1} justify="center" py="50px">
           <Flex height="90%">
             <Respondents />
           </Flex>
@@ -36,8 +36,8 @@ export default function SurveyInfo() {
           </Flex>
         </Flex>
       </Flex>
-      <Flex>
-        <Flex flex={1} direction="column" align="center">
+      <Flex flexWrap="wrap">
+        <Flex flex={1} direction="column" align="center" justify="space-between" borderRight={["none", "1px solid #D69E2E"]} py="50px">
           <Flex>
             <Path />
           </Flex>
@@ -69,7 +69,6 @@ export default function SurveyInfo() {
             </Flex>
           </Flex>
         </Flex>
-        <Flex flex={1} justify="center">test4</Flex>
       </Flex>
     </Flex>
   );
