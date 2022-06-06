@@ -29,7 +29,7 @@ export default function Results({ data }) {
 
   return (
     <Layout isText={true} maxContainerWidth="100%">
-      <Flex width="100%" gap="20px" wrap="wrap">
+      <Flex width="100%" gap="20px" wrap="wrap" justify="center">
         <Flex border="2px solid red" flex={2} p="20px" direction="column">
           Left column section...
           <Img border="2px solid grey" src="https://user-images.githubusercontent.com/88268603/169676461-291523f6-2cfe-48f3-8075-cc50cfc2a82a.png"/>
