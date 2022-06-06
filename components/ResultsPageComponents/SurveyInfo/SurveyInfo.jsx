@@ -13,17 +13,26 @@ export default function SurveyInfo() {
       backgroundImage={`url(${Background}) no-repeat`}
       minWidth="300px"
       width="75%"
-      alignSelf={["center","start"]}
+      alignSelf={["center", "start"]}
       my="50px"
     >
       <Flex borderBottom={["none", "1px solid #D69E2E"]} flexWrap="wrap">
-        <Flex flex={1} justify="center" borderRight={["none", "1px solid #D69E2E"]} py="50px">
+        <Flex
+          flex={1}
+          justify="center"
+          borderRight={["none", "1px solid #D69E2E"]}
+          py="50px"
+        >
           <Flex height="90%">
             <Calendar />
           </Flex>
           <Flex direction="column" justify="space-around" paddingX="13px">
-            <Text fontSize={["26px","49px"]} color="#03385F" lineHeight={1}>12 - 19</Text>
-            <Text fontSize="26px" color="#03385F" lineHeight={1}>April</Text>
+            <Text fontSize={["26px", "49px"]} color="#03385F" lineHeight={1}>
+              12 - 19
+            </Text>
+            <Text fontSize="26px" color="#03385F" lineHeight={1}>
+              April
+            </Text>
           </Flex>
         </Flex>
         <Flex flex={1} justify="center" py="50px">
@@ -31,41 +40,84 @@ export default function SurveyInfo() {
             <Respondents />
           </Flex>
           <Flex direction="column" justify="space-around" paddingX="13px">
-            <Text fontSize={["26px","49px"]} color="#03385F" lineHeight={1}>220</Text>
-            <Text fontSize="26px" color="#03385F" lineHeight={1}>Respondents</Text>
+            <Text fontSize={["26px", "49px"]} color="#03385F" lineHeight={1}>
+              220
+            </Text>
+            <Text fontSize="26px" color="#03385F" lineHeight={1}>
+              Respondents
+            </Text>
           </Flex>
         </Flex>
       </Flex>
       <Flex flexWrap="wrap">
-        <Flex flex={1} direction="column" align="center" justify="space-between" borderRight={["none", "1px solid #D69E2E"]} py="50px">
+        <Flex
+          flex={1}
+          direction="column"
+          align="center"
+          justify="space-between"
+          borderRight={["none", "1px solid #D69E2E"]}
+          py="50px"
+        >
           <Flex>
             <Path />
           </Flex>
           <Flex align="center">
             <Flex direction="column" paddingX="13px" marginLeft="40px">
-              <Text fontSize="12px" color="#03385F" lineHeight={1} width="70%">Total distance</Text>
-              <Text fontSize="18px" color="#03385F" lineHeight={1} minWidth="90px">16,000 km</Text>
+              <Text fontSize="12px" color="#03385F" lineHeight={1} width="70%">
+                Total distance
+              </Text>
+              <Text
+                fontSize="18px"
+                color="#03385F"
+                lineHeight={1}
+                minWidth="90px"
+              >
+                16,000 km
+              </Text>
             </Flex>
             <DottedLine />
             <Flex direction="column" justify="space-around" paddingX="13px">
-              <Text fontSize="12px" color="#03385F" lineHeight={1} width="50%">Average distance per trip</Text>
-              <Text fontSize="18px" color="#03385F" lineHeight={1}>18 km</Text>
+              <Text fontSize="12px" color="#03385F" lineHeight={1} width="50%">
+                Average distance per trip
+              </Text>
+              <Text fontSize="18px" color="#03385F" lineHeight={1}>
+                18 km
+              </Text>
             </Flex>
           </Flex>
         </Flex>
-        <Flex flex={1} direction="column" align="center" justify="space-between" py="50px">
+        <Flex
+          flex={1}
+          direction="column"
+          align="center"
+          justify="space-between"
+          py="50px"
+        >
           <Flex>
             <Cloud />
           </Flex>
           <Flex align="center" justify="center" marginLeft="40px">
             <Flex direction="column" paddingX="13px">
-              <Text fontSize="12px" color="#03385F" lineHeight={1} width="70%">Total distance</Text>
-              <Text fontSize="18px" color="#03385F" lineHeight={1} minWidth="90px">16,000 km</Text>
+              <Text fontSize="12px" color="#03385F" lineHeight={1} width="70%">
+                Total distance
+              </Text>
+              <Text
+                fontSize="18px"
+                color="#03385F"
+                lineHeight={1}
+                minWidth="90px"
+              >
+                16,000 km
+              </Text>
             </Flex>
             <DottedLine />
             <Flex direction="column" paddingX="13px">
-              <Text fontSize="12px" color="#03385F" lineHeight={1} width="50%">Average emission per trip</Text>
-              <Text fontSize="18px" color="#03385F" lineHeight={1}>18 km</Text>
+              <Text fontSize="12px" color="#03385F" lineHeight={1} width="50%">
+                Average emission per trip
+              </Text>
+              <Text fontSize="18px" color="#03385F" lineHeight={1}>
+                18 km
+              </Text>
             </Flex>
           </Flex>
         </Flex>
