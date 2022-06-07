@@ -16,7 +16,9 @@ export default function SurveyInfo() {
       alignSelf={["center", "start"]}
       my="50px"
     >
-      <Flex borderBottom={["none", "1px solid #D69E2E"]} flexWrap="wrap">
+      <Text fontWeight={600} fontSize="35px">Overview</Text>
+      <Text fontWeight={400} fontSize="20px">This section includes the survey’s snapshot dates, the total number of survey particpants, the total distance travel, the avarge distance per trip, the total emssions and the avarage emssion per trip. This information forms the baseline data and provide a brief overview into the result page.</Text>
+      <Flex borderBottom={["none", "1px solid #D69E2E"]} flexWrap="wrap" mt={["10px", "50px"]}>
         <Flex
           flex={1}
           justify="center"
