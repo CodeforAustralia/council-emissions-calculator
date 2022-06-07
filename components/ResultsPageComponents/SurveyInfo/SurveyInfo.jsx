@@ -23,7 +23,7 @@ export default function SurveyInfo() {
           flex={1}
           justify="center"
           borderRight={["none", "1px solid #D69E2E"]}
-          py="50px"
+          py={["20px", "50px"]}
         >
           <Flex height="90%">
             <Calendar />
@@ -37,7 +37,7 @@ export default function SurveyInfo() {
             </Text>
           </Flex>
         </Flex>
-        <Flex flex={1} justify="center" py="50px">
+        <Flex flex={1} justify="center" py={["20px", "50px"]}>
           <Flex height="90%">
             <Respondents />
           </Flex>
@@ -58,7 +58,7 @@ export default function SurveyInfo() {
           align="center"
           justify="space-between"
           borderRight={["none", "1px solid #D69E2E"]}
-          py="50px"
+          py={["10px", "50px"]}
         >
           <Flex>
             <Path />
@@ -93,7 +93,7 @@ export default function SurveyInfo() {
           direction="column"
           align="center"
           justify="space-between"
-          py="50px"
+          py={["10px", "50px"]}
         >
           <Flex>
             <Cloud />
