@@ -14,7 +14,7 @@ export default function SurveyInfo() {
       minWidth="300px"
       width="75%"
       alignSelf={["center", "start"]}
-      my="50px"
+      m="50px"
     >
       <Text fontWeight={600} fontSize="35px">Overview</Text>
       <Text fontWeight={400} fontSize="20px">This section includes the survey’s snapshot dates, the total number of survey particpants, the total distance travel, the avarge distance per trip, the total emssions and the avarage emssion per trip. This information forms the baseline data and provide a brief overview into the result page.</Text>
@@ -64,7 +64,7 @@ export default function SurveyInfo() {
             <Path />
           </Flex>
           <Flex align="center">
-            <Flex direction="column" paddingX="13px" marginLeft="40px">
+            <Flex direction="column" paddingX="13px" marginLeft={[0, "40px"]}>
               <Text fontSize="12px" color="#03385F" lineHeight={1} width="70%">
                 Total distance
               </Text>
@@ -98,7 +98,7 @@ export default function SurveyInfo() {
           <Flex>
             <Cloud />
           </Flex>
-          <Flex align="center" justify="center" marginLeft="40px">
+          <Flex align="center" justify="center" marginLeft={[0, "40px"]}>
             <Flex direction="column" paddingX="13px">
               <Text fontSize="12px" color="#03385F" lineHeight={1} width="70%">
                 Total distance
