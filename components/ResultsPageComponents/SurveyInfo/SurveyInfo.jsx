@@ -101,7 +101,7 @@ export default function SurveyInfo() {
           <Flex align="center" justify="center" marginLeft={[0, "40px"]}>
             <Flex direction="column" paddingX="13px">
               <Text fontSize="12px" color="#03385F" lineHeight={1} width="70%">
-                Total distance
+                Total emissions
               </Text>
               <Text
                 fontSize="18px"
@@ -109,16 +109,16 @@ export default function SurveyInfo() {
                 lineHeight={1}
                 minWidth="90px"
               >
-                16,000 km
+                4,900 t
               </Text>
             </Flex>
             <DottedLine />
             <Flex direction="column" paddingX="13px">
               <Text fontSize="12px" color="#03385F" lineHeight={1} width="50%">
-                Average emission per trip
+                Average emissions per trip
               </Text>
               <Text fontSize="18px" color="#03385F" lineHeight={1}>
-                18 km
+                10 t
               </Text>
             </Flex>
           </Flex>
