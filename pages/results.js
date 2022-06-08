@@ -36,7 +36,7 @@ export default function Results({ data }) {
         </Flex>
         <DownloadResults />
       </Flex>
-      <SurveyInfo />
+      <SurveyOverview />
       <Flex border="2px solid red" width="100%" p="20px" mt="20px" direction="column">
         Distance, Trip count, Emission stats
         <Img border="2px solid grey" src="https://user-images.githubusercontent.com/88268603/169676707-89578bf8-47cf-4dc7-9068-81e9ada36700.png"/>
