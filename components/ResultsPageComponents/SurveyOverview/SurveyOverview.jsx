@@ -6,7 +6,7 @@ import DottedLine from "../../../public/images/survey-info-icons/dotted-line.svg
 import Path from "../../../public/images/survey-info-icons/path.svg";
 import Respondents from "../../../public/images/survey-info-icons/respondents.svg";
 
-export default function SurveyInfo() {
+export default function SurveyOverview() {
   return (
     <Flex
       direction="column"
