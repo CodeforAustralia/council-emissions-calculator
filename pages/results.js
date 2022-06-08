@@ -3,7 +3,7 @@ import React from "react";
 import useForm from "../components/FormProvider";
 import Layout from "../components/Layout/Layout";
 import DownloadResults from "../components/ResultsPageComponents/DownloadResults/DownloadResults";
-import SurveyInfo from "../components/ResultsPageComponents/SurveyInfo/SurveyInfo";
+import SurveyOverview from "../components/ResultsPageComponents/SurveyOverview/SurveyOverview";
 // import capitalize from "../utils/capitalize";
 // import { FiDownload } from "react-icons/fi";
 // import { getTripTotalsTop3 } from "./api/trips";
