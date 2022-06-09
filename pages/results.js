@@ -3,6 +3,7 @@ import React from "react";
 import useForm from "../components/FormProvider";
 import Layout from "../components/Layout/Layout";
 import DownloadResults from "../components/ResultsPageComponents/DownloadResults/DownloadResults";
+import SurveyOverview from "../components/ResultsPageComponents/SurveyOverview/SurveyOverview";
 // import capitalize from "../utils/capitalize";
 // import { FiDownload } from "react-icons/fi";
 // import { getTripTotalsTop3 } from "./api/trips";
@@ -28,17 +29,14 @@ export default function Results({ data }) {
 
   return (
     <Layout isText={true} maxContainerWidth="100%">
-      <Flex width="100%" gap="20px" wrap="wrap">
+      <Flex width="100%" gap="20px" wrap="wrap" justify="center">
         <Flex border="2px solid red" flex={2} p="20px" direction="column">
           Left column section...
           <Img border="2px solid grey" src="https://user-images.githubusercontent.com/88268603/169676461-291523f6-2cfe-48f3-8075-cc50cfc2a82a.png"/>
         </Flex>
         <DownloadResults />
       </Flex>
-      <Flex border="2px solid red" width="100%" p="20px" mt="20px" direction="column">
-        Survey params
-        <Img border="2px solid grey" src="https://user-images.githubusercontent.com/88268603/169676634-470eca48-e065-491e-b062-019f7d91d951.png"/>
-      </Flex>
+      <SurveyOverview />
       <Flex border="2px solid red" width="100%" p="20px" mt="20px" direction="column">
         Distance, Trip count, Emission stats
         <Img border="2px solid grey" src="https://user-images.githubusercontent.com/88268603/169676707-89578bf8-47cf-4dc7-9068-81e9ada36700.png"/>
