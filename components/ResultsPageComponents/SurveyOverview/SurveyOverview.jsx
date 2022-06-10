@@ -1,10 +1,10 @@
 import { Text, Flex, Button, Box } from "@chakra-ui/react";
-import Background from "../../../public/images/survey-info-icons/background.svg";
-import Calendar from "../../../public/images/survey-info-icons/calendar.svg";
-import Cloud from "../../../public/images/survey-info-icons/cloud.svg";
-import DottedLine from "../../../public/images/survey-info-icons/dotted-line.svg";
-import Path from "../../../public/images/survey-info-icons/path.svg";
-import Respondents from "../../../public/images/survey-info-icons/respondents.svg";
+import Background from "../../../public/images/survey-overview-icons/background.svg";
+import Calendar from "../../../public/images/survey-overview-icons/calendar.svg";
+import Cloud from "../../../public/images/survey-overview-icons/cloud.svg";
+import DottedLine from "../../../public/images/survey-overview-icons/dotted-line.svg";
+import Path from "../../../public/images/survey-overview-icons/path.svg";
+import Respondents from "../../../public/images/survey-overview-icons/respondents.svg";
 
 export default function SurveyOverview() {
   return (
