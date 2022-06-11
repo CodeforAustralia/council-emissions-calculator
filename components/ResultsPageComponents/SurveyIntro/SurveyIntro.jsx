@@ -16,7 +16,7 @@ export default function SurveyIntro() {
       gap={["10px", "20px"]}
     >
       <Flex direction="column">
-        <Text fontSize="50px">Work Commute Survey Results</Text>
+        <Text fontSize={["30px", "50px"]}>Work Commute Survey Results</Text>
         <Text fontSize="20px">The results page provides the outcome from our recent survey. We have recently embarked on our 2026 challenge. We aim to increase the use of Active, Public and Shared commute methods to 20% or more. Currently, we are on our way to meeting the 2026 challenge. With our collective effort, we can improve our impact on the environment.</Text>
       </Flex>
       <Flex direction="column">
