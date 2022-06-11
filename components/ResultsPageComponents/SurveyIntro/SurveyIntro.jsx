@@ -3,7 +3,7 @@ import WalkingMan from "../../../public/images/survey-intro-icons/walking-man.sv
 import Car from "../../../public/images/survey-intro-icons/car.svg";
 import Carpool from "../../../public/images/survey-intro-icons/carpool.svg";
 import Motorcycle from "../../../public/images/survey-intro-icons/motorcycle.svg";
-import Train from "../../../public/images/survey-intro-icons/Train.svg";
+import Train from "../../../public/images/survey-intro-icons/train.svg";
 
 export default function SurveyIntro() {
   return (
