@@ -30,7 +30,7 @@ export default function Results({ data }) {
 
   return (
     <Layout isText={true} maxContainerWidth="100%">
-      <Flex width="100%" gap="20px" wrap="wrap" justify="center">
+      <Flex px="50px" width="100%" gap={["40px", "90px"]} wrap="wrap" direction={["column", "row"]} justify="center" align={["center", "flex-start"]}>
         <SurveyIntro />
         <DownloadResults />
       </Flex>
