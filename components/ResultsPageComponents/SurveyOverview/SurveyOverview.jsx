@@ -16,9 +16,21 @@ export default function SurveyOverview() {
       alignSelf={["center", "start"]}
       m="50px"
     >
-      <Text fontWeight={600} fontSize="35px">Overview</Text>
-      <Text fontWeight={400} fontSize="20px">This section includes the survey’s snapshot dates, the total number of survey particpants, the total distance travel, the average distance per trip, the total emissions and the average emissions per trip. This information forms the baseline data and provide a brief overview into the result page.</Text>
-      <Flex borderBottom={["none", "1px solid #D69E2E"]} flexWrap="wrap" mt={["10px", "50px"]}>
+      <Text fontWeight={600} fontSize="35px">
+        Overview
+      </Text>
+      <Text fontWeight={400} fontSize="20px">
+        This section includes the survey’s snapshot dates, the total number of
+        survey particpants, the total distance travel, the average distance per
+        trip, the total emissions and the average emissions per trip. This
+        information forms the baseline data and provide a brief overview into
+        the result page.
+      </Text>
+      <Flex
+        borderBottom={["none", "1px solid #D69E2E"]}
+        flexWrap="wrap"
+        mt={["10px", "50px"]}
+      >
         <Flex
           flex={1}
           justify="center"
