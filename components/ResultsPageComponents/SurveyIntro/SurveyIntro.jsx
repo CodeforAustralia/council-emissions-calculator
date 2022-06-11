@@ -13,12 +13,29 @@ export default function SurveyIntro() {
       flex={[1, 2]}
       m="50px"
     >
-      Test
-      <WalkingMan />
-      <Car />
-      <Carpool />
-      <Motorcycle />
-      <Train />
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Flex>
+        <Flex firection="column">
+            <Flex>
+              <Text></Text>
+              <Text></Text>
+            </Flex>
+            <Flex>
+              <Text></Text>
+              <Text></Text>
+            </Flex>
+        </Flex>
+        <Flex>
+          <WalkingMan />
+          <Car />
+          <Carpool />
+          <Motorcycle />
+          <Train />
+        </Flex>
+      </Flex>
     </Flex>
   );
 }
