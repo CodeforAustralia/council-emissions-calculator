@@ -6,7 +6,51 @@ import DottedLine from "../../../public/images/survey-info-icons/dotted-line.svg
 import Path from "../../../public/images/survey-info-icons/path.svg";
 import Respondents from "../../../public/images/survey-info-icons/respondents.svg";
 
-export default function SurveyOverview() {
+const getMonthName = (month) => {
+  switch (month) {
+    case 0:
+      return "January";
+    case 1:
+      return "February";
+    case 2:
+      return "March";
+    case 3:
+      return "April";
+    case 4:
+      return "May";
+    case 5:
+      return "June";
+    case 6:
+      return "July";
+    case 7:
+      return "August";
+    case 8:
+      return "September";
+    case 9:
+      return "October";
+    case 10:
+      return "November";
+    case 11:
+      return "December";
+    default:
+      return "???";
+  }
+};
+
+export default function SurveyOverview({
+  startDate,
+  endDate,
+  totalResponses="",
+  totalDistance="",
+  totalEmissions=""
+}) {
+
+  const surveyData = {
+    startDate: (new Date(startDate)).getDate() || "??",
+    endDate: (new Date(endDate)).getDate() || "??",
+  };
+  console.log(`results: ${JSON.stringify(surveyData)}`);
+
   return (
     <Flex
       direction="column"
@@ -30,10 +74,10 @@ export default function SurveyOverview() {
           </Flex>
           <Flex direction="column" justify="space-around" paddingX="13px">
             <Text fontSize={["26px", "49px"]} color="#03385F" lineHeight={1}>
-              12 - 19
+              {surveyData.startDate} - {surveyData.endDate}
             </Text>
             <Text fontSize="26px" color="#03385F" lineHeight={1}>
-              April
+              {getMonthName((new Date(startDate)).getMonth())}
             </Text>
           </Flex>
         </Flex>

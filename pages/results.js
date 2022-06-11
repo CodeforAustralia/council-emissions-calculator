@@ -4,10 +4,24 @@ import useForm from "../components/FormProvider";
 import Layout from "../components/Layout/Layout";
 import DownloadResults from "../components/ResultsPageComponents/DownloadResults/DownloadResults";
 import SurveyOverview from "../components/ResultsPageComponents/SurveyOverview/SurveyOverview";
+import fsPromises from 'fs/promises';
+import path from 'path';
 // import capitalize from "../utils/capitalize";
 // import { FiDownload } from "react-icons/fi";
 // import { getTripTotalsTop3 } from "./api/trips";
 
+
+export async function getStaticProps() {
+  const filePath = path.join(process.cwd(), 'data/2022-results.json');
+  const jsonData = await fsPromises.readFile(filePath);
+  const results = JSON.parse(jsonData);
+
+  return {
+    props: {
+      data: results,
+    }
+  };
+}
 
 // export async function getServerSideProps() {
 //   const tripjson = await getTripTotalsTop3();
@@ -36,7 +50,10 @@ export default function Results({ data }) {
         </Flex>
         <DownloadResults />
       </Flex>
-      <SurveyOverview />
+      <SurveyOverview
+        startDate={data["survey-start-date"]}
+        endDate={data["survey-end-date"]}
+      />
       <Flex border="2px solid red" width="100%" p="20px" mt="20px" direction="column">
         Distance, Trip count, Emission stats
         <Img border="2px solid grey" src="https://user-images.githubusercontent.com/88268603/169676707-89578bf8-47cf-4dc7-9068-81e9ada36700.png"/>
