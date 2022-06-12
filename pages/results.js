@@ -4,6 +4,7 @@ import useForm from "../components/FormProvider";
 import Layout from "../components/Layout/Layout";
 import DownloadResults from "../components/ResultsPageComponents/DownloadResults/DownloadResults";
 import SurveyOverview from "../components/ResultsPageComponents/SurveyOverview/SurveyOverview";
+import SurveyIntro from "../components/ResultsPageComponents/SurveyIntro/SurveyIntro";
 // import capitalize from "../utils/capitalize";
 // import { FiDownload } from "react-icons/fi";
 // import { getTripTotalsTop3 } from "./api/trips";
@@ -29,11 +30,8 @@ export default function Results({ data }) {
 
   return (
     <Layout isText={true} maxContainerWidth="100%">
-      <Flex width="100%" gap="20px" wrap="wrap" justify="center">
-        <Flex border="2px solid red" flex={2} p="20px" direction="column">
-          Left column section...
-          <Img border="2px solid grey" src="https://user-images.githubusercontent.com/88268603/169676461-291523f6-2cfe-48f3-8075-cc50cfc2a82a.png"/>
-        </Flex>
+      <Flex px={["5px", "50px"]} width="100%" gap={["40px", "90px"]} wrap="wrap" direction={["column", "row"]} justify="center" align={["center", "flex-start"]}>
+        <SurveyIntro />
         <DownloadResults />
       </Flex>
       <SurveyOverview />
