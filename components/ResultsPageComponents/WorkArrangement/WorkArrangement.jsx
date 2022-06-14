@@ -21,18 +21,36 @@ export default function WorkArrangement() {
           Things to note before reading the results
         </Text>
         <Text fontSize="19px" py="15px">
-          The infographics below illustrate responders’ working arrangement across the week. This information helps identify the percentage of staff commuting to work in regular (on-site) and intermittent (hybrid) patterns.
+          The infographics below illustrate responders’ working arrangement
+          across the week. This information helps identify the percentage of
+          staff commuting to work in regular (on-site) and intermittent (hybrid)
+          patterns.
         </Text>
         <Flex direction={["column", "row"]} align={["center", "flex-end"]}>
           <Flex width="30%" direction="column" py="20px">
             <Flex justify="flex-end">
               <Line maxWidth="150px" />
               <Flex direction="column">
-                <Text fontWeight={500} fontSize="36px" lineHeight="23px" color="#D69E2E">42%</Text>
-                <Text fontWeight={200} fontSize="24px" color="#044B7F">Hybrid</Text>
+                <Text
+                  fontWeight={500}
+                  fontSize="36px"
+                  lineHeight="23px"
+                  color="#D69E2E"
+                >
+                  42%
+                </Text>
+                <Text fontWeight={200} fontSize="24px" color="#044B7F">
+                  Hybrid
+                </Text>
               </Flex>
             </Flex>
-            <Flex justify="center" maxHeight="280px" height="100%" borderBottom="2.12px solid #D69E2E" pb="15px">
+            <Flex
+              justify="center"
+              maxHeight="280px"
+              height="100%"
+              borderBottom="2.12px solid #D69E2E"
+              pb="15px"
+            >
               <Traveler />
             </Flex>
           </Flex>
@@ -40,11 +58,26 @@ export default function WorkArrangement() {
             <Flex justify="flex-end">
               <Line maxWidth="150px" />
               <Flex direction="column">
-                <Text fontWeight={500} fontSize="36px" lineHeight="23px" color="#D69E2E">32%</Text>
-                <Text fontWeight={100} fontSize="24px" color="#044B7F">On-site</Text>
+                <Text
+                  fontWeight={500}
+                  fontSize="36px"
+                  lineHeight="23px"
+                  color="#D69E2E"
+                >
+                  32%
+                </Text>
+                <Text fontWeight={100} fontSize="24px" color="#044B7F">
+                  On-site
+                </Text>
               </Flex>
             </Flex>
-            <Flex justify="center" maxHeight="200px" height="75%" borderBottom="2.12px solid #D69E2E" pb="15px">
+            <Flex
+              justify="center"
+              maxHeight="200px"
+              height="75%"
+              borderBottom="2.12px solid #D69E2E"
+              pb="15px"
+            >
               <Traveler />
             </Flex>
           </Flex>
@@ -52,11 +85,26 @@ export default function WorkArrangement() {
             <Flex justify="flex-end">
               <Line maxWidth="150px" />
               <Flex direction="column">
-                <Text fontWeight={500} fontSize="36px" lineHeight="23px" color="#D69E2E">26%</Text>
-                <Text fontWeight={100} fontSize="24px" color="#044B7F">WFH</Text>
+                <Text
+                  fontWeight={500}
+                  fontSize="36px"
+                  lineHeight="23px"
+                  color="#D69E2E"
+                >
+                  26%
+                </Text>
+                <Text fontWeight={100} fontSize="24px" color="#044B7F">
+                  WFH
+                </Text>
               </Flex>
             </Flex>
-            <Flex justify="center" maxHeight="160px" height="50%" borderBottom="2.12px solid #D69E2E" pb="15px">
+            <Flex
+              justify="center"
+              maxHeight="160px"
+              height="50%"
+              borderBottom="2.12px solid #D69E2E"
+              pb="15px"
+            >
               <Traveler />
             </Flex>
           </Flex>
