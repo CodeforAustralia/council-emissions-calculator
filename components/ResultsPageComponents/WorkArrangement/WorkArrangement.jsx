@@ -66,7 +66,7 @@ export default function WorkArrangement() {
                 >
                   32%
                 </Text>
-                <Text fontWeight={100} fontSize="24px" color="#044B7F">
+                <Text fontWeight={100} fontSize="24px" color="#044B7F" whiteSpace="nowrap">
                   On-site
                 </Text>
               </Flex>
