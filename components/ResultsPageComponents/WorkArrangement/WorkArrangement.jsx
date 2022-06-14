@@ -13,7 +13,14 @@ export default function WorkArrangement() {
       px={["5px", "50px"]}
       justify="center"
     >
-      Test
+      <Flex direction="column">
+        <Text fontWeight={600} fontSize="33px" lineHeight="74px">
+          Things to note before reading the results
+        </Text>
+        <Text fontSize="19px">
+          The infographics below illustrate responders’ working arrangement across the week. This information helps identify the percentage of staff commuting to work in regular (on-site) and intermittent (hybrid) patterns.
+        </Text>
+      </Flex>
     </Flex>
   );
 }
