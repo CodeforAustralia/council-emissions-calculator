@@ -14,6 +14,17 @@ export default function TripCountAndTravelMethods() {
       py={["25px", "50px"]}
       justify="center"
     >
+      <Flex direction="column">
+        <Text fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
+          Trip count and Travel Methods
+        </Text>
+        <Text fontSize="19px" py="15px">
+          The three donut graphs below help us to understand how we commute to work. The graph on the left ‘Trip Count’ determines the total trip counts and the breakdown by individual and Active-Public-shared travel methods. The two graphs on the right Active-Public-shared travel and Individual travel show us the total trips for each travel method and their breakdown by mode.  
+        </Text>
+        <Flex direction={["column", "row"]} align={["center", "flex-end"]}>
+          
+        </Flex>
+      </Flex>
     </Flex>
   );
 }
