@@ -38,17 +38,16 @@ const getMonthName = (month) => {
 };
 
 export default function SurveyOverview({
-  startDate="",
-  endDate="",
-  totalResponses="",
-  totalDistance=0,
-  totalEmissions=0,
-  totalTripCount=0,
+  startDate = "",
+  endDate = "",
+  totalResponses = "",
+  totalDistance = 0,
+  totalEmissions = 0,
+  totalTripCount = 0,
 }) {
-
   const surveyData = {
-    startDate: (new Date(startDate)).getDate() || "",
-    endDate: (new Date(endDate)).getDate() || "",
+    startDate: new Date(startDate).getDate() || "",
+    endDate: new Date(endDate).getDate() || "",
     numResponses: totalResponses,
     totalDistance: totalDistance,
     totalEmissions: totalEmissions,
@@ -94,7 +93,7 @@ export default function SurveyOverview({
               {surveyData.startDate} - {surveyData.endDate}
             </Text>
             <Text fontSize="26px" color="#03385F" lineHeight={1}>
-              {getMonthName((new Date(startDate)).getMonth())}
+              {getMonthName(new Date(startDate).getMonth())}
             </Text>
           </Flex>
         </Flex>
