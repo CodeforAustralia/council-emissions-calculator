@@ -1,10 +1,10 @@
 import { Text, Flex, Button, Box } from "@chakra-ui/react";
-import Background from "../../../public/images/survey-info-icons/background.svg";
-import Calendar from "../../../public/images/survey-info-icons/calendar.svg";
-import Cloud from "../../../public/images/survey-info-icons/cloud.svg";
-import DottedLine from "../../../public/images/survey-info-icons/dotted-line.svg";
-import Path from "../../../public/images/survey-info-icons/path.svg";
-import Respondents from "../../../public/images/survey-info-icons/respondents.svg";
+import Background from "../../../public/images/survey-overview-icons/background.svg";
+import Calendar from "../../../public/images/survey-overview-icons/calendar.svg";
+import Cloud from "../../../public/images/survey-overview-icons/cloud.svg";
+import DottedLine from "../../../public/images/survey-overview-icons/dotted-line.svg";
+import Path from "../../../public/images/survey-overview-icons/path.svg";
+import Respondents from "../../../public/images/survey-overview-icons/respondents.svg";
 
 const getMonthName = (month) => {
   switch (month) {
@@ -60,9 +60,21 @@ export default function SurveyOverview({
       alignSelf={["center", "start"]}
       m="50px"
     >
-      <Text fontWeight={600} fontSize="35px">Overview</Text>
-      <Text fontWeight={400} fontSize="20px">This section includes the survey’s snapshot dates, the total number of survey particpants, the total distance travel, the average distance per trip, the total emissions and the average emissions per trip. This information forms the baseline data and provide a brief overview into the result page.</Text>
-      <Flex borderBottom={["none", "1px solid #D69E2E"]} flexWrap="wrap" mt={["10px", "50px"]}>
+      <Text fontWeight={600} fontSize="35px">
+        Overview
+      </Text>
+      <Text fontWeight={400} fontSize="20px">
+        This section includes the survey’s snapshot dates, the total number of
+        survey particpants, the total distance travel, the average distance per
+        trip, the total emissions and the average emissions per trip. This
+        information forms the baseline data and provide a brief overview into
+        the result page.
+      </Text>
+      <Flex
+        borderBottom={["none", "1px solid #D69E2E"]}
+        flexWrap="wrap"
+        mt={["10px", "50px"]}
+      >
         <Flex
           flex={1}
           justify="center"

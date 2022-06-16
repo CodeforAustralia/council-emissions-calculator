@@ -4,6 +4,8 @@ import useForm from "../components/FormProvider";
 import Layout from "../components/Layout/Layout";
 import DownloadResults from "../components/ResultsPageComponents/DownloadResults/DownloadResults";
 import SurveyOverview from "../components/ResultsPageComponents/SurveyOverview/SurveyOverview";
+import SurveyIntro from "../components/ResultsPageComponents/SurveyIntro/SurveyIntro";
+import WorkArrangement from "../components/ResultsPageComponents/WorkArrangement/WorkArrangement";
 import fsPromises from 'fs/promises';
 import path from 'path';
 // import capitalize from "../utils/capitalize";
@@ -43,11 +45,8 @@ export default function Results({ data }) {
 
   return (
     <Layout isText={true} maxContainerWidth="100%">
-      <Flex width="100%" gap="20px" wrap="wrap" justify="center">
-        <Flex border="2px solid red" flex={2} p="20px" direction="column">
-          Left column section...
-          <Img border="2px solid grey" src="https://user-images.githubusercontent.com/88268603/169676461-291523f6-2cfe-48f3-8075-cc50cfc2a82a.png"/>
-        </Flex>
+      <Flex px={["5px", "50px"]} width="100%" gap={["40px", "90px"]} wrap="wrap" direction={["column", "row"]} justify="center" align={["center", "flex-start"]}>
+        <SurveyIntro />
         <DownloadResults />
       </Flex>
       <SurveyOverview
@@ -62,10 +61,7 @@ export default function Results({ data }) {
         Stats in pie charts
         <Img border="2px solid grey" src="https://user-images.githubusercontent.com/88268603/169676675-761da8f8-c3e1-4810-85d4-1f75341ffe20.png"/>
       </Flex>
-      <Flex border="2px solid red" width="100%" p="20px" mt="20px" direction="column">
-        Walking men visualization
-        <Img border="2px solid grey" src="https://user-images.githubusercontent.com/88268603/169676837-4c6f9858-e84e-425f-ada3-4b2cda9242de.png"/>
-      </Flex>
+      <WorkArrangement />
       <Flex border="2px solid red" width="100%" p="20px" mt="20px" direction="column">
         Standing men visualization
         <Img border="2px solid grey" src="https://user-images.githubusercontent.com/88268603/169676884-3f854d4d-e343-408d-a773-abbaa576d80d.png"/>
