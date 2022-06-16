@@ -52,6 +52,10 @@ export default function Results({ data }) {
       <SurveyOverview
         startDate={data["survey-start-date"]}
         endDate={data["survey-end-date"]}
+        totalResponses={data["total-number-responses"]}
+        totalDistance={data["total-distance"]}
+        totalEmissions={data["total-co2-emissions-tonnes"]}
+        totalTripCount={data["total-trip-count"]}
       />
       <Flex border="2px solid red" width="100%" p="20px" mt="20px" direction="column">
         Distance, Trip count, Emission stats

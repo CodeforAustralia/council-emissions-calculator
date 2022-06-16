@@ -2,6 +2,7 @@
   "survey-start-date": "2022-06-03",
   "survey-end-date": "2022-06-17",
   "total-number-responses": 123,
+  "total-trip-count": 100,
   "total-distance": 12300,
   "total-co2-emissions-tonnes": 8888
 }

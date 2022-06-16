@@ -33,21 +33,26 @@ const getMonthName = (month) => {
     case 11:
       return "December";
     default:
-      return "???";
+      return "";
   }
 };
 
 export default function SurveyOverview({
-  startDate,
-  endDate,
+  startDate="",
+  endDate="",
   totalResponses="",
-  totalDistance="",
-  totalEmissions=""
+  totalDistance=0,
+  totalEmissions=0,
+  totalTripCount=0,
 }) {
 
   const surveyData = {
-    startDate: (new Date(startDate)).getDate() || "??",
-    endDate: (new Date(endDate)).getDate() || "??",
+    startDate: (new Date(startDate)).getDate() || "",
+    endDate: (new Date(endDate)).getDate() || "",
+    numResponses: totalResponses,
+    totalDistance: totalDistance,
+    totalEmissions: totalEmissions,
+    totalTrips: totalTripCount,
   };
   console.log(`results: ${JSON.stringify(surveyData)}`);
 
@@ -99,7 +104,7 @@ export default function SurveyOverview({
           </Flex>
           <Flex direction="column" justify="space-around" paddingX="13px">
             <Text fontSize={["26px", "49px"]} color="#03385F" lineHeight={1}>
-              220
+              {surveyData.numResponses}
             </Text>
             <Text fontSize="26px" color="#03385F" lineHeight={1}>
               Respondents
@@ -130,7 +135,7 @@ export default function SurveyOverview({
                 lineHeight={1}
                 minWidth="90px"
               >
-                16,000 km
+                {surveyData.totalDistance} km
               </Text>
             </Flex>
             <DottedLine />
@@ -139,7 +144,7 @@ export default function SurveyOverview({
                 Average distance per trip
               </Text>
               <Text fontSize="18px" color="#03385F" lineHeight={1}>
-                18 km
+                {surveyData.totalDistance / surveyData.totalTrips} km
               </Text>
             </Flex>
           </Flex>
@@ -165,7 +170,7 @@ export default function SurveyOverview({
                 lineHeight={1}
                 minWidth="90px"
               >
-                4,900 t
+                {surveyData.totalEmissions} t
               </Text>
             </Flex>
             <DottedLine />
@@ -174,7 +179,7 @@ export default function SurveyOverview({
                 Average emissions per trip
               </Text>
               <Text fontSize="18px" color="#03385F" lineHeight={1}>
-                10 t
+                {surveyData.totalEmissions / surveyData.totalTrips} t
               </Text>
             </Flex>
           </Flex>
