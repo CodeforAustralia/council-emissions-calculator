@@ -6,7 +6,55 @@ import DottedLine from "../../../public/images/survey-overview-icons/dotted-line
 import Path from "../../../public/images/survey-overview-icons/path.svg";
 import Respondents from "../../../public/images/survey-overview-icons/respondents.svg";
 
-export default function SurveyOverview() {
+const getMonthName = (month) => {
+  switch (month) {
+    case 0:
+      return "January";
+    case 1:
+      return "February";
+    case 2:
+      return "March";
+    case 3:
+      return "April";
+    case 4:
+      return "May";
+    case 5:
+      return "June";
+    case 6:
+      return "July";
+    case 7:
+      return "August";
+    case 8:
+      return "September";
+    case 9:
+      return "October";
+    case 10:
+      return "November";
+    case 11:
+      return "December";
+    default:
+      return "";
+  }
+};
+
+export default function SurveyOverview({
+  startDate = "",
+  endDate = "",
+  totalResponses = "",
+  totalDistance = 0,
+  totalEmissions = 0,
+  totalTripCount = 0,
+}) {
+  const surveyData = {
+    startDate: new Date(startDate).getDate() || "",
+    endDate: new Date(endDate).getDate() || "",
+    numResponses: totalResponses,
+    totalDistance: totalDistance,
+    totalEmissions: totalEmissions,
+    totalTrips: totalTripCount,
+  };
+  console.log(`results: ${JSON.stringify(surveyData)}`);
+
   return (
     <Flex
       direction="column"
@@ -42,10 +90,10 @@ export default function SurveyOverview() {
           </Flex>
           <Flex direction="column" justify="space-around" paddingX="13px">
             <Text fontSize={["26px", "49px"]} color="#03385F" lineHeight={1}>
-              12 - 19
+              {surveyData.startDate} - {surveyData.endDate}
             </Text>
             <Text fontSize="26px" color="#03385F" lineHeight={1}>
-              April
+              {getMonthName(new Date(startDate).getMonth())}
             </Text>
           </Flex>
         </Flex>
@@ -55,7 +103,7 @@ export default function SurveyOverview() {
           </Flex>
           <Flex direction="column" justify="space-around" paddingX="13px">
             <Text fontSize={["26px", "49px"]} color="#03385F" lineHeight={1}>
-              220
+              {surveyData.numResponses}
             </Text>
             <Text fontSize="26px" color="#03385F" lineHeight={1}>
               Respondents
@@ -86,7 +134,7 @@ export default function SurveyOverview() {
                 lineHeight={1}
                 minWidth="90px"
               >
-                16,000 km
+                {surveyData.totalDistance} km
               </Text>
             </Flex>
             <DottedLine />
@@ -95,7 +143,7 @@ export default function SurveyOverview() {
                 Average distance per trip
               </Text>
               <Text fontSize="18px" color="#03385F" lineHeight={1}>
-                18 km
+                {surveyData.totalDistance / surveyData.totalTrips} km
               </Text>
             </Flex>
           </Flex>
@@ -121,7 +169,7 @@ export default function SurveyOverview() {
                 lineHeight={1}
                 minWidth="90px"
               >
-                4,900 t
+                {surveyData.totalEmissions} t
               </Text>
             </Flex>
             <DottedLine />
@@ -130,7 +178,7 @@ export default function SurveyOverview() {
                 Average emissions per trip
               </Text>
               <Text fontSize="18px" color="#03385F" lineHeight={1}>
-                10 t
+                {surveyData.totalEmissions / surveyData.totalTrips} t
               </Text>
             </Flex>
           </Flex>
