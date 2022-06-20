@@ -6,10 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "export": "next export",
-    "start": "next start",
-    "lint": "eslint . --ext js,jsx,ts,tsx --fix",
-    "lint:fix": "eslint --fix",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+    "start": "next start"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.6.8",
