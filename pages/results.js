@@ -126,7 +126,33 @@ export default function Results({ data }) {
         Summary plus stats in horizontal bar chart
         <Img
           border="2px solid grey"
-          src="https://user-images.githubusercontent.com/88268603/169676949-f4651b52-2920-4905-8ce0-6881594663f2.png"
+          src="https://user-images.githubusercontent.com/88268603/174800361-a529ca2e-b257-489b-b8b8-4fa4e2a59b90.png"
+        />
+      </Flex>
+      <Flex
+        border="2px solid red"
+        width="100%"
+        p="20px"
+        mt="20px"
+        direction="column"
+      >
+        Transport type usage during work week
+        <Img
+          border="2px solid grey"
+          src="https://user-images.githubusercontent.com/88268603/174800762-b58ec331-79f7-4672-8685-83e49ea91877.png"
+        />
+      </Flex>
+      <Flex
+        border="2px solid red"
+        width="100%"
+        p="20px"
+        mt="20px"
+        direction="column"
+      >
+        Transport type preference during work week
+        <Img
+          border="2px solid grey"
+          src="https://user-images.githubusercontent.com/88268603/174800922-8b09ebb9-f5b6-4b61-a396-50df26fc3229.png"
         />
       </Flex>
     </Layout>
