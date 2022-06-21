@@ -97,10 +97,10 @@ export default function Results({ data }) {
         mt="20px"
         direction="column"
       >
-        Standing men visualization
+        Travelling to Work Days Graph
         <Img
           border="2px solid grey"
-          src="https://user-images.githubusercontent.com/88268603/169676884-3f854d4d-e343-408d-a773-abbaa576d80d.png"
+          src="https://user-images.githubusercontent.com/88268603/174800487-1cc45b50-4916-47cb-8bc2-2ca64bba70eb.png"
         />
       </Flex>
       <Flex
