@@ -89,7 +89,7 @@ export default function Results({ data }) {
           src="https://user-images.githubusercontent.com/88268603/169676675-761da8f8-c3e1-4810-85d4-1f75341ffe20.png"
         />
       </Flex>
-      <WorkArrangement />
+      <WorkArrangement workMode={data["work-mode"]} />
       <Flex
         border="2px solid red"
         width="100%"

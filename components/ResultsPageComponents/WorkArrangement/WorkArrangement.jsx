@@ -2,7 +2,10 @@ import { Text, Flex } from "@chakra-ui/react";
 import Traveler from "../../../public/images/work-arrangement-results-icons/traveler.svg";
 import Line from "../../../public/images/work-arrangement-results-icons/l-shape-line.svg";
 
-export default function WorkArrangement() {
+export default function WorkArrangement({ workMode }) {
+
+  console.log(workMode)
+
   return (
     <Flex
       minWidth="350px"
