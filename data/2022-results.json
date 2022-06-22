@@ -5,7 +5,7 @@
   "total-trip-count": 100,
   "total-distance": 12300,
   "total-co2-emissions-tonnes": 8888,
-  "workMode": {
+  "work-mode": {
     "onsite": 5,
     "hybrid": 50,
     "wfh": 20
