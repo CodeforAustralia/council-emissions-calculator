@@ -4,7 +4,11 @@ import Line from "../../../public/images/work-arrangement-results-icons/l-shape-
 
 export default function WorkArrangement({ workMode }) {
 
-  console.log(workMode)
+  const surveyData = {
+    onsite: workMode.onsite || "",
+    wfh: workMode.wfh || "",
+    hybrid: workMode.hybrid || "",
+  };
 
   return (
     <Flex
