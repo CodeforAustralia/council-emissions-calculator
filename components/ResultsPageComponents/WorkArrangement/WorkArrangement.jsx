@@ -5,14 +5,14 @@ import Line from "../../../public/images/work-arrangement-results-icons/l-shape-
 export default function WorkArrangement({ workMode }) {
 
   const surveyData = {
-    onsite: workMode.onsite || "",
-    wfh: workMode.wfh || "",
-    hybrid: workMode.hybrid || "",
+    "On-site": workMode.onsite || "",
+    "WFH": workMode.wfh || "",
+    "Hybrid": workMode.hybrid || "",
   };
 
   const maxCountWorkMode = Object.entries(surveyData).reduce((a, b) => a[1] > b[1] ? a : b);
   const minCountWorkMode = Object.entries(surveyData).reduce((a, b) => a[1] < b[1] ? a : b);
-  const mediumCountWorkMode = Object.entries(surveyData).sort((a, b) => b[1] - a[1])[1]
+  const mediumCountWorkMode = Object.entries(surveyData).sort((a, b) => b[1] - a[1])[1];
 
   return (
     <Flex
@@ -48,10 +48,10 @@ export default function WorkArrangement({ workMode }) {
                   lineHeight="23px"
                   color="#D69E2E"
                 >
-                  42%
+                  {maxCountWorkMode[1]}%
                 </Text>
                 <Text fontWeight={200} fontSize="24px" color="#044B7F">
-                  Hybrid
+                  {maxCountWorkMode[0]}
                 </Text>
               </Flex>
             </Flex>
@@ -75,10 +75,10 @@ export default function WorkArrangement({ workMode }) {
                   lineHeight="23px"
                   color="#D69E2E"
                 >
-                  32%
+                  {mediumCountWorkMode[1]}%
                 </Text>
                 <Text fontWeight={100} fontSize="24px" color="#044B7F" whiteSpace="nowrap">
-                  On-site
+                  {mediumCountWorkMode[0]}
                 </Text>
               </Flex>
             </Flex>
@@ -102,10 +102,10 @@ export default function WorkArrangement({ workMode }) {
                   lineHeight="23px"
                   color="#D69E2E"
                 >
-                  26%
+                  {minCountWorkMode[1]}%
                 </Text>
                 <Text fontWeight={100} fontSize="24px" color="#044B7F">
-                  WFH
+                  {minCountWorkMode[0]}
                 </Text>
               </Flex>
             </Flex>
