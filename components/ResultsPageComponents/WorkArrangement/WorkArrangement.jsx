@@ -10,6 +10,10 @@ export default function WorkArrangement({ workMode }) {
     hybrid: workMode.hybrid || "",
   };
 
+  const maxCountWorkMode = Object.entries(surveyData).reduce((a, b) => a[1] > b[1] ? a : b);
+  const minCountWorkMode = Object.entries(surveyData).reduce((a, b) => a[1] < b[1] ? a : b);
+  const mediumCountWorkMode = Object.entries(surveyData).sort((a, b) => b[1] - a[1])[1]
+
   return (
     <Flex
       minWidth="350px"
