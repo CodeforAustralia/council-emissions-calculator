@@ -81,10 +81,11 @@ export default function DaysOfTheWeekContainer({
 
     // based on the day name from the value of each button, update the state if selected or unselected
     updatedData.map((item) => {
-      if (item.day === value) {
+      if (item.day === value.trim()) {
         item.isSelected = item.isSelected ? false : true;
       }
     });
+
     setDaysOfTheWeek(updatedData);
 
     // get answer to which days of the week user works
