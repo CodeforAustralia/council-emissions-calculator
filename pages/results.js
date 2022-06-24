@@ -5,14 +5,10 @@ import Layout from "../components/Layout/Layout";
 import DownloadResults from "../components/ResultsPageComponents/DownloadResults/DownloadResults";
 import SurveyOverview from "../components/ResultsPageComponents/SurveyOverview/SurveyOverview";
 import SurveyIntro from "../components/ResultsPageComponents/SurveyIntro/SurveyIntro";
-<<<<<<< HEAD
-
 import TripCountAndTravelMethods from "../components/ResultsPageComponents/TripCountAndTravelMethods/TripCountAndTravelMethods";
-=======
 import WorkArrangement from "../components/ResultsPageComponents/WorkArrangement/WorkArrangement";
 import fsPromises from "fs/promises";
 import path from "path";
->>>>>>> 408016b20954d8ad8e7f583975796f88b31d363b
 // import capitalize from "../utils/capitalize";
 // import { FiDownload } from "react-icons/fi";
 // import { getTripTotalsTop3 } from "./api/trips";
@@ -81,25 +77,7 @@ export default function Results({ data }) {
           src="https://user-images.githubusercontent.com/88268603/169676707-89578bf8-47cf-4dc7-9068-81e9ada36700.png"
         />
       </Flex>
-<<<<<<< HEAD
       <TripCountAndTravelMethods />
-      <Flex border="2px solid red" width="100%" p="20px" mt="20px" direction="column">
-        Walking men visualization
-        <Img border="2px solid grey" src="https://user-images.githubusercontent.com/88268603/169676837-4c6f9858-e84e-425f-ada3-4b2cda9242de.png"/>
-=======
-      <Flex
-        border="2px solid red"
-        width="100%"
-        p="20px"
-        mt="20px"
-        direction="column"
-      >
-        Stats in pie charts
-        <Img
-          border="2px solid grey"
-          src="https://user-images.githubusercontent.com/88268603/169676675-761da8f8-c3e1-4810-85d4-1f75341ffe20.png"
-        />
-      </Flex>
       <WorkArrangement />
       <Flex
         border="2px solid red"
@@ -113,7 +91,6 @@ export default function Results({ data }) {
           border="2px solid grey"
           src="https://user-images.githubusercontent.com/88268603/174800487-1cc45b50-4916-47cb-8bc2-2ca64bba70eb.png"
         />
->>>>>>> 408016b20954d8ad8e7f583975796f88b31d363b
       </Flex>
       <Flex
         border="2px solid red"
