@@ -30,7 +30,7 @@ export default function TravelDayButton({ label, travelMethod }) {
   };
 
   const handleClick = (e) => {
-    let day = e.target.innerText;
+    let day = e.target.innerText.trim();
     let updatedTravelDays = { ...answers.travelMethodByDay };
 
     // if button already selected, unset travel method for day on click
