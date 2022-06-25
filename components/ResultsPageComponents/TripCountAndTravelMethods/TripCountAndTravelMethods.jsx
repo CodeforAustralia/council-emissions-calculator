@@ -1,5 +1,5 @@
 import { Text, Flex } from "@chakra-ui/react";
-import TripCount from "./PieChart";
+import PieChart from "./PieChart";
 
 export default function TripCountAndTravelMethods() {
   return (
