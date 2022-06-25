@@ -2,6 +2,42 @@ import { Text, Flex } from "@chakra-ui/react";
 import PieChart from "./PieChart";
 
 export default function TripCountAndTravelMethods() {
+
+  const dataAboutTrips = [
+    { 
+      name: "Bicycle",
+      count: 5 
+    },
+    { 
+      name: "Bus",
+      count: 6 
+    },
+    { 
+      name: "Carpool",
+      count: 8 
+    },
+    { 
+      name: "Motorbike",
+      count: 15 
+    },
+    { 
+      name: "Taxi/Share",
+      count: 145 
+    },
+    { 
+      name: "Car",
+      count: 12 
+    },
+    { 
+      name: "Walk/Run",
+      count: 14 
+    },
+    { 
+      name: "Train/tram",
+      count: 149
+    }
+  ]
+
   return (
     <Flex
       minWidth="350px"
