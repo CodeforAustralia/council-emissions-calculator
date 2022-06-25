@@ -72,11 +72,15 @@ export default function TripCountAndTravelMethods() {
         </Text>
         <Flex direction={["column", "row"]} align="center">
           <Flex>
-            <TripCount />
+            <PieChart title="Trip Count" data={sharedVsIndividualData} />
           </Flex>
           <Flex direction="column" width="50%">
-            <Flex>Small top chart</Flex>
-            <Flex>Small bottom chart</Flex>
+            <Flex>
+              <PieChart title="Active-public-shared travel" data={activePublicSharedTravel} />
+            </Flex>
+            <Flex>
+              <PieChart title="Individual travel" data={IndividualTravel} />
+            </Flex>
           </Flex>
         </Flex>
       </Flex>
