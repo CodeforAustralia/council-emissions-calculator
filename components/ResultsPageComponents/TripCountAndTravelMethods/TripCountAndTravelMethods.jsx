@@ -38,6 +38,18 @@ export default function TripCountAndTravelMethods() {
     }
   ]
 
+  const activePublicSharedTravel = dataAboutTrips.filter(method => method.name !== "Car" && method.name !== "Motorbike");
+  const IndividualTravel = dataAboutTrips.filter(method => method.name === "Car" || method.name === "Motorbike");
+
+  const sharedVsIndividualData = [
+    { name: "Individual",
+      count: IndividualTravel.reduce((a, b) => a + b.count, 0)
+    },
+    { name: "Active-Public-Shared",
+      count: dataAboutTrips.reduce((a, b) => a + b.count, 0)
+    }
+  ]
+
   return (
     <Flex
       minWidth="350px"
