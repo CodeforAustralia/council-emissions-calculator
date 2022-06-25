@@ -1,20 +1,14 @@
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
-export default function PieChart () {
+export default function PieChart ({ title, data }) {
 
-  const data = [
-    { name: "active",
-      y: 50 
-    },
-    { name: "indivisual",
-      y: 20 
-    },
-  ]
+  // converting data into the format readable by highcharts (rename key for count into y)
+  const filteredData = data.forEach(item => item.y = item.count);
 
   const hichartsOpts = {
     title: {
-      text: "Trip Count by Transport Mode",
+      text: title,
     },
     chart: {
       plotBackgroundColor: null,
