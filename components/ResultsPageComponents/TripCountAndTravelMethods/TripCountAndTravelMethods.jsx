@@ -70,15 +70,15 @@ export default function TripCountAndTravelMethods() {
         <Text fontSize="19px" py="15px">
           The three donut graphs below help us to understand how we commute to work. The graph on the left ‘Trip Count’ determines the total trip counts and the breakdown by individual and Active-Public-shared travel methods. The two graphs on the right Active-Public-shared travel and Individual travel show us the total trips for each travel method and their breakdown by mode.  
         </Text>
-        <Flex direction={["column", "row"]} align="center">
-          <Flex>
+        <Flex direction={["column", "row"]} align="center" gap="15px" py="15px">
+          <Flex width={["90%", "50%"]} boxShadow="0px 0px 36px rgba(35, 47, 78, 0.14)" borderRadius="20px" border="1px solid #DDDDE5" align="center">
             <PieChart title="Trip Count" data={sharedVsIndividualData} />
           </Flex>
-          <Flex direction="column" width="50%">
-            <Flex>
+          <Flex direction="column" width={["90%", "50%"]} gap="15px">
+            <Flex borderRadius="0px 15px 0px 0px" boxShadow="0px 0px 28px rgba(35, 47, 78, 0.14)" border="1px solid #DDDDE5">
               <PieChart title="Active-public-shared travel" data={activePublicSharedTravel} />
             </Flex>
-            <Flex>
+            <Flex borderRadius="0px 0px 15px 0px" boxShadow="0px 0px 28px rgba(35, 47, 78, 0.14)" border="1px solid #DDDDE5">
               <PieChart title="Individual travel" data={IndividualTravel} />
             </Flex>
           </Flex>
