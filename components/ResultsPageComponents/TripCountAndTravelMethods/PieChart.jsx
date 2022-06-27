@@ -1,10 +1,9 @@
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
-export default function PieChart ({ title, data }) {
-
+export default function PieChart({ title, data }) {
   // converting data into the format readable by highcharts (rename key for count into y)
-  const filteredData = data.forEach(item => item.y = item.count);
+  const filteredData = data.forEach((item) => (item.y = item.count));
 
   const hichartsOpts = {
     title: {
@@ -17,12 +16,12 @@ export default function PieChart ({ title, data }) {
       type: "pie",
     },
     tooltip: {
-      pointFormat: '{series.name}: <b>{point.y}</b>'
+      pointFormat: "{series.name}: <b>{point.y}</b>",
     },
     accessibility: {
       point: {
-        valueSuffix: '%'
-      }
+        valueSuffix: "%",
+      },
     },
     plotOptions: {
       pie: {
@@ -30,9 +29,9 @@ export default function PieChart ({ title, data }) {
         cursor: "pointer",
         dataLabels: {
           enabled: true,
-          format: "<b>{point.name}</b>: {point.percentage:.1f} %"
-        }
-      }
+          format: "<b>{point.name}</b>: {point.percentage:.1f} %",
+        },
+      },
     },
     series: [
       {
@@ -40,7 +39,7 @@ export default function PieChart ({ title, data }) {
         innerSize: "80%",
         name: "Trip Count",
         colorByPoint: true,
-        data: data
+        data: data,
       },
     ],
   };
