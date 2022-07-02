@@ -15,7 +15,7 @@ export default function TravelMethodButton({
       width={["91.67px", "150px"]}
       border="1px"
       p="0px"
-      onClick={(e) => onClick(e.target.innerText)}
+      onClick={(e) => onClick(e.currentTarget.textContent)}
       variant={isActive ? "solid" : "outline"}
       _active={{ border: "solid" }}
       colorScheme="blue"
