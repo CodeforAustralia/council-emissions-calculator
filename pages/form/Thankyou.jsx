@@ -31,7 +31,7 @@ export default function Thankyou() {
             textAlign={["center", "start"]}
             w="100%"
           >
-            We are collecting responses from XXXX 26th April 2022 XXXXX to better understand 
+            We are collecting responses from the 11th of July 2022 to better understand 
             how council staff travel to and from work.
           </Text>
           <Text
