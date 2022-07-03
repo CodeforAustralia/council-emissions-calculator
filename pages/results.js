@@ -78,7 +78,7 @@ export default function Results({ data }) {
         />
       </Flex>
       <TripCountAndTravelMethods />
-      <WorkArrangement />
+      <WorkArrangement workMode={data["work-mode"]} />
       <Flex
         border="2px solid red"
         width="100%"
