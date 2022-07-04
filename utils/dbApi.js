@@ -13,7 +13,7 @@ export const getTripCounts = async () => {
 };
 
 export const sendFormResponse = async (resp) => {
-  const datestring = new Date().toLocaleString("sv", { timeZoneName: "longOffset" });
+  const datestring = new Date().toLocaleString("sv", { timeZoneName: "short" });
   const params = {
     method: "POST",
     headers: {
@@ -23,13 +23,6 @@ export const sendFormResponse = async (resp) => {
   };
   const apiResponse = await fetch(`${hostname}/api/sheeter`, params);
   const text = await apiResponse.text();
-  // console.log(
-  //   `sendFormResponse : (status: ${apiResponse.status}) ${JSON.stringify(
-  //     text,
-  //     null,
-  //     "\t"
-  //   )}`
-  // );
 };
 
 export const getFormResponses = async () => {
@@ -41,12 +34,5 @@ export const getFormResponses = async () => {
   };
   const apiResponse = await fetch(`${hostname}/api/sheeter`, params);
   const text = await apiResponse.text();
-  // console.log(
-  //   `getFormResponses : (status: ${apiResponse.status}) ${JSON.stringify(
-  //     text,
-  //     null,
-  //     "\t"
-  //   )}`
-  // );
   return text;
 };
