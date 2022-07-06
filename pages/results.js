@@ -7,7 +7,7 @@ import SurveyOverview from "../components/ResultsPageComponents/SurveyOverview/S
 import SurveyIntro from "../components/ResultsPageComponents/SurveyIntro/SurveyIntro";
 import TripCountAndTravelMethods from "../components/ResultsPageComponents/TripCountAndTravelMethods/TripCountAndTravelMethods";
 import WorkArrangement from "../components/ResultsPageComponents/WorkArrangement/WorkArrangement";
-import CommuteDaysColumnChart from "../components/ResultsPageComponents/CommuteDays/CommuteDaysBarChart";
+import CommuteDaysColumnChart from "../components/ResultsPageComponents/CommuteDays/CommuteDaysColumnChart";
 import fsPromises from "fs/promises";
 import path from "path";
 // import capitalize from "../utils/capitalize";
