@@ -6,6 +6,7 @@ import DownloadResults from "../components/ResultsPageComponents/DownloadResults
 import SurveyOverview from "../components/ResultsPageComponents/SurveyOverview/SurveyOverview";
 import SurveyIntro from "../components/ResultsPageComponents/SurveyIntro/SurveyIntro";
 import WorkArrangement from "../components/ResultsPageComponents/WorkArrangement/WorkArrangement";
+import TopThreeBarChart from "../components/ResultsPageComponents/TopThree/TopThreeBarChart";
 import fsPromises from "fs/promises";
 import path from "path";
 // import capitalize from "../utils/capitalize";
@@ -71,10 +72,11 @@ export default function Results({ data }) {
         direction="column"
       >
         Distance, Trip count, Emission stats
-        <Img
+        <TopThreeBarChart />
+        {/* <Img
           border="2px solid grey"
           src="https://user-images.githubusercontent.com/88268603/169676707-89578bf8-47cf-4dc7-9068-81e9ada36700.png"
-        />
+        /> */}
       </Flex>
       <Flex
         border="2px solid red"

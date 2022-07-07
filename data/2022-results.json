@@ -4,5 +4,52 @@
   "total-number-responses": 123,
   "total-trip-count": 100,
   "total-distance": 12300,
-  "total-co2-emissions-tonnes": 8888
+  "total-co2-emissions-tonnes": 8888,
+  "work-mode": {
+    "onsite": 5,
+    "hybrid": 50,
+    "wfh": 20
+  },
+  "Distance": [             
+    {
+    "value": 452,
+"travelMethod": "car"
+},
+    {
+   "value": 254,
+"travelMethod": "bus"
+},
+   {
+   "value": 0,
+"travelMethod": "walk"
+}
+],
+"TripCount": [     
+   {
+   "value": 350,
+"travelMethod": "train"
+},
+{
+  "value": 562,
+"travelMethod": "car"
+},
+   {
+   "value": 103,
+"travelMethod": "walk"
+}
+],
+"Emission": [
+  {
+   "value": 956,
+   "travelMethod": "bus"
+   },
+   {
+      "value": 1231,
+      "travelMethod": "car"
+    },
+  {
+   "value": 0,
+   "travelMethod": "walk"
+ }
+]
 }
