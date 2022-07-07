@@ -10,20 +10,6 @@
     "hybrid": 50,
     "wfh": 20
   },
-  "Distance": [             
-    {
-    "value": 452,
-"travelMethod": "car"
-},
-    {
-   "value": 254,
-"travelMethod": "bus"
-},
-   {
-   "value": 0,
-"travelMethod": "walk"
-}
-],
 "TripCount": [     
    {
    "value": 350,

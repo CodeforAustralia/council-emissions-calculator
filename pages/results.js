@@ -5,6 +5,7 @@ import Layout from "../components/Layout/Layout";
 import DownloadResults from "../components/ResultsPageComponents/DownloadResults/DownloadResults";
 import SurveyOverview from "../components/ResultsPageComponents/SurveyOverview/SurveyOverview";
 import SurveyIntro from "../components/ResultsPageComponents/SurveyIntro/SurveyIntro";
+import TripCountAndTravelMethods from "../components/ResultsPageComponents/TripCountAndTravelMethods/TripCountAndTravelMethods";
 import WorkArrangement from "../components/ResultsPageComponents/WorkArrangement/WorkArrangement";
 import TopThreeBarChart from "../components/ResultsPageComponents/TopThree/TopThreeBarChart";
 import fsPromises from "fs/promises";
@@ -78,20 +79,8 @@ export default function Results({ data }) {
           src="https://user-images.githubusercontent.com/88268603/169676707-89578bf8-47cf-4dc7-9068-81e9ada36700.png"
         /> */}
       </Flex>
-      <Flex
-        border="2px solid red"
-        width="100%"
-        p="20px"
-        mt="20px"
-        direction="column"
-      >
-        Stats in pie charts
-        <Img
-          border="2px solid grey"
-          src="https://user-images.githubusercontent.com/88268603/169676675-761da8f8-c3e1-4810-85d4-1f75341ffe20.png"
-        />
-      </Flex>
-      <WorkArrangement />
+      <TripCountAndTravelMethods />
+      <WorkArrangement workMode={data["work-mode"]} />
       <Flex
         border="2px solid red"
         width="100%"
