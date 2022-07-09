@@ -90,7 +90,7 @@ export default function Results({ data }) {
         Travelling to Work Days Graph
         <CommuteDaysColumnChart
           title="Travel to Work Days"
-          data={data}
+          data={data["commute-days-distribution"]}
         />
         <Img
           border="2px solid grey"

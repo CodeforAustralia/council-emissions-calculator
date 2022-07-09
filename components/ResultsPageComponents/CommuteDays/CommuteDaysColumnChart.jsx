@@ -2,8 +2,30 @@ import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
 export default function CommuteDaysColumnChart({ title, data }) {
-  // converting data into the format readable by highcharts (rename key for count into y)
-  // const filteredData = data.forEach((item) => (item.y = item.count));
+  // data is of the following form:
+  // data = {
+  //     Mon: 10,
+  //     Tue: 20,
+  //     Wed: 25,
+  //     Thu: 20,
+  //     Fri: 10,
+  //     Sat: 15,
+  //     Sun: 0
+  // };
+  // console.log(JSON.stringify(data, ' ', null));
+
+const getMax = (a, b) => Math.max(a, b);
+const max = Object.values(data).reduce(getMax)
+
+const chartData = Object.values(data).map(d => {
+    if (d == max) {
+      return {
+        y: d,
+        color: '#D69E2E'
+      }
+    }
+    else return d;
+  });
 
 const hichartsOpts = {
     title: {
@@ -12,11 +34,12 @@ const hichartsOpts = {
     chart: {
       type: "column",
     },
+    colors: [ '#044B7F' ],
     tooltip:{
       pointFormat:"{point.y}%"
     },
     xAxis: {
-      categories: ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"],
+      categories: Object.keys(data),
     },
     yAxis: {
       min: 0,
@@ -27,7 +50,7 @@ const hichartsOpts = {
     series: [
       {
         name: "Day",
-        data: [10, 20, 25, 20, 10, 15, 0],
+        data: chartData,
       },
     ],
   };
