@@ -9,5 +9,14 @@
     "onsite": 5,
     "hybrid": 50,
     "wfh": 20
+  },
+  "commute-days-distribution": {
+    "Mon": 15,
+    "Tue": 10,
+    "Wed": 25,
+    "Thu": 20,
+    "Fri": 30,
+    "Sat": 0,
+    "Sun": 0
   }
 }
