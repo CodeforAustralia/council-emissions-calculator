@@ -14,29 +14,28 @@ export default function CommuteDaysColumnChart({ title, data }) {
   // };
   // console.log(JSON.stringify(data, ' ', null));
 
-const getMax = (a, b) => Math.max(a, b);
-const max = Object.values(data).reduce(getMax)
+  const getMax = (a, b) => Math.max(a, b);
+  const max = Object.values(data).reduce(getMax);
 
-const chartData = Object.values(data).map(d => {
+  const chartData = Object.values(data).map((d) => {
     if (d == max) {
       return {
         y: d,
-        color: '#D69E2E'
-      }
-    }
-    else return d;
+        color: "#D69E2E",
+      };
+    } else return d;
   });
 
-const hichartsOpts = {
+  const hichartsOpts = {
     title: {
       text: title,
     },
     chart: {
       type: "column",
     },
-    colors: [ '#044B7F' ],
-    tooltip:{
-      pointFormat:"{point.y}%"
+    colors: ["#044B7F"],
+    tooltip: {
+      pointFormat: "{point.y}%",
     },
     xAxis: {
       categories: Object.keys(data),
@@ -44,8 +43,8 @@ const hichartsOpts = {
     yAxis: {
       min: 0,
       title: {
-        text: "% of staff that commuted"
-      }
+        text: "% of staff that commuted",
+      },
     },
     series: [
       {

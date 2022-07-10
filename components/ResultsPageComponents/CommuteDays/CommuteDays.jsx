@@ -1,8 +1,7 @@
 import { Text, Flex } from "@chakra-ui/react";
 import CommuteDaysColumnChart from "./CommuteDaysColumnChart";
 
-export default function CommuteDays({data}) {
-
+export default function CommuteDays({ data }) {
   return (
     <Flex
       minWidth="350px"
@@ -23,12 +22,12 @@ export default function CommuteDays({data}) {
         <Text fontSize="19px" py="15px">
           The chart below shows the distribution of staff commute days
           throughout the week.
-          <br/>
-          It helps us understand travel patterns for onsite and hybrid work 
+          <br />
+          It helps us understand travel patterns for onsite and hybrid work
           arrangements.
-          <br/>
-          The bar(s) in yellow shows the day(s) staff members most often
-          commute to work.
+          <br />
+          The bar(s) in yellow shows the day(s) staff members most often commute
+          to work.
         </Text>
         <CommuteDaysColumnChart
           title="Travel to Work Days"
