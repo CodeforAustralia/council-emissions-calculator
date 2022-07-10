@@ -7,6 +7,7 @@ import SurveyOverview from "../components/ResultsPageComponents/SurveyOverview/S
 import SurveyIntro from "../components/ResultsPageComponents/SurveyIntro/SurveyIntro";
 import TripCountAndTravelMethods from "../components/ResultsPageComponents/TripCountAndTravelMethods/TripCountAndTravelMethods";
 import WorkArrangement from "../components/ResultsPageComponents/WorkArrangement/WorkArrangement";
+import CommuteDays from "../components/ResultsPageComponents/CommuteDays/CommuteDays";
 import fsPromises from "fs/promises";
 import path from "path";
 // import capitalize from "../utils/capitalize";
@@ -79,19 +80,7 @@ export default function Results({ data }) {
       </Flex>
       <TripCountAndTravelMethods />
       <WorkArrangement workMode={data["work-mode"]} />
-      <Flex
-        border="2px solid red"
-        width="100%"
-        p="20px"
-        mt="20px"
-        direction="column"
-      >
-        Travelling to Work Days Graph
-        <Img
-          border="2px solid grey"
-          src="https://user-images.githubusercontent.com/88268603/174800487-1cc45b50-4916-47cb-8bc2-2ca64bba70eb.png"
-        />
-      </Flex>
+      <CommuteDays data={data} />
       <Flex
         border="2px solid red"
         width="100%"
