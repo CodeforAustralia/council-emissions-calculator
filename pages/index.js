@@ -65,16 +65,21 @@ export default function Home() {
             Help calculate Council&apos;s carbon emissions
           </Heading>
           <Text mt={spacing}>
-            We&apos;ll ask some questions about how you usually travel to and
-            from work. You&apos;ll also have the opportunity to suggest how
-            council could incentivise you to travel differently.
+            We&apos;ll ask some questions about how you travelled to and from
+            work last week, or the most recent normal week with no leave.
           </Text>
           <Text mt={spacing}>
-            Your response will be compiled to help calculate Council&apos;s
-            carbon emissions, and shared by your team representative.
+            When responding, please think only about the <b>dominant mode</b> of
+            travel.
           </Text>
+          <Flex justify="center">
+            <Text fontStyle="italic" width="80%" textAlign="center">
+              i.e. if you walked a bit then and caught a bus, - select bus. if
+              you ride and catch the train, - select train.
+            </Text>
+          </Flex>
           <Text mt={spacing}>
-            This survey will take <b>approximately 5 minutes</b> to complete.
+            This survey will take approximately 2 minutes to complete.
           </Text>
           <LinkButton
             href="/form/WorkArrangement"
