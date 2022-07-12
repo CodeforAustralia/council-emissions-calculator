@@ -66,7 +66,7 @@ export default function TravelMethod() {
       <Q4Cloud />
 
       <Heading mt={10} mb={10} fontWeight="700">
-        What is your usual travel method to work?
+        {(answers.workMode === "wfh") ? "What is your usual travel method to work?" : "What were your travel method(s) to work?"}
       </Heading>
 
       <Flex justify={["center", "left"]} mb={10}>
