@@ -129,7 +129,7 @@ export default function WorkArrangement() {
       </Box>
       <Cloud />
       <Heading mt={10} mb={10} w={["100%", "60%"]}>
-        What is your usual work arrangement?
+        What was your work arrangement for the last week?
       </Heading>
       <Box
         justify="center"

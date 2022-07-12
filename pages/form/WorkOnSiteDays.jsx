@@ -95,7 +95,7 @@ export default function WorkOnSiteDays() {
       </Box>
       <Q1Cloud />
       <Heading mt={10} mb={10}>
-        Which day(s) do you work on-site?
+        Which day(s) did you work on-site last week?
       </Heading>
       <DaysOfTheWeekContainer
         setNumberOfDays={(days) => setOnsiteDays(days)}

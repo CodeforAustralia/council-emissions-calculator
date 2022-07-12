@@ -68,8 +68,15 @@ export default function Suggestions() {
         w={["100%", "90%"]}
         textAlign={["center", "left"]}
       >
-        What can council do to support and incentivise staff to 
-        choose more sustainable modes of transport to and from work?
+        What can council do to remove barriers to using more sustainable modes of transport to and from work?
+      </Text>
+      <Text
+        fontSize="18px"
+        m={5}
+        w={["100%", "90%"]}
+        textAlign={["center", "left"]}
+      >
+        Feel free to comment on the survey and on using sustainable transport to work.      
       </Text>
       <Textarea
         mt={3}
