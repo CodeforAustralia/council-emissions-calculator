@@ -65,15 +65,17 @@ export default function Home() {
             Help calculate Council&apos;s carbon emissions
           </Heading>
           <Text mt={spacing}>
-            We&apos;ll ask some questions about how you travelled to and from work last week, or the most recent normal week with no leave.
+            We&apos;ll ask some questions about how you travelled to and from
+            work last week, or the most recent normal week with no leave.
           </Text>
           <Text mt={spacing}>
-            When responding, please think only about the <b>dominant mode</b> of travel.
+            When responding, please think only about the <b>dominant mode</b> of
+            travel.
           </Text>
           <Flex justify="center">
             <Text fontStyle="italic" width="80%" textAlign="center">
-              i.e. if you walked a bit then and caught a bus, - select bus. 
-              if you ride and catch the train,  - select train.
+              i.e. if you walked a bit then and caught a bus, - select bus. if
+              you ride and catch the train, - select train.
             </Text>
           </Flex>
           <Text mt={spacing}>

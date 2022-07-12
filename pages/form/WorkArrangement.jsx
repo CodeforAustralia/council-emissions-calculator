@@ -165,8 +165,8 @@ export default function WorkArrangement() {
                   borderRadius="lg"
                   textAlign="center"
                 >
-                  Council will use this information to understand how
-                  commute patterns have changed since the pandemic.
+                  Council will use this information to understand how commute
+                  patterns have changed since the pandemic.
                 </Text>
               </Collapse>
 

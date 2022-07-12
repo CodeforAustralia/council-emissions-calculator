@@ -4,7 +4,7 @@ import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import {
   BackButton,
-  ContinueButton
+  ContinueButton,
 } from "../../components/LinkButton/LinkButton";
 import Q7Progress from "../../public/images/progress-bar/q7-progress-dots.svg";
 import Q6Cloud from "../../public/images/clouds/cloud-q6.svg";
@@ -42,33 +42,23 @@ export default function Suggestions() {
   };
 
   return (
-    <Layout 
-      isText={true} 
-      Progress={Q7Progress}
-    >
-      <Box 
-        pos="absolute" 
-        top={["2", "5"]} 
-        left={["2", "10"]}
-      >
+    <Layout isText={true} Progress={Q7Progress}>
+      <Box pos="absolute" top={["2", "5"]} left={["2", "10"]}>
         <BackButton
           href="/form/Distance"
           onClick={() => saveDataAndShowLog("Back button clicked")}
         />
       </Box>
       <Q6Cloud />
-      <Heading
-        mt="40px"
-      >
-        Share your suggestions
-      </Heading>
+      <Heading mt="40px">Share your suggestions</Heading>
       <Text
         fontSize="18px"
         mt={10}
         w={["100%", "90%"]}
         textAlign={["center", "left"]}
       >
-        What can council do to remove barriers to using more sustainable modes of transport to and from work?
+        What can council do to remove barriers to using more sustainable modes
+        of transport to and from work?
       </Text>
       <Text
         fontSize="18px"
@@ -76,7 +66,8 @@ export default function Suggestions() {
         w={["100%", "90%"]}
         textAlign={["center", "left"]}
       >
-        Feel free to comment on the survey and on using sustainable transport to work.      
+        Feel free to comment on the survey and on using sustainable transport to
+        work.
       </Text>
       <Textarea
         mt={3}
