@@ -113,7 +113,7 @@ export default function DownloadResults() {
             fontFamily="Public Sans"
             fontWeight={200}
             fontSize="12px"
-            lineHight="14px"
+            lineHeight="14px"
           >
             Read how we have calculated and reported your emissions:
           </Text>
