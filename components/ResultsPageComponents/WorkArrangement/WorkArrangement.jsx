@@ -45,7 +45,7 @@ export default function WorkArrangement({ workMode }) {
         <Flex direction={["column", "row"]} align={["center", "flex-end"]}>
           <Flex width="30%" direction="column" py="20px">
             <Flex justify="flex-end">
-              <Line maxWidth="150px" />
+              <Line maxwidth="150px" />
               <Flex direction="column">
                 <Text
                   fontWeight={500}
@@ -72,7 +72,7 @@ export default function WorkArrangement({ workMode }) {
           </Flex>
           <Flex width="30%" direction="column" py="20px">
             <Flex justify="flex-end">
-              <Line maxWidth="150px" />
+              <Line maxwidth="150px" />
               <Flex direction="column">
                 <Text
                   fontWeight={500}
@@ -104,7 +104,7 @@ export default function WorkArrangement({ workMode }) {
           </Flex>
           <Flex width="30%" direction="column" py="20px">
             <Flex justify="flex-end">
-              <Line maxWidth="150px" />
+              <Line maxwidth="150px" />
               <Flex direction="column">
                 <Text
                   fontWeight={500}
