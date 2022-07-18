@@ -1,10 +1,10 @@
-import { Text, Flex, Button, Box } from "@chakra-ui/react";
+import { Text, Flex, Button, Box, Link } from "@chakra-ui/react";
 import DownloadPdf from "../../../public/images/download-results-icons/DownloadPdf.svg";
 import DownloadCsv from "../../../public/images/download-results-icons/DownloadCSV.svg";
 import Lamp from "../../../public/images/download-results-icons/Lamp.svg";
 import GHGProtocol from "../../../public/images/download-results-icons/GHGProtocol.svg";
 
-export default function DownloadResults() {
+export default function DownloadResults({ calculationLink }) {
   return (
     <Flex
       minwidth="350px"
@@ -118,7 +118,7 @@ export default function DownloadResults() {
             Read how we have calculated and reported your emissions:
           </Text>
           <Button variant="outline" width="40%" color="#366F99" height="31px">
-            Read
+            <Link href={calculationLink}>Read</Link>
           </Button>
         </Flex>
       </Flex>
