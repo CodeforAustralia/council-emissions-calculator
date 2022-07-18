@@ -51,7 +51,7 @@ export default function howWeCalculate() {
                 color="#044B7F"
                 pb="12px"
               >
-                <Link>What is the Caculator and Result page?</Link>
+                <Link>What is the Calculator and Results page?</Link>
               </ListItem>
               <ListItem
                 fontWeight={700}
