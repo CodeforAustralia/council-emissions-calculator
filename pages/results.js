@@ -1,4 +1,4 @@
-import { Flex, Img } from "@chakra-ui/react";
+import { Flex, Img, Text } from "@chakra-ui/react";
 import React from "react";
 import useForm from "../components/FormProvider";
 import Layout from "../components/Layout/Layout";
@@ -6,6 +6,7 @@ import DownloadResults from "../components/ResultsPageComponents/DownloadResults
 import SurveyOverview from "../components/ResultsPageComponents/SurveyOverview/SurveyOverview";
 import SurveyIntro from "../components/ResultsPageComponents/SurveyIntro/SurveyIntro";
 import TripCountAndTravelMethods from "../components/ResultsPageComponents/TripCountAndTravelMethods/TripCountAndTravelMethods";
+import TopThree from "../components/ResultsPageComponents/TopThree/TopThree";
 import WorkArrangement from "../components/ResultsPageComponents/WorkArrangement/WorkArrangement";
 import CommuteDays from "../components/ResultsPageComponents/CommuteDays/CommuteDays";
 import fsPromises from "fs/promises";
@@ -65,19 +66,14 @@ export default function Results({ data }) {
         totalEmissions={data["total-co2-emissions-tonnes"]}
         totalTripCount={data["total-trip-count"]}
       />
-      <Flex
-        border="2px solid red"
-        width="100%"
-        p="20px"
-        mt="20px"
-        direction="column"
-      >
-        Distance, Trip count, Emission stats
-        <Img
-          border="2px solid grey"
-          src="https://user-images.githubusercontent.com/88268603/169676707-89578bf8-47cf-4dc7-9068-81e9ada36700.png"
-        />
-      </Flex>
+
+      <TopThree
+        topThree={data["TopThreeData"]}
+        totalDistance={data["total-distance"]}
+        totalTripCount={data["total-trip-count"]}
+        totalEmissions={data["total-co2-emissions-tonnes"]}
+      />
+
       <TripCountAndTravelMethods />
       <WorkArrangement workMode={data["work-mode"]} />
       <CommuteDays data={data} />
