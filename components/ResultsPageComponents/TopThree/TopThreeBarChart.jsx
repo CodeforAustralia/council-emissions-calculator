@@ -29,7 +29,7 @@ export default function TopThreeBarChart({
       return (totalName = "Total Trip-Count :");
     } else if (title == "Emission") {
       total = totalEmissions;
-      unit = "Tons";
+      unit = "Tonns";
       return (totalName = "Total Emmission :");
     }
   };
@@ -91,16 +91,16 @@ export default function TopThreeBarChart({
         text: null,
       },
       labels: {
-        // enabled: false,
+        enabled: false,
         // icons
-        animate: true,
-        useHTML: true,
-        formatter: function () {
-          return '<img style="width: 10px; height: 10px;" src="https://images.unsplash.com/photo-1658057144662-3aa56be9d1b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"';
-        },
-        style: {
-          textAlign: "center",
-        },
+        // animate: true,
+        // useHTML: true,
+        // formatter: function () {
+        //   return '<img style="width: 10px; height: 10px;" src="https://images.unsplash.com/photo-1658057144662-3aa56be9d1b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"';
+        // },
+        // style: {
+        //   textAlign: "center",
+        // },
       },
       gridLineWidth: 0,
       showEmpty: false,
