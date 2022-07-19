@@ -15,17 +15,21 @@ export default function TopThreeBarChart({
   // totalTripCount={}
   let total;
   let totalName;
+  let unit;
   console.log("title", title);
   const grandTotal = () => {
     if (title == "Distance") {
       total = totalDistance;
-      console.log("total", total);
+      unit = "Km";
+
       return (totalName = "Total Distance :");
     } else if (title == "TripCount") {
       total = totalTripCount;
+      unit = "";
       return (totalName = "Total Trip-Count :");
     } else if (title == "Emission") {
       total = totalEmissions;
+      unit = "Tons";
       return (totalName = "Total Emmission :");
     }
   };
@@ -106,7 +110,7 @@ export default function TopThreeBarChart({
       min: 0,
       gridLineWidth: 0,
       title: {
-        text: [totalName, total, "Km"],
+        text: [totalName, total, unit],
         align: "high",
       },
       labels: {
