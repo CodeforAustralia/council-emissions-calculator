@@ -18,5 +18,49 @@
     "Fri": 30,
     "Sat": 0,
     "Sun": 0
+  },
+  "TopThreeData": {
+    "Distance": [
+      {
+        "name": "Train",
+        "count": 652
+      },
+      {
+        "name": "Car",
+        "count": 254
+      },
+      {
+        "name": "Walk",
+        "count": 150
+      }
+    ],
+    "TripCount": [
+      {
+        "name": "Train",
+        "count": 350
+      },
+      {
+        "name": "Car",
+        "count": 562
+      },
+      {
+        "name": "Walk",
+        "count": 113
+      }
+    ],
+    "Emission": [
+      {
+        "name": "Bus",
+        "count": 956
+      },
+      {
+        "name": "Car",
+        "count": 1231
+      },
+      {
+        "name": "Walk",
+        "count": 0
+      }
+    ]
   }
 }
