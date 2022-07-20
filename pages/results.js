@@ -56,7 +56,7 @@ export default function Results({ data }) {
         align={["center", "flex-start"]}
       >
         <SurveyIntro />
-        <DownloadResults />
+        <DownloadResults calculationLink="/howWeCalculate"  />
       </Flex>
       <SurveyOverview
         startDate={data["survey-start-date"]}
