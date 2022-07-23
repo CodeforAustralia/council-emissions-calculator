@@ -67,9 +67,7 @@ export default function Home({ closingTime }) {
   };
 
   if (closingTime && closingTime < Date.parse(new Date()))
-    return (
-      <SurveyClosed />
-    );
+    return <SurveyClosed />;
   else
     return (
       <Layout isText={true} maxContainerWidth="container.lg">
@@ -85,8 +83,8 @@ export default function Home({ closingTime }) {
               work last week, or the most recent normal week with no leave.
             </Text>
             <Text mt={spacing}>
-              When responding, please think only about the <b>dominant mode</b> of
-              travel.
+              When responding, please think only about the <b>dominant mode</b>{" "}
+              of travel.
             </Text>
             <Flex justify="center">
               <Text fontStyle="italic" width="80%" textAlign="center">

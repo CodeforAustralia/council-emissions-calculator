@@ -22,8 +22,8 @@ export default function SurveyClosed() {
             textAlign={["center", "start"]}
             w="100%"
           >
-            Responses for the carbon calculator survey is now closed,
-            and results will be shared soon.
+            Responses for the carbon calculator survey is now closed, and
+            results will be shared soon.
           </Text>
           <Text
             color="#fff"
@@ -43,10 +43,9 @@ export default function SurveyClosed() {
             w="100%"
           >
             As part of Climate Change and Environment Strategy (2021 to 2026),
-            we've set a challenge that 20% of staff trips to work are by active
-            methods or shared or public transport by 2026.
-            It will be interesting to see where we are at and
-            where we need to improve.
+            we&apos;ve set a challenge that 20% of staff trips to work are by
+            active methods or shared or public transport by 2026. It will be
+            interesting to see where we are at and where we need to improve.
           </Text>
           <Text
             color="#fff"
