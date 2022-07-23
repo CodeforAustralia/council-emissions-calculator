@@ -9,6 +9,7 @@ import TripCountAndTravelMethods from "../components/ResultsPageComponents/TripC
 import TopThree from "../components/ResultsPageComponents/TopThree/TopThree";
 import WorkArrangement from "../components/ResultsPageComponents/WorkArrangement/WorkArrangement";
 import CommuteDays from "../components/ResultsPageComponents/CommuteDays/CommuteDays";
+import CommuteDistanceDistribution from "../components/ResultsPageComponents/CommuteDistanceDistribution/CommuteDistanceDistribution";
 import fsPromises from "fs/promises";
 import path from "path";
 // import capitalize from "../utils/capitalize";
@@ -56,7 +57,7 @@ export default function Results({ data }) {
         align={["center", "flex-start"]}
       >
         <SurveyIntro />
-        <DownloadResults calculationLink="/howWeCalculate"  />
+        <DownloadResults calculationLink="/howWeCalculate" />
       </Flex>
       <SurveyOverview
         startDate={data["survey-start-date"]}
@@ -90,6 +91,7 @@ export default function Results({ data }) {
           src="https://user-images.githubusercontent.com/88268603/169676922-d49f9f34-02e8-48d7-972a-4e110fdf4e01.png"
         />
       </Flex>
+      <CommuteDistanceDistribution data={data} />
       <Flex
         border="2px solid red"
         width="100%"
