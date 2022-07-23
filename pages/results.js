@@ -78,19 +78,7 @@ export default function Results({ data }) {
       <TripCountAndTravelMethods />
       <WorkArrangement workMode={data["work-mode"]} />
       <CommuteDays data={data} />
-      <Flex
-        border="2px solid red"
-        width="100%"
-        p="20px"
-        mt="20px"
-        direction="column"
-      >
-        Stats in bar chart
-        <Img
-          border="2px solid grey"
-          src="https://user-images.githubusercontent.com/88268603/169676922-d49f9f34-02e8-48d7-972a-4e110fdf4e01.png"
-        />
-      </Flex>
+
       <CommuteDistanceDistribution data={data} />
       <Flex
         border="2px solid red"
