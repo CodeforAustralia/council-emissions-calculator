@@ -11,18 +11,12 @@ export default function TopThree({
 }) {
   for (let key in topThree) {
     let arr = topThree[key];
-    const max = arr.sort((a, b) => b.count - a.count);
+    arr.sort((a, b) => b.count - a.count);
   }
 
   return (
     <Flex
       direction="column"
-      // minWidth="300px"
-      // width="75%"
-      // alignSelf={["center", "start"]}
-      // minWidth="350px"
-
-      // maxWidth="1100px"
       alignSelf={["center", "start"]}
       align={["center", "flex-start"]}
       gap={["10px", "20px"]}
@@ -39,8 +33,6 @@ export default function TopThree({
             <>
               <Flex direction="column">
                 <Flex
-                  // gap={["40px", "40px"]}
-
                   key={ind}
                   background="rgba(221, 221, 229, 0.1)"
                   border="0.613005px  #DDDDE5"
