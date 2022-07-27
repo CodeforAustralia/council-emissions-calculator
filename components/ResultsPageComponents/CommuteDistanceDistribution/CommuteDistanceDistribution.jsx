@@ -1,7 +1,7 @@
 import { Text, Flex } from "@chakra-ui/react";
 import CommuteDistanceDistributionChart from "./CommuteDistanceDistributionChart";
 
-export default function CommuteDistanceDistrib({ data }) {
+export default function CommuteDistanceDistribution({ data }) {
   return (
     <Flex
       minWidth="350px"
