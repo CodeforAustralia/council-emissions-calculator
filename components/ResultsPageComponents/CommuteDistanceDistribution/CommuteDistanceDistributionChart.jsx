@@ -2,7 +2,6 @@ import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
 export default function CommuteDistanceDistributionChart({ title, data }) {
-  console.log(data);
   const getMax = (a, b) => Math.max(a, b);
   const max = Object.values(data).reduce(getMax);
 
