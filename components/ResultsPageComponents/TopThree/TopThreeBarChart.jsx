@@ -16,7 +16,7 @@ export default function TopThreeBarChart({
   let total;
   let totalName;
   let unit;
-  console.log("title", title);
+
   const grandTotal = () => {
     if (title == "Distance") {
       total = totalDistance;
@@ -37,7 +37,6 @@ export default function TopThreeBarChart({
   let idx;
   let barIcon;
   const chartData = Object.values(data).map((d) => {
-    console.log(d.name);
     idx = travelMethods.indexOf(d.name);
     barIcon = transportIcon[idx];
 
@@ -62,7 +61,7 @@ export default function TopThreeBarChart({
   //     color: "#D69E2E",
   //   };
   // } else return d;
-  console.log("title", title, "chartData", chartData);
+
   // Grand total for each mode
 
   const hichartsOpts = {
@@ -126,9 +125,9 @@ export default function TopThreeBarChart({
         },
       },
     },
-
     series: [
       {
+        name: title,
         data: chartData,
       },
     ],
