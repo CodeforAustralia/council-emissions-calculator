@@ -7,6 +7,7 @@ import SurveyOverview from "../components/ResultsPageComponents/SurveyOverview/S
 import SurveyIntro from "../components/ResultsPageComponents/SurveyIntro/SurveyIntro";
 import TripCountAndTravelMethods from "../components/ResultsPageComponents/TripCountAndTravelMethods/TripCountAndTravelMethods";
 import TopThree from "../components/ResultsPageComponents/TopThree/TopThree";
+import DistanceTravelledMode from "../components/ResultsPageComponents/DistanceTravelledMode/DistanceTravelledMode";
 import WorkArrangement from "../components/ResultsPageComponents/WorkArrangement/WorkArrangement";
 import CommuteDays from "../components/ResultsPageComponents/CommuteDays/CommuteDays";
 import fsPromises from "fs/promises";
@@ -56,7 +57,7 @@ export default function Results({ data }) {
         align={["center", "flex-start"]}
       >
         <SurveyIntro />
-        <DownloadResults calculationLink="/howWeCalculate"  />
+        <DownloadResults calculationLink="/howWeCalculate" />
       </Flex>
       <SurveyOverview
         startDate={data["survey-start-date"]}
@@ -77,32 +78,23 @@ export default function Results({ data }) {
       <TripCountAndTravelMethods />
       <WorkArrangement workMode={data["work-mode"]} />
       <CommuteDays data={data} />
-      <Flex
+      <DistanceTravelledMode
+        distanceTravelledMode={data["distance-travel-method-by-mode"]}
+      />
+      {/* <Flex
         border="2px solid red"
         width="100%"
         p="20px"
         mt="20px"
         direction="column"
       >
-        Stats in bar chart
-        <Img
-          border="2px solid grey"
-          src="https://user-images.githubusercontent.com/88268603/169676922-d49f9f34-02e8-48d7-972a-4e110fdf4e01.png"
-        />
-      </Flex>
-      <Flex
-        border="2px solid red"
-        width="100%"
-        p="20px"
-        mt="20px"
-        direction="column"
-      >
+        
         Summary plus stats in horizontal bar chart
         <Img
           border="2px solid grey"
           src="https://user-images.githubusercontent.com/88268603/174800361-a529ca2e-b257-489b-b8b8-4fa4e2a59b90.png"
         />
-      </Flex>
+      </Flex> */}
       <Flex
         border="2px solid red"
         width="100%"

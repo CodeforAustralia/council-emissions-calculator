@@ -55,12 +55,30 @@
       },
       {
         "name": "Car",
-        "count": 1231
+        "count": 123
       },
       {
         "name": "Train",
         "count": 156
       }
     ]
+  },
+  "distance-travel-method-by-mode": {
+    "individual-methods": {
+      "30km+": 8,
+      "25km": 10,
+      "20km": 40,
+      "15km": 25,
+      "10km": 5,
+      "5km": 6
+    },
+    "active-public-shared-method": {
+      "30km+": 25,
+      "25km": 14,
+      "20km": 19,
+      "15km": 10,
+      "10km": 5,
+      "5km": 6
+    }
   }
 }
