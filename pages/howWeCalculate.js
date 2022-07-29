@@ -48,7 +48,7 @@ export default function howWeCalculate() {
               textDecoration="underline"
               textUnderlineOffset="3px"
               fontWeight={700}
-              src="https://ghgprotocol.org"
+              href="https://ghgprotocol.org"
             >
               Greenhouse Gas Protocol
             </Link>{" "}
@@ -93,7 +93,7 @@ export default function howWeCalculate() {
               textDecoration="underline"
               textUnderlineOffset="3px"
               fontWeight={700}
-              src="https://www.codeforaustralia.org/get-involved/civic-makers"
+              href="https://www.codeforaustralia.org/get-involved/civic-makers"
             >
               Civic Makers
             </Link>
@@ -106,7 +106,7 @@ export default function howWeCalculate() {
               textDecoration="underline"
               textUnderlineOffset="3px"
               fontWeight={700}
-              src="https://www.codeforaustralia.org/"
+              href="https://www.codeforaustralia.org/"
             >
               Code for Australia
             </Link>
