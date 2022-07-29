@@ -28,7 +28,7 @@ export default function howWeCalculate() {
           </TextBlock>
           <TextBlock title="How does it work?">
             The calculator uses inputs from the staff survey, taking into account commute distance and transport modes.
-            It plugs those numbers into this formula from the <Link color="#044B7F" textDecoration="underline" textUnderlineOffset="3px" fontWeight={700}>Greenhouse Gas Protocol</Link> that calculates the CO2e emissions from employee travel.
+            It plugs those numbers into this formula from the <Link color="#044B7F" textDecoration="underline" textUnderlineOffset="3px" fontWeight={700} src="https://ghgprotocol.org">Greenhouse Gas Protocol</Link> that calculates the CO2e emissions from employee travel.
             The results report provides details on the calculations and emissions factors used.
           </TextBlock>
           <Flex direction="column" width="90%" py="24px" gap="10px">
@@ -46,7 +46,7 @@ export default function howWeCalculate() {
             The results from the carbon calculator provide a point-in-time snapshot of a Council’s staff commute emissions. Analysing trends and patterns relating to transport modes and daily emissions will allow Council to devise strategies such as ridesharing, incentivised modes of transport, or flexible work arrangements, to name just a few.
           </TextBlock>
           <TextBlock title="Who made this calculator?">
-            While the formula was developed by the Greenhouse Gas Protocol Centre of Excellence, the survey and results page were built by a volunteer group of problem solvers, <Link color="#044B7F" textDecoration="underline" textUnderlineOffset="3px" fontWeight={700} >Civic Makers</Link>, trying to solve the question of “How can we make our communities better?” using civic-tech. We can’t solve every problem related to our community at once, so we decided to build tools that support Council sustainability initiatives. Civic Makers is run by <Link color="#044B7F" textDecoration="underline" textUnderlineOffset="3px" fontWeight={700} >Code for Australia</Link>, a not-for-profit organisation that builds tech stuff that matters for all levels of government.
+            While the formula was developed by the Greenhouse Gas Protocol Centre of Excellence, the survey and results page were built by a volunteer group of problem solvers, <Link color="#044B7F" textDecoration="underline" textUnderlineOffset="3px" fontWeight={700} src="https://www.codeforaustralia.org/get-involved/civic-makers">Civic Makers</Link>, trying to solve the question of “How can we make our communities better?” using civic-tech. We can’t solve every problem related to our community at once, so we decided to build tools that support Council sustainability initiatives. Civic Makers is run by <Link color="#044B7F" textDecoration="underline" textUnderlineOffset="3px" fontWeight={700} src="https://www.codeforaustralia.org/">Code for Australia</Link>, a not-for-profit organisation that builds tech stuff that matters for all levels of government.
           </TextBlock>
           <TextBlock title="Why did we make this calculator?">
             Due to climate change, we want to use our technical skills for the public good by supporting governments in responding to the climate crisis. We believe assisting them with this calculator would be an excellent place to direct our efforts while council budgets and resources are under pressure. 
@@ -57,6 +57,7 @@ export default function howWeCalculate() {
           direction="column"
           shadow="0px 0px 7.2px rgba(35, 47, 78, 0.25)"
           borderRadius="15px"
+          height="100%"
         >
           <Flex background="#E5F4E3">
             <Text fontWeight={700} fontSize="24px" lineHeight="29px" p="34px">
