@@ -8,15 +8,6 @@ import DistanceTravelledModeChart from "./DistanceTravelledModeChart";
 // import { transportIcon } from "../../../utils/constants";
 
 export default function DistanceTravelledMode({ distanceTravelledMode }) {
-  console.log(
-    "distanceTravelledModeHERE",
-    Object.values(distanceTravelledMode["individual-methods"])
-  );
-  // console.log(Object.values(distanceTravelledMode["individual-methods"]));
-  // console.log(
-  //   Object.values(distanceTravelledMode["active-public-shared-method"])
-  // );
-
   return (
     <Flex
       minWidth="350px"
