@@ -1,22 +1,23 @@
 import { Flex, Text, UnorderedList, ListItem, Link } from "@chakra-ui/react";
 import Layout from "../components/Layout/Layout";
 import TextBlock from "../components/TextBlock/TextBlock";
-import CalculationFormula from "../public/images/calculation-formula.svg";
+import CalculationFormula from "../public/images/how-we-calculate/calculation-formula.svg";
 
 export default function howWeCalculate() {
   return (
     <Layout isText={true} maxContainerWidth="100%">
       <Flex
-        direction={["column", "row"]}
+        direction={["column-reverse", "row"]}
         px={["10px", "50px"]}
         py="48px"
         gap="50px"
       >
         <Flex width={["100%", "70%"]} direction="column">
+          <Link fontWeight={700} fontSize="16px" pb={["20px", "30px"]}>Work Commute Survey Results / Carbon Emissions Calculating and reporting</Link>
           <Text
             fontWeight={600}
             fontSize="34px"
-            pb={[0, "30px"]}
+            py={[0, "30px"]}
             textShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
           >
             Carbon Emission Calculation and Reporting
