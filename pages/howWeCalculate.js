@@ -1,6 +1,7 @@
 import { Flex, Text, UnorderedList, ListItem, Link } from "@chakra-ui/react";
 import Layout from "../components/Layout/Layout";
 import TextBlock from "../components/TextBlock/TextBlock";
+import CalculationFormula from "../public/images/calculation-formula.svg";
 
 export default function howWeCalculate() {
   return (
