@@ -13,7 +13,7 @@ export default function howWeCalculate() {
         gap="50px"
       >
         <Flex width={["100%", "70%"]} direction="column">
-          <Link fontWeight={700} fontSize="16px" pb={["20px", "30px"]}>Work Commute Survey Results / Carbon Emissions Calculating and reporting</Link>
+          <Link fontWeight={700} fontSize="16px" pb={["20px", "30px"]} href="/results">Work Commute Survey Results / Carbon Emissions Calculating and reporting</Link>
           <Text
             fontWeight={600}
             fontSize="34px"
