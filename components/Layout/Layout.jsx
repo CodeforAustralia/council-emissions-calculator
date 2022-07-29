@@ -34,7 +34,7 @@ export default function Layout({
 
 export function Header({ isText, Progress }) {
   const router = useRouter();
-  console.log(router.pathname);
+  // console.log(router.pathname);
   return (
     <Flex
       alignItems="center"

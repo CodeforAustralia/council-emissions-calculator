@@ -5,6 +5,17 @@ import Q1Cloud from "../public/images/clouds/cloud-q1.svg";
 import { sendLogs } from "../utils/sendLogs";
 import useForm from "../components/FormProvider";
 import { useRouter } from "next/router";
+import SurveyClosed from "../components/SurveyClosed/SurveyClosed";
+
+export async function getStaticProps() {
+  const surveyClosingDateTime = process.env["SURVEY_CLOSING_DATE"];
+
+  return {
+    props: {
+      closingTime: Date.parse(surveyClosingDateTime),
+    },
+  };
+}
 
 function Animation() {
   return (
@@ -37,7 +48,7 @@ function Animation() {
 
 const spacing = 6;
 
-export default function Home() {
+export default function Home({ closingTime }) {
   const { answers, setAnswers } = useForm();
   const router = useRouter();
 
@@ -55,41 +66,44 @@ export default function Home() {
     };
   };
 
-  return (
-    <Layout isText={true} maxContainerWidth="container.lg">
-      <Flex alignItems="center" flexDir={["column", "row"]}>
-        <Animation />
-        <Box p={[5, 10]}>
-          <Heading textAlign={["center", "start"]}>
-            {/* {" "} */}
-            Help calculate Council&apos;s carbon emissions
-          </Heading>
-          <Text mt={spacing}>
-            We&apos;ll ask some questions about how you travelled to and from
-            work last week, or the most recent normal week with no leave.
-          </Text>
-          <Text mt={spacing}>
-            When responding, please think only about the <b>dominant mode</b> of
-            travel.
-          </Text>
-          <Flex justify="center">
-            <Text fontStyle="italic" width="80%" textAlign="center">
-              i.e. if you walked a bit then and caught a bus, - select bus. if
-              you ride and catch the train, - select train.
+  if (closingTime && closingTime < Date.parse(new Date()))
+    return <SurveyClosed />;
+  else
+    return (
+      <Layout isText={true} maxContainerWidth="container.lg">
+        <Flex alignItems="center" flexDir={["column", "row"]}>
+          <Animation />
+          <Box p={[5, 10]}>
+            <Heading textAlign={["center", "start"]}>
+              {/* {" "} */}
+              Help calculate Council&apos;s carbon emissions
+            </Heading>
+            <Text mt={spacing}>
+              We&apos;ll ask some questions about how you travelled to and from
+              work last week, or the most recent normal week with no leave.
             </Text>
-          </Flex>
-          <Text mt={spacing}>
-            This survey will take approximately 2 minutes to complete.
-          </Text>
-          <LinkButton
-            href="/form/WorkArrangement"
-            onClick={() => sendLogs(logMessage("Start button clicked"))}
-            width={["90vw", "173px"]}
-          >
-            Start
-          </LinkButton>
-        </Box>
-      </Flex>
-    </Layout>
-  );
+            <Text mt={spacing}>
+              When responding, please think only about the <b>dominant mode</b>{" "}
+              of travel.
+            </Text>
+            <Flex justify="center">
+              <Text fontStyle="italic" width="80%" textAlign="center">
+                i.e. if you walked a bit then and caught a bus, - select bus. if
+                you ride and catch the train, - select train.
+              </Text>
+            </Flex>
+            <Text mt={spacing}>
+              This survey will take approximately 2 minutes to complete.
+            </Text>
+            <LinkButton
+              href="/form/WorkArrangement"
+              onClick={() => sendLogs(logMessage("Start button clicked"))}
+              width={["90vw", "173px"]}
+            >
+              Start
+            </LinkButton>
+          </Box>
+        </Flex>
+      </Layout>
+    );
 }

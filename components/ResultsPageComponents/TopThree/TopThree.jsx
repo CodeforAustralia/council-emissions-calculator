@@ -11,28 +11,28 @@ export default function TopThree({
 }) {
   for (let key in topThree) {
     let arr = topThree[key];
-    const max = arr.sort((a, b) => b.count - a.count);
+    arr.sort((a, b) => b.count - a.count);
   }
-
+  console.log("topThree: ", topThree);
   return (
-    <Flex direction="column">
-      <Flex direction="column" align="flex-start">
-        <Text
-          fontWeight={600}
-          fontSize="33px"
-          lineHeight="37px"
-          py="15px"
-          align="center"
-        >
+    <Flex
+      direction="column"
+      alignSelf={["center", "start"]}
+      align={["center", "flex-start"]}
+      gap={["10px", "20px"]}
+      px={["5px", "50px"]}
+      py={["25px", "50px"]}
+      justify="center"
+    >
+      <Flex direction="column">
+        <Text fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
           Top Three
         </Text>
         <Flex direction={["column", "row"]} gap="20px" flexWrap="wrap">
           {Object.keys(topThree).map((item, ind) => (
             <>
-              <Flex direction="column" align="center">
+              <Flex direction="column">
                 <Flex
-                  gap={["20px", "20px"]}
-                  justify="center"
                   key={ind}
                   background="rgba(221, 221, 229, 0.1)"
                   border="0.613005px  #DDDDE5"
