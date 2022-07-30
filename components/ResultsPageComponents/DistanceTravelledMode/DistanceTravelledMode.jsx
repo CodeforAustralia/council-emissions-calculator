@@ -5,7 +5,6 @@ import Carpool from "../../../public/images/survey-intro-icons/carpool.svg";
 import Motorcycle from "../../../public/images/survey-intro-icons/motorcycle.svg";
 import Train from "../../../public/images/survey-intro-icons/train.svg";
 import DistanceTravelledModeChart from "./DistanceTravelledModeChart";
-// import { transportIcon } from "../../../utils/constants";
 
 export default function DistanceTravelledMode({ distanceTravelledMode }) {
   return (
