@@ -131,9 +131,9 @@ export default function TopThreeBarChart({
         },
       },
     },
-
     series: [
       {
+        name: title,
         data: chartData,
       },
     ],
