@@ -13,7 +13,7 @@ export default function TopThree({
     let arr = topThree[key];
     arr.sort((a, b) => b.count - a.count);
   }
-
+  console.log("topThree: ", topThree);
   return (
     <Flex
       direction="column"

@@ -63,7 +63,7 @@
       }
     ]
   },
-  "distance-travel-method-by-mode": {
+  "distance-travelled-by-mode": {
     "individual-methods": {
       "30km+": 8,
       "25km": 10,
@@ -72,7 +72,7 @@
       "10km": 5,
       "5km": 6
     },
-    "active-public-shared-method": {
+    "active-public-shared-methods": {
       "30km+": 25,
       "25km": 14,
       "20km": 19,
@@ -80,5 +80,12 @@
       "10km": 5,
       "5km": 6
     }
+  "commute-distance-distribution": {
+    "5": 8,
+    "10": 33,
+    "15": 23,
+    "20": 12,
+    "25": 17,
+    "30": 9
   }
 }
