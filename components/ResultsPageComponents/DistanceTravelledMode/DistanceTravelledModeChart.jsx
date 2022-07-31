@@ -2,11 +2,8 @@ import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
 export default function DistanceTravelledModeChart({ data }) {
-  let individualMethod = [];
-  let publicShared = [];
-
-  individualMethod = Object.values(data["individual-methods"]);
-  publicShared = Object.values(data["active-public-shared-method"]);
+  let individualMethods = Object.values(data["individual-methods"]);
+  let activePublicSharedMethods = Object.values(data["active-public-shared-methods"]);
 
   const hichartsOpts = {
     chart: {
@@ -23,7 +20,6 @@ export default function DistanceTravelledModeChart({ data }) {
       y: 0,
     },
     xAxis: {
-      // className: "highcharts-color-6",
       categories: Object.keys(data["individual-methods"]),
     },
     yAxis: {
@@ -48,11 +44,11 @@ export default function DistanceTravelledModeChart({ data }) {
     series: [
       {
         name: "Individual Methods",
-        data: individualMethod,
+        data: individualMethods,
       },
       {
         name: "Active/Public/Shared Methods",
-        data: publicShared,
+        data: activePublicSharedMethods,
       },
     ],
   };
