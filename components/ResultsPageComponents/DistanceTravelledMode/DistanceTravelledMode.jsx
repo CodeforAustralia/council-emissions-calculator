@@ -27,7 +27,6 @@ export default function DistanceTravelledMode({ distanceTravelledMode }) {
       </Flex>
 
       {/* CONTAINER FOR INDIVIDUAL METHOD AND ACTIVE/PUBLIC/SHARED/METHOD   */}
-      {/* <Flex direction="row"> */}
       <Flex direction={["column", "row"]} width="100%">
         <Flex
           direction="column"
@@ -77,7 +76,6 @@ export default function DistanceTravelledMode({ distanceTravelledMode }) {
               <Box
                 mt="12px"
                 mr="5px"
-                //   mb="11px"
                 borderRadius="2px solid #E6EEF3"
                 width="17px"
                 height="13px"
@@ -130,7 +128,7 @@ export default function DistanceTravelledMode({ distanceTravelledMode }) {
 
       <Text>
         Please use the legend for the breakdowns of the two travel modes we are
-        comparing in the following butterfly plot.
+        comparing in the graph below.
       </Text>
       {/* chart  */}
       <Flex justify="center">
