@@ -1,6 +1,6 @@
+import { Container, Text, Flex } from "@chakra-ui/react";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import { Icon } from "@chakra-ui/react";
 import { transportIcon } from "../../../utils/constants";
 import { travelMethods } from "../../../utils/constants";
 
@@ -11,77 +11,94 @@ export default function TopThreeBarChart({
   totalEmissions,
   totalTripCount,
 }) {
-  // totalEmissions={data["total-co2-emissions-tonnes"]}
-  // totalTripCount={}
   let total;
   let totalName;
   let unit;
-  console.log("title", title);
+  console.log(title);
   const grandTotal = () => {
     if (title == "Distance") {
       total = totalDistance;
       unit = "Km";
 
       return (totalName = "Total Distance :");
-    } else if (title == "TripCount") {
+    } else if (title == "Trip Count") {
       total = totalTripCount;
       unit = "";
       return (totalName = "Total Trip-Count :");
     } else if (title == "Emission") {
       total = totalEmissions;
-      unit = "Tonns";
+      unit = "Tonnes";
       return (totalName = "Total Emmission :");
     }
   };
 
   let idx;
   let barIcon;
+
   const chartData = Object.values(data).map((d) => {
-    console.log(d.name);
     idx = travelMethods.indexOf(d.name);
     barIcon = transportIcon[idx];
+
+    const generateIconPath = (categoryName) => {
+      const filePath = "../../../public/images/survey-intro-icons/";
+      const extension = ".svg";
+      switch (categoryName) {
+        case "Train":
+          return `${filePath}train${extension}`;
+          break;
+        case "Car":
+          return `${filePath}car${extension}`;
+          break;
+        case "Walk":
+          return `${filePath}walking-man${extension}`;
+          break;
+        case "Bus":
+          return null;
+          break;
+        default:
+          return ``;
+      }
+    };
 
     if (d.name == ("Car" || "Motorbike")) {
       return {
         name: d.name,
         y: d.count,
         color: "#D69E2E",
+        dataLabels: {
+          formatter: function () {
+            return `<div>${d.name} : ${this.y}<img src=${generateIconPath(
+              d.name
+            )} width='20' height='20'> </div>`;
+          },
+        },
       };
     } else
       return {
         name: d.name,
         y: d.count,
         color: "#044B7F",
+        dataLabels: {
+          formatter: function () {
+            return `<div>${d.name} : ${this.y}<img src=${generateIconPath(
+              d.name
+            )} width='20' height='20'> </div>`;
+          },
+        },
       };
   });
   grandTotal();
-  // setIconArr(barIcon);
-  // if (d == max) {
-  //   return {
-  //     y: d,
-  //     color: "#D69E2E",
-  //   };
-  // } else return d;
-  console.log("title", title, "chartData", chartData);
-  // Grand total for each mode
 
   const hichartsOpts = {
     chart: {
       type: "bar",
+      height: 250,
     },
     color: "#044B7F",
     title: {
       text: title,
     },
 
-    // subtitle: {
-    //   text: title,
-    // },
-
-    // colors: ["#044B7F"],
-    // xAxis: {
-    //   categories: Object.keys(data),
-    // },
     legend: {
       enabled: false,
     },
@@ -90,18 +107,7 @@ export default function TopThreeBarChart({
       title: {
         text: null,
       },
-      labels: {
-        enabled: false,
-        // icons
-        // animate: true,
-        // useHTML: true,
-        // formatter: function () {
-        //   return '<img style="width: 10px; height: 10px;" src="https://images.unsplash.com/photo-1658057144662-3aa56be9d1b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"';
-        // },
-        // style: {
-        //   textAlign: "center",
-        // },
-      },
+
       gridLineWidth: 0,
       showEmpty: false,
       visible: false,
@@ -120,9 +126,8 @@ export default function TopThreeBarChart({
     plotOptions: {
       bar: {
         dataLabels: {
+          useHtml: true,
           enabled: true,
-          align: "right",
-          color: "#FFFFFF",
         },
       },
     },
@@ -134,5 +139,9 @@ export default function TopThreeBarChart({
     ],
   };
 
-  return <HighchartsReact highcharts={Highcharts} options={hichartsOpts} />;
+  return (
+    <Container>
+      <HighchartsReact highcharts={Highcharts} options={hichartsOpts} />
+    </Container>
+  );
 }
