@@ -1,7 +1,10 @@
-import { Flex, Text, UnorderedList, ListItem, Link } from "@chakra-ui/react";
+import { Flex, Text, UnorderedList, ListItem, Link, Icon  } from "@chakra-ui/react";
 import Layout from "../components/Layout/Layout";
 import TextBlock from "../components/TextBlock/TextBlock";
-import CalculationFormula from "../public/images/how-we-calculate/calculation-formula.svg";
+import Sigma from "../public/images/how-we-calculate/sigma.svg";
+import Formula1 from "../public/images/how-we-calculate/formula-1.svg";
+import Formula2 from "../public/images/how-we-calculate/formula-2.svg";
+import Formula3 from "../public/images/how-we-calculate/formula-3.svg";
 
 export default function howWeCalculate() {
   return (
