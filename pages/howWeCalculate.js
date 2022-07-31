@@ -59,7 +59,7 @@ export default function howWeCalculate() {
             report provides details on the calculations and emissions factors
             used.
           </TextBlock>
-          <Flex direction="column" width="90%" py="24px" gap="10px">
+          <Flex direction="column" width={["100%", "90%"]} py="24px" gap="10px">
             <Flex justify="center" background="#60AAA0">
               <Text fontSize="16px" color="#FFFFFF" fontWeight={700} p="10px">
                 CO2e emissions from employee travel ={" "}
@@ -150,7 +150,7 @@ export default function howWeCalculate() {
           </TextBlock>
         </Flex>
         <Flex
-          width={["100%", "30%"]}
+          width={["100%", "25%"]}
           direction="column"
           shadow="0px 0px 7.2px rgba(35, 47, 78, 0.25)"
           borderRadius="15px"
