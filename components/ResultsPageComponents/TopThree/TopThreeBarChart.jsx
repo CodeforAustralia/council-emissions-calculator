@@ -43,20 +43,24 @@ export default function TopThreeBarChart({
       const filePath = "../../../public/images/survey-intro-icons/";
       const extension = ".svg";
       switch (categoryName) {
-        case "Train":
-          return `${filePath}train${extension}`;
+        case "Bus":
+          return `${filePath}bus${extension}`;
           break;
+
         case "Car":
           return `${filePath}car${extension}`;
           break;
+
+        case "Train":
+          return `${filePath}train${extension}`;
+          break;
+
         case "Walk":
           return `${filePath}walking-man${extension}`;
           break;
-        case "Bus":
-          return null;
-          break;
+
         default:
-          return ``;
+          return "";
       }
     };
 
