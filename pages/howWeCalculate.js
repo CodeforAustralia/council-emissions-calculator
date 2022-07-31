@@ -65,8 +65,30 @@ export default function howWeCalculate() {
                 CO2e emissions from employee travel ={" "}
               </Text>
             </Flex>
-            <Flex background="#F3F3F3" justify="center">
-              <CalculationFormula />
+            <Flex background="#F3F3F3" justify="center" direction="column" p="20px" gap="10px">
+              <Text fontWeight={700} fontSize="16px">first, sum across all employees to determine total distance travelled using each vehicle type:</Text>
+              <Formula1 height="16px" />
+              <Text>where:<br/>
+                d = total distance travelled by vehicle type (vehicle-km or passenger-km)<br/>
+                t = daily one-way distance between home and work (km)<br/>
+                w = number of commuting days per year<br/>
+                total distance travelled by vehicle type (vehicle-km or passenger-km) = <Icon as={Sigma} alt="sigma"/> (daily one-way distance between home and work (km) {"\u2715"} 2 {"\u2715"} number of commuting days per year)
+              </Text>
+              <Text fontWeight={700} fontSize="16px">then, sum across vehicle types to determine total emissions:</Text>
+              <Formula2 />
+              <Text>where:<br/>
+                C = kg CO2 e from employee commuting<br/>
+                d = total distance travelled by vehicle type (vehicle-km or passenger-km)<br/>
+                e = kg CO2 e/vehicle-km or kg CO2 e/passenger-km<br/>
+                kg CO2 e from employee commuting = <Icon as={Sigma} alt="sigma"/>(total distance travelled by vehicle type (vehicle-km or passenger-km) {"\u2715"} vehicle specific emission factor (kg CO2 e/vehicle-km or kg CO2 e/passenger-km))<br/>
+              </Text>
+              <Text fontSize="20px">+</Text>
+              <Formula3 />
+              <Text>where:<br/>
+                q = quantities of energy consumed (kWh)<br/>
+                f = emission factor for energy source (kg CO2 e/kWh)<br/>
+                <b>(optionally) for each energy source used in teleworking: <Icon as={Sigma} alt="sigma"/>(quantities of energy consumed (kWh) {"\u2715"} emission factor for energy source (kg CO2 e/kWh))</b>
+              </Text>
             </Flex>
             <Flex>
               <Text fontSize="13px" fontStyle="italic">
