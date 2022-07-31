@@ -80,6 +80,7 @@
       "10km": 5,
       "5km": 6
     }
+  },
   "commute-distance-distribution": {
     "5": 8,
     "10": 33,
