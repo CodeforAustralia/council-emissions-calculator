@@ -83,7 +83,7 @@ export default function howWeCalculate() {
                 first, sum across all employees to determine total distance
                 travelled using each vehicle type:
               </Text>
-              <Formula1 height="16px" />
+              <Formula1 alt="d = ∑(t x 2 x w)" />
               <Text>
                 where:
                 <br />
@@ -102,7 +102,7 @@ export default function howWeCalculate() {
               <Text fontWeight={700} fontSize="16px">
                 then, sum across vehicle types to determine total emissions:
               </Text>
-              <Formula2 />
+              <Formula2 alt="C = ∑(d x e)" />
               <Text>
                 where:
                 <br />
@@ -121,7 +121,7 @@ export default function howWeCalculate() {
                 <br />
               </Text>
               <Text fontSize="20px">+</Text>
-              <Formula3 />
+              <Formula3 alt="∑ (q x f)" />
               <Text>
                 where:
                 <br />
