@@ -41,7 +41,7 @@ export default function TopThree({
                 borderRadius="5px 0px 0px 0px"
                 py="5px"
                 width={["343px", "343px"]}
-                height="223px"
+                height="270px"
               >
                 <TopThreeBarChart
                   title={item}

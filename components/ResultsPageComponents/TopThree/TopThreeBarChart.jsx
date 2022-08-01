@@ -14,7 +14,6 @@ export default function TopThreeBarChart({
   let total;
   let totalName;
   let unit;
-  console.log(title);
   const grandTotal = () => {
     if (title == "Distance") {
       total = totalDistance;
@@ -84,9 +83,7 @@ export default function TopThreeBarChart({
         color: "#044B7F",
         dataLabels: {
           formatter: function () {
-            return `<div>${d.name} : ${this.y}<img src=${generateIconPath(
-              d.name
-            )} width='20' height='20'> </div>`;
+            return `<div><div>${d.name} : ${this.y}</div><barIcon/>  </div>`;
           },
         },
       };
