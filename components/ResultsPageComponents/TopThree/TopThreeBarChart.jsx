@@ -40,6 +40,31 @@ export default function TopThreeBarChart({
     idx = travelMethods.indexOf(d.name);
     barIcon = transportIcon[idx];
 
+    const generateIconPath = (categoryName) => {
+      const filePath = "../../../public/images/survey-intro-icons/";
+      const extension = ".svg";
+      switch (categoryName) {
+        case "Bus":
+          return `${filePath}bus${extension}`;
+          break;
+
+        case "Car":
+          return `${filePath}car${extension}`;
+          break;
+
+        case "Train":
+          return `${filePath}train${extension}`;
+          break;
+
+        case "Walk":
+          return `${filePath}walking-man${extension}`;
+          break;
+
+        default:
+          return "";
+      }
+    };
+
     const unit = (title) => {
       switch (title) {
         case "Distance":
@@ -68,7 +93,9 @@ export default function TopThreeBarChart({
         color: "#D69E2E",
         dataLabels: {
           formatter: function () {
-            return `<div>${d.name} : ${this.y} ${unit(title)}<img src=${unit(
+            return `<div>${d.name} : ${this.y} ${unit(
+              title
+            )}<img src=${generateIconPath(
               d.name
             )} width='20' height='20'> </div>`;
           },
