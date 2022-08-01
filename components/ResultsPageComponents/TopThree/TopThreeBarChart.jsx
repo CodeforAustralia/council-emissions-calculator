@@ -3,6 +3,7 @@ import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { transportIcon } from "../../../utils/constants";
 import { travelMethods } from "../../../utils/constants";
+import { formatCommaSeparators } from "../../../utils/mathUtils";
 
 export default function TopThreeBarChart({
   title,
@@ -19,15 +20,15 @@ export default function TopThreeBarChart({
       total = totalDistance;
       unit = "Km";
 
-      return (totalName = "Total Distance :");
+      return (totalName = "Total Distance:");
     } else if (title == "Trip Count") {
       total = totalTripCount;
       unit = "";
-      return (totalName = "Total Trip-Count :");
+      return (totalName = "Total Trip Count:");
     } else if (title == "Emission") {
       total = totalEmissions;
       unit = "Tonnes";
-      return (totalName = "Total Emmission :");
+      return (totalName = "Total Emmission:");
     }
   };
 
@@ -117,7 +118,7 @@ export default function TopThreeBarChart({
       min: 0,
       gridLineWidth: 0,
       title: {
-        text: [totalName, total, unit],
+        text: `${totalName} ${formatCommaSeparators(total)} ${unit}`,
         align: "high",
       },
       labels: {
