@@ -36,27 +36,24 @@ export default function TopThreeBarChart({
   let barIcon;
 
   const chartData = Object.values(data).map((d) => {
+    // console.log("title: ", title);
     idx = travelMethods.indexOf(d.name);
     barIcon = transportIcon[idx];
 
-    const generateIconPath = (categoryName) => {
-      const filePath = "../../../public/images/survey-intro-icons/";
-      const extension = ".svg";
-      switch (categoryName) {
-        case "Bus":
-          return `${filePath}bus${extension}`;
+    const unit = (title) => {
+      switch (title) {
+        case "Distance":
+          return "km";
           break;
 
-        case "Car":
-          return `${filePath}car${extension}`;
+        case "Trip Count":
+          return "";
           break;
 
-        case "Train":
-          return `${filePath}train${extension}`;
+        case "Emission":
+          return "T";
           break;
 
-        case "Walk":
-          return `${filePath}walking-man${extension}`;
           break;
 
         default:
@@ -71,7 +68,7 @@ export default function TopThreeBarChart({
         color: "#D69E2E",
         dataLabels: {
           formatter: function () {
-            return `<div>${d.name} : ${this.y}<img src=${generateIconPath(
+            return `<div>${d.name} : ${this.y} ${unit(title)}<img src=${unit(
               d.name
             )} width='20' height='20'> </div>`;
           },
@@ -84,7 +81,9 @@ export default function TopThreeBarChart({
         color: "#044B7F",
         dataLabels: {
           formatter: function () {
-            return `<div><div>${d.name} : ${this.y}</div><barIcon/>  </div>`;
+            return `<div><div>${d.name} : ${this.y} ${unit(
+              title
+            )}</div><barIcon/>  </div>`;
           },
         },
       };
