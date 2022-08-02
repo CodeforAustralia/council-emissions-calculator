@@ -65,7 +65,7 @@ export default function Results({ data }) {
       <CommuteDays data={data} />
       <CommuteDistanceDistribution data={data} />
       <DistanceTravelledMode
-        distanceTravelledMode={data["distance-travelled-by-mode"]}
+        data={data["distance-travelled-by-mode"]}
       />        
       <Flex
         border="2px solid red"
