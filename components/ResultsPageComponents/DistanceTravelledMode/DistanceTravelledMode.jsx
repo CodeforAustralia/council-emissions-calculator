@@ -6,7 +6,7 @@ import Motorcycle from "../../../public/images/survey-intro-icons/motorcycle.svg
 import Train from "../../../public/images/survey-intro-icons/train.svg";
 import DistanceTravelledModeChart from "./DistanceTravelledModeChart";
 
-export default function DistanceTravelledMode({ distanceTravelledMode }) {
+export default function DistanceTravelledMode({ data }) {
   return (
     <Flex
       minWidth="350px"
@@ -144,7 +144,7 @@ export default function DistanceTravelledMode({ distanceTravelledMode }) {
             mb="26px"
             justify="center"
           >
-            <DistanceTravelledModeChart data={distanceTravelledMode} />
+            <DistanceTravelledModeChart data={data} />
           </Flex>
         </Flex>
       </Flex>
