@@ -70,5 +70,39 @@
     "20": 12,
     "25": 17,
     "30": 9
-  }
+  },
+  "dataAboutTrips": [
+    {
+      "name": "Bicycle",
+      "count": 5
+    },
+    {
+      "name": "Bus",
+      "count": 6
+    },
+    {
+      "name": "Carpool",
+      "count": 8
+    },
+    {
+      "name": "Motorbike",
+      "count": 15
+    },
+    {
+      "name": "Taxi/Share",
+      "count": 145
+    },
+    {
+      "name": "Car",
+      "count": 12
+    },
+    {
+      "name": "Walk/Run",
+      "count": 14
+    },
+    {
+      "name": "Train/tram",
+      "count": 149
+    }
+  ]
 }

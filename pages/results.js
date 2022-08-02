@@ -44,7 +44,7 @@ export async function getStaticProps() {
 export default function Results({ data }) {
   const { answers } = useForm();
   const { km, mainTransportMode, department, incentive } = answers;
-
+  console.log(data.dataAboutTrips);
   return (
     <Layout isText={true} maxContainerWidth="100%">
       <Flex
@@ -75,7 +75,7 @@ export default function Results({ data }) {
         totalEmissions={data["total-co2-emissions-tonnes"]}
       />
 
-      <TripCountAndTravelMethods />
+      <TripCountAndTravelMethods dataAboutTrips={data["dataAboutTrips"]} />
       <WorkArrangement workMode={data["work-mode"]} />
       <CommuteDays data={data} />
 
