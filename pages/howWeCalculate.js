@@ -181,7 +181,7 @@ export default function howWeCalculate() {
             >
               Code for Australia
             </Link>
-            , a not-for-profit organisation that builds tech stuff that matters
+            , an organisation that builds tech stuff that matters
             for all levels of government.
           </TextBlock>
           <TextBlock
