@@ -120,7 +120,7 @@ export default function howWeCalculate() {
                 CO2 e/vehicle-km or kg CO2 e/passenger-km))
                 <br />
               </Text>
-              <Text fontSize="20px">+</Text>
+              <Text fontSize="23px" fontWeight={700}>+</Text>
               <Text>
                 <b>(optionally) for each energy source used in teleworking:{" "}
                 <Icon as={Sigma} alt="sigma" />
