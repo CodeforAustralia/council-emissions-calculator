@@ -1,46 +1,7 @@
-import { Center, Text, Flex, Container } from "@chakra-ui/react";
-import PieChart from "./PieChart";
+import { Box, Center, Text, Flex } from "@chakra-ui/react";
+import PieChartComponent from "./PieChartComponent";
 
 export default function TripCountAndTravelMethods({ dataAboutTrips }) {
-  // console.log(data.dataAboutTrips);
-  // console.log(dataAboutTrips);
-  /*
-  const dataAboutTrips = [
-    {
-      name: "Bicycle",
-      count: 5,
-    },
-    {
-      name: "Bus",
-      count: 6,
-    },
-    {
-      name: "Carpool",
-      count: 8,
-    },
-    {
-      name: "Motorbike",
-      count: 15,
-    },
-    {
-      name: "Taxi/Share",
-      count: 145,
-    },
-    {
-      name: "Car",
-      count: 12,
-    },
-    {
-      name: "Walk/Run",
-      count: 14,
-    },
-    {
-      name: "Train/tram",
-      count: 149,
-    },
-  ];
-  */
-
   const activePublicSharedTravel = dataAboutTrips.filter(
     (method) => method.name !== "Car" && method.name !== "Motorbike"
   );
@@ -84,45 +45,41 @@ export default function TripCountAndTravelMethods({ dataAboutTrips }) {
           Individual travel show us the total trips for each travel method and
           their breakdown by mode.
         </Text>
-        <Flex direction="row" wrap="wrap" align="center" gap="15px" py="15px">
-          <Flex
-            // width={["90%", "50%"]}
-            width="520px"
-            boxShadow="0px 0px 28px rgba(35, 47, 78, 0.14)"
-            borderRadius="20px"
-            border="1px solid #DDDDE5"
-            align="center"
-          >
-            <PieChart title="Trip Count" data={sharedVsIndividualData} />
-          </Flex>
-          <Flex>
+
+        <Center centerContent>
+          <Box maxWidth="1500px">
             <Flex
-              direction="column"
-              // width={["90%", "50%"]}
+              direction="row"
+              wrap="wrap"
+              justify="center"
               gap="15px"
+              py="15px"
             >
-              <Flex
-                width="520px"
-                borderRadius="0px 15px 0px 0px"
-                boxShadow="0px 0px 28px rgba(35, 47, 78, 0.14)"
-                border="1px solid #DDDDE5"
-              >
-                <PieChart
-                  title="Active-public-shared travel"
-                  data={activePublicSharedTravel}
-                />
-              </Flex>
-              <Flex
-                width="520px"
-                borderRadius="0px 0px 15px 0px"
-                boxShadow="0px 0px 28px rgba(35, 47, 78, 0.14)"
-                border="1px solid #DDDDE5"
-              >
-                <PieChart title="Individual travel" data={IndividualTravel} />
+              <PieChartComponent
+                title="Trip Count"
+                data={sharedVsIndividualData}
+              />
+
+              <Flex>
+                <Flex
+                  direction="column"
+                  // width={["90%", "50%"]}
+                  gap="15px"
+                >
+                  <PieChartComponent
+                    title="Active-public-shared travel"
+                    data={activePublicSharedTravel}
+                  />
+
+                  <PieChartComponent
+                    title="Individual travel"
+                    data={IndividualTravel}
+                  />
+                </Flex>
               </Flex>
             </Flex>
-          </Flex>
-        </Flex>
+          </Box>
+        </Center>
       </Flex>
     </Flex>
   );
