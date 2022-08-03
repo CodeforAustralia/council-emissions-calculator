@@ -122,10 +122,10 @@ export default function howWeCalculate() {
               </Text>
               <Text fontSize="20px">+</Text>
               <Text>
-                (optionally) for each energy source used in teleworking:{" "}
+                <b>(optionally) for each energy source used in teleworking:{" "}
                 <Icon as={Sigma} alt="sigma" />
                 (quantities of energy consumed (kWh) {"\u2715"} emission
-                factor for energy source (kg CO2 e/kWh))
+                factor for energy source (kg CO2 e/kWh))</b>
               </Text>
               <Formula3 alt="∑ (q x f)" />
               <Text>
@@ -202,7 +202,7 @@ export default function howWeCalculate() {
           borderRadius="15px"
           height="100%"
         >
-          <Flex background="#E5F4E3">
+          <Flex background="#E5F4E3" borderRadius="inherit">
             <Text fontWeight={700} fontSize="24px" lineHeight="29px" p="34px">
               Table of Contents
             </Text>
