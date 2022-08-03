@@ -1,4 +1,4 @@
-import { Box, Center, Text, Flex } from "@chakra-ui/react";
+import { Box, Center, Container, Text, Flex } from "@chakra-ui/react";
 import PieChartComponent from "./PieChartComponent";
 
 export default function TripCountAndTravelMethods({ dataAboutTrips }) {
@@ -46,12 +46,12 @@ export default function TripCountAndTravelMethods({ dataAboutTrips }) {
           their breakdown by mode.
         </Text>
 
-        <Center centerContent>
+        <Flex justify="start">
           <Box maxWidth="1500px">
             <Flex
               direction="row"
               wrap="wrap"
-              justify="center"
+              justify="start"
               gap="15px"
               py="15px"
             >
@@ -79,7 +79,7 @@ export default function TripCountAndTravelMethods({ dataAboutTrips }) {
               </Flex>
             </Flex>
           </Box>
-        </Center>
+        </Flex>
       </Flex>
     </Flex>
   );
