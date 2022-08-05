@@ -1,5 +1,6 @@
 import { Text, Flex, Button, Box, Link } from "@chakra-ui/react";
-import DownloadPdf from "../../../public/images/download-results-icons/DownloadPdf.svg";
+import DownLoadPdf from "./DownLoadPdf";
+
 import DownloadCsv from "../../../public/images/download-results-icons/DownloadCSV.svg";
 import Lamp from "../../../public/images/download-results-icons/Lamp.svg";
 import GHGProtocol from "../../../public/images/download-results-icons/GHGProtocol.svg";
@@ -26,7 +27,7 @@ export default function DownloadResults({ calculationLink }) {
           _hover={{ bg: "#ebedf0" }}
         >
           <Box>
-            <DownloadPdf />
+            <DownLoadPdf />
           </Box>
           <Text
             textAlign="center"
@@ -118,7 +119,12 @@ export default function DownloadResults({ calculationLink }) {
             Read how we have calculated and reported your emissions:
           </Text>
           <Link width="40%" href={calculationLink}>
-            <Button variant="outline" width="100%" color="#366F99" height="31px">
+            <Button
+              variant="outline"
+              width="100%"
+              color="#366F99"
+              height="31px"
+            >
               Read
             </Button>
           </Link>

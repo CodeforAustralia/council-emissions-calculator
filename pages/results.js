@@ -64,9 +64,7 @@ export default function Results({ data }) {
       <WorkArrangement workMode={data["work-mode"]} />
       <CommuteDays data={data} />
       <CommuteDistanceDistribution data={data} />
-      <DistanceTravelledMode
-        data={data["distance-travelled-by-mode"]}
-      />        
+      <DistanceTravelledMode data={data["distance-travelled-by-mode"]} />
       <Flex
         border="2px solid red"
         width="100%"
