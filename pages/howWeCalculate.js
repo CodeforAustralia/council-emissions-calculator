@@ -1,7 +1,17 @@
-import { Flex, Text, UnorderedList, ListItem, Link } from "@chakra-ui/react";
+import {
+  Flex,
+  Text,
+  UnorderedList,
+  ListItem,
+  Link,
+  Icon,
+} from "@chakra-ui/react";
 import Layout from "../components/Layout/Layout";
 import TextBlock from "../components/TextBlock/TextBlock";
-import CalculationFormula from "../public/images/how-we-calculate/calculation-formula.svg";
+import Sigma from "../public/images/how-we-calculate/sigma.svg";
+import Formula1 from "../public/images/how-we-calculate/formula-1.svg";
+import Formula2 from "../public/images/how-we-calculate/formula-2.svg";
+import Formula3 from "../public/images/how-we-calculate/formula-3.svg";
 
 export default function howWeCalculate() {
   return (
@@ -56,14 +66,75 @@ export default function howWeCalculate() {
             report provides details on the calculations and emissions factors
             used.
           </TextBlock>
-          <Flex direction="column" width="90%" py="24px" gap="10px">
+          <Flex direction="column" width={["100%", "90%"]} py="24px" gap="10px">
             <Flex justify="center" background="#60AAA0">
               <Text fontSize="16px" color="#FFFFFF" fontWeight={700} p="10px">
                 CO2e emissions from employee travel ={" "}
               </Text>
             </Flex>
-            <Flex background="#F3F3F3" justify="center">
-              <CalculationFormula />
+            <Flex
+              background="#F3F3F3"
+              justify="center"
+              direction="column"
+              p="20px"
+              gap="10px"
+            >
+              <Text fontWeight={700} fontSize="16px">
+                first, sum across all employees to determine total distance
+                travelled using each vehicle type:
+              </Text>
+              <Formula1 alt="d = ∑(t x 2 x w)" />
+              <Text>
+                where:
+                <br />
+                d = total distance travelled by vehicle type (vehicle-km or
+                passenger-km)
+                <br />
+                t = daily one-way distance between home and work (km)
+                <br />
+                w = number of commuting days per year
+                <br />
+                total distance travelled by vehicle type (vehicle-km or
+                passenger-km) = <Icon as={Sigma} alt="sigma" /> (daily one-way
+                distance between home and work (km) {"\u2715"} 2 {"\u2715"}{" "}
+                number of commuting days per year)
+              </Text>
+              <Text fontWeight={700} fontSize="16px">
+                then, sum across vehicle types to determine total emissions:
+              </Text>
+              <Formula2 alt="C = ∑(d x e)" />
+              <Text>
+                where:
+                <br />
+                C = kg CO2 e from employee commuting
+                <br />
+                d = total distance travelled by vehicle type (vehicle-km or
+                passenger-km)
+                <br />
+                e = kg CO2 e/vehicle-km or kg CO2 e/passenger-km
+                <br />
+                kg CO2 e from employee commuting ={" "}
+                <Icon as={Sigma} alt="sigma" />
+                (total distance travelled by vehicle type (vehicle-km or
+                passenger-km) {"\u2715"} vehicle specific emission factor (kg
+                CO2 e/vehicle-km or kg CO2 e/passenger-km))
+                <br />
+              </Text>
+              <Text fontSize="23px" fontWeight={700}>+</Text>
+              <Text>
+                <b>(optionally) for each energy source used in teleworking:{" "}
+                <Icon as={Sigma} alt="sigma" />
+                (quantities of energy consumed (kWh) {"\u2715"} emission
+                factor for energy source (kg CO2 e/kWh))</b>
+              </Text>
+              <Formula3 alt="∑ (q x f)" />
+              <Text>
+                where:
+                <br />
+                q = quantities of energy consumed (kWh)
+                <br />
+                f = emission factor for energy source (kg CO2 e/kWh)                
+              </Text>
             </Flex>
             <Flex>
               <Text fontSize="13px" fontStyle="italic">
@@ -110,7 +181,7 @@ export default function howWeCalculate() {
             >
               Code for Australia
             </Link>
-            , a not-for-profit organisation that builds tech stuff that matters
+            , an organisation that builds tech stuff that matters
             for all levels of government.
           </TextBlock>
           <TextBlock
@@ -125,13 +196,13 @@ export default function howWeCalculate() {
           </TextBlock>
         </Flex>
         <Flex
-          width={["100%", "30%"]}
+          width={["100%", "25%"]}
           direction="column"
           shadow="0px 0px 7.2px rgba(35, 47, 78, 0.25)"
           borderRadius="15px"
           height="100%"
         >
-          <Flex background="#E5F4E3">
+          <Flex background="#E5F4E3" borderRadius="inherit">
             <Text fontWeight={700} fontSize="24px" lineHeight="29px" p="34px">
               Table of Contents
             </Text>

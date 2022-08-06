@@ -7,14 +7,12 @@ import SurveyOverview from "../components/ResultsPageComponents/SurveyOverview/S
 import SurveyIntro from "../components/ResultsPageComponents/SurveyIntro/SurveyIntro";
 import TripCountAndTravelMethods from "../components/ResultsPageComponents/TripCountAndTravelMethods/TripCountAndTravelMethods";
 import TopThree from "../components/ResultsPageComponents/TopThree/TopThree";
+import DistanceTravelledMode from "../components/ResultsPageComponents/DistanceTravelledMode/DistanceTravelledMode";
 import WorkArrangement from "../components/ResultsPageComponents/WorkArrangement/WorkArrangement";
 import CommuteDays from "../components/ResultsPageComponents/CommuteDays/CommuteDays";
 import CommuteDistanceDistribution from "../components/ResultsPageComponents/CommuteDistanceDistribution/CommuteDistanceDistribution";
 import fsPromises from "fs/promises";
 import path from "path";
-// import capitalize from "../utils/capitalize";
-// import { FiDownload } from "react-icons/fi";
-// import { getTripTotalsTop3 } from "./api/trips";
 
 export async function getStaticProps() {
   const filePath = path.join(process.cwd(), "data/2022-results.json");
@@ -27,19 +25,6 @@ export async function getStaticProps() {
     },
   };
 }
-
-// export async function getServerSideProps() {
-//   const tripjson = await getTripTotalsTop3();
-
-//   // console.log(`is tripjson ready?: ${ !!tripjson }`);
-//   // console.log(`tripjson: ${ JSON.stringify(tripjson) }`);
-
-//   return {
-//     props: {
-//       data: tripjson,
-//     },
-//   };
-// }
 
 export default function Results({ data }) {
   const { answers } = useForm();
@@ -78,21 +63,10 @@ export default function Results({ data }) {
       <TripCountAndTravelMethods dataAboutTrips={data["dataAboutTrips"]} />
       <WorkArrangement workMode={data["work-mode"]} />
       <CommuteDays data={data} />
-
       <CommuteDistanceDistribution data={data} />
-      <Flex
-        border="2px solid red"
-        width="100%"
-        p="20px"
-        mt="20px"
-        direction="column"
-      >
-        Summary plus stats in horizontal bar chart
-        <Img
-          border="2px solid grey"
-          src="https://user-images.githubusercontent.com/88268603/174800361-a529ca2e-b257-489b-b8b8-4fa4e2a59b90.png"
-        />
-      </Flex>
+      <DistanceTravelledMode
+        data={data["distance-travelled-by-mode"]}
+      />        
       <Flex
         border="2px solid red"
         width="100%"
@@ -106,13 +80,7 @@ export default function Results({ data }) {
           src="https://user-images.githubusercontent.com/88268603/174800762-b58ec331-79f7-4672-8685-83e49ea91877.png"
         />
       </Flex>
-      <Flex
-        border="2px solid red"
-        width="100%"
-        p="20px"
-        mt="20px"
-        direction="column"
-      >
+      <Flex width="100%" p="20px" mt="20px" direction="column">
         Transport type preference during work week
         <Img
           border="2px solid grey"
