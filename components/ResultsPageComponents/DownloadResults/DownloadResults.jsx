@@ -121,7 +121,12 @@ export default function DownloadResults({ calculationLink }) {
             Read how we have calculated and reported your emissions:
           </Text>
           <Link width="40%" href={calculationLink}>
-            <Button variant="outline" width="100%" color="#366F99" height="31px">
+            <Button
+              variant="outline"
+              width="100%"
+              color="#366F99"
+              height="31px"
+            >
               Read
             </Button>
           </Link>
