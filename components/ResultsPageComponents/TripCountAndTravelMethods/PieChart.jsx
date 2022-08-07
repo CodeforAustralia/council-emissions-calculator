@@ -36,6 +36,7 @@ export default function PieChart({ title, data }) {
     series: [
       {
         type: "pie",
+        size: 200,
         innerSize: "80%",
         name: "Trip Count",
         colorByPoint: true,
