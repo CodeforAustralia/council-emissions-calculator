@@ -1,15 +1,17 @@
 import "../styles/globals.css";
 import "@fontsource/public-sans/400.css";
 import "@fontsource/public-sans/700.css";
-import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+// import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
 import { FormProvider } from "../components/FormProvider";
-import { createBreakpoints } from "@chakra-ui/theme-tools";
+// import { createBreakpoints } from "@chakra-ui/theme-tools";
+import theme from "../styles/theme";
 
+/*
 const breakpoints = createBreakpoints({
   sm: "630px",
   lg: "1400px",
 });
-
 const headingStyle = {
   baseStyle: {
     fontWeight: 700,
@@ -23,7 +25,6 @@ const headingStyle = {
     },
   },
 };
-
 const theme = extendTheme({
   fonts: {
     heading: "Public Sans",
@@ -34,8 +35,10 @@ const theme = extendTheme({
     Heading: headingStyle,
   },
 });
+*/
 
 function MyApp({ Component, pageProps }) {
+  console.log("theme: ", theme);
   return (
     <ChakraProvider theme={theme}>
       <FormProvider>

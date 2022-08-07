@@ -4,6 +4,8 @@ import Car from "../../../public/images/survey-intro-icons/car.svg";
 import Carpool from "../../../public/images/survey-intro-icons/carpool.svg";
 import Motorcycle from "../../../public/images/survey-intro-icons/motorcycle.svg";
 import Train from "../../../public/images/survey-intro-icons/train.svg";
+import TravelMethodBadge from "../SharedComponents/TravelMethodBadge";
+import ResultsTopHeader from "../SharedComponents/ResultsTopHeader";
 
 export default function SurveyIntro() {
   return (
@@ -16,6 +18,7 @@ export default function SurveyIntro() {
       gap={["10px", "20px"]}
     >
       <Flex direction="column">
+        <ResultsTopHeader>Work Commute Survey Results</ResultsTopHeader>
         <Text fontSize={["30px", "50px"]}>Work Commute Survey Results</Text>
         <Text fontSize="20px">
           The results page provides the outcome from our recent survey. We have
@@ -50,50 +53,24 @@ export default function SurveyIntro() {
             </Text>
           </Flex>
           <Flex gap="30px">
-            <Flex direction="column" width="100px" align="center">
-              <Flex
-                justify="center"
-                align="center"
-                width="95px"
-                height="95px"
-                background="#E6EEF3"
-                boxShadow="0px 1px 30px rgba(230, 238, 243, 0.99)"
-                borderRadius="50%"
-              >
-                <WalkingMan />
-              </Flex>
-              <Text textAlign="center" width="80px" color="#044B7F">
-                Walk/Run/Cycle
-              </Text>
-            </Flex>
-            <Flex direction="column" width="100px" align="center">
-              <Flex
-                justify="center"
-                align="center"
-                width="95px"
-                height="95px"
-                background="#E6EEF3"
-                boxShadow="0px 1px 30px rgba(230, 238, 243, 0.99)"
-                borderRadius="50%"
-              >
-                <Train />
-              </Flex>
-              <Text color="#044B7F">Bus/Train</Text>
-            </Flex>
-            <Flex direction="column" width="100px" align="center">
-              <Flex
-                justify="center"
-                align="center"
-                width="95px"
-                height="95px"
-                background="#E6EEF3"
-                boxShadow="0px 1px 30px rgba(230, 238, 243, 0.99)"
-                borderRadius="50%"
-              >
-                <Carpool />
-              </Flex>
-              <Text color="#044B7F">Taxi/Carpool</Text>
-            </Flex>
+            <TravelMethodBadge
+              background="#E6EEF3"
+              textColour="#044B7F"
+              button={WalkingMan}
+              description="Walk/Run/Cycle"
+            />
+            <TravelMethodBadge
+              background="#E6EEF3"
+              textColour="#044B7F"
+              button={Train}
+              description="Bus/Train"
+            />
+            <TravelMethodBadge
+              background="#E6EEF3"
+              textColour="#044B7F"
+              button={Carpool}
+              description="Taxi/Carpool"
+            />
           </Flex>
         </Flex>
         <Flex
@@ -111,34 +88,18 @@ export default function SurveyIntro() {
             </Text>
           </Flex>
           <Flex gap="30px">
-            <Flex direction="column" width="100px" align="center">
-              <Flex
-                justify="center"
-                align="center"
-                width="95px"
-                height="95px"
-                background="rgba(214, 158, 46, 0.36)"
-                boxShadow="0px 1px 30px rgba(214, 158, 46, 0.25)"
-                borderRadius="50%"
-              >
-                <Car />
-              </Flex>
-              <Text color="#044B7F">Car</Text>
-            </Flex>
-            <Flex direction="column" width="100px" align="center">
-              <Flex
-                justify="center"
-                align="center"
-                width="95px"
-                height="95px"
-                background="rgba(214, 158, 46, 0.36)"
-                boxShadow="0px 1px 30px rgba(214, 158, 46, 0.25)"
-                borderRadius="50%"
-              >
-                <Motorcycle />
-              </Flex>
-              <Text color="#044B7F">Motorbike</Text>
-            </Flex>
+            <TravelMethodBadge
+              background="rgba(214, 158, 46, 0.36)"
+              textColour="#044B7F"
+              button={Car}
+              description="Car"
+            />
+            <TravelMethodBadge
+              background="rgba(214, 158, 46, 0.36)"
+              textColour="#044B7F"
+              button={Motorcycle}
+              description="Motorbike"
+            />
           </Flex>
         </Flex>
       </Flex>
