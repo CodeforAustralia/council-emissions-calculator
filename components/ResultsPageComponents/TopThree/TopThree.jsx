@@ -2,6 +2,11 @@ import { Text, Flex } from "@chakra-ui/react";
 import TopThreeBarChart from "./TopThreeBarChart";
 import Line from "../../../public/images/TopThree/topThreeLine.svg";
 import Dot from "../../../public/images/TopThree/topThreeDot.svg";
+import { ResultsHeader2 } from "../SharedComponents/ResultsHeaders";
+import {
+  SectionLayout,
+  FullWidthContent,
+} from "../SharedComponents/ContentLayouts";
 
 export default function TopThree({
   topThree,
@@ -13,21 +18,10 @@ export default function TopThree({
     let arr = topThree[key];
     arr.sort((a, b) => b.count - a.count);
   }
-  console.log("topThree: ", topThree);
   return (
-    <Flex
-      direction="column"
-      alignSelf={["center", "start"]}
-      align={["center", "flex-start"]}
-      gap={["10px", "20px"]}
-      px={["5px", "50px"]}
-      py={["25px", "50px"]}
-      justify="center"
-    >
-      <Flex direction="column">
-        <Text fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
-          Top Three
-        </Text>
+    <SectionLayout>
+      <FullWidthContent>
+        <ResultsHeader2>Top Three</ResultsHeader2>
         <Flex direction={["column", "row"]} gap="20px" flexWrap="wrap">
           {Object.keys(topThree).map((item, ind) => (
             <Flex direction="column" align="center" key={ind}>
@@ -79,7 +73,7 @@ export default function TopThree({
             </Flex>
           ))}
         </Flex>
-      </Flex>
-    </Flex>
+      </FullWidthContent>
+    </SectionLayout>
   );
 }

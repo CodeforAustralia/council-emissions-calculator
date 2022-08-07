@@ -5,21 +5,17 @@ import Carpool from "../../../public/images/survey-intro-icons/carpool.svg";
 import Motorcycle from "../../../public/images/survey-intro-icons/motorcycle.svg";
 import Train from "../../../public/images/survey-intro-icons/train.svg";
 import TravelMethodBadge from "../SharedComponents/TravelMethodBadge";
-import ResultsTopHeader from "../SharedComponents/ResultsTopHeader";
+import { SectionLayout } from "../SharedComponents/ContentLayouts";
+import {
+  ResultsHeader1,
+  ResultsHeader3,
+} from "../SharedComponents/ResultsHeaders";
 
 export default function SurveyIntro() {
   return (
-    <Flex
-      minWidth="350px"
-      maxWidth="1100px"
-      alignSelf={["center", "start"]}
-      flex={[1, 2]}
-      direction="column"
-      gap={["10px", "20px"]}
-    >
+    <SectionLayout flexConfig={[1, 2]}>
       <Flex direction="column">
-        <ResultsTopHeader>Work Commute Survey Results</ResultsTopHeader>
-        <Text fontSize={["30px", "50px"]}>Work Commute Survey Results</Text>
+        <ResultsHeader1>Work Commute Survey Results</ResultsHeader1>
         <Text fontSize="20px">
           The results page provides the outcome from our recent survey. We have
           recently embarked on our 2026 challenge. We aim to increase the use of
@@ -29,9 +25,10 @@ export default function SurveyIntro() {
         </Text>
       </Flex>
       <Flex direction="column">
-        <Text fontWeight={600} fontSize="27px">
+        <ResultsHeader3>
           Things to note before reading the results
-        </Text>
+        </ResultsHeader3>
+
         <Text fontSize="19px">
           Travel methods have been grouped into <b>Active-Public-Shared</b>{" "}
           methods and <b>Individual</b> methods:{" "}
@@ -103,6 +100,6 @@ export default function SurveyIntro() {
           </Flex>
         </Flex>
       </Flex>
-    </Flex>
+    </SectionLayout>
   );
 }

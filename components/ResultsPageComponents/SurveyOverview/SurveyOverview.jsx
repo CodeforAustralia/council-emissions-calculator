@@ -5,6 +5,7 @@ import Cloud from "../../../public/images/survey-overview-icons/cloud.svg";
 import DottedLine from "../../../public/images/survey-overview-icons/dotted-line.svg";
 import Path from "../../../public/images/survey-overview-icons/path.svg";
 import Respondents from "../../../public/images/survey-overview-icons/respondents.svg";
+import { ResultsHeader2 } from "../SharedComponents/ResultsHeaders";
 
 const getMonthName = (month) => {
   switch (month) {
@@ -64,9 +65,8 @@ export default function SurveyOverview({
       alignSelf={["center", "start"]}
       m="50px"
     >
-      <Text fontWeight={600} fontSize="35px">
-        Overview
-      </Text>
+      <ResultsHeader2>Overview</ResultsHeader2>
+
       <Text fontWeight={400} fontSize="20px">
         This section includes the survey’s snapshot dates, the total number of
         survey particpants, the total distance travel, the average distance per

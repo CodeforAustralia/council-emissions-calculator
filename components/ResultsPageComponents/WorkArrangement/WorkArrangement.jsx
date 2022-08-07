@@ -1,6 +1,8 @@
 import { Text, Flex } from "@chakra-ui/react";
 import Traveler from "../../../public/images/work-arrangement-results-icons/traveler.svg";
 import Line from "../../../public/images/work-arrangement-results-icons/l-shape-line.svg";
+import { ResultsHeader2 } from "../SharedComponents/ResultsHeaders";
+import { RightPaddedContent } from "../SharedComponents/ContentLayouts";
 
 export default function WorkArrangement({ workMode }) {
   const surveyData = {
@@ -20,22 +22,9 @@ export default function WorkArrangement({ workMode }) {
   )[1];
 
   return (
-    <Flex
-      minWidth="350px"
-      maxWidth="1100px"
-      alignSelf={["center", "start"]}
-      align={["center", "flex-start"]}
-      flex={[1, 2]}
-      direction="column"
-      gap={["10px", "20px"]}
-      px={["5px", "50px"]}
-      py={["25px", "50px"]}
-      justify="center"
-    >
+    <RightPaddedContent flex={[1, 2]}>
       <Flex direction="column">
-        <Text fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
-          Things to note before reading the results
-        </Text>
+        <ResultsHeader2>Work Arrangement</ResultsHeader2>
         <Text fontSize="19px" py="15px">
           The infographics below illustrate responders’ working arrangement
           across the week. This information helps identify the percentage of
@@ -131,6 +120,6 @@ export default function WorkArrangement({ workMode }) {
           </Flex>
         </Flex>
       </Flex>
-    </Flex>
+    </RightPaddedContent>
   );
 }

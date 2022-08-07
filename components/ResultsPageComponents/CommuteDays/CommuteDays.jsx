@@ -1,24 +1,13 @@
 import { Text, Flex } from "@chakra-ui/react";
 import CommuteDaysColumnChart from "./CommuteDaysColumnChart";
+import { ResultsHeader3 } from "../SharedComponents/ResultsHeaders";
+import { RightPaddedContent } from "../SharedComponents/ContentLayouts";
 
 export default function CommuteDays({ data }) {
   return (
-    <Flex
-      minWidth="350px"
-      maxWidth="1100px"
-      alignSelf={["center", "start"]}
-      align={["center", "flex-start"]}
-      flex={[1, 2]}
-      direction="column"
-      gap={["10px", "20px"]}
-      px={["5px", "50px"]}
-      py={["25px", "50px"]}
-      justify="center"
-    >
+    <RightPaddedContent flex={[1, 2]}>
       <Flex direction="column">
-        <Text fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
-          Travelling to Work Days
-        </Text>
+        <ResultsHeader3>Travelling to Work Days</ResultsHeader3>
         <Text fontSize="19px" py="15px">
           The chart below shows the distribution of staff commute days
           throughout the week.
@@ -34,6 +23,6 @@ export default function CommuteDays({ data }) {
           data={data["commute-days-distribution"]}
         />
       </Flex>
-    </Flex>
+    </RightPaddedContent>
   );
 }

@@ -13,6 +13,7 @@ import CommuteDays from "../components/ResultsPageComponents/CommuteDays/Commute
 import CommuteDistanceDistribution from "../components/ResultsPageComponents/CommuteDistanceDistribution/CommuteDistanceDistribution";
 import fsPromises from "fs/promises";
 import path from "path";
+import { ResultContentSection } from "../components/ResultsPageComponents/SharedComponents/ContentStyles";
 
 export async function getStaticProps() {
   const filePath = path.join(process.cwd(), "data/2022-results.json");
@@ -55,19 +56,30 @@ export default function Results({ data }) {
         totalEmissions={data["total-co2-emissions-tonnes"]}
         totalTripCount={data["total-trip-count"]}
       />
+      {/* Top Three + Trip count and Travel Methods */}
+      <ResultContentSection isShaded={true}>
+        <TopThree
+          topThree={data["TopThreeData"]}
+          totalDistance={data["total-distance"]}
+          totalTripCount={data["total-trip-count"]}
+          totalEmissions={data["total-co2-emissions-tonnes"]}
+        />
 
-      <TopThree
-        topThree={data["TopThreeData"]}
-        totalDistance={data["total-distance"]}
-        totalTripCount={data["total-trip-count"]}
-        totalEmissions={data["total-co2-emissions-tonnes"]}
-      />
+        <TripCountAndTravelMethods />
+      </ResultContentSection>
 
-      <TripCountAndTravelMethods />
-      <WorkArrangement workMode={data["work-mode"]} />
-      <CommuteDays data={data} />
-      <CommuteDistanceDistribution data={data} />
-      <DistanceTravelledMode data={data["distance-travelled-by-mode"]} />
+      {/* Work Arrangement + Travelling to Work Days */}
+      <ResultContentSection isShaded={false}>
+        <WorkArrangement workMode={data["work-mode"]} />
+        <CommuteDays data={data} />
+      </ResultContentSection>
+
+      {/* Distribution of commute distance + Distance travelled by mode of transport */}
+      <ResultContentSection isShaded={true}>
+        <CommuteDistanceDistribution data={data} />
+        <DistanceTravelledMode data={data["distance-travelled-by-mode"]} />
+      </ResultContentSection>
+
       <Flex
         border="2px solid red"
         width="100%"
