@@ -1,18 +1,21 @@
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
+import { ChartContainer } from "../SharedComponents/ContentLayouts";
 
 export default function CommuteDaysColumnChart({ title, data }) {
-  // data is of the following form:
-  // data = {
-  //     Mon: 10,
-  //     Tue: 20,
-  //     Wed: 25,
-  //     Thu: 20,
-  //     Fri: 10,
-  //     Sat: 15,
-  //     Sun: 0
-  // };
-  // console.log(JSON.stringify(data, ' ', null));
+  /*
+  data is of the following form:
+  data = {
+      Mon: 10,
+      Tue: 20,
+      Wed: 25,
+      Thu: 20,
+      Fri: 10,
+      Sat: 15,
+      Sun: 0
+  };
+  console.log(JSON.stringify(data, ' ', null));
+  */
 
   const getMax = (a, b) => Math.max(a, b);
   const max = Object.values(data).reduce(getMax);
@@ -50,9 +53,14 @@ export default function CommuteDaysColumnChart({ title, data }) {
       {
         name: "Day",
         data: chartData,
+        pointWidth: 40,
       },
     ],
   };
 
-  return <HighchartsReact highcharts={Highcharts} options={hichartsOpts} />;
+  return (
+    <ChartContainer>
+      <HighchartsReact highcharts={Highcharts} options={hichartsOpts} />
+    </ChartContainer>
+  );
 }

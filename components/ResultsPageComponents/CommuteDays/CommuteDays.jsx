@@ -8,7 +8,7 @@ export default function CommuteDays({ data }) {
     <RightPaddedContent flex={[1, 2]}>
       <Flex direction="column">
         <ResultsHeader3>Travelling to Work Days</ResultsHeader3>
-        <Text fontSize="19px" py="15px">
+        <Text border="1px dashed red" fontSize="19px" py="15px">
           The chart below shows the distribution of staff commute days
           throughout the week.
           <br />

@@ -1,5 +1,6 @@
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
+import { ChartContainer } from "../SharedComponents/ContentLayouts";
 
 export default function CommuteDistanceDistributionChart({ title, data }) {
   const getMax = (a, b) => Math.max(a, b);
@@ -34,10 +35,12 @@ export default function CommuteDistanceDistributionChart({ title, data }) {
         text: "distance",
       },
     },
-    series: [{ name: "Distance", data: chartData }],
+    series: [{ name: "Distance", data: chartData, pointWidth: 40 }],
   };
 
   return (
-    <HighchartsReact highcharts={Highcharts} options={highChartsOptions} />
+    <ChartContainer>
+      <HighchartsReact highcharts={Highcharts} options={highChartsOptions} />
+    </ChartContainer>
   );
 }

@@ -1,4 +1,4 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Center, Flex } from "@chakra-ui/react";
 
 const SectionLayout = (props) => {
   const { flexConfig, children } = props;
@@ -48,4 +48,12 @@ const RightPaddedContent = (props) => {
   );
 };
 
-export { FullWidthContent, RightPaddedContent, SectionLayout };
+const ChartContainer = (props) => {
+  return (
+    <Center w="600px" h="450px" border="1px dashed teal">
+      {props.children}
+    </Center>
+  );
+};
+
+export { ChartContainer, FullWidthContent, RightPaddedContent, SectionLayout };
