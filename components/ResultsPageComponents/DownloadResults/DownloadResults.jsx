@@ -43,30 +43,33 @@ export default function DownloadResults({ calculationLink }) {
             </Text>
           </Flex>
         </Link>
-        <Flex
-          direction="column"
-          background="rgba(221, 221, 229, 0.1)"
-          border="0.613005px solid #DDDDE5"
-          boxShadow="0px 0px 22.5px rgba(35, 47, 78, 0.14)"
-          borderRadius="0px 13.5px 0px 0px"
-          align="center"
-          justify="center"
-          width="180px"
-          _hover={{ bg: "#ebedf0" }}
-        >
-          <DownloadCsv />
-          <Text
-            fontSize="12px"
-            fontFamily="Public Sans"
-            fontWeight={600}
-            textAlign="center"
-            px="29%"
-            lineHeight="13px"
-            color="#044B7F"
+        <Link href="/202207_results/20220711_survey_responses.csv">
+          <Flex
+            direction="column"
+            background="rgba(221, 221, 229, 0.1)"
+            border="0.613005px solid #DDDDE5"
+            boxShadow="0px 0px 22.5px rgba(35, 47, 78, 0.14)"
+            borderRadius="0px 13.5px 0px 0px"
+            align="center"
+            justify="center"
+            width="180px"
+            height="86px"
+            _hover={{ bg: "#ebedf0" }}
           >
-            Downaload survey data
-          </Text>
-        </Flex>
+            <DownloadCsv />
+            <Text
+              fontSize="12px"
+              fontFamily="Public Sans"
+              fontWeight={600}
+              textAlign="center"
+              px="29%"
+              lineHeight="13px"
+              color="#044B7F"
+            >
+              Download survey data
+            </Text>
+          </Flex>
+        </Link>
       </Flex>
       <Flex
         direction="column"
