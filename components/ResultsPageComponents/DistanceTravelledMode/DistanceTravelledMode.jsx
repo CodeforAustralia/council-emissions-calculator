@@ -24,7 +24,7 @@ export default function DistanceTravelledMode({ data }) {
 
       <TravelModes />
 
-      <Text>
+      <Text py="1rem">
         Please use the legend for the breakdowns of the two travel modes we are
         comparing in the graph below.
       </Text>

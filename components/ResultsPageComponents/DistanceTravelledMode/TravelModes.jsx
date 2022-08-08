@@ -12,7 +12,7 @@ function SquareBullet({ boxColour }) {
       mr="5px"
       borderRadius="2px solid #E6EEF3"
       width="17px"
-      height="13px"
+      height="17px"
       background={boxColour}
     ></Box>
   );
@@ -30,6 +30,19 @@ function TravelModeIcon(props) {
   );
 }
 
+const TitleBar = function (props) {
+  const { boxColour, text } = props;
+  return (
+    <Flex pb="0.8rem" direction="row" alignItems="baseline">
+      <SquareBullet boxColour={boxColour} />
+
+      <Text fontWeight={600} fontSize="23px">
+        {text}
+      </Text>
+    </Flex>
+  );
+};
+
 export default function TravelModes() {
   /* CONTAINER FOR INDIVIDUAL METHOD AND ACTIVE/PUBLIC/SHARED/METHOD   */
 
@@ -39,15 +52,12 @@ export default function TravelModes() {
         direction="column"
         width={["100%", "50%"]}
         align={["left", "center"]}
+        pt="1rem"
+        pb="1.2rem"
       >
         {/* row for the sub title */}
-        <Flex direction="row">
-          <SquareBullet boxColour="#D69E2E" />
 
-          <Text fontWeight={600} fontSize="23px">
-            Individual Method
-          </Text>
-        </Flex>
+        <TitleBar boxColour="#D69E2E" text="Individual Method" />
 
         <Flex direction="row">
           <TravelModeIcon text="Car">
@@ -60,14 +70,9 @@ export default function TravelModes() {
       </Flex>
       {/*Active,Public/Shared/Method right column */}
 
-      <Flex direction="column" width={["100%", "50%"]}>
-        <Flex direction="row">
-          <SquareBullet boxColour="#044B7F" />
+      <Flex direction="column" width={["100%", "50%"]} pt="1rem" pb="1.2rem">
+        <TitleBar boxColour="#044B7F" text="Active/Public/Shared Method" />
 
-          <Text fontWeight="600" fontSize="23px">
-            Active/Public/Shared Method
-          </Text>
-        </Flex>
         <Flex direction="row" gap="10px" ml="20px">
           <TravelModeIcon text="Walk/Run/Cycle">
             <WalkingMan />
