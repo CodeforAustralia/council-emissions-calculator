@@ -20,7 +20,7 @@ export default function DownLoadcsv() {
           _hover: { bg: "#ebedf0" },
         }}
       >
-        <CSVLink data="../../public/pdfcsv/fullstackopen - Sheet1.csv">
+        <CSVLink data="../../public/pdfcsv/Sheet1test.csv">
           {" "}
           <DownloadCsv />
         </CSVLink>
