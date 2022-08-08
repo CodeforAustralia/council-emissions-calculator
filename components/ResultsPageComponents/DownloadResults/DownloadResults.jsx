@@ -15,32 +15,35 @@ export default function DownloadResults({ calculationLink }) {
       gap="17px"
     >
       <Flex gap="17px" justify="center" height="86px">
-        <Flex
-          direction="column"
-          background="rgba(221, 221, 229, 0.1)"
-          border="0.613005px solid #DDDDE5"
-          boxShadow="0px 0px 22.5px rgba(35, 47, 78, 0.14)"
-          borderRadius="13.5px 0px 0px 0px"
-          align="center"
-          justify="center"
-          width="180px"
-          _hover={{ bg: "#ebedf0" }}
-        >
-          <Box>
-            <DownloadPdf />
-          </Box>
-          <Text
-            textAlign="center"
-            fontSize="12px"
-            font="Public Sans"
-            fontWeight={600}
-            px="35%"
-            lineHeight="13px"
-            color="#044B7F"
+        <Link href="/202207_results/pdfResultPage.pdf">
+          <Flex
+            direction="column"
+            background="rgba(221, 221, 229, 0.1)"
+            border="0.613005px solid #DDDDE5"
+            boxShadow="0px 0px 22.5px rgba(35, 47, 78, 0.14)"
+            borderRadius="13.5px 0px 0px 0px"
+            align="center"
+            justify="center"
+            width="180px"
+            height="86px"
+            _hover={{ bg: "#ebedf0" }}
           >
-            Download this page
-          </Text>
-        </Flex>
+            <Box>
+              <DownloadPdf />
+            </Box>
+            <Text
+              textAlign="center"
+              fontSize="12px"
+              font="Public Sans"
+              fontWeight={600}
+              px="35%"
+              lineHeight="13px"
+              color="#044B7F"
+            >
+              Download this page
+            </Text>
+          </Flex>
+        </Link>
         <Flex
           direction="column"
           background="rgba(221, 221, 229, 0.1)"

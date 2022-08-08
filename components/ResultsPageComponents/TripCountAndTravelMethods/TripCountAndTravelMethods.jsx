@@ -1,42 +1,7 @@
-import { Text, Flex } from "@chakra-ui/react";
-import PieChart from "./PieChart";
+import { Box, Center, Container, Text, Flex } from "@chakra-ui/react";
+import PieChartComponent from "./PieChartComponent";
 
-export default function TripCountAndTravelMethods() {
-  const dataAboutTrips = [
-    {
-      name: "Bicycle",
-      count: 5,
-    },
-    {
-      name: "Bus",
-      count: 6,
-    },
-    {
-      name: "Carpool",
-      count: 8,
-    },
-    {
-      name: "Motorbike",
-      count: 15,
-    },
-    {
-      name: "Taxi/Share",
-      count: 145,
-    },
-    {
-      name: "Car",
-      count: 12,
-    },
-    {
-      name: "Walk/Run",
-      count: 14,
-    },
-    {
-      name: "Train/tram",
-      count: 149,
-    },
-  ];
-
+export default function TripCountAndTravelMethods({ dataAboutTrips }) {
   const activePublicSharedTravel = dataAboutTrips.filter(
     (method) => method.name !== "Car" && method.name !== "Motorbike"
   );
@@ -58,7 +23,7 @@ export default function TripCountAndTravelMethods() {
   return (
     <Flex
       minWidth="350px"
-      maxWidth="1100px"
+      maxWidth="1500px"
       alignSelf={["center", "start"]}
       align={["center", "flex-start"]}
       flex={[1, 2]}
@@ -80,35 +45,40 @@ export default function TripCountAndTravelMethods() {
           Individual travel show us the total trips for each travel method and
           their breakdown by mode.
         </Text>
-        <Flex direction={["column", "row"]} align="center" gap="15px" py="15px">
-          <Flex
-            width={["90%", "50%"]}
-            boxShadow="0px 0px 36px rgba(35, 47, 78, 0.14)"
-            borderRadius="20px"
-            border="1px solid #DDDDE5"
-            align="center"
-          >
-            <PieChart title="Trip Count" data={sharedVsIndividualData} />
-          </Flex>
-          <Flex direction="column" width={["90%", "50%"]} gap="15px">
+
+        <Flex justify="start">
+          <Box maxWidth="1500px">
             <Flex
-              borderRadius="0px 15px 0px 0px"
-              boxShadow="0px 0px 28px rgba(35, 47, 78, 0.14)"
-              border="1px solid #DDDDE5"
+              direction="row"
+              wrap="wrap"
+              justify="start"
+              gap="15px"
+              py="15px"
             >
-              <PieChart
-                title="Active-public-shared travel"
-                data={activePublicSharedTravel}
+              <PieChartComponent
+                title="Trip Count"
+                data={sharedVsIndividualData}
               />
+
+              <Flex>
+                <Flex
+                  direction="column"
+                  // width={["90%", "50%"]}
+                  gap="15px"
+                >
+                  <PieChartComponent
+                    title="Active-public-shared travel"
+                    data={activePublicSharedTravel}
+                  />
+
+                  <PieChartComponent
+                    title="Individual travel"
+                    data={IndividualTravel}
+                  />
+                </Flex>
+              </Flex>
             </Flex>
-            <Flex
-              borderRadius="0px 0px 15px 0px"
-              boxShadow="0px 0px 28px rgba(35, 47, 78, 0.14)"
-              border="1px solid #DDDDE5"
-            >
-              <PieChart title="Individual travel" data={IndividualTravel} />
-            </Flex>
-          </Flex>
+          </Box>
         </Flex>
       </Flex>
     </Flex>
