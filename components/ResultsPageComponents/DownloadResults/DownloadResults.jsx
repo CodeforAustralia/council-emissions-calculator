@@ -1,6 +1,7 @@
 import { Text, Flex, Button, Box, Link } from "@chakra-ui/react";
 import DownloadPdf from "../../../public/images/download-results-icons/DownloadPdf.svg";
 import DownloadCsv from "../../../public/images/download-results-icons/DownloadCSV.svg";
+import DownLoadCsv from "./DownLoadCsv";
 import Lamp from "../../../public/images/download-results-icons/Lamp.svg";
 import GHGProtocol from "../../../public/images/download-results-icons/GHGProtocol.svg";
 
@@ -51,8 +52,8 @@ export default function DownloadResults({ calculationLink }) {
           width="180px"
           _hover={{ bg: "#ebedf0" }}
         >
-          <DownloadCsv />
-          <Text
+          <DownLoadCsv />
+          {/* <Text
             fontSize="12px"
             fontFamily="Public Sans"
             fontWeight={600}
@@ -62,7 +63,7 @@ export default function DownloadResults({ calculationLink }) {
             color="#044B7F"
           >
             Downaload survey data
-          </Text>
+          </Text> */}
         </Flex>
       </Flex>
       <Flex
@@ -118,7 +119,12 @@ export default function DownloadResults({ calculationLink }) {
             Read how we have calculated and reported your emissions:
           </Text>
           <Link width="40%" href={calculationLink}>
-            <Button variant="outline" width="100%" color="#366F99" height="31px">
+            <Button
+              variant="outline"
+              width="100%"
+              color="#366F99"
+              height="31px"
+            >
               Read
             </Button>
           </Link>
