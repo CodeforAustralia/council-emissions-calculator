@@ -4,7 +4,7 @@ const ResultContentSection = (props) => {
   const { isShaded, children } = props;
   return (
     <Box
-      width="100vw"
+      width="100%"
       py="inherit"
       px="inherit"
       bg={isShaded ? "#FAFAFA" : "inherit"}
