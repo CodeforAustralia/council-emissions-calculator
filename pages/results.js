@@ -1,7 +1,10 @@
-import { Flex, Img, Text } from "@chakra-ui/react";
+import path from "path";
+import { Flex, Img } from "@chakra-ui/react";
 import React from "react";
 import useForm from "../components/FormProvider";
 import Layout from "../components/Layout/Layout";
+import fsPromises from "fs/promises";
+
 import DownloadResults from "../components/ResultsPageComponents/DownloadResults/DownloadResults";
 import SurveyOverview from "../components/ResultsPageComponents/SurveyOverview/SurveyOverview";
 import SurveyIntro from "../components/ResultsPageComponents/SurveyIntro/SurveyIntro";
@@ -11,8 +14,7 @@ import DistanceTravelledMode from "../components/ResultsPageComponents/DistanceT
 import WorkArrangement from "../components/ResultsPageComponents/WorkArrangement/WorkArrangement";
 import CommuteDays from "../components/ResultsPageComponents/CommuteDays/CommuteDays";
 import CommuteDistanceDistribution from "../components/ResultsPageComponents/CommuteDistanceDistribution/CommuteDistanceDistribution";
-import fsPromises from "fs/promises";
-import path from "path";
+import ResultContentSection from "../components/ResultsPageComponents/SharedComponents/ResultContentSection";
 
 export async function getStaticProps() {
   const filePath = path.join(process.cwd(), "data/2022-results.json");
@@ -29,44 +31,48 @@ export async function getStaticProps() {
 export default function Results({ data }) {
   const { answers } = useForm();
   const { km, mainTransportMode, department, incentive } = answers;
-  console.log(data.dataAboutTrips);
   return (
     <Layout isText={true} maxContainerWidth="100%">
-      <Flex
-        px={["5px", "50px"]}
-        width="100%"
-        gap={["40px", "90px"]}
-        wrap="wrap"
-        direction={["column", "row"]}
-        justify="center"
-        align={["center", "flex-start"]}
-      >
-        <SurveyIntro />
-        <DownloadResults calculationLink="/howWeCalculate" />
-      </Flex>
-      <SurveyOverview
-        startDate={data["survey-start-date"]}
-        endDate={data["survey-end-date"]}
-        totalResponses={data["total-number-responses"]}
-        totalDistance={data["total-distance"]}
-        totalEmissions={data["total-co2-emissions-tonnes"]}
-        totalTripCount={data["total-trip-count"]}
-      />
+      <ResultContentSection isShaded={false}>
+        <Flex
+          px={["5px", "50px"]}
+          width="100%"
+          gap={["40px", "90px"]}
+          wrap="wrap"
+          direction={["column", "row"]}
+          justify="center"
+          align={["center", "flex-start"]}
+        >
+          <SurveyIntro />
+          <DownloadResults calculationLink="/howWeCalculate" />
+        </Flex>
+        <SurveyOverview
+          startDate={data["survey-start-date"]}
+          endDate={data["survey-end-date"]}
+          totalResponses={data["total-number-responses"]}
+          totalDistance={data["total-distance"]}
+          totalEmissions={data["total-co2-emissions-tonnes"]}
+          totalTripCount={data["total-trip-count"]}
+        />
+      </ResultContentSection>
+      <ResultContentSection isShaded={true}>
+        <TopThree
+          topThree={data["TopThreeData"]}
+          totalDistance={data["total-distance"]}
+          totalTripCount={data["total-trip-count"]}
+          totalEmissions={data["total-co2-emissions-tonnes"]}
+        />
 
-      <TopThree
-        topThree={data["TopThreeData"]}
-        totalDistance={data["total-distance"]}
-        totalTripCount={data["total-trip-count"]}
-        totalEmissions={data["total-co2-emissions-tonnes"]}
-      />
-
-      <TripCountAndTravelMethods dataAboutTrips={data["dataAboutTrips"]} />
-      <WorkArrangement workMode={data["work-mode"]} />
-      <CommuteDays data={data} />
-      <CommuteDistanceDistribution data={data} />
-      <DistanceTravelledMode
-        data={data["distance-travelled-by-mode"]}
-      />        
+        <TripCountAndTravelMethods dataAboutTrips={data["dataAboutTrips"]} />
+      </ResultContentSection>
+      <ResultContentSection isShaded={false}>
+        <WorkArrangement workMode={data["work-mode"]} />
+        <CommuteDays data={data} />
+      </ResultContentSection>
+      <ResultContentSection isShaded={true}>
+        <CommuteDistanceDistribution data={data} />
+        <DistanceTravelledMode data={data["distance-travelled-by-mode"]} />
+      </ResultContentSection>
       <Flex
         border="2px solid red"
         width="100%"
