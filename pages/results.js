@@ -31,21 +31,22 @@ export async function getStaticProps() {
 export default function Results({ data }) {
   const { answers } = useForm();
   const { km, mainTransportMode, department, incentive } = answers;
-  console.log(data.dataAboutTrips);
   return (
     <Layout isText={true} maxContainerWidth="100%">
-      <Flex
-        px={["5px", "50px"]}
-        width="100%"
-        gap={["40px", "90px"]}
-        wrap="wrap"
-        direction={["column", "row"]}
-        justify="center"
-        align={["center", "flex-start"]}
-      >
-        <SurveyIntro />
-        <DownloadResults calculationLink="/howWeCalculate" />
-      </Flex>
+      <ResultContentSection isShaded={false}>
+        <Flex
+          px={["5px", "50px"]}
+          width="100%"
+          gap={["40px", "90px"]}
+          wrap="wrap"
+          direction={["column", "row"]}
+          justify="center"
+          align={["center", "flex-start"]}
+        >
+          <SurveyIntro />
+          <DownloadResults calculationLink="/howWeCalculate" />
+        </Flex>
+      </ResultContentSection>
       <SurveyOverview
         startDate={data["survey-start-date"]}
         endDate={data["survey-end-date"]}
