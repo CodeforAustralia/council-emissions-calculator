@@ -46,15 +46,15 @@ export default function Results({ data }) {
           <SurveyIntro />
           <DownloadResults calculationLink="/howWeCalculate" />
         </Flex>
+        <SurveyOverview
+          startDate={data["survey-start-date"]}
+          endDate={data["survey-end-date"]}
+          totalResponses={data["total-number-responses"]}
+          totalDistance={data["total-distance"]}
+          totalEmissions={data["total-co2-emissions-tonnes"]}
+          totalTripCount={data["total-trip-count"]}
+        />
       </ResultContentSection>
-      <SurveyOverview
-        startDate={data["survey-start-date"]}
-        endDate={data["survey-end-date"]}
-        totalResponses={data["total-number-responses"]}
-        totalDistance={data["total-distance"]}
-        totalEmissions={data["total-co2-emissions-tonnes"]}
-        totalTripCount={data["total-trip-count"]}
-      />
       <ResultContentSection isShaded={true}>
         <TopThree
           topThree={data["TopThreeData"]}
