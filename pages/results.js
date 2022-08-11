@@ -1,7 +1,10 @@
-import { Flex, Img, Text } from "@chakra-ui/react";
+import path from "path";
+import { Flex, Img } from "@chakra-ui/react";
 import React from "react";
 import useForm from "../components/FormProvider";
 import Layout from "../components/Layout/Layout";
+import fsPromises from "fs/promises";
+
 import DownloadResults from "../components/ResultsPageComponents/DownloadResults/DownloadResults";
 import SurveyOverview from "../components/ResultsPageComponents/SurveyOverview/SurveyOverview";
 import SurveyIntro from "../components/ResultsPageComponents/SurveyIntro/SurveyIntro";
@@ -11,9 +14,7 @@ import DistanceTravelledMode from "../components/ResultsPageComponents/DistanceT
 import WorkArrangement from "../components/ResultsPageComponents/WorkArrangement/WorkArrangement";
 import CommuteDays from "../components/ResultsPageComponents/CommuteDays/CommuteDays";
 import CommuteDistanceDistribution from "../components/ResultsPageComponents/CommuteDistanceDistribution/CommuteDistanceDistribution";
-import fsPromises from "fs/promises";
-import path from "path";
-import { ResultContentSection } from "../components/ResultsPageComponents/SharedComponents/ContentStyles";
+import ResultContentSection from "../components/ResultsPageComponents/SharedComponents/ResultContentSection";
 
 export async function getStaticProps() {
   const filePath = path.join(process.cwd(), "data/2022-results.json");

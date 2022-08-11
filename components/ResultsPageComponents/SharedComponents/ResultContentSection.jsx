@@ -1,7 +1,6 @@
 import { Box } from "@chakra-ui/react";
 
-const ResultContentSection = (props) => {
-  const { isShaded, children } = props;
+export default function ResultContentSection({ isShaded, children }) {
   return (
     <Box
       width="100%"
@@ -12,6 +11,4 @@ const ResultContentSection = (props) => {
       {children}
     </Box>
   );
-};
-
-export { ResultContentSection };
+}
