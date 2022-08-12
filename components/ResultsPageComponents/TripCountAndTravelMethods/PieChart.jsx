@@ -27,6 +27,7 @@ export default function PieChart({ title, data }) {
       pie: {
         allowPointSelect: true,
         cursor: "pointer",
+        size: 200,
         dataLabels: {
           enabled: true,
           format: "<b>{point.name}</b>: {point.percentage:.1f} %",
@@ -36,7 +37,7 @@ export default function PieChart({ title, data }) {
     series: [
       {
         type: "pie",
-        size: 200,
+        // size: 200,
         innerSize: "80%",
         name: "Trip Count",
         colorByPoint: true,

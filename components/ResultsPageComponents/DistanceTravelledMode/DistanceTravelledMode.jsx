@@ -9,11 +9,20 @@ import DistanceTravelledModeChart from "./DistanceTravelledModeChart";
 export default function DistanceTravelledMode({ data }) {
   return (
     <Flex
+      // minWidth="350px"
+      // maxWidth="1100px"
+      // direction="column"
+      // alignSelf={["center", "start"]}
+      // gap={["10px", "20px"]}
+      // px={["10px", "10px"]}
       minWidth="350px"
-      maxWidth="1100px"
+      maxWidth="1500px"
+      align={["center", "start"]}
       direction="column"
       gap={["10px", "20px"]}
-      px={["10px", "10px"]}
+      px={["5px", "50px"]}
+      py={["25px", "50px"]}
+      justify="center"
     >
       <Flex direction="column">
         <Text fontSize="27.65px" fontWeight={600}>

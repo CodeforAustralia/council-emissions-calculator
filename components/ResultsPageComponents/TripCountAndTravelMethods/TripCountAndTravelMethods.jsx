@@ -24,9 +24,7 @@ export default function TripCountAndTravelMethods({ dataAboutTrips }) {
     <Flex
       minWidth="350px"
       maxWidth="1500px"
-      alignSelf={["center", "start"]}
-      align={["center", "flex-start"]}
-      flex={[1, 2]}
+      align={["center", "start"]}
       direction="column"
       gap={["10px", "20px"]}
       px={["5px", "50px"]}
@@ -46,14 +44,16 @@ export default function TripCountAndTravelMethods({ dataAboutTrips }) {
           their breakdown by mode.
         </Text>
 
-        <Flex justify="start">
-          <Box maxWidth="1500px">
+        <Flex justify="center">
+          <Box maxWidth="1500px" align="center">
             <Flex
-              direction="row"
+              direction={["column", "row"]}
               wrap="wrap"
               justify="start"
               gap="15px"
               py="15px"
+              // width="100%"
+              // height="500px"
             >
               <PieChartComponent
                 title="Trip Count"

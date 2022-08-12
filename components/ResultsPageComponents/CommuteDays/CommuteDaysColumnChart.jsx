@@ -1,7 +1,7 @@
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
-export default function CommuteDaysColumnChart({ title, data }) {
+export default function CommuteDaysColumnChart({ title, data, wid, hei }) {
   // data is of the following form:
   // data = {
   //     Mon: 10,
@@ -32,7 +32,19 @@ export default function CommuteDaysColumnChart({ title, data }) {
     },
     chart: {
       type: "column",
+      // width: (6 * wid) / 100,
+      // height: (6 * hei) / 100,
     },
+
+    // responsive: {
+    //   rules: [
+    //     {
+    //       condition: {
+    //         maxWidth: 2000,
+    //       },
+    //     },
+    //   ],
+    // },
     colors: ["#044B7F"],
     tooltip: {
       pointFormat: "{point.y}%",
@@ -46,6 +58,38 @@ export default function CommuteDaysColumnChart({ title, data }) {
         text: "% of staff that commuted",
       },
     },
+    // responsive: {
+    //   rules: [
+    //     {
+    //       condition: {
+    //         maxWidth: 500,
+    //       },
+    //       chartOptions: {
+    //         legend: {
+    //           align: "center",
+    //           verticalAlign: "bottom",
+    //           layout: "horizontal",
+    //         },
+    //         yAxis: {
+    //           labels: {
+    //             align: "centre",
+    //             x: 0,
+    //             y: -20,
+    //           },
+    //           // title: {
+    //           //   text: "Browser market shares at a specific website, 2015",
+    //           // },
+    //         },
+    //         subtitle: {
+    //           text: null,
+    //         },
+    //         credits: {
+    //           enabled: true,
+    //         },
+    //       },
+    //     },
+    //   ],
+    // },
     series: [
       {
         name: "Day",
