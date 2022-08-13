@@ -5,6 +5,8 @@ import Cloud from "../../../public/images/survey-overview-icons/cloud.svg";
 import DottedLine from "../../../public/images/survey-overview-icons/dotted-line.svg";
 import Path from "../../../public/images/survey-overview-icons/path.svg";
 import Respondents from "../../../public/images/survey-overview-icons/respondents.svg";
+import RightPaddedContent from "../SharedComponents/RightPaddedContent";
+// import ResultContentSection from "../SharedComponents/ResultContentSection";
 
 const getMonthName = (month) => {
   switch (month) {
@@ -56,14 +58,7 @@ export default function SurveyOverview({
   console.log(`results: ${JSON.stringify(surveyData)}`);
 
   return (
-    <Flex
-      direction="column"
-      backgroundImage={`url(${Background}) no-repeat`}
-      minWidth="300px"
-      width="75%"
-      alignSelf={["center", "start"]}
-      m="50px"
-    >
+    <RightPaddedContent>
       <Text fontWeight={600} fontSize="35px">
         Overview
       </Text>
@@ -184,6 +179,6 @@ export default function SurveyOverview({
           </Flex>
         </Flex>
       </Flex>
-    </Flex>
+    </RightPaddedContent>
   );
 }

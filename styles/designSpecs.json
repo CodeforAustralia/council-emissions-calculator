@@ -1,0 +1,27 @@
+{
+  "headers": {
+    "header1": {
+      "fontWeight": 600,
+      "fontSize": "47.78px",
+      "letterSpacing": "0.0125em"
+    },
+    "header2": {
+      "fontWeight": 600,
+      "fontSize": "33.18px",
+      "letterSpacing": "0.0125em"
+    },
+    "header3": {
+      "fontWeight": 600,
+      "fontSize": "27.65px",
+      "letterSpacing": "0.0125em"
+    },
+    "header4": {
+      "fontWeight": 600,
+      "fontSize": "23.04px",
+      "letterSpacing": "0.0125em"
+    }
+  },
+  "boxes": {
+    "background": "rgba(240, 240, 240, 0.3)"
+  }
+}

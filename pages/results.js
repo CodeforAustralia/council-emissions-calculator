@@ -5,7 +5,7 @@ import useForm from "../components/FormProvider";
 import Layout from "../components/Layout/Layout";
 import fsPromises from "fs/promises";
 
-import DownloadResults from "../components/ResultsPageComponents/DownloadResults/DownloadResults";
+// import DownloadResults from "../components/ResultsPageComponents/DownloadResults/DownloadResults";
 import SurveyOverview from "../components/ResultsPageComponents/SurveyOverview/SurveyOverview";
 import SurveyIntro from "../components/ResultsPageComponents/SurveyIntro/SurveyIntro";
 import TripCountAndTravelMethods from "../components/ResultsPageComponents/TripCountAndTravelMethods/TripCountAndTravelMethods";
@@ -15,6 +15,7 @@ import WorkArrangement from "../components/ResultsPageComponents/WorkArrangement
 import CommuteDays from "../components/ResultsPageComponents/CommuteDays/CommuteDays";
 import CommuteDistanceDistribution from "../components/ResultsPageComponents/CommuteDistanceDistribution/CommuteDistanceDistribution";
 import ResultContentSection from "../components/ResultsPageComponents/SharedComponents/ResultContentSection";
+// import FullWidthContent from "../components/ResultsPageComponents/SharedComponents/FullWidthContent";
 
 export async function getStaticProps() {
   const filePath = path.join(process.cwd(), "data/2022-results.json");
@@ -33,19 +34,13 @@ export default function Results({ data }) {
   const { km, mainTransportMode, department, incentive } = answers;
   return (
     <Layout isText={true} maxContainerWidth="100%">
+      {/* Work Commute Survey Results + Overview */}
       <ResultContentSection isShaded={false}>
-        <Flex
-          px={["5px", "50px"]}
-          width="100%"
-          gap={["40px", "90px"]}
-          wrap="wrap"
-          direction={["column", "row"]}
-          justify="center"
-          align={["center", "flex-start"]}
-        >
-          <SurveyIntro />
-          <DownloadResults calculationLink="/howWeCalculate" />
-        </Flex>
+        <SurveyIntro />
+      </ResultContentSection>
+
+      {/* Overview */}
+      <ResultContentSection isShaded={false}>
         <SurveyOverview
           startDate={data["survey-start-date"]}
           endDate={data["survey-end-date"]}
@@ -55,6 +50,8 @@ export default function Results({ data }) {
           totalTripCount={data["total-trip-count"]}
         />
       </ResultContentSection>
+
+      {/* Top Three + Trip Count & Travel Methods */}
       <ResultContentSection isShaded={true}>
         <TopThree
           topThree={data["TopThreeData"]}
@@ -62,13 +59,16 @@ export default function Results({ data }) {
           totalTripCount={data["total-trip-count"]}
           totalEmissions={data["total-co2-emissions-tonnes"]}
         />
-
         <TripCountAndTravelMethods dataAboutTrips={data["dataAboutTrips"]} />
       </ResultContentSection>
+
+      {/* Things to note before reading... + Travelling to Work Days */}
       <ResultContentSection isShaded={false}>
         <WorkArrangement workMode={data["work-mode"]} />
         <CommuteDays data={data} />
       </ResultContentSection>
+
+      {/* Distribution of commute distance + Distance travelled by mode... */}
       <ResultContentSection isShaded={true}>
         <CommuteDistanceDistribution data={data} />
         <DistanceTravelledMode data={data["distance-travelled-by-mode"]} />

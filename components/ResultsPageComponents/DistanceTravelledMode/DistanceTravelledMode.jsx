@@ -5,20 +5,18 @@ import Carpool from "../../../public/images/survey-intro-icons/carpool.svg";
 import Motorcycle from "../../../public/images/survey-intro-icons/motorcycle.svg";
 import Train from "../../../public/images/survey-intro-icons/train.svg";
 import DistanceTravelledModeChart from "./DistanceTravelledModeChart";
+import RightPaddedContent from "../SharedComponents/RightPaddedContent";
+import SectionHeader from "../SharedComponents/SectionHeader";
 
 export default function DistanceTravelledMode({ data }) {
   return (
-    <Flex
-      minWidth="350px"
-      maxWidth="1100px"
-      direction="column"
-      gap={["10px", "20px"]}
-      px={["10px", "10px"]}
-    >
+    <RightPaddedContent>
       <Flex direction="column">
-        <Text fontSize="27.65px" fontWeight={600}>
-          Distance travelled by mode of transport
-        </Text>
+        <SectionHeader
+          headerName="header3"
+          text="Distance travelled by mode of transport"
+        />
+
         <Text fontSize="20px">
           This graph(butterfly plot) help us compare the travel modes(individual
           Vs.active/active/public/share)preferred by staff within various
@@ -148,6 +146,6 @@ export default function DistanceTravelledMode({ data }) {
           </Flex>
         </Flex>
       </Flex>
-    </Flex>
+    </RightPaddedContent>
   );
 }
