@@ -1,126 +1,126 @@
 {
-  "survey-start-date": "2022-06-03",
-  "survey-end-date": "2022-06-17",
-  "total-number-responses": 123,
-  "total-trip-count": 100,
-  "total-distance": 12300,
-  "total-co2-emissions-tonnes": 8888,
+  "survey-start-date": "2022-07-12",
+  "survey-end-date": "2022-07-27",
+  "total-number-responses": 162,
+  "total-trip-count": 1068,
+  "total-distance": 13921,
+  "total-co2-emissions-tonnes": 2.91,
   "work-mode": {
-    "onsite": 5,
-    "hybrid": 50,
-    "wfh": 20
+    "onsite": 66,
+    "hybrid": 86,
+    "wfh": 10
   },
   "commute-days-distribution": {
-    "Mon": 15,
-    "Tue": 10,
-    "Wed": 25,
-    "Thu": 20,
-    "Fri": 30,
-    "Sat": 0,
+    "Mon": 17.98,
+    "Tue": 22.28,
+    "Wed": 22.28,
+    "Thu": 21.16,
+    "Fri": 16.10,
+    "Sat": 0.19,
     "Sun": 0
   },
   "TopThreeData": {
     "Distance": [
       {
-        "name": "Train",
-        "count": 652
-      },
-      {
         "name": "Car",
-        "count": 254
+        "count": 11651
       },
       {
-        "name": "Walk",
-        "count": 150
+        "name": "Train/tram",
+        "count": 1020
+      },
+      {
+        "name": "Bicycle",
+        "count": 444
       }
     ],
     "Trip Count": [
       {
-        "name": "Train",
-        "count": 350
-      },
-      {
         "name": "Car",
-        "count": 562
+        "count": 796
       },
       {
-        "name": "Walk",
-        "count": 113
+        "name": "Walk/run",
+        "count": 106
+      },
+      {
+        "name": "Bicycle",
+        "count": 64
       }
     ],
     "Emission": [
       {
-        "name": "Bus",
-        "count": 956
-      },
-      {
         "name": "Car",
-        "count": 123
+        "count": 2.84
       },
       {
-        "name": "Train",
-        "count": 156
+        "name": "Carpool",
+        "count": 0.034
+      },
+      {
+        "name": "Train/tram",
+        "count": 0.030
       }
     ]
   },
   "distance-travelled-by-mode": {
     "individual-methods": {
-      "30km+": 8,
-      "25km": 10,
-      "20km": 40,
-      "15km": 25,
-      "10km": 5,
-      "5km": 6
+      "20km+": 140,
+      "15-20km": 62,
+      "10-15km": 170,
+      "6-10km": 108,
+      "3-6km": 242,
+      "0-3km": 80
     },
     "active-public-shared-methods": {
-      "30km+": 25,
-      "25km": 14,
-      "20km": 19,
-      "15km": 10,
-      "10km": 5,
-      "5km": 6
+      "20km+": 34,
+      "15-20km": 8,
+      "10-15km": 12,
+      "6-10km": 42,
+      "3-6km": 64,
+      "0-3km": 106
     }
   },
   "commute-distance-distribution": {
-    "5": 8,
-    "10": 33,
-    "15": 23,
-    "20": 12,
-    "25": 17,
-    "30": 9
+    "0-3km": 16.45,
+    "3-6km": 27.63,
+    "6-10km": 15.13,
+    "10-15km": 16.45,
+    "15-20km": 6.58,
+    "20km+": 17.76
   },
   "dataAboutTrips": [
     {
       "name": "Bicycle",
-      "count": 5
+      "count": 64
     },
     {
       "name": "Bus",
-      "count": 6
-    },
-    {
-      "name": "Carpool",
       "count": 8
     },
     {
+      "name": "Carpool",
+      "count": 46
+    },
+    {
       "name": "Motorbike",
-      "count": 15
+      "count": 6
     },
     {
       "name": "Taxi/Share",
-      "count": 145
+      "count": 0
     },
     {
       "name": "Car",
-      "count": 12
+      "count": 796
     },
     {
       "name": "Walk/Run",
-      "count": 14
+      "count": 106
     },
     {
       "name": "Train/tram",
-      "count": 149
+      "count": 42
     }
   ]
 }
