@@ -23,7 +23,7 @@ export default function CommuteDistanceDistributionChart({ title, data }) {
     },
     chart: {
       type: "column",
-      width: 635,
+      // width: 635,
       height: 400,
     },
     colors: ["#044B7F"],
@@ -52,8 +52,9 @@ export default function CommuteDistanceDistributionChart({ title, data }) {
   };
 
   return (
-    // <Flex width="100%">
-    <HighchartsReact highcharts={Highcharts} options={highChartsOptions} />
-    // </Flex>
+    // <Box width={["400px", "635px"]}>
+    <Box width="100%">
+      <HighchartsReact highcharts={Highcharts} options={highChartsOptions} />
+    </Box>
   );
 }
