@@ -23,12 +23,11 @@ export default function CommuteDistanceDistributionChart({ title, data }) {
     },
     chart: {
       type: "column",
-      // width: 635,
       height: 400,
     },
     colors: ["#044B7F"],
     tooltip: {
-      pointFormat: "{point.y}%",
+      pointFormat: "{point.y}",
     },
     xAxis: {
       categories: Object.keys(data),
@@ -37,22 +36,20 @@ export default function CommuteDistanceDistributionChart({ title, data }) {
       },
       labels: {
         formatter: function () {
-          return this.value + "KM";
+          return this.value + " km";
         },
       },
     },
     yAxis: {
       min: 0,
-      max: 100,
       title: {
-        text: "%",
+        text: "No. of people",
       },
     },
     series: [{ showInLegend: false, name: "Distance", data: chartData }],
   };
 
   return (
-    // <Box width={["400px", "635px"]}>
     <Box maxWidth="634px" width="100%">
       <HighchartsReact highcharts={Highcharts} options={highChartsOptions} />
     </Box>
