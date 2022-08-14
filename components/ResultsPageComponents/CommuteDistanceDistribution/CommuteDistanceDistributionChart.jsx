@@ -37,7 +37,7 @@ export default function CommuteDistanceDistributionChart({ title, data }) {
       },
       labels: {
         formatter: function () {
-          return this.value + "km";
+          return this.value + "KM";
         },
       },
     },
