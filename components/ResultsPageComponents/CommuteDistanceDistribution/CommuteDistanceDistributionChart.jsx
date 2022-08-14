@@ -53,7 +53,7 @@ export default function CommuteDistanceDistributionChart({ title, data }) {
 
   return (
     // <Box width={["400px", "635px"]}>
-    <Box width="100%">
+    <Box maxWidth="634px" width="100%">
       <HighchartsReact highcharts={Highcharts} options={highChartsOptions} />
     </Box>
   );
