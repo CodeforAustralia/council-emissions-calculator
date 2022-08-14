@@ -20,10 +20,10 @@ export default function CommuteDistanceDistribution({ data }) {
           Distribution of commute distance
         </Text>
         <Text fontSize="19px" py="15px">
-          This graph (histogram) helps us determine the percentagesof staff that
-          travel from within 5, 10, 15, 20, 25 and 30Km+ radius from work. This
-          information is useful to understand the distance staff travel to work,
-          and how they are distributed along those distances.
+          The graph below shows a rough distribution of staff according to the
+          length of their commutes. This information is useful to understand the
+          distances staff travel to work, and how they are distributed along
+          those distances.
         </Text>
         <CommuteDistanceDistributionChart
           title="Distribution of commute distances"
