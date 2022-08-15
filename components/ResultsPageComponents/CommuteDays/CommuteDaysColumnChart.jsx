@@ -2,18 +2,6 @@ import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
 export default function CommuteDaysColumnChart({ title, data }) {
-  // data is of the following form:
-  // data = {
-  //     Mon: 10,
-  //     Tue: 20,
-  //     Wed: 25,
-  //     Thu: 20,
-  //     Fri: 10,
-  //     Sat: 15,
-  //     Sun: 0
-  // };
-  // console.log(JSON.stringify(data, ' ', null));
-
   const getMax = (a, b) => Math.max(a, b);
   const max = Object.values(data).reduce(getMax);
 
@@ -29,9 +17,11 @@ export default function CommuteDaysColumnChart({ title, data }) {
   const hichartsOpts = {
     title: {
       text: title,
+      style: { color: "#022640" },
     },
     chart: {
       type: "column",
+      height: 400,
     },
     colors: ["#044B7F"],
     tooltip: {
@@ -39,15 +29,19 @@ export default function CommuteDaysColumnChart({ title, data }) {
     },
     xAxis: {
       categories: Object.keys(data),
+      title: {
+        text: "Day",
+      },
     },
     yAxis: {
       min: 0,
       title: {
-        text: "% of staff that commuted",
+        text: "% of staff who commuted",
       },
     },
     series: [
       {
+        showInLegend: false,
         name: "Day",
         data: chartData,
       },
