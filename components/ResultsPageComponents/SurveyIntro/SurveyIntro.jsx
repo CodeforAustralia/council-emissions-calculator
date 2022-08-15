@@ -18,27 +18,29 @@ export default function SurveyIntro() {
       <Flex direction="column">
         <Text fontSize={["30px", "50px"]}>Work Commute Survey Results</Text>
         <Text fontSize="20px">
-          City of Greater Bendigo has recently embarked on a challenge to increase
-          the use of active, public, and shared commute methods to 20% or more
-          by 2026.
-          <br/>
+          City of Greater Bendigo has recently embarked on a challenge to
+          increase the use of active, public, and shared commute methods to 20%
+          or more by 2026.
+          <br />
         </Text>
 
         <Text fontSize="20px">
-          <br/>
+          <br />
           In July 2022, Council conducted a survey to establish a baseline for
-          staff commuting habits and associated carbon emissions. This information
-          will enable Council to make more targeted decisions in the future.
-          <br/>
+          staff commuting habits and associated carbon emissions. This
+          information will enable Council to make more targeted decisions in the
+          future.
+          <br />
           This results page is best viewed on desktop. If viewing on mobile, you
           may have to rotate view and scroll sideways to view full content.
-          <br/>
+          <br />
         </Text>
 
         <Text fontSize="20px">
-          <br/>
+          <br />
           <em>This survey is built by the volunteer team at Civic Makers.</em>
-          <br/><br/>
+          <br />
+          <br />
         </Text>
       </Flex>
       <Flex direction="column">
@@ -46,7 +48,7 @@ export default function SurveyIntro() {
           Things to note before reading the results
         </Text>
         <Text fontSize="19px">
-          Travel methods have been grouped into <b>Active-Public-Shared</b>{" "}
+          Travel methods have been grouped into <b>Active/Public/Shared</b>{" "}
           methods and <b>Individual</b> methods:{" "}
         </Text>
       </Flex>
