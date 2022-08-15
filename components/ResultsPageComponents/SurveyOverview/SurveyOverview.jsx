@@ -53,7 +53,6 @@ export default function SurveyOverview({
     totalEmissions: totalEmissions,
     totalTrips: totalTripCount,
   };
-  console.log(`results: ${JSON.stringify(surveyData)}`);
 
   const avgDistancePerTrip = (surveyData.totalDistance / surveyData.totalTrips).toPrecision(2);
   const avgEmissionPerTrip = (surveyData.totalEmissions / surveyData.totalTrips).toPrecision(2);
