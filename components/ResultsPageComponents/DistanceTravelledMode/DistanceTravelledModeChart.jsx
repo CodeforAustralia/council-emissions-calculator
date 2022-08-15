@@ -9,6 +9,9 @@ export default function DistanceTravelledModeChart({ data }) {
     chart: {
       type: "bar",
     },
+    credits: {
+      enabled: false
+    },
     title: {
       text: undefined,
     },
