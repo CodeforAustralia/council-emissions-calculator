@@ -15,7 +15,7 @@ export default function CommuteDistanceDistribution({ data }) {
       py={["25px", "50px"]}
       justify="center"
     >
-      <Flex direction="column">
+      <Flex direction="column" width="100%">
         <Text fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
           Distribution of commute distance
         </Text>

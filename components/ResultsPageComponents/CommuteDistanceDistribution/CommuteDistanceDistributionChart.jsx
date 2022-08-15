@@ -1,9 +1,8 @@
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import { Box, Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 
 export default function CommuteDistanceDistributionChart({ title, data }) {
-  console.log(data);
   const getMax = (a, b) => Math.max(a, b);
   const max = Object.values(data).reduce(getMax);
 
@@ -27,7 +26,7 @@ export default function CommuteDistanceDistributionChart({ title, data }) {
     },
     colors: ["#044B7F"],
     tooltip: {
-      pointFormat: "{point.y}",
+      pointFormat: "{point.y}%",
     },
     xAxis: {
       categories: Object.keys(data),
@@ -43,15 +42,15 @@ export default function CommuteDistanceDistributionChart({ title, data }) {
     yAxis: {
       min: 0,
       title: {
-        text: "No. of people",
+        text: "% of staff who travelled to work",
       },
     },
     series: [{ showInLegend: false, name: "Distance", data: chartData }],
   };
 
   return (
-    <Box maxWidth="634px" width="100%">
+    <Flex direction="column" maxWidth="634px" width="100%">
       <HighchartsReact highcharts={Highcharts} options={highChartsOptions} />
-    </Box>
+    </Flex>
   );
 }
