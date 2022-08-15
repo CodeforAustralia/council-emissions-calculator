@@ -18,11 +18,27 @@ export default function SurveyIntro() {
       <Flex direction="column">
         <Text fontSize={["30px", "50px"]}>Work Commute Survey Results</Text>
         <Text fontSize="20px">
-          The results page provides the outcome from our recent survey. We have
-          recently embarked on our 2026 challenge. We aim to increase the use of
-          Active, Public and Shared commute methods to 20% or more. Currently,
-          we are on our way to meeting the 2026 challenge. With our collective
-          effort, we can improve our impact on the environment.
+          City of Greater Bendigo has recently embarked on a challenge to increase
+          the use of active, public, and shared commute methods to 20% or more
+          by 2026.
+          <br/>
+        </Text>
+
+        <Text fontSize="20px">
+          <br/>
+          In July 2022, Council conducted a survey to establish a baseline for
+          staff commuting habits and associated carbon emissions. This information
+          will enable Council to make more targeted decisions in the future.
+          <br/>
+          This results page is best viewed on desktop. If viewing on mobile, you
+          may have to rotate view and scroll sideways to view full content.
+          <br/>
+        </Text>
+
+        <Text fontSize="20px">
+          <br/>
+          <em>This survey is built by the volunteer team at Civic Makers.</em>
+          <br/><br/>
         </Text>
       </Flex>
       <Flex direction="column">
