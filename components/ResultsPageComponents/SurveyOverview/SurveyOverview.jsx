@@ -83,7 +83,7 @@ export default function SurveyOverview({
         <br />
         Respondents commuted a total distance of {surveyData.totalDistance}km
         and a total emission of {surveyData.totalEmissions}t during one week.
-        This is roughly enough CO2 to fill 4.5 olympic sized swimming pools. The
+        This is roughly enough CO2 to fill 13 Olympic sized swimming pools. The
         average distance is {avgDistancePerTrip}km per trip, with an average of{" "}
         {avgEmissionPerTrip * 1000}kg of emissions per trip.
       </Text>
