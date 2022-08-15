@@ -25,6 +25,9 @@ export default function CommuteDistanceDistributionChart({ title, data }) {
       height: 400,
     },
     colors: ["#044B7F"],
+    credits: {
+      enabled: false
+    },
     tooltip: {
       pointFormat: "{point.y}%",
     },
