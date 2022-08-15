@@ -54,8 +54,12 @@ export default function SurveyOverview({
     totalTrips: totalTripCount,
   };
 
-  const avgDistancePerTrip = (surveyData.totalDistance / surveyData.totalTrips).toPrecision(2);
-  const avgEmissionPerTrip = (surveyData.totalEmissions / surveyData.totalTrips).toPrecision(2);
+  const avgDistancePerTrip = (
+    surveyData.totalDistance / surveyData.totalTrips
+  ).toPrecision(2);
+  const avgEmissionPerTrip = (
+    surveyData.totalEmissions / surveyData.totalTrips
+  ).toPrecision(2);
 
   return (
     <Flex
@@ -79,9 +83,9 @@ export default function SurveyOverview({
         <br />
         Respondents commuted a total distance of {surveyData.totalDistance}km
         and a total emission of {surveyData.totalEmissions}t during one week.
-        This is roughly enough CO2 to fill 4.5 olympic sized swimming pools.
-        The average distance is {avgDistancePerTrip}km per trip, with an average
-        of {avgEmissionPerTrip*1000}kg of emissions per trip.
+        This is roughly enough CO2 to fill 4.5 olympic sized swimming pools. The
+        average distance is {avgDistancePerTrip}km per trip, with an average of{" "}
+        {avgEmissionPerTrip * 1000}kg of emissions per trip.
       </Text>
       <Flex
         borderBottom={["none", "1px solid #D69E2E"]}
