@@ -73,26 +73,6 @@ export default function Results({ data }) {
         <CommuteDistanceDistribution data={data} />
         <DistanceTravelledMode data={data["distance-travelled-by-mode"]} />
       </ResultContentSection>
-      <Flex
-        border="2px solid red"
-        width="100%"
-        p="20px"
-        mt="20px"
-        direction="column"
-      >
-        Transport type usage during work week
-        <Img
-          border="2px solid grey"
-          src="https://user-images.githubusercontent.com/88268603/174800762-b58ec331-79f7-4672-8685-83e49ea91877.png"
-        />
-      </Flex>
-      <Flex width="100%" p="20px" mt="20px" direction="column">
-        Transport type preference during work week
-        <Img
-          border="2px solid grey"
-          src="https://user-images.githubusercontent.com/88268603/174800922-8b09ebb9-f5b6-4b61-a396-50df26fc3229.png"
-        />
-      </Flex>
     </Layout>
   );
 }
