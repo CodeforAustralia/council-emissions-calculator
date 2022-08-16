@@ -6,9 +6,9 @@
   "total-distance": 13921,
   "total-co2-emissions-tonnes": 2.91,
   "work-mode": {
-    "onsite": 66,
-    "hybrid": 86,
-    "wfh": 10
+    "onsite": 41,
+    "hybrid": 53,
+    "wfh": 6
   },
   "commute-days-distribution": {
     "Mon": 17.98,
