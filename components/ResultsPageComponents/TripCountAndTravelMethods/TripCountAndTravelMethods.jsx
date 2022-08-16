@@ -55,6 +55,7 @@ export default function TripCountAndTravelMethods({ dataAboutTrips }) {
               <PieChartComponent
                 title="Trip Count"
                 data={sharedVsIndividualData}
+                colorList={["#044B7F", "#D69E2E"]}
               />
 
               <Flex>
@@ -66,11 +67,13 @@ export default function TripCountAndTravelMethods({ dataAboutTrips }) {
                   <PieChartComponent
                     title="Active-public-shared travel"
                     data={activePublicSharedTravel}
+                    colorList={["#044B7F", "#9BB7CC", "#366F99", "", "#6893B2", "#E6EEF3"]}
                   />
 
                   <PieChartComponent
                     title="Individual travel"
                     data={individualTravel}
+                    colorList={["#9BB7CC", "#044B7F"]}
                   />
                 </Flex>
               </Flex>
