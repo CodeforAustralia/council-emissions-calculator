@@ -35,11 +35,7 @@ export default function howWeCalculate() {
             Work Commute Survey Results / Carbon Emissions Calculating and
             reporting
           </Link>
-          <Text
-            fontWeight={600}
-            fontSize="34px"
-            py={[0, "30px"]}
-          >
+          <Text fontWeight={600} fontSize="34px" py={[0, "30px"]}>
             Carbon Emission Calculation and Reporting
           </Text>
           <TextBlock title="What is this?" anchor="whatIsIt">
@@ -55,15 +51,17 @@ export default function howWeCalculate() {
             We use the responses collected from the two week-long survey on how
             employees travelled to work to estimate how much CO2 is emitted by
             employees’ commutes in one typical work week.
-            <br /><br />
+            <br />
+            <br />
             162 employees responded to the survey, sharing their mode of
             transport, the distance of their commute, and what days they worked
             on site or from home. People who carpooled also told us how many
             passengers were in the car with them.
-            <br /><br />
+            <br />
+            <br />
             Since we only have answers for one week for a portion of employees,
-            we can’t say what the whole council’s emissions would be, but we
-            can better understand commute patterns and the emissions that are
+            we can’t say what the whole council’s emissions would be, but we can
+            better understand commute patterns and the emissions that are
             associated with them.
           </TextBlock>
           <Flex direction="column" width={["100%", "90%"]} py="24px" gap="10px">
@@ -85,19 +83,24 @@ export default function howWeCalculate() {
                 emissions table to calculate the emissions from that travel¹:
               </Text>
               <TableContainer>
-                <Table variant='unstyled'>
+                <Table variant="unstyled">
                   <TableCaption />
                   <Thead>
                     <Tr>
                       <Th>Mode of Transport</Th>
-                      <Th isNumeric>Emissions Factor (kg of CO2 emitted per <br />person km travelled</Th>
+                      <Th isNumeric>
+                        Emissions Factor (kg of CO2 emitted per <br />
+                        person km travelled
+                      </Th>
                     </Tr>
                   </Thead>
                   <Tbody>
-                    <Tr css={{
-                      background: '#60aaa0',
-                      color: 'white'
-                    }}>
+                    <Tr
+                      css={{
+                        background: "#60aaa0",
+                        color: "white",
+                      }}
+                    >
                       <Td>Car</Td>
                       <Td isNumeric>0.244</Td>
                     </Tr>
@@ -105,10 +108,12 @@ export default function howWeCalculate() {
                       <Td>Motorbike</Td>
                       <Td isNumeric>0.12</Td>
                     </Tr>
-                    <Tr css={{
-                      background: '#60aaa0',
-                      color: 'white'
-                    }}>
+                    <Tr
+                      css={{
+                        background: "#60aaa0",
+                        color: "white",
+                      }}
+                    >
                       <Td>Bus</Td>
                       <Td isNumeric>0.018</Td>
                     </Tr>
@@ -116,11 +121,13 @@ export default function howWeCalculate() {
                       <Td>Train/Tram</Td>
                       <Td isNumeric>0.029</Td>
                     </Tr>
-                    <Tr css={{
-                      background: '#60aaa0',
-                      border: '0px',
-                      color: 'white'
-                    }}>
+                    <Tr
+                      css={{
+                        background: "#60aaa0",
+                        border: "0px",
+                        color: "white",
+                      }}
+                    >
                       <Td>Bicycle/Walk/Run</Td>
                       <Td isNumeric>0</Td>
                     </Tr>
@@ -130,7 +137,8 @@ export default function howWeCalculate() {
               <Text>
                 The total emissions caused by each vehicle by each employee
                 during their typical work week is calculated as:
-                <br /><br />
+                <br />
+                <br />
               </Text>
               <Text fontWeight={700} fontSize="16px">
                 T x 2 x N x E / P
@@ -145,10 +153,12 @@ export default function howWeCalculate() {
                 <br />
                 N = number of days travelled by this mode of transport in a week
                 <br />
-                E = the “emissions factor” of that mode of transport (as per the table above)
+                E = the “emissions factor” of that mode of transport (as per the
+                table above)
                 <br />
                 P = the number of people in the car (for carpoolers only)
-                <br /><br />
+                <br />
+                <br />
               </Text>
               <Text fontWeight={700} fontSize="16px">
                 Example 1 – single mode:
@@ -156,11 +166,13 @@ export default function howWeCalculate() {
               <Text>
                 Employee A lives 10km from the office, and travelled by car to
                 work 5 days a week. Their emissions would be:
-                <br /><br />
+                <br />
+                <br />
                 Car = 10 km x 2 ways x 5 days x 0.244 kg/km = 24.4 kg
                 <br />
                 Total emissions = 24.4kg Co2 produced in the week
-                <br /><br />
+                <br />
+                <br />
               </Text>
               <Text fontWeight={700} fontSize="16px">
                 Example 2 – carpool:
@@ -168,11 +180,14 @@ export default function howWeCalculate() {
               <Text>
                 Employee B lives 10km from the office, and travelled by car to
                 work 5 days a week, with 1 other person in the car.
-                <br /><br />
-                Car = 10 km x 2 way x 5 days x 0.244 kg/km / 2 passengers = 12.2 kg
+                <br />
+                <br />
+                Car = 10 km x 2 way x 5 days x 0.244 kg/km / 2 passengers = 12.2
+                kg
                 <br />
                 Total emissions = 12.2 kg Co2 produced in the week
-                <br /><br />
+                <br />
+                <br />
               </Text>
               <Text fontWeight={700} fontSize="16px">
                 Example 3 – mixed mode:
@@ -180,13 +195,15 @@ export default function howWeCalculate() {
               <Text>
                 Employee C lives 20km from the office, and travelled by train 2
                 days/week, and by car 1 day/week.
-                <br /><br />
+                <br />
+                <br />
                 Train/tram = 20 km x 2 ways x 2 days x 0.029 kg/km = 2.32 kg
                 <br />
                 Car = 20 km x 2 ways x 1 day x 0.15 kg/km = 9.76 kg
                 <br />
                 Total emissions = 12.08kg Co2 produced in the week
-                <br /><br />
+                <br />
+                <br />
               </Text>
             </Flex>
             <Flex>
@@ -234,8 +251,8 @@ export default function howWeCalculate() {
             >
               Code for Australia
             </Link>
-            , an organisation that builds tech stuff that matters
-            for all levels of government.
+            , an organisation that builds tech stuff that matters for all levels
+            of government.
           </TextBlock>
           <TextBlock
             title="Why did we make this calculator?"
