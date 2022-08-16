@@ -34,6 +34,9 @@ export default function CommuteDaysColumnChart({ title, data }) {
       type: "column",
     },
     colors: ["#044B7F"],
+    credits: {
+      enabled: false
+    },
     tooltip: {
       pointFormat: "{point.y}%",
     },

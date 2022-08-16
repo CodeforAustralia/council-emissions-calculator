@@ -53,7 +53,9 @@ export default function SurveyOverview({
     totalEmissions: totalEmissions,
     totalTrips: totalTripCount,
   };
-  console.log(`results: ${JSON.stringify(surveyData)}`);
+
+  const avgDistancePerTrip = (surveyData.totalDistance / surveyData.totalTrips).toPrecision(2);
+  const avgEmissionPerTrip = (surveyData.totalEmissions / surveyData.totalTrips).toPrecision(2);
 
   return (
     <Flex
@@ -143,7 +145,7 @@ export default function SurveyOverview({
                 Average distance per trip
               </Text>
               <Text fontSize="18px" color="#03385F" lineHeight={1}>
-                {surveyData.totalDistance / surveyData.totalTrips} km
+                {avgDistancePerTrip} km
               </Text>
             </Flex>
           </Flex>
@@ -178,7 +180,7 @@ export default function SurveyOverview({
                 Average emissions per trip
               </Text>
               <Text fontSize="18px" color="#03385F" lineHeight={1}>
-                {surveyData.totalEmissions / surveyData.totalTrips} t
+                {avgEmissionPerTrip} t
               </Text>
             </Flex>
           </Flex>

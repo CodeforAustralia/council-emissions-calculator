@@ -123,6 +123,9 @@ export default function TopThreeBarChart({
       height: 250,
     },
     color: "#044B7F",
+    credits: {
+      enabled: false
+    },
     title: {
       text: title,
     },
