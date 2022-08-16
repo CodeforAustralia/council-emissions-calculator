@@ -24,6 +24,7 @@ export default function howWeCalculate() {
         px={["10px", "50px"]}
         py="48px"
         gap="50px"
+        width="100%"
       >
         <Flex width={["100%", "70%"]} direction="column">
           <Link
