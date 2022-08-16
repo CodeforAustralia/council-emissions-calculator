@@ -67,7 +67,14 @@ export default function TripCountAndTravelMethods({ dataAboutTrips }) {
                   <PieChartComponent
                     title="Active-public-shared travel"
                     data={activePublicSharedTravel}
-                    colorList={["#044B7F", "#9BB7CC", "#366F99", "", "#6893B2", "#E6EEF3"]}
+                    colorList={[
+                      "#044B7F",
+                      "#9BB7CC",
+                      "#366F99",
+                      "",
+                      "#6893B2",
+                      "#E6EEF3",
+                    ]}
                   />
 
                   <PieChartComponent
