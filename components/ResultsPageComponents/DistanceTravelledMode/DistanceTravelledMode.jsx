@@ -71,7 +71,7 @@ export default function DistanceTravelledMode({ data }) {
         {/*Active,Public/Shared/Method right column */}
 
         <Flex direction="column" width={["100%", "50%"]}>
-          <Flex direction="row" alignItems={"flex-start"} my="5px">
+          <Flex direction="row" align="flex-start" my="5px">
             <Flex>
               <Box
                 mt="8px"
