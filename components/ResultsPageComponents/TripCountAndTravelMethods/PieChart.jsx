@@ -15,6 +15,9 @@ export default function PieChart({ title, data }) {
       plotShadow: false,
       type: "pie",
     },
+    credits: {
+      enabled: false
+    },
     tooltip: {
       pointFormat: "{series.name}: <b>{point.y}</b>",
     },
