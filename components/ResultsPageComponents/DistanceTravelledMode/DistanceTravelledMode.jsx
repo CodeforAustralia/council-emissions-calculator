@@ -27,21 +27,21 @@ export default function DistanceTravelledMode({ data }) {
       </Flex>
 
       {/* CONTAINER FOR INDIVIDUAL METHOD AND ACTIVE/PUBLIC/SHARED/METHOD   */}
-      <Flex direction={["column", "row"]} width="100%">
+      <Flex direction={["column", "row"]} width="100%" my="15px">
         <Flex
           direction="column"
           width={["100%", "50%"]}
           align={["left", "center"]}
+          justifyContent="space-between"
         >
           {/* row for the sub title */}
-          <Flex direction="row">
+          <Flex direction="row" align="center" my="5px">
             <Flex>
               <Box
-                mt="12px"
                 mr="5px"
                 borderRadius="2px solid #E6EEF3"
                 width="17px"
-                height="13px"
+                height="17px"
                 background="#D69E2E"
               ></Box>
             </Flex>
@@ -54,14 +54,14 @@ export default function DistanceTravelledMode({ data }) {
 
           <Flex direction="row">
             <Flex direction="column" width="100px" align="center">
-              <Flex justify="center" align="center" width="40px" height="30px">
+              <Flex justify="center" align="center" width="40px" height="40px">
                 <Car />
               </Flex>
               <Text color="#044B7F">Car</Text>
             </Flex>
 
             <Flex direction="column" width="100px" align="center">
-              <Flex justify="center" align="center" width="40px" height="30px">
+              <Flex justify="center" align="center" width="40px" height="40px">
                 <Motorcycle />
               </Flex>
               <Text color="#044B7F">Motorbike</Text>
@@ -71,14 +71,14 @@ export default function DistanceTravelledMode({ data }) {
         {/*Active,Public/Shared/Method right column */}
 
         <Flex direction="column" width={["100%", "50%"]}>
-          <Flex direction="row">
+          <Flex direction="row" align="flex-start" my="5px">
             <Flex>
               <Box
-                mt="12px"
+                mt="8px"
                 mr="5px"
                 borderRadius="2px solid #E6EEF3"
                 width="17px"
-                height="13px"
+                height="17px"
                 background="#044B7F"
               ></Box>
             </Flex>
@@ -97,7 +97,7 @@ export default function DistanceTravelledMode({ data }) {
                 justify="center"
                 align="center"
                 width="40px"
-                height="30px"
+                height="40px"
                 color="#044B7F"
               >
                 <WalkingMan />
@@ -109,7 +109,7 @@ export default function DistanceTravelledMode({ data }) {
 
             {/* Bus/Train*/}
             <Flex direction="column" width="100px" align="center">
-              <Flex justify="center" align="center" width="40px" height="30px">
+              <Flex justify="center" align="center" width="40px" height="40px">
                 <Train />
               </Flex>
               <Text color="#044B7F">Bus/Train</Text>
@@ -117,7 +117,7 @@ export default function DistanceTravelledMode({ data }) {
 
             {/* taxi/carpool  */}
             <Flex direction="column" width="100px" align="center">
-              <Flex justify="center" align="center" width="40px" height="30px">
+              <Flex justify="center" align="center" width="40px" height="40px">
                 <Carpool />
               </Flex>
               <Text color="#044B7F">Taxi/Carpool</Text>
