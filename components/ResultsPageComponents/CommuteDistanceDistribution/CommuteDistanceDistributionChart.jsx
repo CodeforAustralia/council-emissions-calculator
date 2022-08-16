@@ -26,7 +26,7 @@ export default function CommuteDistanceDistributionChart({ title, data }) {
     },
     colors: ["#044B7F"],
     credits: {
-      enabled: false
+      enabled: false,
     },
     tooltip: {
       pointFormat: "{point.y}%",
@@ -38,7 +38,7 @@ export default function CommuteDistanceDistributionChart({ title, data }) {
       },
       labels: {
         formatter: function () {
-          return this.value + " km";
+          return this.value;
         },
       },
     },
