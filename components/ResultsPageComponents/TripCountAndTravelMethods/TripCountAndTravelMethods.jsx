@@ -5,18 +5,18 @@ export default function TripCountAndTravelMethods({ dataAboutTrips }) {
   const activePublicSharedTravel = dataAboutTrips.filter(
     (method) => method.name !== "Car" && method.name !== "Motorbike"
   );
-  const IndividualTravel = dataAboutTrips.filter(
+  const individualTravel = dataAboutTrips.filter(
     (method) => method.name === "Car" || method.name === "Motorbike"
   );
 
   const sharedVsIndividualData = [
     {
       name: "Individual",
-      count: IndividualTravel.reduce((a, b) => a + b.count, 0),
+      count: individualTravel.reduce((a, b) => a + b.count, 0),
     },
     {
       name: "Active-Public-Shared",
-      count: dataAboutTrips.reduce((a, b) => a + b.count, 0),
+      count: activePublicSharedTravel.reduce((a, b) => a + b.count, 0),
     },
   ];
 
@@ -73,7 +73,7 @@ export default function TripCountAndTravelMethods({ dataAboutTrips }) {
 
                   <PieChartComponent
                     title="Individual travel"
-                    data={IndividualTravel}
+                    data={individualTravel}
                   />
                 </Flex>
               </Flex>
