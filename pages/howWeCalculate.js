@@ -1,17 +1,20 @@
 import {
   Flex,
-  Text,
-  UnorderedList,
-  ListItem,
   Link,
-  Icon,
+  ListItem,
+  Table,
+  TableCaption,
+  TableContainer,
+  Tbody,
+  Td,
+  Text,
+  Thead,
+  Tr,
+  Th,
+  UnorderedList,
 } from "@chakra-ui/react";
 import Layout from "../components/Layout/Layout";
 import TextBlock from "../components/TextBlock/TextBlock";
-import Sigma from "../public/images/how-we-calculate/sigma.svg";
-import Formula1 from "../public/images/how-we-calculate/formula-1.svg";
-import Formula2 from "../public/images/how-we-calculate/formula-2.svg";
-import Formula3 from "../public/images/how-we-calculate/formula-3.svg";
 
 export default function howWeCalculate() {
   return (
@@ -36,7 +39,6 @@ export default function howWeCalculate() {
             fontWeight={600}
             fontSize="34px"
             py={[0, "30px"]}
-            textShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
           >
             Carbon Emission Calculation and Reporting
           </Text>
@@ -50,21 +52,19 @@ export default function howWeCalculate() {
             methods to 20% or more.
           </TextBlock>
           <TextBlock title="How does it work?" anchor="howItWorks">
-            The calculator uses inputs from the staff survey, taking into
-            account commute distance and transport modes. It plugs those numbers
-            into this formula from the{" "}
-            <Link
-              color="#044B7F"
-              textDecoration="underline"
-              textUnderlineOffset="3px"
-              fontWeight={700}
-              href="https://ghgprotocol.org"
-            >
-              Greenhouse Gas Protocol
-            </Link>{" "}
-            that calculates the CO2e emissions from employee travel. The results
-            report provides details on the calculations and emissions factors
-            used.
+            We use the responses collected from the two week-long survey on how
+            employees travelled to work to estimate how much CO2 is emitted by
+            employees’ commutes in one typical work week.
+            <br /><br />
+            162 employees responded to the survey, sharing their mode of
+            transport, the distance of their commute, and what days they worked
+            on site or from home. People who carpooled also told us how many
+            passengers were in the car with them.
+            <br /><br />
+            Since we only have answers for one week for a portion of employees,
+            we can’t say what the whole council’s emissions would be, but we
+            can better understand commute patterns and the emissions that are
+            associated with them.
           </TextBlock>
           <Flex direction="column" width={["100%", "90%"]} py="24px" gap="10px">
             <Flex justify="center" background="#60AAA0">
@@ -79,67 +79,120 @@ export default function howWeCalculate() {
               p="20px"
               gap="10px"
             >
+              <Text fontSize="16px">
+                To calculate each employee’s commute emissions, we looked at how
+                far they travelled by each mode of transport, and used this
+                emissions table to calculate the emissions from that travel¹:
+              </Text>
+              <TableContainer>
+                <Table variant='unstyled'>
+                  <TableCaption />
+                  <Thead>
+                    <Tr>
+                      <Th>Mode of Transport</Th>
+                      <Th isNumeric>Emissions Factor (kg of CO2 emitted per <br />person km travelled</Th>
+                    </Tr>
+                  </Thead>
+                  <Tbody>
+                    <Tr css={{
+                      background: '#60aaa0',
+                      color: 'white'
+                    }}>
+                      <Td>Car</Td>
+                      <Td isNumeric>0.244</Td>
+                    </Tr>
+                    <Tr>
+                      <Td>Motorbike</Td>
+                      <Td isNumeric>0.12</Td>
+                    </Tr>
+                    <Tr css={{
+                      background: '#60aaa0',
+                      color: 'white'
+                    }}>
+                      <Td>Bus</Td>
+                      <Td isNumeric>0.018</Td>
+                    </Tr>
+                    <Tr>
+                      <Td>Train/Tram</Td>
+                      <Td isNumeric>0.029</Td>
+                    </Tr>
+                    <Tr css={{
+                      background: '#60aaa0',
+                      border: '0px',
+                      color: 'white'
+                    }}>
+                      <Td>Bicycle/Walk/Run</Td>
+                      <Td isNumeric>0</Td>
+                    </Tr>
+                  </Tbody>
+                </Table>
+              </TableContainer>
+              <Text>
+                The total emissions caused by each vehicle by each employee
+                during their typical work week is calculated as:
+                <br /><br />
+              </Text>
               <Text fontWeight={700} fontSize="16px">
-                first, sum across all employees to determine total distance
-                travelled using each vehicle type:
+                T x 2 x N x E / P
               </Text>
-              <Formula1 alt="d = ∑(t x 2 x w)" />
               <Text>
+                <br />
                 where:
                 <br />
-                d = total distance travelled by vehicle type (vehicle-km or
-                passenger-km)
+                T = daily one-way distance between home and work (km)
                 <br />
-                t = daily one-way distance between home and work (km)
+                2 = multiplies T to capture the return trip to home from work
                 <br />
-                w = number of commuting days per year
+                N = number of days travelled by this mode of transport in a week
                 <br />
-                total distance travelled by vehicle type (vehicle-km or
-                passenger-km) = <Icon as={Sigma} alt="sigma" /> (daily one-way
-                distance between home and work (km) {"\u2715"} 2 {"\u2715"}{" "}
-                number of commuting days per year)
+                E = the “emissions factor” of that mode of transport (as per the table above)
+                <br />
+                P = the number of people in the car (for carpoolers only)
+                <br /><br />
               </Text>
               <Text fontWeight={700} fontSize="16px">
-                then, sum across vehicle types to determine total emissions:
+                Example 1 – single mode:
               </Text>
-              <Formula2 alt="C = ∑(d x e)" />
               <Text>
-                where:
+                Employee A lives 10km from the office, and travelled by car to
+                work 5 days a week. Their emissions would be:
+                <br /><br />
+                Car = 10 km x 2 ways x 5 days x 0.244 kg/km = 24.4 kg
                 <br />
-                C = kg CO2 e from employee commuting
-                <br />
-                d = total distance travelled by vehicle type (vehicle-km or
-                passenger-km)
-                <br />
-                e = kg CO2 e/vehicle-km or kg CO2 e/passenger-km
-                <br />
-                kg CO2 e from employee commuting ={" "}
-                <Icon as={Sigma} alt="sigma" />
-                (total distance travelled by vehicle type (vehicle-km or
-                passenger-km) {"\u2715"} vehicle specific emission factor (kg
-                CO2 e/vehicle-km or kg CO2 e/passenger-km))
-                <br />
+                Total emissions = 24.4kg Co2 produced in the week
+                <br /><br />
               </Text>
-              <Text fontSize="23px" fontWeight={700}>+</Text>
-              <Text>
-                <b>(optionally) for each energy source used in teleworking:{" "}
-                <Icon as={Sigma} alt="sigma" />
-                (quantities of energy consumed (kWh) {"\u2715"} emission
-                factor for energy source (kg CO2 e/kWh))</b>
+              <Text fontWeight={700} fontSize="16px">
+                Example 2 – carpool:
               </Text>
-              <Formula3 alt="∑ (q x f)" />
               <Text>
-                where:
+                Employee B lives 10km from the office, and travelled by car to
+                work 5 days a week, with 1 other person in the car.
+                <br /><br />
+                Car = 10 km x 2 way x 5 days x 0.244 kg/km / 2 passengers = 12.2 kg
                 <br />
-                q = quantities of energy consumed (kWh)
+                Total emissions = 12.2 kg Co2 produced in the week
+                <br /><br />
+              </Text>
+              <Text fontWeight={700} fontSize="16px">
+                Example 3 – mixed mode:
+              </Text>
+              <Text>
+                Employee C lives 20km from the office, and travelled by train 2
+                days/week, and by car 1 day/week.
+                <br /><br />
+                Train/tram = 20 km x 2 ways x 2 days x 0.029 kg/km = 2.32 kg
                 <br />
-                f = emission factor for energy source (kg CO2 e/kWh)                
+                Car = 20 km x 2 ways x 1 day x 0.15 kg/km = 9.76 kg
+                <br />
+                Total emissions = 12.08kg Co2 produced in the week
+                <br /><br />
               </Text>
             </Flex>
             <Flex>
               <Text fontSize="13px" fontStyle="italic">
                 {
-                  "Reference: Calculation formula [7.1] Distance-based method, Technical Guidance for Calculating Scope 3 Emissions, accessed 8th July 2022<https://ghgprotocol.org/sites/default/files/standards_supporting/Chapter7.pdf>"
+                  "¹ 2018. Transport Strategy Refresh: Transport, Greenhouse Gas Emissions and Air Quality. [ebook] Melbourne: City of Melbourne, p.4. Available at: <https://s3.ap-southeast-2.amazonaws.com/hdp.au.prod.app.com-participate.files/6615/2948/1938/Transport_Strategy_Refresh__Zero_Net_Emissions_Strategy_-_Greenhouse_Gas_Emissions_and_Air_Quality.pdf> [Accessed 11 August 2022]."
                 }
               </Text>
             </Flex>
