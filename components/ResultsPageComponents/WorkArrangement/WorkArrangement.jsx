@@ -34,13 +34,11 @@ export default function WorkArrangement({ workMode }) {
     >
       <Flex direction="column">
         <Text fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
-          Things to note before reading the results
+          Work Arrangement
         </Text>
         <Text fontSize="19px" py="15px">
-          The infographics below illustrate responders’ working arrangement
-          across the week. This information helps identify the percentage of
-          staff commuting to work in regular (on-site) and intermittent (hybrid)
-          patterns.
+          The information below illustrates respondents’ working arrangements
+          across the week and helps identify staff commuting habits.
         </Text>
         <Flex direction={["column", "row"]} align={["center", "flex-end"]}>
           <Flex width="30%" direction="column" py="20px">
