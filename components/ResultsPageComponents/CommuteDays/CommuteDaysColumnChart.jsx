@@ -1,5 +1,6 @@
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
+import { Flex } from "@chakra-ui/react";
 
 export default function CommuteDaysColumnChart({ title, data }) {
   const getMax = (a, b) => Math.max(a, b);
@@ -48,5 +49,9 @@ export default function CommuteDaysColumnChart({ title, data }) {
     ],
   };
 
-  return <HighchartsReact highcharts={Highcharts} options={hichartsOpts} />;
+  return (
+    <Flex direction="column" maxWidth="634px" width="100%">
+      <HighchartsReact highcharts={Highcharts} options={hichartsOpts} />
+    </Flex>
+  );
 }
