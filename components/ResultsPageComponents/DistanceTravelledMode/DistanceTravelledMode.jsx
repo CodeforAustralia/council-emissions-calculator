@@ -35,7 +35,7 @@ export default function DistanceTravelledMode({ data }) {
           justifyContent="space-between"
         >
           {/* row for the sub title */}
-          <Flex direction="row" alignItems={"center"} my="5px">
+          <Flex direction="row" align="center" my="5px">
             <Flex>
               <Box
                 mr="5px"
