@@ -76,7 +76,7 @@ export default function TopThreeBarChart({
           break;
 
         case "Emission":
-          return "T";
+          return "t";
           break;
 
           break;
