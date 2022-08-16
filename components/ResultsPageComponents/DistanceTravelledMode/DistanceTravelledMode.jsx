@@ -6,50 +6,6 @@ import Motorcycle from "../../../public/images/survey-intro-icons/motorcycle.svg
 import Train from "../../../public/images/survey-intro-icons/train.svg";
 import DistanceTravelledModeChart from "./DistanceTravelledModeChart";
 
-function SquareBullet({ boxColour }) {
-  return (
-    <Box
-      mx="10px"
-      borderRadius="2px solid #E6EEF3"
-      width="17px"
-      height="17px"
-      background={boxColour}
-    ></Box>
-  );
-}
-
-function TravelModeIcon({ children, text }) {
-  return (
-    <Flex direction="column" width="105px" align="center">
-      <Flex justify="center" align="center" width="40px" height="40px">
-        {children}
-      </Flex>
-      <Text py="5px" color="#044B7F">
-        {text}
-      </Text>
-    </Flex>
-  );
-}
-
-function TitleBar({ boxColour, text }) {
-  return (
-    <Flex
-      pb="14px"
-      direction="row"
-      alignItems="center"
-      wrap={"wrap"}
-      justify="center"
-      gap="3px"
-    >
-      <SquareBullet boxColour={boxColour} />
-
-      <Text fontWeight={600} fontSize="23px" align={"center"} noOfLines={[1]}>
-        {text}
-      </Text>
-    </Flex>
-  );
-}
-
 export default function DistanceTravelledMode({ data }) {
   return (
     <Flex
@@ -70,52 +26,102 @@ export default function DistanceTravelledMode({ data }) {
         </Text>
       </Flex>
 
-      <Flex
-        direction={["column", "row"]}
-        width="100%"
-        alignItems={"center"}
-        justifyContent="center"
-        gap={["10px", "20px"]}
-      >
+      {/* CONTAINER FOR INDIVIDUAL METHOD AND ACTIVE/PUBLIC/SHARED/METHOD   */}
+      <Flex direction={["column", "row"]} width="100%" my="15px">
         <Flex
           direction="column"
-          width={["100%", "250px"]}
-          minWidth="230px"
-          align="center"
-          justify="space-between"
-          pt="1rem"
-          pb="1.2rem"
+          width={["100%", "50%"]}
+          align={["left", "center"]}
+          justifyContent="space-between"
         >
-          {/* Individual Method - left column */}
-          <TitleBar boxColour="#D69E2E" text="Individual Method" />
+          {/* row for the sub title */}
+          <Flex direction="row" alignItems={"center"} my="5px">
+            <Flex>
+              <Box
+                mr="5px"
+                borderRadius="2px solid #E6EEF3"
+                width="17px"
+                height="17px"
+                background="#D69E2E"
+              ></Box>
+            </Flex>
+            <Flex>
+              <Text fontWeight={600} fontSize="23px">
+                Individual Method
+              </Text>
+            </Flex>
+          </Flex>
+
           <Flex direction="row">
-            <TravelModeIcon text="Car">
-              <Car />
-            </TravelModeIcon>
-            <TravelModeIcon text="Motorcycle">
-              <Motorcycle />
-            </TravelModeIcon>
+            <Flex direction="column" width="100px" align="center">
+              <Flex justify="center" align="center" width="40px" height="40px">
+                <Car />
+              </Flex>
+              <Text color="#044B7F">Car</Text>
+            </Flex>
+
+            <Flex direction="column" width="100px" align="center">
+              <Flex justify="center" align="center" width="40px" height="40px">
+                <Motorcycle />
+              </Flex>
+              <Text color="#044B7F">Motorbike</Text>
+            </Flex>
           </Flex>
         </Flex>
-        {/* Active,Public/Shared Method - right column */}
-        <Flex
-          direction="column"
-          width={["100%", "380px"]}
-          align="center"
-          pt="1rem"
-          pb="1.2rem"
-        >
-          <TitleBar boxColour="#044B7F" text="Active/Public/Shared Method" />
+        {/*Active,Public/Shared/Method right column */}
+
+        <Flex direction="column" width={["100%", "50%"]}>
+          <Flex direction="row" alignItems={"flex-start"} my="5px">
+            <Flex>
+              <Box
+                mt="8px"
+                mr="5px"
+                borderRadius="2px solid #E6EEF3"
+                width="17px"
+                height="17px"
+                background="#044B7F"
+              ></Box>
+            </Flex>
+            <Flex>
+              <Text fontWeight="600" fontSize="23px">
+                Active/Public/Shared Method
+              </Text>
+            </Flex>
+          </Flex>
+
+          {/* WALK/BUS/CARPOOL IN A ROW */}
           <Flex direction="row" gap="10px" ml="20px">
-            <TravelModeIcon text="Walk/Run/Cycle">
-              <WalkingMan />
-            </TravelModeIcon>
-            <TravelModeIcon text="Bus/Train">
-              <Train />
-            </TravelModeIcon>
-            <TravelModeIcon text="Taxi/Carpool">
-              <Carpool />
-            </TravelModeIcon>
+            {/* Walk/Run/Cycle */}
+            <Flex direction="column" width="100px" align="center">
+              <Flex
+                justify="center"
+                align="center"
+                width="40px"
+                height="40px"
+                color="#044B7F"
+              >
+                <WalkingMan />
+              </Flex>
+              <Text textAlign="center" width="150px" color="#044B7F">
+                Walk/Run/Cycle
+              </Text>
+            </Flex>
+
+            {/* Bus/Train*/}
+            <Flex direction="column" width="100px" align="center">
+              <Flex justify="center" align="center" width="40px" height="40px">
+                <Train />
+              </Flex>
+              <Text color="#044B7F">Bus/Train</Text>
+            </Flex>
+
+            {/* taxi/carpool  */}
+            <Flex direction="column" width="100px" align="center">
+              <Flex justify="center" align="center" width="40px" height="40px">
+                <Carpool />
+              </Flex>
+              <Text color="#044B7F">Taxi/Carpool</Text>
+            </Flex>
           </Flex>
         </Flex>
       </Flex>
