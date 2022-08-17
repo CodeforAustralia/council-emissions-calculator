@@ -5,6 +5,7 @@ import Cloud from "../../../public/images/survey-overview-icons/cloud.svg";
 import DottedLine from "../../../public/images/survey-overview-icons/dotted-line.svg";
 import Path from "../../../public/images/survey-overview-icons/path.svg";
 import Respondents from "../../../public/images/survey-overview-icons/respondents.svg";
+import { formatCommaSeparators } from "../../../utils/mathUtils";
 
 const getMonthName = (month) => {
   switch (month) {
@@ -81,11 +82,13 @@ export default function SurveyOverview({
 
       <Text fontWeight={400} fontSize="20px">
         <br />
-        Respondents commuted a total distance of {surveyData.totalDistance}km
-        and a total emission of {surveyData.totalEmissions}t during one week.
-        This is roughly enough CO2 to fill 13 Olympic sized swimming pools. The
-        average distance is {avgDistancePerTrip}km per trip, with an average of{" "}
-        {avgEmissionPerTrip * 1000}kg of emissions per trip.
+        Respondents commuted a total distance of{" "}
+        {formatCommaSeparators(surveyData.totalDistance)} km and a total
+        emission of {surveyData.totalEmissions} t during one week. This is
+        roughly enough CO<Text as="sub">2</Text> to fill 13 Olympic sized
+        swimming pools. The average distance is {avgDistancePerTrip} km per
+        trip, with an average of {avgEmissionPerTrip * 1000} kg of emissions per
+        trip.
       </Text>
       <Flex
         borderBottom={["none", "1px solid #D69E2E"]}
