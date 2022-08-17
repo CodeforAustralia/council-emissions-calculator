@@ -75,7 +75,7 @@ export default function SurveyOverview({
         Overview
       </Text>
       <Text fontWeight={400} fontSize="20px">
-        The Work Commute survey was conducted on 13 to 29 July 2022 and recorded
+        The Work Commute survey was conducted on 12 to 29 July 2022 and recorded
         responses from 162 people. The results provide a snapshot of how staff
         travel to and from work, in the week before the survey.
         <br />
