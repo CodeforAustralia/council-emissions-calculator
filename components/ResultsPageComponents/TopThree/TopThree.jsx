@@ -26,7 +26,11 @@ export default function TopThree({
     >
       <Flex direction="column">
         <Text fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
-          Top Three
+          Top Three Travel Methods
+        </Text>
+        <Text fontSize="19px" py="15px">
+          The following three charts illustrates the top three travel methods by
+          Distance, Trip Count and Emissions.
         </Text>
         <Flex direction={["column", "row"]} gap="20px" flexWrap="wrap">
           {Object.keys(topThree).map((item, ind) => (
@@ -50,31 +54,6 @@ export default function TopThree({
                   totalEmissions={totalEmissions}
                   totalTripCount={totalTripCount}
                 />
-              </Flex>
-              <Flex align="center" direction="column">
-                <Flex direction="column">
-                  <Line
-                    maxheight="108px"
-                    style={{
-                      top: 20,
-                      align: "center",
-                      mb: "5px",
-                    }}
-                  />
-                  <Flex py="5px">
-                    <Dot />
-                  </Flex>
-                </Flex>
-
-                <Flex direction="column">
-                  <Text>Top 3 travel methods</Text>
-                  <Flex direction="row">
-                    <Text>by </Text>
-                    <Text px="5px" fontWeight={600}>
-                      {item}
-                    </Text>
-                  </Flex>
-                </Flex>
               </Flex>
             </Flex>
           ))}
