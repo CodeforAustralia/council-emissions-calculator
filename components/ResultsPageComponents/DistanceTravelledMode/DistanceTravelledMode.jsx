@@ -46,7 +46,7 @@ export default function DistanceTravelledMode({ data }) {
               Active/Public/Shared Methods:
             </Text>
             <Text color="#03385F">
-              Lower carbon emission per kilometre travel per person
+              Lower carbon emission per km travelled per person
             </Text>
           </Flex>
           <Flex gap="30px">
@@ -107,7 +107,7 @@ export default function DistanceTravelledMode({ data }) {
               Individual Methods:
             </Text>
             <Text color="#03385F">
-              Higher carbon emission per kilometre travel per person.
+              Higher carbon emission per km travelled per person.
             </Text>
           </Flex>
           <Flex gap="30px">
