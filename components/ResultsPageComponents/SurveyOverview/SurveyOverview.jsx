@@ -65,10 +65,10 @@ export default function SurveyOverview({
     <Flex
       direction="column"
       backgroundImage={`url(${Background}) no-repeat`}
-      minWidth="300px"
-      width="75%"
+      minWidth="350px"
+      maxWidth="1100px"
       alignSelf={["center", "start"]}
-      m="50px"
+      border="1px dashed red"
     >
       <Text fontWeight={600} fontSize="35px">
         Overview
