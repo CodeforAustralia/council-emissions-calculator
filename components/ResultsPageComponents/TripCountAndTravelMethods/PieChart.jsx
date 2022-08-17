@@ -1,7 +1,16 @@
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
-export default function PieChart({ title, data }) {
+const colorDefaults = [
+  "#044B7F",
+  "#D69E2E",
+  "#366F99",
+  "#6893B2",
+  "#9BB7CC",
+  "#E6EEF3",
+];
+
+export default function PieChart({ title, data, colorList = colorDefaults }) {
   // converting data into the format readable by highcharts (rename key for count into y)
   const filteredData = data.forEach((item) => (item.y = item.count));
 
@@ -15,8 +24,9 @@ export default function PieChart({ title, data }) {
       plotShadow: false,
       type: "pie",
     },
+    colors: colorList,
     credits: {
-      enabled: false
+      enabled: false,
     },
     tooltip: {
       pointFormat: "{series.name}: <b>{point.y}</b>",
