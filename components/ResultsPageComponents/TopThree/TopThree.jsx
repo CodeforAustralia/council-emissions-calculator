@@ -26,7 +26,7 @@ export default function TopThree({
     >
       <Flex direction="column">
         <Text fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
-          Top Three travel methods
+          Top Three Travel Methods
         </Text>
         <Text fontSize="19px" py="15px">
           The following three charts illustrates the top three travel methods by
