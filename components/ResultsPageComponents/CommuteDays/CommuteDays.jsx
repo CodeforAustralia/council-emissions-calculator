@@ -14,7 +14,6 @@ export default function CommuteDays({ data }) {
       px={["5px", "50px"]}
       py={["25px", "50px"]}
       justify="center"
-      border="1px dashed red"
     >
       <Flex direction="column" width="100%">
         <Text fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
