@@ -5,6 +5,7 @@ import Cloud from "../../../public/images/survey-overview-icons/cloud.svg";
 import DottedLine from "../../../public/images/survey-overview-icons/dotted-line.svg";
 import Path from "../../../public/images/survey-overview-icons/path.svg";
 import Respondents from "../../../public/images/survey-overview-icons/respondents.svg";
+import { formatCommaSeparators } from "../../../utils/mathUtils";
 
 const getMonthName = (month) => {
   switch (month) {
@@ -75,18 +76,21 @@ export default function SurveyOverview({
         Overview
       </Text>
       <Text fontWeight={400} fontSize="20px">
-        The Work Commute survey recorded results from 12 to 27 July 2022, with
-        responses from 162 people.
+        The Work Commute survey was conducted on 12 to 29 July 2022 and recorded
+        responses from 162 people. The results provide a snapshot of how staff
+        travel to and from work, in the week before the survey.
         <br />
       </Text>
 
       <Text fontWeight={400} fontSize="20px">
         <br />
-        Respondents commuted a total distance of {surveyData.totalDistance}km
-        and a total emission of {surveyData.totalEmissions}t during one week.
-        This is roughly enough CO2 to fill 13 Olympic sized swimming pools. The
-        average distance is {avgDistancePerTrip}km per trip, with an average of{" "}
-        {avgEmissionPerTrip * 1000}kg of emissions per trip.
+        Respondents commuted a total distance of{" "}
+        {formatCommaSeparators(surveyData.totalDistance)} km and produced a
+        total trip emission of {surveyData.totalEmissions} t in one week. This
+        is roughly enough CO<Text as="sub">2</Text> to fill 13 Olympic sized
+        swimming pools. The average distance travelled is {avgDistancePerTrip}{" "}
+        km, with an average of {avgEmissionPerTrip * 1000} kg of emissions per
+        trip.
       </Text>
       <Flex
         borderBottom={["none", "1px solid #D69E2E"]}

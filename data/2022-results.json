@@ -1,6 +1,6 @@
 {
   "survey-start-date": "2022-07-12",
-  "survey-end-date": "2022-07-27",
+  "survey-end-date": "2022-07-29",
   "total-number-responses": 162,
   "total-trip-count": 1068,
   "total-distance": 13921,
@@ -15,7 +15,7 @@
     "Tue": 22.28,
     "Wed": 22.28,
     "Thu": 21.16,
-    "Fri": 16.10,
+    "Fri": 16.1,
     "Sat": 0.19,
     "Sun": 0
   },
@@ -59,7 +59,7 @@
       },
       {
         "name": "Train/tram",
-        "count": 0.030
+        "count": 0.03
       }
     ]
   },

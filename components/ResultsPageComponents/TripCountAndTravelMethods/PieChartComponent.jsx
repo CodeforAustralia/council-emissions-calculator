@@ -1,7 +1,7 @@
 import { Flex } from "@chakra-ui/react";
 import PieChart from "./PieChart";
 
-export default function PieChartComponent({ title, data }) {
+export default function PieChartComponent({ title, data, colorList }) {
   return (
     <Flex
       width="520px"
@@ -12,7 +12,7 @@ export default function PieChartComponent({ title, data }) {
       justify="center"
       py="15px"
     >
-      <PieChart title={title} data={data} />
+      <PieChart title={title} data={data} colorList={colorList} />
     </Flex>
   );
 }
