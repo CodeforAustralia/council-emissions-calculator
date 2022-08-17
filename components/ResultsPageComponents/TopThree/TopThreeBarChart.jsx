@@ -18,7 +18,7 @@ export default function TopThreeBarChart({
   const grandTotal = () => {
     if (title == "Distance") {
       total = totalDistance;
-      unit = "Km";
+      unit = "km";
 
       return (totalName = "Total Distance:");
     } else if (title == "Trip Count") {
@@ -27,7 +27,7 @@ export default function TopThreeBarChart({
       return (totalName = "Total Trip Count:");
     } else if (title == "Emission") {
       total = totalEmissions;
-      unit = "Tonnes";
+      unit = "tonnes";
       return (totalName = "Total Emmission:");
     }
   };
@@ -124,7 +124,7 @@ export default function TopThreeBarChart({
     },
     color: "#044B7F",
     credits: {
-      enabled: false
+      enabled: false,
     },
     title: {
       text: title,
