@@ -64,7 +64,7 @@ export default function SurveyIntro() {
               Active/Public/Shared Methods:
             </Text>
             <Text color="#03385F">
-              Lower carbon emission per kilometre travel per person
+              Lower carbon emission per kilometres travelled per person
             </Text>
           </Flex>
           <Flex gap="30px">
