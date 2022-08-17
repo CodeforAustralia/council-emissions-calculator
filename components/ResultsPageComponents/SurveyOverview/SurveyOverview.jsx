@@ -68,7 +68,7 @@ export default function SurveyOverview({
       minWidth="350px"
       maxWidth="1100px"
       alignSelf={["center", "start"]}
-      border="1px dashed blue"
+      ml="50px"
     >
       <Text fontWeight={600} fontSize="35px">
         Overview
