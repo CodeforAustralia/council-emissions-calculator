@@ -1,5 +1,4 @@
 Timestamp,TransactionId,Work Arrangement,Number of Work Days,WFH Days,Onsite Days,Travel Methods,Monday Travel Method,Tuesday Travel Method,Wednesday Travel Method,Thursday Travel Method,Friday Travel Method,Saturday Travel Method,Sunday Travel Method,Carpool Passenger Count,Distance,Department,Incentive Feedback
-2022-07-10 22:32:03 GMT+10,qllrck,hybrid,5,"Monday, Tuesday, Wednesday","Thursday, Friday","Car, Train/tram",,,,Car,Train/tram,,,0,11,Engineering,civic makers test -- hqtan 20220710
 2022-07-12 0:29:27 GMT+10,dh73m2,wfh,5,"Monday, Tuesday, Wednesday, Thursday, Friday",,Train/tram,Train/tram,Train/tram,Train/tram,Train/tram,Train/tram,,,0,30,Active & Healthy Lifestyles,
 2022-07-12 19:33:07 GMT+10,q0hv7g,wfh,2,"Monday, Tuesday",,Bus,Bus,Bus,,,,,,0,2,Bendigo Venues & Events,
 2022-07-13 15:59:29 GMT+10,u4rp24,hybrid,5,"Monday, Friday","Tuesday, Wednesday, Thursday",Walk/run,,Walk/run,Walk/run,Walk/run,,,,0,1.5,Business Services & Economic Development,
