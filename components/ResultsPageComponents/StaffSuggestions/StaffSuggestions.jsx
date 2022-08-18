@@ -14,24 +14,22 @@ export default function StaffSuggestions() {
       py={["25px", "50px"]}
       justify="center"
     >
-      <Flex direction="column">
-        <Text fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
-          Staff Suggestions:
-        </Text>
-        <Text fontSize="19px" py="15px">
-          Participants were provided with an option to suggest ways that Council
-          can support and incentivise staff to choose more sustainable  modes of
-          transport to and from work.
-        </Text>
-        <Text fontSize="19px" py="15px">
-          A stand out in the responses are suggestions to improve Cycling/Walking
-          infrastructure, End-of-Trip facilities at workplace, and Public
-          Transport options. The following graph groups participants’ suggestions
-          in categories based on the responses received.
-        </Text>
+      <Text fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
+        Staff Suggestions:
+      </Text>
+      <Text fontSize="19px" py="15px">
+        Participants were provided with an option to suggest ways that Council
+        can support and incentivise staff to choose more sustainable  modes of
+        transport to and from work.
+      </Text>
+      <Text fontSize="19px" py="15px">
+        A stand out in the responses are suggestions to improve Cycling/Walking
+        infrastructure, End-of-Trip facilities at workplace, and Public
+        Transport options. The following graph groups participants’ suggestions
+        in categories based on the responses received.
+      </Text>
 
-        <Image src="/images/feedback/feedback.png" alt="feedback" />
-      </Flex>
+      <Image src="/images/feedback/feedback.png" alt="feedback" />
     </Flex>
   );
 }
