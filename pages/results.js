@@ -15,6 +15,7 @@ import WorkArrangement from "../components/ResultsPageComponents/WorkArrangement
 import CommuteDays from "../components/ResultsPageComponents/CommuteDays/CommuteDays";
 import CommuteDistanceDistribution from "../components/ResultsPageComponents/CommuteDistanceDistribution/CommuteDistanceDistribution";
 import ResultContentSection from "../components/ResultsPageComponents/SharedComponents/ResultContentSection";
+import StaffSuggestions from "../components/ResultsPageComponents/StaffSuggestions/StaffSuggestions";
 
 export async function getStaticProps() {
   const filePath = path.join(process.cwd(), "data/2022-results.json");
@@ -72,6 +73,9 @@ export default function Results({ data }) {
       <ResultContentSection isShaded={true}>
         <CommuteDistanceDistribution data={data} />
         <DistanceTravelledMode data={data["distance-travelled-by-mode"]} />
+      </ResultContentSection>
+      <ResultContentSection isShaded={false}>
+        <StaffSuggestions />
       </ResultContentSection>
     </Layout>
   );
