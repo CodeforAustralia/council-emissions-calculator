@@ -19,9 +19,9 @@ export default function StaffSuggestions() {
           Staff Suggestions:
         </Text>
         <Text fontSize="19px" py="15px">
-          The following graph illustrates the survey participants suggestions on
-          what can council do to support and incentivise staff to choose more
-          sustainable modes of transport to and from work.
+          Participants were provided with an option to suggest ways that Council
+          can support and incentivise staff to choose more sustainable  modes of
+          transport to and from work.
         </Text>
         <Text fontSize="19px" py="15px">
           A stand out in the responses are suggestions to improve Cycling/Walking
