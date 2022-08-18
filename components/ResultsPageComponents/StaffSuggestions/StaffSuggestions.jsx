@@ -24,12 +24,10 @@ export default function StaffSuggestions() {
           sustainable modes of transport to and from work.
         </Text>
         <Text fontSize="19px" py="15px">
-          These numbers show the percentage of all people in the survey who
-          suggested this improvement. Some people are in more than one category,
-          and some people didn&#39;t have any suggestions - that&#39;s why the
-          numbers don&#39;t add up to 100%. A stand out in the responses is the
-          suggestions to improving Cycling/Walking infrastructure, increase
-          Public Transit and End-of-Trip facilities at workplace.
+          A stand out in the responses are suggestions to improve Cycling/Walking
+          infrastructure, End-of-Trip facilities at workplace, and Public
+          Transport options. The following graph groups participants’ suggestions
+          in categories based on the responses received.
         </Text>
 
         <Image src="/images/feedback/feedback.png" alt="feedback" />
