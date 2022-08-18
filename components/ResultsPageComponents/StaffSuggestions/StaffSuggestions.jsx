@@ -15,7 +15,7 @@ export default function StaffSuggestions() {
       justify="center"
     >
       <Text fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
-        Staff Suggestions:
+        Staff Suggestions
       </Text>
       <Text fontSize="19px" py="15px">
         Participants were provided with an option to suggest ways that Council
@@ -25,8 +25,8 @@ export default function StaffSuggestions() {
       <Text fontSize="19px" py="15px">
         These numbers show the percentage of all people in the survey who
         suggested this improvement. Some people are in more than one category,
-        and some people didn't have any suggestions - that's why the numbers
-        don't add up to 100%. A stand out in the responses is the suggestions to
+        and some people didn’t have any suggestions - that’s why the numbers
+        don’t add up to 100%. A stand out in the responses is the suggestions to
         improving Cycling/Walking infrastructure, increase Public Transit and
         End-of-Trip facilities at workplace.
       </Text>
