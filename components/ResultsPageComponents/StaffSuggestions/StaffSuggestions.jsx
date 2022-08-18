@@ -15,18 +15,20 @@ export default function StaffSuggestions() {
       justify="center"
     >
       <Text fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
-        Staff Suggestions:
+        Staff Suggestions
       </Text>
       <Text fontSize="19px" py="15px">
         Participants were provided with an option to suggest ways that Council
-        can support and incentivise staff to choose more sustainable  modes of
+        can support and incentivise staff to choose more sustainable modes of
         transport to and from work.
       </Text>
       <Text fontSize="19px" py="15px">
-        A stand out in the responses are suggestions to improve Cycling/Walking
-        infrastructure, End-of-Trip facilities at workplace, and Public
-        Transport options. The following graph groups participants’ suggestions
-        in categories based on the responses received.
+        These numbers show the percentage of all people in the survey who
+        suggested this improvement. Some people are in more than one category,
+        and some people didn’t have any suggestions - that’s why the numbers
+        don’t add up to 100%. A stand out in the responses is the suggestions to
+        improving Cycling/Walking infrastructure, increase Public Transit and
+        End-of-Trip facilities at workplace.
       </Text>
 
       <Image src="/images/feedback/feedback.png" alt="feedback" />
