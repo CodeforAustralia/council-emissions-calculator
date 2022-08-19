@@ -206,7 +206,6 @@ export default function StaffSuggestionsChart() {
   }
 
   function Bubble(props) {
-    // console.log("props: ", props);
     const {
       bubbleTop,
       bubbleLeft,
@@ -247,7 +246,7 @@ export default function StaffSuggestionsChart() {
   }
 
   return (
-    <Box position="relative" mb="400px" b width="1200px" height="3000px">
+    <Box position="relative" width="1200px" height="600px">
       {bubbles.map((bubble) => {
         return <Bubble key={bubble.key} {...bubble} />;
       })}
