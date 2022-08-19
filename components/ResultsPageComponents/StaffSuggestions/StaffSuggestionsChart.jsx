@@ -175,16 +175,16 @@ export default function StaffSuggestionsChart() {
       quoteLeft,
       quote,
     } = props;
-    const borderRadius = "30px";
+    const cornerCurve = "30px";
     return (
       <Box
         position="absolute"
         top={quoteTop}
         left={quoteLeft}
-        borderRadius={`${radiusNW ? "0px" : borderRadius} 
-            ${radiusNE ? "0px" : borderRadius} 
-            ${radiusSE ? "0px" : borderRadius} 
-            ${radiusSW ? "0px" : borderRadius}`}
+        borderRadius={`${radiusNW ? "0px" : cornerCurve} 
+            ${radiusNE ? "0px" : cornerCurve} 
+            ${radiusSE ? "0px" : cornerCurve} 
+            ${radiusSW ? "0px" : cornerCurve}`}
         width="300px"
         border="2px dashed #044B7F"
         px="10px"
