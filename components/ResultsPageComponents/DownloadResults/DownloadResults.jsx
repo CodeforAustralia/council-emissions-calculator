@@ -14,7 +14,7 @@ export default function DownloadResults({ calculationLink }) {
       gap="17px"
     >
       <Flex gap="17px" justify="center" height="86px">
-        <Link href="/202207_results/council_survey_results_20220818.pdf">
+        <Link href="/202207_results/council_survey_results_20220818_rev1.pdf">
           <Flex
             direction="column"
             background="rgba(221, 221, 229, 0.1)"
