@@ -14,7 +14,7 @@ export default function DownloadResults({ calculationLink }) {
       gap="17px"
     >
       <Flex gap="17px" justify="center" height="86px">
-        <Link href="/202207_results/pdfResultPage.pdf">
+        <Link href="/202207_results/council_survey_results_20220818_rev1.pdf">
           <Flex
             direction="column"
             background="rgba(221, 221, 229, 0.1)"
@@ -43,7 +43,7 @@ export default function DownloadResults({ calculationLink }) {
             </Text>
           </Flex>
         </Link>
-        <Link href="/202207_results/20220711_survey_responses.csv">
+        <Link href="/202207_results/council_survey_responses_20220818.csv">
           <Flex
             direction="column"
             background="rgba(221, 221, 229, 0.1)"
