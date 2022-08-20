@@ -4,8 +4,8 @@ export default function StaffSuggestionsChart() {
   const bubbles = [
     {
       key: 1,
-      bubbleTop: "50px",
-      bubbleLeft: "365px",
+      bubbleTop: "20px",
+      bubbleLeft: "345px",
       bubbleBackgroundColour: "#D69e2e",
       bubbleDiameter: "300px",
       bubbleTextColour: "#FFFFFF",
@@ -18,8 +18,8 @@ export default function StaffSuggestionsChart() {
     },
     {
       key: 2,
-      bubbleTop: "250px",
-      bubbleLeft: "280px",
+      bubbleTop: "200px",
+      bubbleLeft: "250px",
       bubbleBackgroundColour: "#E6EEF3",
       bubbleDiameter: "109px",
       bubbleTextColour: "#044B7F",
@@ -32,8 +32,8 @@ export default function StaffSuggestionsChart() {
     },
     {
       key: 3,
-      bubbleTop: "340px",
-      bubbleLeft: "325px",
+      bubbleTop: "295px",
+      bubbleLeft: "280px",
       bubbleBackgroundColour: "#044B7F",
       bubbleDiameter: "204px",
       bubbleTextColour: "#FFFFFF",
@@ -46,8 +46,8 @@ export default function StaffSuggestionsChart() {
     },
     {
       key: 4,
-      bubbleTop: "50px",
-      bubbleLeft: "640px",
+      bubbleTop: "40px",
+      bubbleLeft: "630px",
       bubbleBackgroundColour: "#CDDBE5",
       bubbleDiameter: "95px",
       bubbleTextColour: "#044B7F",
@@ -60,8 +60,8 @@ export default function StaffSuggestionsChart() {
     },
     {
       key: 5,
-      bubbleTop: "150px",
-      bubbleLeft: "670px",
+      bubbleTop: "135px",
+      bubbleLeft: "648px",
       bubbleBackgroundColour: "#366F99",
       bubbleDiameter: "95px",
       bubbleTextColour: "#FFFFFF",
@@ -74,8 +74,8 @@ export default function StaffSuggestionsChart() {
     },
     {
       key: 6,
-      bubbleTop: "250px",
-      bubbleLeft: "670px",
+      bubbleTop: "230px",
+      bubbleLeft: "613px",
       bubbleBackgroundColour: "#9BB7CC",
       bubbleDiameter: "109px",
       bubbleTextColour: "#FFFFFF",
@@ -88,8 +88,8 @@ export default function StaffSuggestionsChart() {
     },
     {
       key: 7,
-      bubbleTop: "330px",
-      bubbleLeft: "540px",
+      bubbleTop: "308px",
+      bubbleLeft: "485px",
       bubbleBackgroundColour: "#022640",
       bubbleDiameter: "177px",
       bubbleTextColour: "#FFFFFF",
@@ -114,7 +114,7 @@ export default function StaffSuggestionsChart() {
     {
       key: 2,
       radiusSE: true,
-      quoteTop: "195px",
+      quoteTop: "130px",
       quoteLeft: "5px",
       quote:
         "Incentivize car pooling - complete a stat dec and get a discount on your rates.",
@@ -122,7 +122,7 @@ export default function StaffSuggestionsChart() {
     {
       key: 3,
       radiusNE: true,
-      quoteTop: "520px",
+      quoteTop: "480px",
       quoteLeft: "60px",
       quote: "More direct public transport options to the workplace.",
     },
@@ -130,37 +130,37 @@ export default function StaffSuggestionsChart() {
       key: 4,
       radiusSW: true,
       quoteTop: "10px",
-      quoteLeft: "730px",
+      quoteLeft: "725px",
       quote: "I am 20 mins from the station so car pool could work well.",
     },
     {
       key: 5,
       radiusSW: true,
-      quoteTop: "105px",
-      quoteLeft: "755px",
+      quoteTop: "100px",
+      quoteLeft: "740px",
       quote: "Provide dedicated bike lanes on arterial roads.",
     },
     {
       key: 6,
       radiusSW: true,
-      quoteTop: "200px",
-      quoteLeft: "776px",
+      quoteTop: "210px",
+      quoteLeft: "725px",
       quote:
         "I have 2 toddlers in tow that need to be dropped off at childcare I can't think of any option other than driving.",
     },
     {
       key: "7a",
       radiusNW: true,
-      quoteTop: "430px",
-      quoteLeft: "718px",
+      quoteTop: "400px",
+      quoteLeft: "663px",
       quote:
         "Flexibility to work from home for three days,  maybe one week a month.",
     },
     {
       key: "7b",
       radiusNW: true,
-      quoteTop: "510px",
-      quoteLeft: "640px",
+      quoteTop: "485px",
+      quoteLeft: "580px",
       quote: "Move to electric powered vehicles.",
     },
   ];
@@ -185,7 +185,7 @@ export default function StaffSuggestionsChart() {
             ${radiusNE ? "0px" : cornerCurve} 
             ${radiusSE ? "0px" : cornerCurve} 
             ${radiusSW ? "0px" : cornerCurve}`}
-        width="300px"
+        width="260px"
         border="2px dashed #044B7F"
         px="10px"
         py="10px"
@@ -246,19 +246,13 @@ export default function StaffSuggestionsChart() {
   }
 
   return (
-    <Flex
-      direction="row"
-      justify="flex-start"
-      position="relative"
-      height="600px"
-      width="1100px"
-    >
+    <Box position="relative" height="600px" width="container.lg">
       {bubbles.map((bubble) => {
         return <Bubble key={bubble.key} {...bubble} />;
       })}
       {quotes.map((quote) => {
         return <QuoteBox key={quote.key} {...quote} />;
       })}
-    </Flex>
+    </Box>
   );
 }
