@@ -5,12 +5,12 @@ export default function StaffSuggestionsChart() {
     {
       key: 1,
       bubbleTop: "50px",
-      bubbleLeft: "465px",
+      bubbleLeft: "365px",
       bubbleBackgroundColour: "#D69e2e",
       bubbleDiameter: "300px",
       bubbleTextColour: "#FFFFFF",
       textMarginLeft: "15%",
-      textFontSize: "25px",
+      textFontSize: "32px",
       textString: "End of trip facilities",
       valueMarginLeft: "25%",
       valueFontSize: "60px",
@@ -19,7 +19,7 @@ export default function StaffSuggestionsChart() {
     {
       key: 2,
       bubbleTop: "250px",
-      bubbleLeft: "380px",
+      bubbleLeft: "280px",
       bubbleBackgroundColour: "#E6EEF3",
       bubbleDiameter: "109px",
       bubbleTextColour: "#044B7F",
@@ -33,7 +33,7 @@ export default function StaffSuggestionsChart() {
     {
       key: 3,
       bubbleTop: "340px",
-      bubbleLeft: "425px",
+      bubbleLeft: "325px",
       bubbleBackgroundColour: "#044B7F",
       bubbleDiameter: "204px",
       bubbleTextColour: "#FFFFFF",
@@ -47,7 +47,7 @@ export default function StaffSuggestionsChart() {
     {
       key: 4,
       bubbleTop: "50px",
-      bubbleLeft: "740px",
+      bubbleLeft: "640px",
       bubbleBackgroundColour: "#CDDBE5",
       bubbleDiameter: "95px",
       bubbleTextColour: "#044B7F",
@@ -61,7 +61,7 @@ export default function StaffSuggestionsChart() {
     {
       key: 5,
       bubbleTop: "150px",
-      bubbleLeft: "770px",
+      bubbleLeft: "670px",
       bubbleBackgroundColour: "#366F99",
       bubbleDiameter: "95px",
       bubbleTextColour: "#FFFFFF",
@@ -75,7 +75,7 @@ export default function StaffSuggestionsChart() {
     {
       key: 6,
       bubbleTop: "250px",
-      bubbleLeft: "770px",
+      bubbleLeft: "670px",
       bubbleBackgroundColour: "#9BB7CC",
       bubbleDiameter: "109px",
       bubbleTextColour: "#FFFFFF",
@@ -89,7 +89,7 @@ export default function StaffSuggestionsChart() {
     {
       key: 7,
       bubbleTop: "330px",
-      bubbleLeft: "640px",
+      bubbleLeft: "540px",
       bubbleBackgroundColour: "#022640",
       bubbleDiameter: "177px",
       bubbleTextColour: "#FFFFFF",
@@ -107,7 +107,7 @@ export default function StaffSuggestionsChart() {
       key: 1,
       radiusSE: true,
       quoteTop: "10px",
-      quoteLeft: "205px",
+      quoteLeft: "105px",
       quote:
         "Better end of trip facilities.  A locker that I can store suit and shirts, and a damp towel to dry in.",
     },
@@ -115,7 +115,7 @@ export default function StaffSuggestionsChart() {
       key: 2,
       radiusSE: true,
       quoteTop: "195px",
-      quoteLeft: "105px",
+      quoteLeft: "5px",
       quote:
         "Incentivize car pooling - complete a stat dec and get a discount on your rates.",
     },
@@ -123,28 +123,28 @@ export default function StaffSuggestionsChart() {
       key: 3,
       radiusNE: true,
       quoteTop: "520px",
-      quoteLeft: "160px",
+      quoteLeft: "60px",
       quote: "More direct public transport options to the workplace.",
     },
     {
       key: 4,
       radiusSW: true,
       quoteTop: "10px",
-      quoteLeft: "830px",
+      quoteLeft: "730px",
       quote: "I am 20 mins from the station so car pool could work well.",
     },
     {
       key: 5,
       radiusSW: true,
       quoteTop: "105px",
-      quoteLeft: "855px",
+      quoteLeft: "755px",
       quote: "Provide dedicated bike lanes on arterial roads.",
     },
     {
       key: 6,
       radiusSW: true,
       quoteTop: "200px",
-      quoteLeft: "875px",
+      quoteLeft: "776px",
       quote:
         "I have 2 toddlers in tow that need to be dropped off at childcare I can't think of any option other than driving.",
     },
@@ -152,7 +152,7 @@ export default function StaffSuggestionsChart() {
       key: "7a",
       radiusNW: true,
       quoteTop: "430px",
-      quoteLeft: "818px",
+      quoteLeft: "718px",
       quote:
         "Flexibility to work from home for three days,  maybe one week a month.",
     },
@@ -160,7 +160,7 @@ export default function StaffSuggestionsChart() {
       key: "7b",
       radiusNW: true,
       quoteTop: "510px",
-      quoteLeft: "740px",
+      quoteLeft: "640px",
       quote: "Move to electric powered vehicles.",
     },
   ];
@@ -246,13 +246,19 @@ export default function StaffSuggestionsChart() {
   }
 
   return (
-    <Box position="relative" width="1200px" height="600px">
+    <Flex
+      direction="row"
+      justify="flex-start"
+      position="relative"
+      height="600px"
+      width="1100px"
+    >
       {bubbles.map((bubble) => {
         return <Bubble key={bubble.key} {...bubble} />;
       })}
       {quotes.map((quote) => {
         return <QuoteBox key={quote.key} {...quote} />;
       })}
-    </Box>
+    </Flex>
   );
 }
