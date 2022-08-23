@@ -41,7 +41,7 @@ export default function Results({ data }) {
           gap={["40px", "90px"]}
           wrap="wrap"
           direction={["column", "row"]}
-          justify="center"
+          justify={["center", "left"]}
           align={["center", "flex-start"]}
         >
           <SurveyIntro />
