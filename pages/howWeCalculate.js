@@ -273,7 +273,7 @@ export default function howWeCalculate() {
           borderRadius="15px"
           height="100%"
         >
-          <Flex background="#E5F4E3" borderRadius="inherit">
+          <Flex background="#E5F4E3" borderRadius="15px 15px 0px 0px">
             <Text fontWeight={700} fontSize="24px" lineHeight="29px" p="34px">
               Table of Contents
             </Text>
