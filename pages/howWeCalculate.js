@@ -208,7 +208,7 @@ export default function howWeCalculate() {
               </Text>
             </Flex>
             <Flex>
-              <Text fontSize="13px" fontStyle="italic">
+              <Text fontSize="13px" fontStyle="italic" width="100%">
                 {
                   "¹ 2018. Transport Strategy Refresh: Transport, Greenhouse Gas Emissions and Air Quality. [ebook] Melbourne: City of Melbourne, p.4. Available at: <https://s3.ap-southeast-2.amazonaws.com/hdp.au.prod.app.com-participate.files/6615/2948/1938/Transport_Strategy_Refresh__Zero_Net_Emissions_Strategy_-_Greenhouse_Gas_Emissions_and_Air_Quality.pdf> [Accessed 11 August 2022]."
                 }
@@ -273,7 +273,7 @@ export default function howWeCalculate() {
           borderRadius="15px"
           height="100%"
         >
-          <Flex background="#E5F4E3" borderRadius="inherit">
+          <Flex background="#E5F4E3" borderRadius="15px 15px 0px 0px">
             <Text fontWeight={700} fontSize="24px" lineHeight="29px" p="34px">
               Table of Contents
             </Text>
