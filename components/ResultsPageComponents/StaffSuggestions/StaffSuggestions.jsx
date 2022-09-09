@@ -1,4 +1,5 @@
-import { Text, Flex, Image } from "@chakra-ui/react";
+import { Text, Flex } from "@chakra-ui/react";
+import StaffSuggestionsChart from "./StaffSuggestionsChart";
 
 export default function StaffSuggestions() {
   return (
@@ -31,7 +32,7 @@ export default function StaffSuggestions() {
         End-of-Trip facilities at workplace.
       </Text>
 
-      <Image src="/images/feedback/feedback.png" alt="feedback" />
+      <StaffSuggestionsChart />
     </Flex>
   );
 }
