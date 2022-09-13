@@ -1,4 +1,4 @@
-import { Text, Flex, Heading } from "@chakra-ui/react";
+import { Text, Flex } from "@chakra-ui/react";
 import WalkingMan from "../../../public/images/survey-intro-icons/walking-man.svg";
 import Car from "../../../public/images/survey-intro-icons/car.svg";
 import Carpool from "../../../public/images/survey-intro-icons/carpool.svg";
@@ -16,7 +16,7 @@ export default function SurveyIntro() {
       gap={["10px", "20px"]}
     >
       <Flex direction="column">
-        <Heading as="h1" fontSize={["30px", "50px"]}>Work Commute Survey Results</Heading>
+        <Text as="h1" fontSize={["30px", "50px"]}>Work Commute Survey Results</Text>
         <Text fontSize="20px">
           City of Greater Bendigo has recently embarked on a challenge to
           increase the use of active, public, and shared commute methods to 20%
