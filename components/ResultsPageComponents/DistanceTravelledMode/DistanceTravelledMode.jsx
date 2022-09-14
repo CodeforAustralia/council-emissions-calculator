@@ -21,7 +21,7 @@ export default function DistanceTravelledMode({ data }) {
       justify="center"
     >
       <Flex direction="column" width="100%" py="15px">
-        <Text fontSize="27.65px" fontWeight={600}>
+        <Text as="h2" fontSize="27.65px" fontWeight={600}>
           Distance travelled by mode of transport
         </Text>
         <Text fontSize="20px">

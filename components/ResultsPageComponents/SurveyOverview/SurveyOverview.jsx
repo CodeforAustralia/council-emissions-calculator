@@ -72,7 +72,7 @@ export default function SurveyOverview({
       ml="50px"
       py={["25px", "50px"]}
     >
-      <Text fontWeight={600} fontSize="35px">
+      <Text as="h2" fontWeight={600} fontSize="35px">
         Overview
       </Text>
       <Text fontWeight={400} fontSize="20px">

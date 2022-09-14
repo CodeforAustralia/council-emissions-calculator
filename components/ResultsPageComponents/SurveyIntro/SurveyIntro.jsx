@@ -44,7 +44,7 @@ export default function SurveyIntro() {
         </Text>
       </Flex>
       <Flex direction="column">
-        <Text fontWeight={600} fontSize="27px">
+        <Text as="h3" fontWeight={600} fontSize="27px">
           Things to note before reading the results
         </Text>
         <Text fontSize="19px">
