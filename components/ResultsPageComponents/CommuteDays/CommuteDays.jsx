@@ -16,7 +16,7 @@ export default function CommuteDays({ data }) {
       justify="center"
     >
       <Flex direction="column" width="100%">
-        <Text fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
+        <Text as="h2" fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
           Travelling to Work Days
         </Text>
         <Text fontSize="19px" py="15px" width="100%">

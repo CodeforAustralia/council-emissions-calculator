@@ -16,7 +16,7 @@ export default function SurveyIntro() {
       gap={["10px", "20px"]}
     >
       <Flex direction="column">
-        <Text fontSize={["30px", "50px"]}>Work Commute Survey Results</Text>
+        <Text as="h1" fontSize={["30px", "50px"]}>Work Commute Survey Results</Text>
         <Text fontSize="20px">
           City of Greater Bendigo has recently embarked on a challenge to
           increase the use of active, public, and shared commute methods to 20%
@@ -44,7 +44,7 @@ export default function SurveyIntro() {
         </Text>
       </Flex>
       <Flex direction="column">
-        <Text fontWeight={600} fontSize="27px">
+        <Text as="h3" fontWeight={600} fontSize="27px">
           Things to note before reading the results
         </Text>
         <Text fontSize="19px">

@@ -15,7 +15,7 @@ export default function StaffSuggestions() {
       py={["25px", "50px"]}
       justify="center"
     >
-      <Text fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
+      <Text as="h2" fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
         Staff Suggestions
       </Text>
       <Text fontSize="19px" py="15px">

@@ -25,7 +25,7 @@ export default function TopThree({
       justify="center"
     >
       <Flex direction="column">
-        <Text fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
+        <Text as="h2" fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
           Top Three Travel Methods
         </Text>
         <Text fontSize="19px" py="15px">
