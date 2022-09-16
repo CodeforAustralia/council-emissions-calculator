@@ -73,7 +73,7 @@ export default function Home({ closingTime }) {
       <Layout isText={true} maxContainerWidth="container.lg">
         <Flex alignItems="center" flexDir={["column", "row"]}>
           <Animation />
-          <Flex p={[5, 10]}>
+          <Box p={[5, 10]}>
             <Heading as="h1" textAlign={["center", "start"]}>
               {/* {" "} */}
               Help calculate Council&apos;s carbon emissions
@@ -102,7 +102,7 @@ export default function Home({ closingTime }) {
             >
               Start
             </LinkButton>
-          </Flex>
+          </Box>
         </Flex>
       </Layout>
     );
