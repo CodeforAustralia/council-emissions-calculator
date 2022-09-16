@@ -71,6 +71,7 @@ export default function Distance() {
       </Box>
       <Q3Cloud />
       <Heading 
+        as="h1"  
         mt="40px"
         width={["100%", "80%"]}
       >

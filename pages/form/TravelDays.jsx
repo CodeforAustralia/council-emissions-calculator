@@ -121,7 +121,7 @@ export default function TravelDays() {
       <Box>
         <Flex justify="center" direction="column">
           <Q3Cloud />
-          <Heading mt={10} mb={10}>
+          <Heading as="h1" mt={10} mb={10}>
             Please select the days for your travel
           </Heading>
         </Flex>

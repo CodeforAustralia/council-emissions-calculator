@@ -12,7 +12,7 @@ export default function Thankyou() {
           flexDir="column"
           alignItems={["center", "start"]}
         >
-          <Heading color="#fff" mt={10} mb={5} textAlign={["center", "start"]}>
+          <Heading as="h1" color="#fff" mt={10} mb={5} textAlign={["center", "start"]}>
             Thank you for participating!
           </Heading>
           <Text

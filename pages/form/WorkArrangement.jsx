@@ -139,9 +139,9 @@ export default function WorkArrangement() {
         w="100%"
       >
         <Flex px={["10", "20"]} direction={"column"}>
-          <Text fontWeight="500" fontSize="18px">
+          <Heading as="h1" fontWeight="500" fontSize="18px">
             Select your work arrangement:
-          </Text>
+          </Heading>
           <RadioGroup
             mt={8}
             w="100%"

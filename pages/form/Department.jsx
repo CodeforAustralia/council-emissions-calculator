@@ -60,7 +60,7 @@ export default function Department() {
       </Box>
       <Q5Cloud />
 
-      <Heading mt={10}>Which department do you work for?</Heading>
+      <Heading as="h1" mt={10}>Which department do you work for?</Heading>
 
       <Flex flexDirection={["column", "row"]} w="100%" mt={7}>
         <Box width={["100", "50%"]} mt={5}>

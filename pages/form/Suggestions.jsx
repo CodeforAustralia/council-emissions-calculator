@@ -50,7 +50,7 @@ export default function Suggestions() {
         />
       </Box>
       <Q6Cloud />
-      <Heading mt="40px">Share your suggestions</Heading>
+      <Heading as="h1" mt="40px">Share your suggestions</Heading>
       <Text
         fontSize="18px"
         mt={10}
