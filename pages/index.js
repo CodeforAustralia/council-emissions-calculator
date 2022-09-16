@@ -74,7 +74,7 @@ export default function Home({ closingTime }) {
         <Flex alignItems="center" flexDir={["column", "row"]}>
           <Animation />
           <Flex p={[5, 10]}>
-            <Heading as="h2" textAlign={["center", "start"]}>
+            <Heading as="h1" textAlign={["center", "start"]}>
               {/* {" "} */}
               Help calculate Council&apos;s carbon emissions
             </Heading>
