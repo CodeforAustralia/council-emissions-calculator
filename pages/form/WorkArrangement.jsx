@@ -128,7 +128,7 @@ export default function WorkArrangement() {
         />
       </Box>
       <Cloud />
-      <Heading mt={10} mb={10} w={["100%", "90%"]}>
+      <Heading as="h1" mt={10} mb={10} w={["100%", "90%"]}>
         What was your work arrangement for the last week?
       </Heading>
       <Box
@@ -139,9 +139,9 @@ export default function WorkArrangement() {
         w="100%"
       >
         <Flex px={["10", "20"]} direction={"column"}>
-          <Heading as="h1" fontWeight="500" fontSize="18px">
+          <Text fontWeight="500" fontSize="18px">
             Select your work arrangement:
-          </Heading>
+          </Text>
           <RadioGroup
             mt={8}
             w="100%"
