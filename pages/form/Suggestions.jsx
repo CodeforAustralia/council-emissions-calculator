@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Heading, Text, Textarea } from "@chakra-ui/react";
+import { Box, Text, Textarea } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import {
@@ -50,7 +50,7 @@ export default function Suggestions() {
         />
       </Box>
       <Q6Cloud />
-      <Heading as="h1" mt="40px">Share your suggestions</Heading>
+      <Text as="h1" textAlign="center" fontWeight={700} fontSize="36px" lineHeight="43.2px" mt={10} w={["100%", "90%"]}>Share your suggestions</Text>
       <Text
         fontSize="18px"
         mt={10}

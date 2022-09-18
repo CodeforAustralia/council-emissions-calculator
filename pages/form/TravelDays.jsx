@@ -6,7 +6,6 @@ import {
   Box,
   Flex,
   GridItem,
-  Heading,
   Text,
 } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
@@ -121,9 +120,9 @@ export default function TravelDays() {
       <Box>
         <Flex justify="center" direction="column">
           <Q3Cloud />
-          <Heading as="h1" mt={10} mb={10}>
+          <Text as="h1" textAlign="center" fontWeight={700} fontSize="36px" lineHeight="43.2px" mt={10} mb={10} w={["100%", "90%"]}>
             Please select the days for your travel
-          </Heading>
+          </Text>
         </Flex>
         <Flex justify="center" direction="column" pb="20px">
           <Text mb={10} fontSize="18px">

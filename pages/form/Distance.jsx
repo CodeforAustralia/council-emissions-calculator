@@ -4,7 +4,6 @@ import {
   Flex,
   FormControl,
   FormLabel,
-  Heading,
   Text,
   NumberInput,
   NumberInputField,
@@ -70,13 +69,9 @@ export default function Distance() {
         />
       </Box>
       <Q3Cloud />
-      <Heading 
-        as="h1"  
-        mt="40px"
-        width={["100%", "80%"]}
-      >
+      <Text as="h1" textAlign="center" fontWeight={700} fontSize="36px" lineHeight="43.2px" mt={10} w={["100%", "90%"]}>
         How many kilometres do you usually travel to work, one-way?
-      </Heading>
+      </Text>
       <Flex
         justifyContent="space-between"
         flexDirection={["column", "row"]}

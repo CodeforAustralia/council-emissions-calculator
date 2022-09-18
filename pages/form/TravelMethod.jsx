@@ -4,7 +4,7 @@ import {
   ContinueButton,
 } from "../../components/LinkButton/LinkButton";
 import { useState } from "react";
-import { Box, Container, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Container, Flex, Text } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
 import TravelMethodButtons from "../../components/TravelMethodButtons/TravelMethodButtons";
@@ -65,11 +65,11 @@ export default function TravelMethod() {
       </Box>
       <Q4Cloud />
 
-      <Heading as="h1" mt={10} mb={10} fontWeight="700">
+      <Text as="h1" textAlign="center" fontWeight={700} fontSize="36px" lineHeight="43.2px" mt={10} mb={10} w={["100%", "90%"]}>
         {answers.workMode === "wfh"
           ? "What is your usual travel method to work?"
           : "What were your travel method(s) to work?"}
-      </Heading>
+      </Text>
 
       <Flex justify={["center", "left"]} mb={10}>
         <Text fontSize="18px">

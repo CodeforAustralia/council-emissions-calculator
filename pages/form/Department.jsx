@@ -1,6 +1,5 @@
 import { useState } from "react";
 import {
-  Heading,
   FormControl,
   FormHelperText,
   Box,
@@ -60,7 +59,7 @@ export default function Department() {
       </Box>
       <Q5Cloud />
 
-      <Heading as="h1" mt={10}>Which department do you work for?</Heading>
+      <Text as="h1" textAlign="center" fontWeight={700} fontSize="36px" lineHeight="43.2px" mt={10} w={["100%", "90%"]}>Which department do you work for?</Text>
 
       <Flex flexDirection={["column", "row"]} w="100%" mt={7}>
         <Box width={["100", "50%"]} mt={5}>
