@@ -74,7 +74,14 @@ export default function Home({ closingTime }) {
         <Flex alignItems="center" flexDir={["column", "row"]}>
           <Animation />
           <Box p={[5, 10]}>
-            <Text as="h1" textAlign={["center", "start"]} fontWeight={700} fontSize="36px" mt="97px" lineHeight="43.2px">
+            <Text
+              as="h1"
+              textAlign={["center", "start"]}
+              fontWeight={700}
+              fontSize="36px"
+              mt="97px"
+              lineHeight="43.2px"
+            >
               {/* {" "} */}
               Help calculate Council&apos;s carbon emissions
             </Text>

@@ -12,7 +12,16 @@ export default function Thankyou() {
           flexDir="column"
           alignItems={["center", "start"]}
         >
-          <Text as="h1" fontWeight={700} fontSize="36px" lineHeight="43.2px" color="#fff" mt={10} mb={5} textAlign={["center", "start"]}>
+          <Text
+            as="h1"
+            fontWeight={700}
+            fontSize="36px"
+            lineHeight="43.2px"
+            color="#fff"
+            mt={10}
+            mb={5}
+            textAlign={["center", "start"]}
+          >
             Thank you for participating!
           </Text>
           <Text

@@ -76,7 +76,16 @@ export default function DaysOfTheWeekSelection() {
         />
       </Box>
       <Q1Cloud />
-      <Text as="h1" textAlign="center" fontWeight={700} fontSize="36px" lineHeight="43.2px" mt={10} mb={10} w={["100%", "90%"]}>
+      <Text
+        as="h1"
+        textAlign="center"
+        fontWeight={700}
+        fontSize="36px"
+        lineHeight="43.2px"
+        mt={10}
+        mb={10}
+        w={["100%", "90%"]}
+      >
         Which day(s) did you work from home last week?
       </Text>
       <DaysOfTheWeekContainer

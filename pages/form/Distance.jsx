@@ -69,7 +69,15 @@ export default function Distance() {
         />
       </Box>
       <Q3Cloud />
-      <Text as="h1" textAlign="center" fontWeight={700} fontSize="36px" lineHeight="43.2px" mt={10} w={["100%", "90%"]}>
+      <Text
+        as="h1"
+        textAlign="center"
+        fontWeight={700}
+        fontSize="36px"
+        lineHeight="43.2px"
+        mt={10}
+        w={["100%", "90%"]}
+      >
         How many kilometres do you usually travel to work, one-way?
       </Text>
       <Flex

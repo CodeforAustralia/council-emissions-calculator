@@ -50,7 +50,17 @@ export default function Suggestions() {
         />
       </Box>
       <Q6Cloud />
-      <Text as="h1" textAlign="center" fontWeight={700} fontSize="36px" lineHeight="43.2px" mt={10} w={["100%", "90%"]}>Share your suggestions</Text>
+      <Text
+        as="h1"
+        textAlign="center"
+        fontWeight={700}
+        fontSize="36px"
+        lineHeight="43.2px"
+        mt={10}
+        w={["100%", "90%"]}
+      >
+        Share your suggestions
+      </Text>
       <Text
         fontSize="18px"
         mt={10}
