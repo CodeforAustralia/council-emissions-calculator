@@ -1,5 +1,5 @@
 import path from "path";
-import { Flex, Img, Text } from "@chakra-ui/react";
+import { Flex, Img } from "@chakra-ui/react";
 import React from "react";
 import useForm from "../components/FormProvider";
 import Layout from "../components/Layout/Layout";
@@ -77,7 +77,6 @@ export default function Results({ data }) {
       <ResultContentSection isShaded={false}>
         <StaffSuggestions />
       </ResultContentSection>
-      <Text color="red">.</Text>
     </Layout>
   );
 }
