@@ -68,7 +68,7 @@ export default function ConfirmWFH() {
       <Box minW="720px">
         <Flex justify="center" direction="column">
           <Q3Cloud />
-          <Heading as="h1" mt={10} mb={10}>
+          <Heading mt={10} mb={10}>
             Please confirm the details below
           </Heading>
         </Flex>
