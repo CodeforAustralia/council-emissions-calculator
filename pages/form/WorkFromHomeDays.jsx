@@ -1,4 +1,4 @@
-import { Heading, Box } from "@chakra-ui/react";
+import { Text, Box } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import DaysOfTheWeekContainer from "../../components/DaysOfTheWeek/DaysOfTheWeekContainer";
 
@@ -76,9 +76,18 @@ export default function DaysOfTheWeekSelection() {
         />
       </Box>
       <Q1Cloud />
-      <Heading mt={10} mb={10}>
+      <Text
+        as="h1"
+        textAlign="center"
+        fontWeight={700}
+        fontSize="36px"
+        lineHeight="43.2px"
+        mt={10}
+        mb={10}
+        w={["100%", "90%"]}
+      >
         Which day(s) did you work from home last week?
-      </Heading>
+      </Text>
       <DaysOfTheWeekContainer
         setNumberOfDays={(days) => setWFHDays(days)}
         saveDataAndLogs={() => saveDataAndShowLog("Next button clicked")}
