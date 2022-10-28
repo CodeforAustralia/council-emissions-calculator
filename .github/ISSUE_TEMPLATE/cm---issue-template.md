@@ -1,31 +1,30 @@
 ---
 name: CM - Issue template
-about: General issue template
-title: Title
-labels: ''
+about: Bug report
+title: [BUG] Please provide a title 
+labels: 'bug'
 assignees: ''
 
 ---
 
-## I'm submitting a ...
+I'm submitting a bug report.
 
-- [ ] bug report
-- [ ] feature request
+## What is the current behaviour?
+> Explain what the issue is including screenshots and/or links.
 
-## What is the current behavior?
 
-Content.
+## Please provide the steps to reproduce and if possible a minimal demo of the problem
+> What did you do to get this issue?
 
-## If the current behavior is a bug, please provide the steps to reproduce and if possible a minimal demo of the problem
 
-Content.
+## What is the expected behaviour?
+> What is supposed to happen when the bug is fixed?
 
-## What is the expected behavior?
 
-Content.
+## Solution (or options to fix the bug)
 
-## What is the motivation / use case for changing the behavior?
+- [ ] Step 1
+- [ ] Step 2
+- [ ] Step 3
 
-Content.
-
-**Link to Trello card:**
+[Link to Trello card](link)
