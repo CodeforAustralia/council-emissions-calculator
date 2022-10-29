@@ -2,7 +2,23 @@ import { Text, Flex } from "@chakra-ui/react";
 import Traveler from "../../../public/images/work-arrangement-results-icons/traveler.svg";
 import Line from "../../../public/images/work-arrangement-results-icons/l-shape-line.svg";
 
-export default function WorkArrangement() {
+export default function WorkArrangement({ workMode }) {
+  const surveyData = {
+    "On-site": workMode.onsite || "",
+    WFH: workMode.wfh || "",
+    Hybrid: workMode.hybrid || "",
+  };
+
+  const maxCountWorkMode = Object.entries(surveyData).reduce((a, b) =>
+    a[1] > b[1] ? a : b
+  );
+  const minCountWorkMode = Object.entries(surveyData).reduce((a, b) =>
+    a[1] < b[1] ? a : b
+  );
+  const mediumCountWorkMode = Object.entries(surveyData).sort(
+    (a, b) => b[1] - a[1]
+  )[1];
+
   return (
     <Flex
       minWidth="350px"
@@ -17,19 +33,17 @@ export default function WorkArrangement() {
       justify="center"
     >
       <Flex direction="column">
-        <Text fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
-          Things to note before reading the results
+        <Text as="h2" fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
+          Work Arrangement
         </Text>
         <Text fontSize="19px" py="15px">
-          The infographics below illustrate responders’ working arrangement
-          across the week. This information helps identify the percentage of
-          staff commuting to work in regular (on-site) and intermittent (hybrid)
-          patterns.
+          The information below illustrates respondents’ working arrangements
+          across the week and helps identify staff commuting habits.
         </Text>
         <Flex direction={["column", "row"]} align={["center", "flex-end"]}>
           <Flex width="30%" direction="column" py="20px">
             <Flex justify="flex-end">
-              <Line maxWidth="150px" />
+              <Line maxwidth="150px" />
               <Flex direction="column">
                 <Text
                   fontWeight={500}
@@ -37,10 +51,10 @@ export default function WorkArrangement() {
                   lineHeight="23px"
                   color="#D69E2E"
                 >
-                  42%
+                  {maxCountWorkMode[1]}%
                 </Text>
                 <Text fontWeight={200} fontSize="24px" color="#044B7F">
-                  Hybrid
+                  {maxCountWorkMode[0]}
                 </Text>
               </Flex>
             </Flex>
@@ -56,7 +70,7 @@ export default function WorkArrangement() {
           </Flex>
           <Flex width="30%" direction="column" py="20px">
             <Flex justify="flex-end">
-              <Line maxWidth="150px" />
+              <Line maxwidth="150px" />
               <Flex direction="column">
                 <Text
                   fontWeight={500}
@@ -64,10 +78,15 @@ export default function WorkArrangement() {
                   lineHeight="23px"
                   color="#D69E2E"
                 >
-                  32%
+                  {mediumCountWorkMode[1]}%
                 </Text>
-                <Text fontWeight={100} fontSize="24px" color="#044B7F" whiteSpace="nowrap">
-                  On-site
+                <Text
+                  fontWeight={100}
+                  fontSize="24px"
+                  color="#044B7F"
+                  whiteSpace="nowrap"
+                >
+                  {mediumCountWorkMode[0]}
                 </Text>
               </Flex>
             </Flex>
@@ -83,7 +102,7 @@ export default function WorkArrangement() {
           </Flex>
           <Flex width="30%" direction="column" py="20px">
             <Flex justify="flex-end">
-              <Line maxWidth="150px" />
+              <Line maxwidth="150px" />
               <Flex direction="column">
                 <Text
                   fontWeight={500}
@@ -91,10 +110,10 @@ export default function WorkArrangement() {
                   lineHeight="23px"
                   color="#D69E2E"
                 >
-                  26%
+                  {minCountWorkMode[1]}%
                 </Text>
                 <Text fontWeight={100} fontSize="24px" color="#044B7F">
-                  WFH
+                  {minCountWorkMode[0]}
                 </Text>
               </Flex>
             </Flex>

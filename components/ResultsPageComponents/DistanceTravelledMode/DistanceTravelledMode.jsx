@@ -1,58 +1,40 @@
-import { Text, Flex } from "@chakra-ui/react";
+import { Text, Flex, Box } from "@chakra-ui/react";
 import WalkingMan from "../../../public/images/survey-intro-icons/walking-man.svg";
 import Car from "../../../public/images/survey-intro-icons/car.svg";
 import Carpool from "../../../public/images/survey-intro-icons/carpool.svg";
 import Motorcycle from "../../../public/images/survey-intro-icons/motorcycle.svg";
 import Train from "../../../public/images/survey-intro-icons/train.svg";
+import DistanceTravelledModeChart from "./DistanceTravelledModeChart";
 
-export default function SurveyIntro() {
+export default function DistanceTravelledMode({ data }) {
   return (
     <Flex
       minWidth="350px"
       maxWidth="1100px"
-      alignSelf={["center", "start"]}
-      flex={[1, 2]}
       direction="column"
+      alignSelf={["center", "start"]}
+      align={["center", "flex-start"]}
+      flex={[1, 2]}
       gap={["10px", "20px"]}
+      px={["5px", "50px"]}
+      py={["25px", "50px"]}
+      justify="center"
     >
-      <Flex direction="column">
-        <Text as="h1" fontSize={["30px", "50px"]}>Work Commute Survey Results</Text>
-        <Text fontSize="20px">
-          City of Greater Bendigo has recently embarked on a challenge to
-          increase the use of active, public, and shared commute methods to 20%
-          or more by 2026.
-          <br />
+      <Flex direction="column" width="100%" py="15px">
+        <Text as="h2" fontSize="27.65px" fontWeight={600}>
+          Distance travelled by mode of transport
         </Text>
-
         <Text fontSize="20px">
-          <br />
-          In July 2022, Council conducted a survey to establish a baseline for
-          staff commuting habits and associated carbon emissions. This
-          information will enable Council to make more targeted decisions in the
-          future.
-          <br />
-          This results page is best viewed on desktop. If viewing on mobile, you
-          may have to rotate view and scroll sideways to view full content.
-          <br />
-        </Text>
-
-        <Text fontSize="20px">
-          <br />
-          <em>This survey is built by the volunteer team at Civic Makers.</em>
-          <br />
-          <br />
+          The following graph helps us compare the travel modes (individual
+          vs.active/public/shared) preferred by staff within various commute
+          distances.
         </Text>
       </Flex>
-      <Flex direction="column">
-        <Text as="h3" fontWeight={600} fontSize="27px">
-          Things to note before reading the results
-        </Text>
-        <Text fontSize="19px">
-          Travel methods have been grouped into <b>Active/Public/Shared</b>{" "}
-          methods and <b>Individual</b> methods:{" "}
-        </Text>
-      </Flex>
-      <Flex direction="column" gap="10px">
+
+      {/* CONTAINER FOR INDIVIDUAL METHOD AND ACTIVE/PUBLIC/SHARED/METHOD   */}
+      {/* <Flex direction="column">
+      </Flex> */}
+      <Flex direction="column" gap="10px" mb="10px">
         <Flex
           gap="30px"
           direction={["column", "row"]}
@@ -125,7 +107,7 @@ export default function SurveyIntro() {
               Individual Methods:
             </Text>
             <Text color="#03385F">
-              Higher carbon emission per km travelled per person
+              Higher carbon emission per km travelled per person.
             </Text>
           </Flex>
           <Flex gap="30px">
@@ -157,6 +139,24 @@ export default function SurveyIntro() {
               </Flex>
               <Text color="#044B7F">Motorbike</Text>
             </Flex>
+          </Flex>
+        </Flex>
+      </Flex>
+      {/* chart  */}
+      <Flex justify="center">
+        <Flex direction="column" width={["484px", "804px"]} height="484px">
+          <Flex
+            background="rgba(221, 221, 229, 0.1)"
+            border="0.613005px  #DDDDE5"
+            boxShadow="0px 0px 22.5px rgba(35, 47, 78, 0.18)"
+            borderRadius="10px 10px 10px 10px"
+            py="5px"
+            height="484px"
+            align="center"
+            mt="26px"
+            justify="center"
+          >
+            <DistanceTravelledModeChart data={data} />
           </Flex>
         </Flex>
       </Flex>

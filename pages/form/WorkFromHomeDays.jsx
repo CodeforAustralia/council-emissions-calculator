@@ -77,7 +77,7 @@ export default function DaysOfTheWeekSelection() {
       </Box>
       <Q1Cloud />
       <Heading mt={10} mb={10}>
-        Which day(s) do you usually work from home?
+        Which day(s) did you work from home last week?
       </Heading>
       <DaysOfTheWeekContainer
         setNumberOfDays={(days) => setWFHDays(days)}

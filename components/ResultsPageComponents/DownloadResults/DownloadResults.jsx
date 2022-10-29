@@ -1,10 +1,10 @@
-import { Text, Flex, Button, Box } from "@chakra-ui/react";
+import { Text, Flex, Button, Box, Link } from "@chakra-ui/react";
 import DownloadPdf from "../../../public/images/download-results-icons/DownloadPdf.svg";
 import DownloadCsv from "../../../public/images/download-results-icons/DownloadCSV.svg";
 import Lamp from "../../../public/images/download-results-icons/Lamp.svg";
 import GHGProtocol from "../../../public/images/download-results-icons/GHGProtocol.svg";
 
-export default function DownloadResults() {
+export default function DownloadResults({ calculationLink }) {
   return (
     <Flex
       minwidth="350px"
@@ -14,56 +14,62 @@ export default function DownloadResults() {
       gap="17px"
     >
       <Flex gap="17px" justify="center" height="86px">
-        <Flex
-          direction="column"
-          background="rgba(221, 221, 229, 0.1)"
-          border="0.613005px solid #DDDDE5"
-          boxShadow="0px 0px 22.5px rgba(35, 47, 78, 0.14)"
-          borderRadius="13.5px 0px 0px 0px"
-          align="center"
-          justify="center"
-          width="180px"
-          _hover={{ bg: "#ebedf0" }}
-        >
-          <Box>
-            <DownloadPdf />
-          </Box>
-          <Text
-            textAlign="center"
-            fontSize="12px"
-            font="Public Sans"
-            fontWeight={600}
-            px="35%"
-            lineHeight="13px"
-            color="#044B7F"
+        <Link href="/202207_results/council_survey_results_20220818_rev1.pdf">
+          <Flex
+            direction="column"
+            background="rgba(221, 221, 229, 0.1)"
+            border="0.613005px solid #DDDDE5"
+            boxShadow="0px 0px 22.5px rgba(35, 47, 78, 0.14)"
+            borderRadius="13.5px 0px 0px 0px"
+            align="center"
+            justify="center"
+            width="180px"
+            height="86px"
+            _hover={{ bg: "#ebedf0" }}
           >
-            Download this page
-          </Text>
-        </Flex>
-        <Flex
-          direction="column"
-          background="rgba(221, 221, 229, 0.1)"
-          border="0.613005px solid #DDDDE5"
-          boxShadow="0px 0px 22.5px rgba(35, 47, 78, 0.14)"
-          borderRadius="0px 13.5px 0px 0px"
-          align="center"
-          justify="center"
-          width="180px"
-          _hover={{ bg: "#ebedf0" }}
-        >
-          <DownloadCsv />
-          <Text
-            fontSize="12px"
-            fontFamily="Public Sans"
-            fontWeight={600}
-            textAlign="center"
-            px="29%"
-            lineHeight="13px"
-            color="#044B7F"
+            <Box>
+              <DownloadPdf />
+            </Box>
+            <Text
+              textAlign="center"
+              fontSize="12px"
+              font="Public Sans"
+              fontWeight={600}
+              px="35%"
+              lineHeight="13px"
+              color="#044B7F"
+            >
+              Download this page
+            </Text>
+          </Flex>
+        </Link>
+        <Link href="/202207_results/council_survey_responses_20220818.csv">
+          <Flex
+            direction="column"
+            background="rgba(221, 221, 229, 0.1)"
+            border="0.613005px solid #DDDDE5"
+            boxShadow="0px 0px 22.5px rgba(35, 47, 78, 0.14)"
+            borderRadius="0px 13.5px 0px 0px"
+            align="center"
+            justify="center"
+            width="180px"
+            height="86px"
+            _hover={{ bg: "#ebedf0" }}
           >
-            Downaload survey data
-          </Text>
-        </Flex>
+            <DownloadCsv />
+            <Text
+              fontSize="12px"
+              fontFamily="Public Sans"
+              fontWeight={600}
+              textAlign="center"
+              px="29%"
+              lineHeight="13px"
+              color="#044B7F"
+            >
+              Download survey data
+            </Text>
+          </Flex>
+        </Link>
       </Flex>
       <Flex
         direction="column"
@@ -113,13 +119,20 @@ export default function DownloadResults() {
             fontFamily="Public Sans"
             fontWeight={200}
             fontSize="12px"
-            lineHight="14px"
+            lineHeight="14px"
           >
             Read how we have calculated and reported your emissions:
           </Text>
-          <Button variant="outline" width="40%" color="#366F99" height="31px">
-            Read
-          </Button>
+          <Link width="40%" href={calculationLink}>
+            <Button
+              variant="outline"
+              width="100%"
+              color="#366F99"
+              height="31px"
+            >
+              Read
+            </Button>
+          </Link>
         </Flex>
       </Flex>
     </Flex>

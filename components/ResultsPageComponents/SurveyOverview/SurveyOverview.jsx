@@ -5,6 +5,7 @@ import Cloud from "../../../public/images/survey-overview-icons/cloud.svg";
 import DottedLine from "../../../public/images/survey-overview-icons/dotted-line.svg";
 import Path from "../../../public/images/survey-overview-icons/path.svg";
 import Respondents from "../../../public/images/survey-overview-icons/respondents.svg";
+import { formatCommaSeparators } from "../../../utils/mathUtils";
 
 const getMonthName = (month) => {
   switch (month) {
@@ -53,26 +54,43 @@ export default function SurveyOverview({
     totalEmissions: totalEmissions,
     totalTrips: totalTripCount,
   };
-  console.log(`results: ${JSON.stringify(surveyData)}`);
+
+  const avgDistancePerTrip = (
+    surveyData.totalDistance / surveyData.totalTrips
+  ).toPrecision(2);
+  const avgEmissionPerTrip = (
+    surveyData.totalEmissions / surveyData.totalTrips
+  ).toPrecision(2);
 
   return (
     <Flex
       direction="column"
       backgroundImage={`url(${Background}) no-repeat`}
-      minWidth="300px"
-      width="75%"
+      minWidth="350px"
+      maxWidth="1100px"
       alignSelf={["center", "start"]}
-      m="50px"
+      ml="50px"
+      py={["25px", "50px"]}
     >
-      <Text fontWeight={600} fontSize="35px">
+      <Text as="h2" fontWeight={600} fontSize="35px">
         Overview
       </Text>
       <Text fontWeight={400} fontSize="20px">
-        This section includes the survey’s snapshot dates, the total number of
-        survey particpants, the total distance travel, the average distance per
-        trip, the total emissions and the average emissions per trip. This
-        information forms the baseline data and provide a brief overview into
-        the result page.
+        The Work Commute survey was conducted on 12 to 29 July 2022 and recorded
+        responses from 162 people. The results provide a snapshot of how staff
+        travel to and from work, in the week before the survey.
+        <br />
+      </Text>
+
+      <Text fontWeight={400} fontSize="20px">
+        <br />
+        Respondents commuted a total distance of{" "}
+        {formatCommaSeparators(surveyData.totalDistance)} km and produced a
+        total trip emission of {surveyData.totalEmissions} t in one week. This
+        is roughly enough CO<Text as="sub">2</Text> to fill 13 Olympic sized
+        swimming pools. The average distance travelled is {avgDistancePerTrip}{" "}
+        km, with an average of {avgEmissionPerTrip * 1000} kg of emissions per
+        trip.
       </Text>
       <Flex
         borderBottom={["none", "1px solid #D69E2E"]}
@@ -143,7 +161,7 @@ export default function SurveyOverview({
                 Average distance per trip
               </Text>
               <Text fontSize="18px" color="#03385F" lineHeight={1}>
-                {surveyData.totalDistance / surveyData.totalTrips} km
+                {avgDistancePerTrip} km
               </Text>
             </Flex>
           </Flex>
@@ -178,7 +196,7 @@ export default function SurveyOverview({
                 Average emissions per trip
               </Text>
               <Text fontSize="18px" color="#03385F" lineHeight={1}>
-                {surveyData.totalEmissions / surveyData.totalTrips} t
+                {avgEmissionPerTrip} t
               </Text>
             </Flex>
           </Flex>
