@@ -10,15 +10,15 @@ assignees: ''
 I'm submitting a bug report.
 
 ## What is the current behaviour?
-> Explain what the issue is including screenshots and/or links.
-
-
-## Please provide the steps to reproduce and if possible a minimal demo of the problem
-> What did you do to get this issue?
+> Explain what the issue is including screenshots and/or links. What did you do to get this issue?
 
 
 ## What is the expected behaviour?
 > What is supposed to happen when the bug is fixed?
+
+
+## Do you know what cause the issue? If yes, can you list or briefly explain.
+> Explain the cause of the issue
 
 
 ## Solution (or options to fix the bug)
