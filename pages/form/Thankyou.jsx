@@ -1,5 +1,5 @@
 import Layout from "../../components/Layout/Layout";
-import { Flex, Heading, Text } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import TYCloud from "../../public/images/clouds/cloud-thank-you.svg";
 
 export default function Thankyou() {
@@ -12,9 +12,18 @@ export default function Thankyou() {
           flexDir="column"
           alignItems={["center", "start"]}
         >
-          <Heading color="#fff" mt={10} mb={5} textAlign={["center", "start"]}>
+          <Text
+            as="h1"
+            fontWeight={700}
+            fontSize="36px"
+            lineHeight="43.2px"
+            color="#fff"
+            mt={10}
+            mb={5}
+            textAlign={["center", "start"]}
+          >
             Thank you for participating!
-          </Heading>
+          </Text>
           <Text
             color="#fff"
             mt={5}

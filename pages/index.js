@@ -1,4 +1,4 @@
-import { Heading, Text, Image, Box, Flex } from "@chakra-ui/react";
+import { Text, Image, Box, Flex } from "@chakra-ui/react";
 import Layout from "../components/Layout/Layout";
 import LinkButton from "../components/LinkButton/LinkButton";
 import Q1Cloud from "../public/images/clouds/cloud-q1.svg";
@@ -74,10 +74,17 @@ export default function Home({ closingTime }) {
         <Flex alignItems="center" flexDir={["column", "row"]}>
           <Animation />
           <Box p={[5, 10]}>
-            <Heading textAlign={["center", "start"]}>
+            <Text
+              as="h1"
+              textAlign={["center", "start"]}
+              fontWeight={700}
+              fontSize="36px"
+              mt="97px"
+              lineHeight="43.2px"
+            >
               {/* {" "} */}
               Help calculate Council&apos;s carbon emissions
-            </Heading>
+            </Text>
             <Text mt={spacing}>
               We&apos;ll ask some questions about how you travelled to and from
               work last week, or the most recent normal week with no leave.
