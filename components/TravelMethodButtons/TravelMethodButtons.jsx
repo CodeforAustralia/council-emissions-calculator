@@ -127,7 +127,7 @@ const TravelMethodButtons = () => {
         justify={["center", "left"]}
         mb="15px"
       >
-        <Text fontSize="18px">
+        <Text fontSize="18px" align="center">
           Select ALL the ways you generally travel to work.
         </Text>
       </Flex>
