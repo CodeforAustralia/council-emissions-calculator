@@ -28,6 +28,6 @@
   "devDependencies": {
     "eslint": "7.30.0",
     "eslint-config-next": "11.0.1",
-    "prettier": "2.5.1"
+    "prettier": "2.8.4"
   }
 }
