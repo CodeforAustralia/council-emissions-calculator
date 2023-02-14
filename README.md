@@ -83,6 +83,38 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 </details>
 
+## Collaboration: Want to collaborate with this project ?
+
+<details>
+<summary> 
+STEPS
+</summary>
+
+1. Forked the project repository from the owners repository.
+   (go to your git account you will see you have a copy now)
+
+2. Open terminal `git clone ...` your forked repository .
+
+3. List the current configured remote repository for your fork.
+   `git remote -v`
+
+   > origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
+   > origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
+
+4. Specify a new remote upstream repository that will be synced with the fork.
+   ` git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git`
+
+5. Verify the new upstream repository you've specified for your fork.
+   `git remote -v`
+
+   > origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
+   > origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
+   > upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch)
+   > upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push)
+
+6. `git checkout -b (name of the branch)` Now you can work on the branch.
+</details>
+
 ## Collaboration: Working In a Forked Repository
 
 ### How to fetch upstream main/master
