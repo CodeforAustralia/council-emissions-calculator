@@ -13,7 +13,7 @@
     "@chakra-ui/react": "^2.5.0",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
-    "@fontsource/public-sans": "^4.5.0",
+    "@fontsource/public-sans": "^4.5.12",
     "@googleapis/sheets": "^4.0.1",
     "@svgr/webpack": "^6.5.1",
     "cors": "^2.8.5",
