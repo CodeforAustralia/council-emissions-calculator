@@ -25,7 +25,13 @@ export default function TopThree({
       justify="center"
     >
       <Flex direction="column">
-        <Text as="h2" fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
+        <Text
+          as="h2"
+          fontWeight={600}
+          fontSize="33px"
+          lineHeight="37px"
+          py="15px"
+        >
           Top Three Travel Methods
         </Text>
         <Text fontSize="19px" py="15px">
@@ -39,7 +45,6 @@ export default function TopThree({
                 gap={["20px", "20px"]}
                 justify="center"
                 key={ind}
-                background="rgba(221, 221, 229, 0.1)"
                 border="0.613005px  #DDDDE5"
                 boxShadow="0px 0px 22.5px rgba(35, 47, 78, 0.14)"
                 borderRadius="5px 0px 0px 0px"
