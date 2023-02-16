@@ -70,10 +70,8 @@ export default function Results({ data }) {
         <WorkArrangement workMode={data["work-mode"]} />
         <CommuteDays data={data} />
       </ResultContentSection>
-      <ResultContentSection isShaded={false}>
-        <CommuteDistanceDistribution data={data} />
-      </ResultContentSection>
       <ResultContentSection isShaded={true}>
+        <CommuteDistanceDistribution data={data} />
         <DistanceTravelledMode data={data["distance-travelled-by-mode"]} />
       </ResultContentSection>
       <ResultContentSection isShaded={false}>
