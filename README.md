@@ -83,7 +83,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 </details>
 
-## Collaboration: Want to collaborate with this project ?
+## Collaboration: Want to collaborate on this project ?
 
 <details>
 <summary> 
