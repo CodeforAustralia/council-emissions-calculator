@@ -12,13 +12,13 @@ export default function DistanceTravelledMode({ data }) {
       minWidth="350px"
       maxWidth="1100px"
       direction="column"
-      alignSelf={["center", "start"]}
-      align={["center", "flex-start"]}
       flex={[1, 2]}
       gap={["10px", "20px"]}
       px={["5px", "50px"]}
       py={["25px", "50px"]}
       justify="center"
+      alignSelf={["center", "start"]}
+      align={["center", "flex-start"]}
     >
       <Flex direction="column" width="100%" py="15px">
         <Text as="h2" fontSize="27.65px" fontWeight={600}>
@@ -34,7 +34,13 @@ export default function DistanceTravelledMode({ data }) {
       {/* CONTAINER FOR INDIVIDUAL METHOD AND ACTIVE/PUBLIC/SHARED/METHOD   */}
       {/* <Flex direction="column">
       </Flex> */}
-      <Flex direction="column" gap="10px" mb="10px">
+      <Flex
+        direction="column"
+        gap="10px"
+        mb="10px"
+        alignSelf={["center", "start"]}
+        align={["center", "flex-start"]}
+      >
         <Flex
           gap="30px"
           direction={["column", "row"]}
@@ -143,21 +149,13 @@ export default function DistanceTravelledMode({ data }) {
         </Flex>
       </Flex>
       {/* chart  */}
-      <Flex justify="center">
-        <Flex direction="column" width={["484px", "804px"]} height="484px">
-          <Flex
-            background="rgba(221, 221, 229, 0.1)"
-            border="0.613005px  #DDDDE5"
-            boxShadow="0px 0px 22.5px rgba(35, 47, 78, 0.18)"
-            borderRadius="10px 10px 10px 10px"
-            py="5px"
-            height="484px"
-            align="center"
-            mt="26px"
-            justify="center"
-          >
-            <DistanceTravelledModeChart data={data} />
-          </Flex>
+
+      <Flex justify="center" direction="column" align="center">
+        <Flex
+          boxShadow="0px 0px 22.5px rgba(35, 47, 78, 0.18)"
+          mxnWidth="634px"
+        >
+          <DistanceTravelledModeChart data={data} />
         </Flex>
       </Flex>
     </Flex>

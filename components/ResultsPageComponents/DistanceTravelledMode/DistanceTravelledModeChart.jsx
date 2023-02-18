@@ -1,16 +1,19 @@
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
+import { Flex } from "@chakra-ui/react";
 
 export default function DistanceTravelledModeChart({ data }) {
   let individualMethods = Object.values(data["individual-methods"]);
-  let activePublicSharedMethods = Object.values(data["active-public-shared-methods"]);
+  let activePublicSharedMethods = Object.values(
+    data["active-public-shared-methods"]
+  );
 
   const hichartsOpts = {
     chart: {
       type: "bar",
     },
     credits: {
-      enabled: false
+      enabled: false,
     },
     title: {
       text: undefined,
@@ -55,5 +58,9 @@ export default function DistanceTravelledModeChart({ data }) {
       },
     ],
   };
-  return <HighchartsReact highcharts={Highcharts} options={hichartsOpts} />;
+  return (
+    <Flex maxWidth="634px">
+      <HighchartsReact highcharts={Highcharts} options={hichartsOpts} />
+    </Flex>
+  );
 }
