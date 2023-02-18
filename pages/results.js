@@ -88,7 +88,15 @@ export default function Results({ data }) {
         </Flex>
       </ResultContentSection>
       <ResultContentSection isShaded={false}>
-        <WorkArrangement workMode={data["work-mode"]} />
+        <Flex
+          width="100%"
+          gap={["40px", "90px"]}
+          wrap="wrap"
+          justify={["center", "left"]}
+          align={["center", "flex-start"]}
+        >
+          <WorkArrangement workMode={data["work-mode"]} />
+        </Flex>
         <CommuteDays data={data} />
       </ResultContentSection>
       <ResultContentSection isShaded={true}>

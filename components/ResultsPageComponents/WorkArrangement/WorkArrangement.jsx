@@ -28,12 +28,12 @@ export default function WorkArrangement({ workMode }) {
       flex={[1, 2]}
       direction="column"
       gap={["10px", "20px"]}
-      px={["5px", "50px"]}
+      px={["32px", "0px"]}
       py={["25px", "50px"]}
       justify="center"
     >
       <Flex direction="column">
-        <Text as="h2" fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
+        <Text as="h2" fontWeight={600} fontSize="35px" lineHeight="37px" py="15px">
           Work Arrangement
         </Text>
         <Text fontSize="19px" py="15px">
