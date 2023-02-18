@@ -36,11 +36,9 @@ export default function Results({ data }) {
     <Layout isText={true} maxContainerWidth="100%">
       <ResultContentSection isShaded={false}>
         <Flex
-          px={["5px", "50px"]}
           width="100%"
           gap={["40px", "90px"]}
           wrap="wrap"
-          direction={["column", "row"]}
           justify={["center", "left"]}
           align={["center", "flex-start"]}
         >
