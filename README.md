@@ -90,34 +90,13 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 STEPS
 </summary>
 
-1. Forked the project repository from the owners repository.
-   (go to your git account you will see you have a copy now)
+1. Please refer to [this link](https://docs.github.com/en/get-started/quickstart/fork-a-repo) for documentation.
 
-2. Open terminal `git clone ...` your forked repository .
-
-3. List the current configured remote repository for your fork.
-   `git remote -v`
-
-   > origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
-   > origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
-
-4. Specify a new remote upstream repository that will be synced with the fork.
-   ` git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git`
-
-5. Verify the new upstream repository you've specified for your fork.
-   `git remote -v`
-
-   > origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
-   > origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
-   > upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch)
-   > upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push)
-
-6. `git checkout -b (name of the branch)` Now you can work on the branch.
 </details>
 
 ## Collaboration: Working In a Forked Repository
 
-### How to fetch upstream main/master
+### How to fetch upstream main/master/staging
 
 There are 2 options :
 
@@ -134,7 +113,7 @@ STEPS
 - Upstream is the name for the master git repo it can be reasonable any name.
 
 4. `git fetch upstream`
-5. `git merge upstream/main`
+5. `git merge upstream/main or upstream/staging`
 6. `git pull`
 </details>
 
@@ -165,7 +144,7 @@ STEPS
 </summary> 
      
 1. `git checkout (branch name)`
-2. `git merge main`
+2. `git merge main or staging`
 </details>
 
 ## Contributors ✨
