@@ -1,5 +1,5 @@
 import path from "path";
-import { Flex, Img } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import React from "react";
 import useForm from "../components/FormProvider";
 import Layout from "../components/Layout/Layout";
@@ -128,7 +128,15 @@ export default function Results({ data }) {
         </Flex>
       </ResultContentSection>
       <ResultContentSection isShaded={false}>
-        <StaffSuggestions />
+        <Flex
+          width="100%"
+          gap={["40px", "90px"]}
+          wrap="wrap"
+          justify={["center", "left"]}
+          align={["center", "flex-start"]}
+        >
+          <StaffSuggestions />
+        </Flex>
       </ResultContentSection>
     </Layout>
   );

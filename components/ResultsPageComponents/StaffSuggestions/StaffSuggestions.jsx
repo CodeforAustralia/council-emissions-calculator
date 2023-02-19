@@ -11,11 +11,11 @@ export default function StaffSuggestions() {
       flex={[1, 2]}
       direction="column"
       gap={["10px", "20px"]}
-      px={["5px", "50px"]}
+      px={["32px", "0px"]}
       py={["25px", "50px"]}
       justify="center"
     >
-      <Text as="h2" fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
+      <Text as="h2" fontWeight={600} fontSize="35px" lineHeight="37px" py="15px">
         Staff Suggestions
       </Text>
       <Text fontSize="19px" py="15px">
@@ -32,7 +32,13 @@ export default function StaffSuggestions() {
         End-of-Trip facilities at workplace.
       </Text>
 
-      <StaffSuggestionsChart />
+      <Flex
+        width={["350px","100%"]}
+        wrap="wrap"
+        overflowX="auto"
+      >
+        <StaffSuggestionsChart />
+      </Flex>
     </Flex>
   );
 }
