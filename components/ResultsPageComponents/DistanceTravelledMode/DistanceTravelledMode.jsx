@@ -1,4 +1,4 @@
-import { Text, Flex, Box } from "@chakra-ui/react";
+import { Text, Flex } from "@chakra-ui/react";
 import WalkingMan from "../../../public/images/survey-intro-icons/walking-man.svg";
 import Car from "../../../public/images/survey-intro-icons/car.svg";
 import Carpool from "../../../public/images/survey-intro-icons/carpool.svg";
@@ -11,20 +11,22 @@ export default function DistanceTravelledMode({ data }) {
     <Flex
       minWidth="350px"
       maxWidth="1100px"
-      direction="column"
-      flex={[1, 2]}
-      gap={["10px", "20px"]}
-      px={["5px", "50px"]}
-      py={["25px", "50px"]}
-      justify="center"
       alignSelf={["center", "start"]}
-      align={["center", "flex-start"]}
+      flex={[1, 2]}
+      direction="column"
+      gap={["10px", "20px"]}
     >
-      <Flex direction="column" width="100%" py="15px">
-        <Text as="h2" fontSize="27.65px" fontWeight={600}>
+      <Flex direction="column" px={["32px", "0px"]}>
+        <Text
+          as="h2"
+          fontWeight={600}
+          fontSize="35px"
+          lineHeight="37px"
+          py="15px"
+        >
           Distance travelled by mode of transport
         </Text>
-        <Text fontSize="20px">
+        <Text fontSize="19px">
           The following graph helps us compare the travel modes (individual
           vs.active/public/shared) preferred by staff within various commute
           distances.
@@ -32,22 +34,15 @@ export default function DistanceTravelledMode({ data }) {
       </Flex>
 
       {/* CONTAINER FOR INDIVIDUAL METHOD AND ACTIVE/PUBLIC/SHARED/METHOD   */}
-      {/* <Flex direction="column">
-      </Flex> */}
-      <Flex
-        direction="column"
-        gap="10px"
-        mb="10px"
-        alignSelf={["center", "start"]}
-        align={["center", "flex-start"]}
-      >
+      <Flex direction="column" gap="10px">
         <Flex
           gap="30px"
           direction={["column", "row"]}
           justify={["center", "space-between"]}
           align="center"
+          alignSelf={["center", "start"]}
         >
-          <Flex direction="column">
+          <Flex direction="column" px={["35px","0px"]}>
             <Text fontWeight={600} color="#022640" fontSize="22px">
               Active/Public/Shared Methods:
             </Text>
@@ -107,6 +102,8 @@ export default function DistanceTravelledMode({ data }) {
           direction={["column", "row"]}
           justify={["center", "space-between"]}
           align="center"
+          alignSelf={["center", "start"]}
+          px={["32px","0px"]}
         >
           <Flex direction="column">
             <Text fontWeight={600} color="#022640" fontSize="22px">
@@ -150,13 +147,13 @@ export default function DistanceTravelledMode({ data }) {
       </Flex>
       {/* chart  */}
 
-      <Flex justify="center" direction="column" align="center">
-        <Flex
-          boxShadow="0px 0px 22.5px rgba(35, 47, 78, 0.18)"
-          mxnWidth="634px"
-        >
-          <DistanceTravelledModeChart data={data} />
-        </Flex>
+      <Flex
+        width={["350px","100%"]}
+        wrap="wrap"
+        boxShadow="0px 0px 22.5px rgba(35, 47, 78, 0.18)"
+        overflowX="auto"
+      >
+        <DistanceTravelledModeChart data={data} />
       </Flex>
     </Flex>
   );
