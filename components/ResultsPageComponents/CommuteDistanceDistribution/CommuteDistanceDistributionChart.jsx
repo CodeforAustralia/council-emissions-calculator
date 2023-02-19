@@ -22,7 +22,6 @@ export default function CommuteDistanceDistributionChart({ title, data }) {
     },
     chart: {
       type: "column",
-      height: 400,
     },
     colors: ["#044B7F"],
     credits: {

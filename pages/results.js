@@ -108,7 +108,15 @@ export default function Results({ data }) {
         </Flex>
       </ResultContentSection>
       <ResultContentSection isShaded={true}>
-        <CommuteDistanceDistribution data={data} />
+        <Flex
+          width="100%"
+          gap={["40px", "90px"]}
+          wrap="wrap"
+          justify={["center", "left"]}
+          align={["center", "flex-start"]}
+        >
+          <CommuteDistanceDistribution data={data} />
+        </Flex>
         <DistanceTravelledMode data={data["distance-travelled-by-mode"]} />
       </ResultContentSection>
       <ResultContentSection isShaded={false}>
