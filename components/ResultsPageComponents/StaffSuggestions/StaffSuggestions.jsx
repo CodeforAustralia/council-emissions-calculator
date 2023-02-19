@@ -15,7 +15,13 @@ export default function StaffSuggestions() {
       py={["25px", "50px"]}
       justify="center"
     >
-      <Text as="h2" fontWeight={600} fontSize="35px" lineHeight="37px" py="15px">
+      <Text
+        as="h2"
+        fontWeight={600}
+        fontSize="35px"
+        lineHeight="37px"
+        py="15px"
+      >
         Staff Suggestions
       </Text>
       <Text fontSize="19px" py="15px">
@@ -32,11 +38,7 @@ export default function StaffSuggestions() {
         End-of-Trip facilities at workplace.
       </Text>
 
-      <Flex
-        width={["350px","100%"]}
-        wrap="wrap"
-        overflowX="auto"
-      >
+      <Flex width={["350px", "100%"]} wrap="wrap" overflowX="auto">
         <StaffSuggestionsChart />
       </Flex>
     </Flex>

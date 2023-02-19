@@ -42,7 +42,7 @@ export default function DistanceTravelledMode({ data }) {
           align="center"
           alignSelf={["center", "start"]}
         >
-          <Flex direction="column" px={["35px","0px"]}>
+          <Flex direction="column" px={["35px", "0px"]}>
             <Text fontWeight={600} color="#022640" fontSize="22px">
               Active/Public/Shared Methods:
             </Text>
@@ -103,7 +103,7 @@ export default function DistanceTravelledMode({ data }) {
           justify={["center", "space-between"]}
           align="center"
           alignSelf={["center", "start"]}
-          px={["32px","0px"]}
+          px={["32px", "0px"]}
         >
           <Flex direction="column">
             <Text fontWeight={600} color="#022640" fontSize="22px">
@@ -148,7 +148,7 @@ export default function DistanceTravelledMode({ data }) {
       {/* chart  */}
 
       <Flex
-        width={["350px","100%"]}
+        width={["350px", "100%"]}
         wrap="wrap"
         boxShadow="0px 0px 22.5px rgba(35, 47, 78, 0.18)"
         overflowX="auto"

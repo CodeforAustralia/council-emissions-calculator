@@ -4,7 +4,7 @@ import PieChart from "./PieChart";
 export default function PieChartComponent({ title, data, colorList }) {
   return (
     <Flex
-      width={["350px","520px"]}
+      width={["350px", "520px"]}
       borderRadius="15px"
       boxShadow="0px 0px 28px rgba(35, 47, 78, 0.14)"
       border="1px solid #DDDDE5"

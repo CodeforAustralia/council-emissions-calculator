@@ -34,7 +34,13 @@ export default function TripCountAndTravelMethods({ dataAboutTrips }) {
       justify="center"
     >
       <Flex direction="column">
-        <Text as="h2" fontWeight={600} fontSize="35px" lineHeight="37px" py="15px">
+        <Text
+          as="h2"
+          fontWeight={600}
+          fontSize="35px"
+          lineHeight="37px"
+          py="15px"
+        >
           Trip count and Travel Methods
         </Text>
         <Text fontSize="19px" py="15px">
@@ -58,10 +64,7 @@ export default function TripCountAndTravelMethods({ dataAboutTrips }) {
               colorList={["#044B7F", "#D69E2E"]}
             />
             <Flex>
-              <Flex
-                direction="column"
-                gap="15px"
-              >
+              <Flex direction="column" gap="15px">
                 <PieChartComponent
                   title="Active-public-shared travel"
                   data={activePublicSharedTravel}

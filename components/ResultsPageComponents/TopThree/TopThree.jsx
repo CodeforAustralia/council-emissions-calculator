@@ -20,10 +20,7 @@ export default function TopThree({
       alignSelf={["center", "start"]}
       py={["25px", "50px"]}
     >
-      <Flex
-        direction="column"
-        px={["32px","0px"]}
-      >
+      <Flex direction="column" px={["32px", "0px"]}>
         <Text
           as="h2"
           fontWeight={600}

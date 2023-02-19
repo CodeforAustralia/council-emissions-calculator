@@ -69,7 +69,7 @@ export default function SurveyOverview({
       minWidth="350px"
       maxWidth="1100px"
       alignSelf={["center", "start"]}
-      px={["32px","0px"]}
+      px={["32px", "0px"]}
       py={["25px", "50px"]}
     >
       <Text as="h2" fontWeight={600} fontSize="35px">

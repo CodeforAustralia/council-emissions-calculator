@@ -15,8 +15,10 @@ export default function SurveyIntro() {
       direction="column"
       gap={["10px", "20px"]}
     >
-      <Flex direction="column" px={["32px","0px"]}>
-        <Text as="h1" fontSize={["30px", "50px"]}>Work Commute Survey Results</Text>
+      <Flex direction="column" px={["32px", "0px"]}>
+        <Text as="h1" fontSize={["30px", "50px"]}>
+          Work Commute Survey Results
+        </Text>
         <Text fontSize="20px">
           City of Greater Bendigo has recently embarked on a challenge to
           increase the use of active, public, and shared commute methods to 20%
@@ -43,8 +45,14 @@ export default function SurveyIntro() {
           <br />
         </Text>
       </Flex>
-      <Flex direction="column" px={["32px","0px"]}>
-        <Text as="h3" fontWeight={600} fontSize="27px" lineHeight="37px" py="15px">
+      <Flex direction="column" px={["32px", "0px"]}>
+        <Text
+          as="h3"
+          fontWeight={600}
+          fontSize="27px"
+          lineHeight="37px"
+          py="15px"
+        >
           Things to note before reading the results
         </Text>
         <Text fontSize="19px">
@@ -58,7 +66,7 @@ export default function SurveyIntro() {
           direction={["column", "row"]}
           justify={["center", "space-between"]}
           align="center"
-          px={["32px","0px"]}
+          px={["32px", "0px"]}
         >
           <Flex direction="column">
             <Text fontWeight={600} color="#022640" fontSize="22px">
@@ -120,7 +128,7 @@ export default function SurveyIntro() {
           direction={["column", "row"]}
           justify={["center", "space-between"]}
           align="center"
-          px={["32px","0px"]}
+          px={["32px", "0px"]}
         >
           <Flex direction="column">
             <Text fontWeight={600} color="#022640" fontSize="22px">
