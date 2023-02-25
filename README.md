@@ -83,9 +83,20 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 </details>
 
+## Collaboration: Want to collaborate on this project ?
+
+<details>
+<summary> 
+STEPS
+</summary>
+
+1. Please refer to [this link](https://docs.github.com/en/get-started/quickstart/fork-a-repo) for documentation.
+
+</details>
+
 ## Collaboration: Working In a Forked Repository
 
-### How to fetch upstream main/master
+### How to fetch upstream main/master/staging
 
 There are 2 options :
 
@@ -102,7 +113,7 @@ STEPS
 - Upstream is the name for the master git repo it can be reasonable any name.
 
 4. `git fetch upstream`
-5. `git merge upstream/main`
+5. `git merge upstream/main or upstream/staging`
 6. `git pull`
 </details>
 
@@ -133,7 +144,7 @@ STEPS
 </summary> 
      
 1. `git checkout (branch name)`
-2. `git merge main`
+2. `git merge main or staging`
 </details>
 
 ## Contributors ✨
