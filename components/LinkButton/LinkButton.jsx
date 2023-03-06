@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Box, Button, Text } from "@chakra-ui/react";
+import { Button, Text } from "@chakra-ui/react";
 import BackArrow from "../../public/images/back-arrow.svg";
 
 export default function LinkButton({
@@ -25,7 +25,7 @@ export default function LinkButton({
         }}
         color={color || "#fff"}
         onClick={onClick}
-        disabled={disabled}
+        isDisabled={disabled}
       >
         {children}
       </Button>

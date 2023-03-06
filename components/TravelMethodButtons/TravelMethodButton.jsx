@@ -26,7 +26,7 @@ export default function TravelMethodButton({
         },
         color: "white",
       }}
-      disabled={isDisabled}
+      isDisabled={isDisabled}
     >
       <Flex justify="center" align="center" direction="column">
         <Icon as={transportIcon[ind]} fontSize={"20px"} />
