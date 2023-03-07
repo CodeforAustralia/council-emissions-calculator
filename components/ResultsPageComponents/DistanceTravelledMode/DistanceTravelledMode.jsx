@@ -148,7 +148,7 @@ export default function DistanceTravelledMode({ data }) {
       {/* chart  */}
 
       <Flex
-        width={["350px", "100%"]}
+        width={["350px", "634px"]}
         wrap="wrap"
         boxShadow="0px 0px 22.5px rgba(35, 47, 78, 0.18)"
         overflowX="auto"
