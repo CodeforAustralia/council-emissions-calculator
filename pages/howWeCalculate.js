@@ -86,18 +86,23 @@ export default function howWeCalculate() {
               <TableContainer>
                 <Table
                   variant="unstyled"
-                  css = {{
+                  css={{
                     tableLayout: "fixed",
                   }}
                 >
                   <TableCaption />
                   <Thead>
                     <Tr>
-                      <Th>Mode of <br /> Transport</Th>
+                      <Th>
+                        Mode of <br /> Transport
+                      </Th>
                       <Th isNumeric>
-                        Emissions <br />Factor <br />
-                        (kg of CO2 <br />emitted per <br />
-                        person km <br />travelled)
+                        Emissions <br />
+                        Factor <br />
+                        (kg of CO2 <br />
+                        emitted per <br />
+                        person km <br />
+                        travelled)
                       </Th>
                     </Tr>
                   </Thead>
@@ -135,7 +140,11 @@ export default function howWeCalculate() {
                         color: "white",
                       }}
                     >
-                      <Td>Bicycle/Walk<br />/Run</Td>
+                      <Td>
+                        Bicycle/Walk
+                        <br />
+                        /Run
+                      </Td>
                       <Td isNumeric>0</Td>
                     </Tr>
                   </Tbody>
