@@ -88,8 +88,8 @@ export default function TravelMethod() {
 
       <Container
         border={["0px none", ".1px solid"]}
-        width={["375px", "708px"]}
         maxHeight={"974px"}
+        minWidth={"305px"}
         borderColor={["white", "gray.200"]}
         centerContent
         p="0px"

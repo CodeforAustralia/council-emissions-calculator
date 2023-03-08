@@ -56,7 +56,7 @@ export default function Results({ data }) {
           totalTripCount={data["total-trip-count"]}
         />
       </ResultContentSection>
-      <ResultContentSection isShaded={true}>
+      <ResultContentSection>
         <TopThree
           topThree={data["TopThreeData"]}
           totalDistance={data["total-distance"]}
