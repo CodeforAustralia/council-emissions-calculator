@@ -1,5 +1,5 @@
 import path from "path";
-import { Flex, Img } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import React from "react";
 import useForm from "../components/FormProvider";
 import Layout from "../components/Layout/Layout";
@@ -36,46 +36,107 @@ export default function Results({ data }) {
     <Layout isText={true} maxContainerWidth="100%">
       <ResultContentSection isShaded={false}>
         <Flex
-          px={["5px", "50px"]}
           width="100%"
           gap={["40px", "90px"]}
           wrap="wrap"
-          direction={["column", "row"]}
           justify={["center", "left"]}
           align={["center", "flex-start"]}
         >
           <SurveyIntro />
           <DownloadResults calculationLink="/howWeCalculate" />
         </Flex>
-        <SurveyOverview
-          startDate={data["survey-start-date"]}
-          endDate={data["survey-end-date"]}
-          totalResponses={data["total-number-responses"]}
-          totalDistance={data["total-distance"]}
-          totalEmissions={data["total-co2-emissions-tonnes"]}
-          totalTripCount={data["total-trip-count"]}
-        />
+        <Flex
+          width="100%"
+          gap={["40px", "90px"]}
+          wrap="wrap"
+          justify={["center", "left"]}
+          align={["center", "flex-start"]}
+        >
+          <SurveyOverview
+            startDate={data["survey-start-date"]}
+            endDate={data["survey-end-date"]}
+            totalResponses={data["total-number-responses"]}
+            totalDistance={data["total-distance"]}
+            totalEmissions={data["total-co2-emissions-tonnes"]}
+            totalTripCount={data["total-trip-count"]}
+          />
+        </Flex>
       </ResultContentSection>
       <ResultContentSection>
-        <TopThree
-          topThree={data["TopThreeData"]}
-          totalDistance={data["total-distance"]}
-          totalTripCount={data["total-trip-count"]}
-          totalEmissions={data["total-co2-emissions-tonnes"]}
-        />
-
-        <TripCountAndTravelMethods dataAboutTrips={data["dataAboutTrips"]} />
+        <Flex
+          width="100%"
+          gap={["40px", "90px"]}
+          wrap="wrap"
+          justify={["center", "left"]}
+          align={["center", "flex-start"]}
+        >
+          <TopThree
+            topThree={data["TopThreeData"]}
+            totalDistance={data["total-distance"]}
+            totalTripCount={data["total-trip-count"]}
+            totalEmissions={data["total-co2-emissions-tonnes"]}
+          />
+        </Flex>
+        <Flex
+          width="100%"
+          gap={["40px", "90px"]}
+          wrap="wrap"
+          justify={["center", "left"]}
+          align={["center", "flex-start"]}
+        >
+          <TripCountAndTravelMethods dataAboutTrips={data["dataAboutTrips"]} />
+        </Flex>
       </ResultContentSection>
       <ResultContentSection isShaded={false}>
-        <WorkArrangement workMode={data["work-mode"]} />
-        <CommuteDays data={data} />
+        <Flex
+          width="100%"
+          gap={["40px", "90px"]}
+          wrap="wrap"
+          justify={["center", "left"]}
+          align={["center", "flex-start"]}
+        >
+          <WorkArrangement workMode={data["work-mode"]} />
+        </Flex>
+        <Flex
+          width="100%"
+          gap={["40px", "90px"]}
+          wrap="wrap"
+          justify={["center", "left"]}
+          align={["center", "flex-start"]}
+        >
+          <CommuteDays data={data} />
+        </Flex>
       </ResultContentSection>
       <ResultContentSection isShaded={true}>
-        <CommuteDistanceDistribution data={data} />
-        <DistanceTravelledMode data={data["distance-travelled-by-mode"]} />
+        <Flex
+          width="100%"
+          gap={["40px", "90px"]}
+          wrap="wrap"
+          justify={["center", "left"]}
+          align={["center", "flex-start"]}
+        >
+          <CommuteDistanceDistribution data={data} />
+        </Flex>
+        <Flex
+          width="100%"
+          gap={["40px", "90px"]}
+          wrap="wrap"
+          justify={["center", "left"]}
+          align={["center", "flex-start"]}
+        >
+          <DistanceTravelledMode data={data["distance-travelled-by-mode"]} />
+        </Flex>
       </ResultContentSection>
       <ResultContentSection isShaded={false}>
-        <StaffSuggestions />
+        <Flex
+          width="100%"
+          gap={["40px", "90px"]}
+          wrap="wrap"
+          justify={["center", "left"]}
+          align={["center", "flex-start"]}
+        >
+          <StaffSuggestions />
+        </Flex>
       </ResultContentSection>
     </Layout>
   );

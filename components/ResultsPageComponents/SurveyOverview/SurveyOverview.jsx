@@ -1,4 +1,4 @@
-import { Text, Flex, Button, Box } from "@chakra-ui/react";
+import { Text, Flex } from "@chakra-ui/react";
 import Background from "../../../public/images/survey-overview-icons/background.svg";
 import Calendar from "../../../public/images/survey-overview-icons/calendar.svg";
 import Cloud from "../../../public/images/survey-overview-icons/cloud.svg";
@@ -69,7 +69,7 @@ export default function SurveyOverview({
       minWidth="350px"
       maxWidth="1100px"
       alignSelf={["center", "start"]}
-      ml="50px"
+      px={["32px", "0px"]}
       py={["25px", "50px"]}
     >
       <Text as="h2" fontWeight={600} fontSize="35px">
