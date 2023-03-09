@@ -59,7 +59,7 @@ export default function DistanceTravelledModeChart({ data }) {
     ],
   };
   return (
-    <Flex maxWidth="634px">
+    <Flex maxWidth={["350px", "634px"]}>
       <HighchartsReact highcharts={Highcharts} options={hichartsOpts} />
     </Flex>
   );

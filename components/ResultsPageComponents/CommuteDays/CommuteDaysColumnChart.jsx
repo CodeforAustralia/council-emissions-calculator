@@ -26,7 +26,7 @@ export default function CommuteDaysColumnChart({ title, data }) {
     },
     colors: ["#044B7F"],
     credits: {
-      enabled: false
+      enabled: false,
     },
     tooltip: {
       pointFormat: "{point.y}%",
