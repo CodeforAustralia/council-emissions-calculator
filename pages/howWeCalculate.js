@@ -84,14 +84,20 @@ export default function howWeCalculate() {
                 emissions table to calculate the emissions from that travel¹:
               </Text>
               <TableContainer>
-                <Table variant="unstyled">
+                <Table
+                  variant="unstyled"
+                  css={{
+                    tableLayout: "fixed",
+                    whiteSpace: "normal",
+                  }}
+                >
                   <TableCaption />
                   <Thead>
                     <Tr>
                       <Th>Mode of Transport</Th>
                       <Th isNumeric>
-                        Emissions Factor (kg of CO2 emitted per <br />
-                        person km travelled
+                        Emissions Factor (kg of CO2 emitted per person km
+                        travelled)
                       </Th>
                     </Tr>
                   </Thead>
@@ -129,7 +135,7 @@ export default function howWeCalculate() {
                         color: "white",
                       }}
                     >
-                      <Td>Bicycle/Walk/Run</Td>
+                      <Td>Bicycle /Walk /Run</Td>
                       <Td isNumeric>0</Td>
                     </Tr>
                   </Tbody>
