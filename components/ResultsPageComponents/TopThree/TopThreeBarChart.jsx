@@ -122,6 +122,9 @@ export default function TopThreeBarChart({
       type: "bar",
       height: 250,
     },
+    accessibility: {
+      description: `This chart shows the top three transport methods by ${title.toLowerCase()}`,
+    },
     color: "#044B7F",
     credits: {
       enabled: false,
