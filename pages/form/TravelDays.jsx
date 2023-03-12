@@ -119,7 +119,7 @@ export default function TravelDays() {
       </Box>
       <Box>
         <Flex justify="center" direction="column">
-          <Q3Cloud />
+          <Q3Cloud aria-label="cloud image" />
           <Text
             as="h1"
             textAlign="center"

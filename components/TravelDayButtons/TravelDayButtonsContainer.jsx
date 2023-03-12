@@ -49,6 +49,7 @@ export default function TravelDayButtonsContainer({ title, methodIconIndex }) {
               h={7}
               as={transportIcon[methodIconIndex]}
               mx={3}
+              aria-label={`${title} image`}
             />
             <Spacer />
             <Text color="#044B7F" fontWeight="500" fontSize="24px">

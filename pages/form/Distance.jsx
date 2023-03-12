@@ -68,7 +68,7 @@ export default function Distance() {
           onClick={() => saveDataAndShowLog("Back button clicked")}
         />
       </Box>
-      <Q3Cloud />
+      <Q3Cloud aria-label="cloud image" />
       <Text
         as="h1"
         textAlign="center"

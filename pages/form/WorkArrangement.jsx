@@ -6,6 +6,7 @@ import {
   RadioGroup,
   Collapse,
   Flex,
+  Image,
 } from "@chakra-ui/react";
 import Layout from "../../components/Layout/Layout";
 import useForm from "../../components/FormProvider";
@@ -126,7 +127,7 @@ export default function WorkArrangement() {
           onClick={() => saveDataAndShowLog("Back button clicked")}
         />
       </Box>
-      <Cloud />
+      <Cloud aria-label="cloud image" />
       <Text
         as="h1"
         textAlign="center"

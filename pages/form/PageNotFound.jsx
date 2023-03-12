@@ -61,7 +61,7 @@ export default function PageNotFound() {
           }}
         />
       </Box>
-      <Q3Cloud />
+      <Q3Cloud aria-label="cloud image" />
       <Heading 
         mt={10} 
         mb={10}

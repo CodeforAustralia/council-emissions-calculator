@@ -57,7 +57,7 @@ export default function Department() {
           }}
         />
       </Box>
-      <Q5Cloud />
+      <Q5Cloud aria-label="cloud image" />
 
       <Text
         as="h1"

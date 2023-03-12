@@ -6,7 +6,7 @@ export default function Thankyou() {
   return (
     <Layout isText background="#044B7F">
       <Flex alignItems="center" flexDir="column" pos="relative">
-        <TYCloud />
+        <TYCloud aria-label="cloud image" />
         <Flex
           px={["10px", "9%"]}
           flexDir="column"
