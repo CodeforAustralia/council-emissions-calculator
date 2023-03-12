@@ -11,12 +11,18 @@ export default function CommuteDays({ data }) {
       flex={[1, 2]}
       direction="column"
       gap={["10px", "20px"]}
-      px={["5px", "50px"]}
+      px={["32px", "0px"]}
       py={["25px", "50px"]}
       justify="center"
     >
       <Flex direction="column" width="100%">
-        <Text as="h2" fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
+        <Text
+          as="h2"
+          fontWeight={600}
+          fontSize="35px"
+          lineHeight="37px"
+          py="15px"
+        >
           Travelling to Work Days
         </Text>
         <Text fontSize="19px" py="15px" width="100%">
@@ -29,10 +35,16 @@ export default function CommuteDays({ data }) {
           The bar(s) in yellow shows the day(s) staff members most often commute
           to work.
         </Text>
-        <CommuteDaysColumnChart
-          title="Travel to Work Days"
-          data={data["commute-days-distribution"]}
-        />
+        <Flex
+          boxShadow="0px 0px 22.5px rgba(35, 47, 78, 0.18)"
+          maxWidth="634px"
+          mt="20px"
+        >
+          <CommuteDaysColumnChart
+            title="Travel to Work Days"
+            data={data["commute-days-distribution"]}
+          />
+        </Flex>
       </Flex>
     </Flex>
   );

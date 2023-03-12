@@ -11,12 +11,18 @@ export default function CommuteDistanceDistribution({ data }) {
       flex={[1, 2]}
       direction="column"
       gap={["10px", "20px"]}
-      px={["5px", "50px"]}
+      px={["32px", "0px"]}
       py={["25px", "50px"]}
       justify="center"
     >
       <Flex direction="column" width="100%">
-        <Text as="h2" fontWeight={600} fontSize="33px" lineHeight="37px" py="15px">
+        <Text
+          as="h2"
+          fontWeight={600}
+          fontSize="35px"
+          lineHeight="37px"
+          py="15px"
+        >
           Distribution of commute distance
         </Text>
         <Text fontSize="19px" py="15px" width="100%">
@@ -25,10 +31,16 @@ export default function CommuteDistanceDistribution({ data }) {
           distances staff travel to work, and how they are distributed along
           those distances.
         </Text>
-        <CommuteDistanceDistributionChart
-          title="Distribution of commute distances"
-          data={data["commute-distance-distribution"]}
-        />
+        <Flex
+          boxShadow="0px 0px 22.5px rgba(35, 47, 78, 0.18)"
+          maxWidth="634px"
+          mt="20px"
+        >
+          <CommuteDistanceDistributionChart
+            title="Distribution of commute distance"
+            data={data["commute-distance-distribution"]}
+          />
+        </Flex>
       </Flex>
     </Flex>
   );

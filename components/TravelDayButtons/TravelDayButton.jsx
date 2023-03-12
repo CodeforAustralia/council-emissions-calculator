@@ -53,7 +53,7 @@ export default function TravelDayButton({ label, travelMethod }) {
       colorScheme="blue"
       variant={isSelected() ? "solid" : "outline"}
       onClick={handleClick}
-      disabled={isDisabled()}
+      isDisabled={isDisabled()}
     >
       <Text
         fontSize="18px"
