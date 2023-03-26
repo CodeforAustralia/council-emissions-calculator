@@ -26,7 +26,7 @@
         "count": 11651
       },
       {
-        "name": "Train/Tram",
+        "name": "Train/tram",
         "count": 1020
       },
       {
@@ -40,7 +40,7 @@
         "count": 796
       },
       {
-        "name": "Walk/Run",
+        "name": "Walk/run",
         "count": 106
       },
       {
@@ -58,7 +58,7 @@
         "count": 0.034
       },
       {
-        "name": "Train/Tram",
+        "name": "Train/tram",
         "count": 0.03
       }
     ]
@@ -107,7 +107,7 @@
       "count": 6
     },
     {
-      "name": "Taxi/Share",
+      "name": "Taxi/share",
       "count": 0
     },
     {
@@ -115,11 +115,11 @@
       "count": 796
     },
     {
-      "name": "Walk/Run",
+      "name": "Walk/run",
       "count": 106
     },
     {
-      "name": "Train/Tram",
+      "name": "Train/tram",
       "count": 42
     }
   ]
