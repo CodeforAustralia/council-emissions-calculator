@@ -26,7 +26,7 @@
         "count": 11651
       },
       {
-        "name": "Train/tram",
+        "name": "Train/Tram",
         "count": 1020
       },
       {
@@ -40,7 +40,7 @@
         "count": 796
       },
       {
-        "name": "Walk/run",
+        "name": "Walk/Run",
         "count": 106
       },
       {
@@ -58,7 +58,7 @@
         "count": 0.034
       },
       {
-        "name": "Train/tram",
+        "name": "Train/Tram",
         "count": 0.03
       }
     ]
@@ -119,7 +119,7 @@
       "count": 106
     },
     {
-      "name": "Train/tram",
+      "name": "Train/Tram",
       "count": 42
     }
   ]
