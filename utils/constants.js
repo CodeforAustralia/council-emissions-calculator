@@ -22,10 +22,10 @@ export const travelMethods = [
   "Bus",
   "Carpool",
   "Motorbike",
-  "Taxi/ride Share",
+  "Taxi/Ride share",
   "Car",
-  "Walk/run", 
-  "Train/tram",
+  "Walk/Run", 
+  "Train/Tram",
 ];
 
 export const transportIcon = [
