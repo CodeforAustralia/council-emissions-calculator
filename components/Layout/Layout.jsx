@@ -48,39 +48,36 @@ export function Header({ isText, Progress }) {
       color="white"
       zIndex={10}
     >
-      {isText ? 
-      (
+      {isText ? (
         <Box flex={1}>
           {["/", "/form/Thankyou"].includes(router.pathname) ? (
-          <Link href="/" passHref>
-            <Text
-              fontSize={["24px", "30px"]}
-              fontWeight="bold"
-              flex={1}
-              textAlign="center"
-              marginStart={[10, 0]}
-            >
-              SeeChange
-            </Text>
-          </Link>
-        ) : (
-          <Link href="/" passHref>
-            <Text
-              fontSize={["24px", "30px"]}
-              fontWeight="bold"
-              flex={1}
-              display = {["none", "block"]}
-              textAlign="center"
-              overflow="hidden"
-            >
-              SeeChange
-            </Text>
-          </Link>
-        )}
+            <Link href="/" passHref>
+              <Text
+                fontSize={["24px", "30px"]}
+                fontWeight="bold"
+                flex={1}
+                textAlign="center"
+                marginStart={[10, 0]}
+              >
+                SeeChange
+              </Text>
+            </Link>
+          ) : (
+            <Link href="/" passHref>
+              <Text
+                fontSize={["24px", "30px"]}
+                fontWeight="bold"
+                flex={1}
+                display={["none", "block"]}
+                textAlign="center"
+                overflow="hidden"
+              >
+                SeeChange
+              </Text>
+            </Link>
+          )}
         </Box>
-      ) 
-      : 
-      (
+      ) : (
         <Box flex={1}></Box>
       )}
       <Flex flex={1} justifyContent="center" w="100%">
