@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import { Container, Flex, Text, Box } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
@@ -48,28 +49,34 @@ export function Header({ isText, Progress }) {
       zIndex={10}
     >
       {isText ? (
-        ["/", "/form/Thankyou"].includes(router.pathname) ? (
-          <Text
-            fontSize={["24px", "30px"]}
-            fontWeight="bold"
-            flex={1}
-            textAlign="center"
-            marginStart={[10, 0]}
-          >
-            SeeChange
-          </Text>
-        ) : (
-          <Text
-            fontSize={["24px", "30px"]}
-            fontWeight="bold"
-            flex={1}
-            visibility={["hidden", "visible"]}
-            textAlign="center"
-            overflow="hidden"
-          >
-            SeeChange
-          </Text>
-        )
+        <Box flex={1}>
+          {["/", "/form/Thankyou"].includes(router.pathname) ? (
+            <Link href="/" passHref>
+              <Text
+                fontSize={["24px", "30px"]}
+                fontWeight="bold"
+                flex={1}
+                textAlign="center"
+                marginStart={[10, 0]}
+              >
+                SeeChange
+              </Text>
+            </Link>
+          ) : (
+            <Link href="/" passHref>
+              <Text
+                fontSize={["24px", "30px"]}
+                fontWeight="bold"
+                flex={1}
+                display={["none", "block"]}
+                textAlign="center"
+                overflow="hidden"
+              >
+                SeeChange
+              </Text>
+            </Link>
+          )}
+        </Box>
       ) : (
         <Box flex={1}></Box>
       )}
