@@ -75,7 +75,7 @@ export default function DaysOfTheWeekSelection() {
           onClick={() => saveDataAndShowLog("Back button clicked")}
         />
       </Box>
-      <Q1Cloud />
+      <Q1Cloud aria-label="cloud image" />
       <Text
         as="h1"
         textAlign="center"

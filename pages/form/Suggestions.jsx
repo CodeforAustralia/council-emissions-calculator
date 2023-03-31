@@ -49,7 +49,7 @@ export default function Suggestions() {
           onClick={() => saveDataAndShowLog("Back button clicked")}
         />
       </Box>
-      <Q6Cloud />
+      <Q6Cloud aria-label="cloud image" />
       <Text
         as="h1"
         textAlign="center"

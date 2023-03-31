@@ -67,7 +67,7 @@ export default function ConfirmWFH() {
       </Box>
       <Box minW="720px">
         <Flex justify="center" direction="column">
-          <Q3Cloud />
+          <Q3Cloud aria-label="cloud image" />
           <Heading mt={10} mb={10}>
             Please confirm the details below
           </Heading>

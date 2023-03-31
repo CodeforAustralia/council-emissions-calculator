@@ -33,6 +33,7 @@ function Animation() {
         backgroundImage="url('/images/busDriver-animation/Bus driver.gif')"
         backgroundSize="cover"
         backgroundPosition="bottom"
+        aria-label="bus animation"
       />
       <Box
         pos="relative"
@@ -40,7 +41,7 @@ function Animation() {
         left="120px"
         display={["none", "block"]}
       >
-        <Q1Cloud />
+        <Q1Cloud aria-label="cloud image" />
       </Box>
     </Box>
   );

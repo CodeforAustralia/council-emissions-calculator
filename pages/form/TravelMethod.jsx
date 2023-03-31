@@ -63,7 +63,7 @@ export default function TravelMethod() {
           }}
         />
       </Box>
-      <Q4Cloud />
+      <Q4Cloud aria-label="cloud image" />
 
       <Text
         as="h1"
