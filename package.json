@@ -10,25 +10,24 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.4.9",
-    "@chakra-ui/theme-tools": "^2.0.17",
+    "@chakra-ui/react": "^1.6.8",
+    "@chakra-ui/theme-tools": "^2.0.16",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
-    "@fontsource/public-sans": "^4.5.12",
-    "@googleapis/sheets": "^4.0.2",
-    "@svgr/webpack": "^6.5.1",
+    "@fontsource/public-sans": "^4.5.0",
+    "@googleapis/sheets": "^0.3.0",
+    "@svgr/webpack": "^5.5.0",
     "cors": "^2.8.5",
-    "framer-motion": "^10",
-    "highcharts": "^10.3.3",
-    "highcharts-react-official": "^3.2.0",
-    "next": "^13.2.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-icons": "^4.8.0"
+    "framer-motion": "^4",
+    "highcharts": "^9.2.2",
+    "highcharts-react-official": "^3.0.0",
+    "next": "^11.1.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "eslint": "8.35.0",
-    "eslint-config-next": "13.1.6",
-    "prettier": "2.8.4"
+    "eslint": "7.30.0",
+    "eslint-config-next": "11.0.1",
+    "prettier": "2.5.1"
   }
 }
