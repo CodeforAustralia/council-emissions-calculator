@@ -6,9 +6,9 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/CodeforAustralia/council-emissions-calculator/pulls"><img src="https://img.shields.io/github/issues-pr/CodeforAustralia/council-emissions-calculator.svg"></a>
-  <a href="https://github.com/CodeforAustralia/council-emissions-calculator/commits/staging"><img src="https://img.shields.io/github/commit-activity/m/CodeforAustralia/council-emissions-calculator.svg"></a>
-  <a href="https://github.com/CodeforAustralia/council-emissions-calculator/graphs/contributors"><img src="https://img.shields.io/badge/all_contributors-9-blue.svg?style=flat-square"></a>
+  <a href="https://github.com/CodeforAustralia/council-emissions-calculator/pulls"><img alt="Pull requests" src="https://img.shields.io/github/issues-pr/CodeforAustralia/council-emissions-calculator.svg"></a>
+  <a href="https://github.com/CodeforAustralia/council-emissions-calculator/commits/staging"><img alt="Commit history" src="https://img.shields.io/github/commit-activity/m/CodeforAustralia/council-emissions-calculator.svg"></a>
+  <a href="https://github.com/CodeforAustralia/council-emissions-calculator/graphs/contributors"><img alt="Contributors" src="https://img.shields.io/badge/all_contributors-9-blue.svg?style=flat-square"></a>
 </p>
 
 
@@ -43,7 +43,7 @@ To learn more about this project, check out our [project planning](https://docs.
 
 ## System Diagram
 
-![council_emission_calculator_arch_diagram drawio](https://user-images.githubusercontent.com/88268603/232468816-142513de-c835-4dd3-923f-416635711103.png)
+![Council emission calculator system diagram](https://user-images.githubusercontent.com/88268603/232468816-142513de-c835-4dd3-923f-416635711103.png)
 
 ## Getting Started
 
