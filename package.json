@@ -15,7 +15,7 @@
     "@emotion/styled": "^11",
     "@fontsource/public-sans": "^4.5.12",
     "@googleapis/sheets": "^4.0.2",
-    "@svgr/webpack": "^6.5.1",
+    "@svgr/webpack": "^7.0.0",
     "cors": "^2.8.5",
     "framer-motion": "^10",
     "highcharts": "^10.3.3",
