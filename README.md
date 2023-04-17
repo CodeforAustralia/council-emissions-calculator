@@ -6,10 +6,11 @@
 </p>
 
 <p align="center">
-  <img alt="GitHub" src="https://img.shields.io/github/issues-pr/CodeforAustralia/council-emissions-calculator.svg">
-  <img alt="GitHub" src="https://img.shields.io/github/commit-activity/m/CodeforAustralia/council-emissions-calculator.svg">
-  <img alt="GitHub" src="https://img.shields.io/badge/all_contributors-9-blue.svg?style=flat-square">
+  <a href="https://github.com/CodeforAustralia/council-emissions-calculator/pulls"><img src="https://img.shields.io/github/issues-pr/CodeforAustralia/council-emissions-calculator.svg"></a>
+  <a href="https://github.com/CodeforAustralia/council-emissions-calculator/commits/staging"><img src="https://img.shields.io/github/commit-activity/m/CodeforAustralia/council-emissions-calculator.svg"></a>
+  <a href="https://github.com/CodeforAustralia/council-emissions-calculator/graphs/contributors"><img src="https://img.shields.io/badge/all_contributors-9-blue.svg?style=flat-square"></a>
 </p>
+
 
 ## Overview
 
