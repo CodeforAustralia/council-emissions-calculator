@@ -2,7 +2,7 @@
   Council Emissions Calculator
 </h1>
 <p align="center">
-  Civic Maker's Council Emissions Calculator project
+  Civic Maker's Council's Carbon Emissions Calculator Project
 </p>
 
 <p align="center">
@@ -43,7 +43,7 @@ To learn more about this project, check out our [project planning](https://docs.
 
 ## System Diagram
 
-![Council emission calculator system diagram](https://user-images.githubusercontent.com/88268603/232468816-142513de-c835-4dd3-923f-416635711103.png)
+![Council carbon emission calculator system diagram](https://user-images.githubusercontent.com/88268603/232468816-142513de-c835-4dd3-923f-416635711103.png)
 
 ## Getting Started
 
@@ -69,7 +69,7 @@ npm run dev
 yarn dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the website locally.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to view the carbon emission survey website locally.
 
 ## Development
 
