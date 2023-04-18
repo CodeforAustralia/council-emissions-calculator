@@ -65,7 +65,11 @@ yarn install
 
 ```
 npm run dev
-# or
+```
+
+or
+
+```
 yarn dev
 ```
 
