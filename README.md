@@ -18,7 +18,7 @@
 |--------|-------|
 | Purpose | Provide a source of information that facilitates the decision process for councils to become more sustainable |
 | Custodian | Civic Makers |
-| Slack | \#civic-makers-climatechange |
+| Slack | [\#civic-makers-climatechange](https://codeforaustralia.slack.com/archives/C01CXCQPF8V) |
 | Tech Stack | Next JS, Chakra UI, Google Sheets |
 | Design | https://www.figma.com/file/Y42AKuHDW46LiLDaTOs6sM/Heroes-carbon-calculator-designs?node-id=978%3A54391&t=jSZfGy4RjwTVhtH4-1 |
 | Staging Endpoint | http://council-emissions-calculator-spike-flax.vercel.app/ |
