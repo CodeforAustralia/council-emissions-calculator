@@ -79,9 +79,14 @@ yarn dev
 
 We have 2 endpoints: [Staging](http://council-emissions-calculator-spike-flax.vercel.app/) and [Production](https://seechange.codeforaustralia.org/).
 
-1. Create a new branch locally. _No need to fork the project, you can create a branch in the original one._
-2. Once you make a code change, commit and publish your branch.
-3. Raise a PR against our [Staging Endpoint](http://council-emissions-calculator-spike-flax.vercel.app/). 
+Please refer to [this doc](https://docs.github.com/en/get-started/quickstart/fork-a-repo) for instructions on how to fork this repo and contributing your changes.
+
+**N.B:** Please note well that the *default branch* for this repo is the **staging** branch, not the *main* branch; Any new pull request raised for this repo will have its changes pushed to **staging** branch by default when the PR is approved and merged.
+
+The **staging** branch is hosted on our [Staging endpoint](http://council-emissions-calculator-spike-flax.vercel.app/). 
+
+The **main** branch is hosted on our [Production endpoint](https://seechange.codeforaustralia.org/).
+
 
 ## Resourses
 
