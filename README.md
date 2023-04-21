@@ -2,7 +2,7 @@
   Council Emissions Calculator
 </h1>
 <p align="center">
-  Civic Maker's Council's Carbon Emissions Calculator Project
+  Civic Maker's Council Carbon Emissions Calculator project
 </p>
 
 <p align="center">
