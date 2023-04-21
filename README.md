@@ -43,7 +43,7 @@ To learn more about this project, check out our [project planning](https://docs.
 
 ## System Diagram
 
-![Council carbon emission calculator system diagram](https://user-images.githubusercontent.com/88268603/232468816-142513de-c835-4dd3-923f-416635711103.png)
+![Council carbon emission calculator system diagram](./council_emission_calculator_arch_diagram.drawio.png)
 
 ## Getting Started
 
