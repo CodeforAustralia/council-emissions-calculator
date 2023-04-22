@@ -66,7 +66,7 @@ export default function TripCountAndTravelMethods({ dataAboutTrips }) {
             <Flex>
               <Flex direction="column" gap="15px">
                 <PieChartComponent
-                  title="Active-public-shared travel"
+                  title="Active-public-shared Travel"
                   data={activePublicSharedTravel}
                   colorList={[
                     "#044B7F",
