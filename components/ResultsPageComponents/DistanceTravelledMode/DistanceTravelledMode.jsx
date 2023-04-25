@@ -24,7 +24,7 @@ export default function DistanceTravelledMode({ data }) {
           lineHeight="37px"
           py="15px"
         >
-          Distance travelled by mode of transport
+          Distance Travelled by Mode of Transport
         </Text>
         <Text fontSize="19px">
           The following graph helps us compare the travel modes (individual

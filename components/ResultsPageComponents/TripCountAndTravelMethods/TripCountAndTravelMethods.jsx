@@ -41,7 +41,7 @@ export default function TripCountAndTravelMethods({ dataAboutTrips }) {
           lineHeight="37px"
           py="15px"
         >
-          Trip count and Travel Methods
+          Trip Count and Travel Methods
         </Text>
         <Text fontSize="19px" py="15px">
           The three graphs below helps us understand how staff commute to work.
@@ -66,7 +66,7 @@ export default function TripCountAndTravelMethods({ dataAboutTrips }) {
             <Flex>
               <Flex direction="column" gap="15px">
                 <PieChartComponent
-                  title="Active-public-shared travel"
+                  title="Active-public-shared Travel"
                   data={activePublicSharedTravel}
                   colorList={[
                     "#044B7F",
@@ -78,7 +78,7 @@ export default function TripCountAndTravelMethods({ dataAboutTrips }) {
                   ]}
                 />
                 <PieChartComponent
-                  title="Individual travel"
+                  title="Individual Travel"
                   data={individualTravel}
                   colorList={["#9BB7CC", "#044B7F"]}
                 />
