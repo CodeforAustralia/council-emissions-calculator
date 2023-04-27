@@ -23,7 +23,7 @@ export default function CommuteDistanceDistribution({ data }) {
           lineHeight="37px"
           py="15px"
         >
-          Distribution of commute distance
+          Distribution of Commute Distance
         </Text>
         <Text fontSize="19px" py="15px" width="100%">
           The graph below shows a rough distribution of staff according to the
@@ -37,7 +37,7 @@ export default function CommuteDistanceDistribution({ data }) {
           mt="20px"
         >
           <CommuteDistanceDistributionChart
-            title="Distribution of commute distance"
+            title="Distribution of Commute Distance"
             data={data["commute-distance-distribution"]}
           />
         </Flex>
