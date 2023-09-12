@@ -14,7 +14,7 @@
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@fontsource/public-sans": "^5.0.5",
-    "@googleapis/sheets": "^5.0.1",
+    "@googleapis/sheets": "^5.0.4",
     "@svgr/webpack": "^8.0.1",
     "cors": "^2.8.5",
     "framer-motion": "^10",
