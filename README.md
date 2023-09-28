@@ -11,6 +11,11 @@
   <a href="https://github.com/CodeforAustralia/council-emissions-calculator/graphs/contributors"><img alt="Contributors" src="https://img.shields.io/badge/all_contributors-9-blue.svg?style=flat-square"></a>
 </p>
 
+## IMPORTANT NOTE (2023-09-28)
+**THIS REPO IS NOW IN MAINTENANCE MODE**
+
+We are no longer accepting any new PRs for this repo. Please consult the [Civic Makers Climate Change Slack Channel](https://codeforaustralia.slack.com/archives/C01CXCQPF8V) for more details.
+
 
 ## Overview
 
